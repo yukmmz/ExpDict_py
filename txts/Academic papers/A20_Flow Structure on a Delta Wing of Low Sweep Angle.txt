@@ -1,0 +1,869 @@
+See discussions, stats, and author profiles for this publication at: https://www.researchgate.net/publication/245425691
+Flow Structure on a Delta Wing of Low Sweep Angle
+Article??in??AIAA Journal ・ March 2004
+DOI: 10.2514/1.1207
+CITATIONS
+80
+READS
+615
+2 authors, including:
+Some of the authors of this publication are also working on these related projects:
+ANN, Predicting, Wind Potential View project
+ESTIMATION OF THE SOLAR RADIATION MODEL USING MEASURED DATA OF OSMAN?YE, TURKEY View project
+B. Yaniktepe
+Osmaniye Korkut Ata university
+44 PUBLICATIONS???355 CITATIONS???
+SEE PROFILE
+All content following this page was uploaded by B. Yaniktepe on 08 April 2016.
+The user has requested enhancement of the downloaded file.
+P1: ILT/GUB        P2: ILT
+AIAA [aiaaj]        9:52    22 January 2004              March’2004 #10-J26594(A)/Yaniktepe
+AIAA JOURNAL
+Vol. 42, No. 3, March 2004
+Flow Structure on a Delta Wing of Low Sweep Angle
+B. Yaniktepe? and D. Rockwell†
+Lehigh University, Bethlehem, Pennsylvania 18015
+The instantaneous and averaged flow structure past a delta wing of low sweep angle is investigated using a tech-
+nique of high-image-density particle image velocimetry. Emphasis is on crossflow planes, where vortex breakdown
+and stall occur, and the identification of buffeting mechanisms in these regions. At all values of angle of attack
+up to the fully stalled condition, the averaged vorticity layer exhibits an elongated form; the classical (single)
+large-scale concentration of vorticity within the leading-edge vortex of a highly swept wing is not present. At low
+angle of attack α, this elongated, averaged layer can exhibit, however, well-defined concentrations of vorticity.
+These elongated vorticity layers are accompanied by narrow recirculation zones adjacent to the wing surface.
+Furthermore, the averaged streamline topology exhibits, at lower α, a saddle point located slightly outboard of the
+leading edge, in contrast to a saddle point located on the plane of the symmetry of a highly swept wing. Patterns
+of velocity fluctuation and Reynolds stress show peaks that are generally coincident with large values of averaged
+vorticity, which indicates that they arise from unsteady events in regions of high shear. Well-defined concentrations
+of instantaneous vorticity can be identified at all values of angle of attack α. At low αindividual concentrations
+retain their identity, but at moderate and high αlarger-scale clusters of instantaneous vorticity occur. In turn,
+these patterns of vorticity are in accord with the time-averaged spectra of the fluctuating velocity; the predominant
+peaks of such spectra take on lower values in regions where larger-scale clusters of vorticity appear. Control in
+the form of a small amplitude perturbation of the wing, at a frequency corresponding to the subharmonic of the
+spectral component in the initial region of development of the separated layer, can restabilize the time-averaged
+patterns of streamline topology and vorticity, such that they resemble those occurring at lower angle of attack α.
+Nomenclature
+C        =    root chord, mm
+f         =    frequency, Hz
+f0           =    frequency of spectral peak of velocity fluctuation, Hz
+S         =    local semispan of wing, mm
+T        =    period of perturbed angle of attack α, deg
+U        =    freestream velocity, mm/s
+V        =    magnitude of velocity vector, mm/s
+v′         =    instantaneous velocity fluctuation in direction
+parallel to surface of wing, mm/s
+w′        =    instantaneous velocity fluctuation normal
+to surface of wing, mm/s
+wrms      =    rms of velocity fluctuation, mm/s
+x         =    distance from apex measured along
+plane of symmetry of wing, mm
+xb′        =    distance from apex measured along axis
+of leading-edge vortex, mm
+y         =    distance from apex measured normal
+to plane of symmetry of wing, mm
+α      =    angle of attack, deg
+α    =    perturbation of angle of attack α, deg
+      =    sweep angle, deg
+λ      =    wavelength between vorticity concentrations, mm
+ψ      =    streamfunction, mm2
+ω      =    vorticity, 1/s
+      =    time-averaged value of quantity
+Received 28 March 2003; revision received 8 September 2003; accepted
+for publication 9 September 2003. Copyright c 2003 by B. Yaniktepe and
+D. Rockwell. Published by the American Institute of Aeronautics and Astro-
+nautics, Inc., with permission. Copies of this paper may be made for personal
+or internal use, on condition that the copier pay the $10.00 per-copy fee to
+the Copyright Clearance Center, Inc., 222 Rosewood Drive, Danvers, MA
+01923; include the code 0001-1452/04 $10.00 in correspondence with the
+CCC.
+?Visiting Scientist, Department of Mechanical Engineering and Mechan-
+ics; currently Research Assistant, Department of Mechanical Engineering,
+Cukurova University, Adana, Turkey.
+†Paul B. Reinhold Professor, Department of Mechanical Engineering and
+Mechanics,  356  Packard  Laboratory,  19  Memorial  Drive  West.  Member
+AIAA.
+I.    Introduction
+IN
+recent  years,  considerable  insight  has  been  gained  into  the
+averaged and unsteady structure on delta wings having relatively
+large sweep angle. These investigations, which are described in the
+following, serve as a basis for interpretation of the flow structure on
+wings of moderate sweep angle, which is the focus of the present
+investigation.
+A.    Large-Scale Patterns of Flow Structure
+Global experimental techniques, such as particle image velocime-
+try (PIV), have provided a basis for interpretation of the averaged
+crossflow structure on highly swept wings. Regarding the stream-
+line topology, Magness et al.1  defined, via PIV, the critical points
+associated with the leading-edge vortices having spiral streamline
+patterns with well-defined centers. A saddle point, that is, an ap-
+parent  intersection  of  streamlines,  occurred  at  the  plane  of  sym-
+metry of the wing. At sufficiently high angle of attack, however,
+the streamline pattern exhibits features not characteristic of a clas-
+sical leading-edge vortex. Visbal and Gordnier2  performed related
+numerical simulations, which yielded interpretation of the various
+topologies of streamline patterns on highly swept delta wings.
+Topological representations of the flow on the basis of stream-
+lines are linked to patterns of vorticity on the crossflow plane. A
+well-known feature on wings of high sweep angle is the existence
+of  a  large-scale  vorticity  concentration  at  the  apparent  center  of
+the leading-edge vortex. This pattern of vorticity is well-established
+and in accord with, for example, the laser Doppler anemometry mea-
+surements of Riley and Lowson3  and the aforementioned imaging
+of Magness et al.1
+Whereas  the  aforementioned  investigations  focused  on  wings
+having relatively high sweep angle, much less is known of the av-
+eraged flow structure on wings with moderate or low sweep angle.
+Ol and Gharib4  compared the flow structure on wings having sweep
+angles of  = 50 and 65 deg, using a technique of stereo imaging.
+Based on patterns of averaged velocity and vorticity in the crossflow
+plane, they show that the wing of low sweep angle of  = 50 deg ex-
+hibits distinctive features, especially at a higher angle of attack, as a
+result of the earlier onset of vortex breakdown and a large-scale col-
+lapse of the rolled-up, leading-edge vortex structure. Gursul et al.5
+point out several interesting features of dye-visualized vortex cores
+513
+P1: ILT/GUB        P2: ILT
+AIAA [aiaaj]        9:52    22 January 2004              March’2004 #10-J26594(A)/Yaniktepe
+514                                                                                                YANIKTEPE AND ROCKWELL
+on wings of various planforms having relatively low sweepbreak
+angle.
+B.    Small-Scale Patterns of Flow Structure
+The occurrence of small-scale vortical (subvortical) structures is
+well known. Their quantitative, time-averaged features have been
+assessed in detail by Riley and Lowson,3  who undertook an exten-
+sive study, using laser Doppler anemometry, of the flow structure
+on a wing of sweep angle  = 85 deg. On the basis of averaged vor-
+ticity measurements, they revealed a system of steady, corotating,
+small-scale vortices. These substructures were observed in earlier
+investigations by Payne et al.,6  Lowson,7  and Reynolds and Abtahi8
+using visualization techniques and more recently by Washburn and
+Visser9   and  Mitchell  et  al.10   via  time-averaged  measurements  of
+the flow structure. Visbal and Gordnier11  and Gordnier and Visbal12
+performed the first numerical simulations of the instantaneous struc-
+ture on wings of relatively large and small sweep angle respectively.
+They  demonstrated  that  steady  substructures  are  apparent  in  the
+time-averaged  (mean)  patterns  of  the  transitional  turbulent  shear
+layer from the leading edge.
+In parallel with the investigation of the aforementioned steady
+substructures,  Riley  and  Lowson3   addressed  time-dependent  in-
+stabilities from the leading edge of a delta wing. These unstable
+structures were first observed by Gad-el-Hak and Blackwelder.13
+Recently,  Ozgoren  et  al.14   provided  an  additional  perspective  on
+this instability. Lowson,7  using smoke visualization, characterized
+both this unsteady type of instability, as well as the aforementioned
+steady, subvortical instability, and noted that their coexistence could
+result in interaction and thereby interference between the two basic
+forms of instabilities. Lowson7   indicates that the unsteady struc-
+tures can coalesce, or merge, in a similar spirit as for the classical
+two-dimensional mixing layer addressed by Winant and Browand.15
+Gordnier and Visbal16  performed the first computations of the un-
+steady substructures in the shear layer from the leading edge, and
+Gordnier and Visbal17,18  further characterized features of the un-
+steady instability from the leading edge; it was coupled with un-
+steady boundary-layer separation from the leeward surface of the
+wing. Cipolla and Rockwell19  demonstrated, via quantitative imag-
+ing, existence of small-scale structures consistent with the afore-
+mentioned simulations. Additional features of instabilities from the
+leading edge are addressed by Visbal and Gordnier11  and Gordnier
+and Visbal.12
+In a more general sense, several types of physical mechanisms
+can contribute to unsteadiness of the flow structure, at least for suf-
+ficiently large values of sweep angle. They include the helical mode
+instability  of  vortex  breakdown,  as  characterized  for  an  internal
+flow by Garg and Leibovich,20  and flow past a delta wing of large
+sweep angle by Gursul,21  as well as other mechanisms summarized
+and classified by Menke et al.22  At lower values of sweep angle of
+attack, Gordnier and Visbal12 have shown that pronounced unsteadi-
+ness can arise from periodic wandering of the vortex core, which is
+caused by a complex interaction of vortices from the leading edge
+and the leeward surface of the wing.
+The possibility of controlling the unsteady structure on a delta
+wing by application of small amplitude perturbations has been ad-
+dressed by Gad-el-Hak and Blackwelder,23  who demonstrated the
+consequence of small-amplitude pulsations of flow through the edge
+of a delta wing on the instability. Ozgoren et al.24  characterized the
+effect of perturbations of the entire wing on the time-averaged fea-
+tures of the multiple shear layer structure of the leading-edge vortex,
+including the onset of vortex breakdown.
+C.    Unresolved Issues
+1.    Averaged Structure of Shear Layer from Leading Edge of Wing
+Of  primary  interest  in  recent  years  has  been  the  structure  of
+leading-edge vortices from slender wings of relatively high sweep
+angle. For the case of a wing with low sweep angle (less than 40 deg),
+the averaged, quantitative structure has received very little attention.
+The issue arises as to what degree a well-defined vortex core, in the
+form  of  a  single-large-scale  concentration  of  vorticity,  can  exist,
+particularly in regions where vortex breakdown and the onset of
+stall are prevalent, which is the focus of the present investigation.
+Correspondingly, the streamline topology and the possible existence
+and location of saddle points in the crossflow plane have not been
+pursued. At sufficiently high angle of attack, the manner in which
+this topology is altered, in relation to development of gross stall on
+the wing surface, remains unclarified. Such changes in the topo-
+logical features are expected to influence the time-averaged forces
+and moments on the wing and thereby the steady-state performance
+characteristics.
+2.    Unsteady Features of Separated Layer Adjacent to Surface of Wing
+It is anticipated that the vorticity layer adjacent to the surface
+of the wing will exhibit significant unsteadiness, especially when
+vortex breakdown/stall occur. The relationship between the patterns
+of fluctuating velocity amplitude and averaged vorticity over the
+crossflow plane has not been addressed for a wing of low sweep
+angle. These features are, of course, related to the instantaneous,
+whole-field patterns of discrete vortical structures and whether they
+retain their identity or give way to larger-scale clusters. This instan-
+taneous structure, in turn, will be related to the spectral content of
+the velocity fluctuation(s) as a function of distance along the sep-
+arated layer adjacent to the wing surface. These aspects have not
+been pursued. A knowledge of the successive, instantaneous states
+of the flow, and their assessment using spectral analysis techniques,
+can provide insight into the origin of unsteady buffet loading of the
+wing. This information could potentially be used in semi-empirical
+models that relate the flow structure above the wing to the unsteady
+pressure at its surface.
+3.    Control of Flow Structure by Leading-Edge Perturbations
+The consequence of small-amplitude perturbations of the leading
+edge, at an appropriate frequency, on the time-averaged pattern of
+the separated shear layer adjacent to the wing surface, has not been
+addressed.  The  perturbation  that  yields  the  largest  change  in  the
+flow pattern should be defined, in relation to the inherent formation
+frequency of vortical structures from the edge. An understanding
+of this type of control concept could yield practical techniques for
+controlling the forces and moments on a wing by alteration of the
+flow structure.
+The  aim  of  this  investigation  is  to  pursue  these  unresolved
+concepts  by  use  of  a  technique  of  high-image-density  PIV  and
+appropriate   processing   of   selected   and   cinema   sequences   of
+images.
+II.    Experimental System and Techniques
+All experiments were undertaken in a large-scale water channel
+facility. Flow is pumped into a large settling tank and passes through
+a system of honeycomb and screen, followed by a 2:1 contraction
+that is connected to the main test section, which has a length of
+4928 mm, a width of 927 mm, and a depth of 610 mm. The freestream
+turbulence intensity at the entrance to this test section is less than
+0.1%.
+The design of the delta wing was based on consideration of key
+elements of planforms representing unmanned combat air vehicles,
+which  typically  have  a  low-to-moderate  values  of  sweep  angle.
+Based on these considerations, the sweep angle of the wing was
+specified as  = 38.7 deg. The chord C  was 101.6 mm, and the
+total span at the trailing edge was 254 mm. The thickness of the
+wing was 3 mm, and its leading edges were beveled on the wind-
+ward side at an angle of 30 deg. For all experiments, the value of
+Reynolds number based on chord C was maintained at 103, which
+corresponded to a freestream velocity U = 98.8 mm/s. The wing
+was maintained in a nominally horizontal position by a slender sup-
+port strut that extended vertically from the midchord of the wing.
+This strut had a width of 4 mm and a streamwise length of 35 mm.
+Assessment of this type of strut arrangement involved comparison
+with complementary experiments involving a nominally horizontal
+sting and comparison of the location of vortex breakdown for wings
+of different sweep angle. This strut arrangement had an insignificant
+effect on the flow structure on the leeward side of the wing.
+P1: ILT/GUB        P2: ILT
+AIAA [aiaaj]        9:52    22 January 2004              March’2004 #10-J26594(A)/Yaniktepe
+YANIKTEPE AND ROCKWELL                                                                                                              515
+Fig. 1    Schematic of experimental arrangement showing delta wing,
+laser-sheet location, and definition of key parameters.
+The present investigation focuses on global, instantaneous pat-
+terns of the flow structure, which are acquired in a cinema sequence
+using a technique of high-image-density PIV. This approach not only
+provides the sequence of instantaneous states of the flow structure
+but also serves as the basis for determination of time-averaged rep-
+resentations. The flow is seeded with 12-μm metallic-coated hollow
+plastic spheres, which are essentially neutrally buoyant. The seed-
+ing density of these particles was sufficiently large, such that the
+high-image-density criterion was satisfied. These particles were il-
+luminated by a dual-pulsed Yag laser system, which has a maximum
+output of 90 mJ. To generate a laser sheet of desired thickness, focal
+distance, and orientation, the laser beam was transmitted through
+a system of cylindrical and spherical lenses. An overview of the
+laser-sheet location, relative to the delta wing, is provided in Fig. 1.
+For the present investigation, it was determined, on the basis of pre-
+liminary experiments, that the major features of the flow structure
+could best be determined at the streamwise location x/C = 0.8, and
+therefore this position of the laser sheet is employed in the present
+study. Furthermore, preliminary dye visualization, as well as initial
+PIV experiments, showed that the characteristic states of the flow
+structure were well represented by angles of attack α = 7, 13, 17,
+and 25 deg, and therefore these values were employed for detailed
+imaging. This dye visualization indicates that the axis of the vortex
+was at an angle of 30 deg with respect to the plane of symmetry
+of the wing. The angle between the nominal axis of the vortex and
+the aforementioned plane of the laser sheet was therefore 60 deg,
+rather than an angle of 90 deg, which would correspond to perfect
+alignment of the axis of the vortex and the surface normal of the
+plane of the laser sheet. The patterns of flow topology characterized
+in the plane of the laser sheet must therefore be viewed as those on a
+skewed plane. This skew angle can alter the affected locations of cer-
+tain critical points of the topology, relative to the locations deduced
+from viewing on a plane orthogonal to the axis of the vortex. A fur-
+ther aspect of the field of view corresponding to the plane of the laser
+sheet is that the flow structures was characterized over half the wing,
+rather than the entire spanwise extent of the wing, in order to maxi-
+mize spatial resolution of the measurements. As a consequence, it is
+not possible to monitor time-dependent variations of the processes
+of vortex breakdown and stall on opposing sides of the wing.
+Images were acquired at a framing rate of 15 frames per second,
+thereby providing a cinema series of instantaneous images. These
+images were recorded on a high-resolution camera having an array
+of 1024 × 1024 pixels. Because the characteristic frequencies of the
+unsteady events were significantly smaller than the framing rate, it
+is possible to perform autospectral and cross-spectral analysis of
+the flow structure at a large number of points over the plane of the
+imaging, thereby yielding averaged spectral representations, all of
+which are based on the same time record.
+Patterns of instantaneous velocity vectors were calculated using
+a cross-correlation technique between successive patterns of par-
+ticle images, which resulted from illumination by the dual-pulsed
+laser system. In essence, two interrogation windows were employed:
+32 × 32  pixels  and  16 × 16  pixels,  referred  to  as  low-  and  high-
+resolution cases herein. For both windows, an effective overlap of
+50% was used, in order to satisfy the Nyquist criterion. This ap-
+proach resulted in effective grid sizes of 2.62 mm in the plane of
+the laser sheet. The minimum number of particle images contained
+within a given window boundary was 15 to 20, respectively, thereby
+exceeding the criterion for high image density.
+III.    Dye Visualization
+Representative dye visualization is shown in Fig. 2 for the case
+of the stationary wing at three values of angle of attack α. At the
+lowest two values of α = 7 and 13 deg, dye was injected from two
+localized ports on the windward surface located close to the apex of
+the wing. At α = 7 deg, the apparent centerlines of the leading-edge
+vortices are designated, and it is clear that initial disruptions of the
+marker can occur, at locations of the order of 0.3 to 0.5C, in which C
+is the chord of the wing. At locations sufficiently far downstream, at
+x/C = 0.6 to 0.8, a large-scale widening of the marker occurs. This
+two-stage process of vortex breakdown, that is, an initial disruption,
+then a large-scale widening, has a form remarkably similar to the
+computations of Gordnier and Visbal for a wing of low sweep an-
+gle  = 50 deg. This overall pattern of vortex breakdown therefore
+appears to be an inherent feature of the flow structure on wings of
+low sweep angle.
+At α = 13 deg, the streamwise extent of the organized portion of
+the dye marker emanating from the apex is very short. The central
+portion of the wing is unmarked by dye because it is continuously
+swept downstream past the trailing edge. On the other hand, the
+regions  of  the  wing  outboard  of  this  central  portion  show  a  low
+velocity region of dye adjacent to the surface.
+At 17 deg, the entire wing is filled with a region of low-velocity
+dye, as shown in Fig. 2c. In presence of an applied, small-amplitude
+perturbation, shown in Fig. 2d, the flow structure of the visualized
+pattern at α = 17 deg resembles, in a general sense, the structure at
+α = 13 deg on the stationary wing.
+Taken together, the foregoing visualizations suggest overall fea-
+tures of the flow patterns, which are addressed herein using quanti-
+tative imaging of the instantaneous and averaged flow structure.
+IV.    Averaged Velocity and Streamline Topology
+Figure  3  shows  patterns  of  time-averaged  velocity  V   and
+streamlines  corresponding to the flow structure at  x = 0.8C.
+In this and subsequent figures, the semispan S corresponds to the
+local value of S at a given value of dimensionless chordwise distance
+s/C; it does not have a single value corresponding to the value of
+the semispan at the trailing-edge x/C = 1. In Fig. 3 and subsequent
+figures, the fact that only a fraction of the local semispan S is shown
+arises from the variable zoom during image acquisition. Comparison
+with the dye-visualization image of Fig. 2 shows that the chordwise
+location x/C = 0.8 lies within the region. In Fig. 3 and subsequent
+figures, the fact that only a fraction of the local semispan S is shown
+arises from the variable zoom during image acquisition.
+Comparison with the dye-visualization image of Fig. 2 shows that
+the chordwise location x/C = 0.8 lies within the region of signif-
+icant disruption of the dye marker at α = 7 deg and is well down-
+stream of the substantial widening of the dye marker at α = 13 deg.
+At α = 17 and 25 deg (not shown), dye simply floods the surface
+of the wing, which suggests that the region near the surface flow
+pattern on the wing is fully stalled. Remarkably, however, all of the
+patterns of Fig. 3 show a definable time-averaged structure.
+At α = 7?17 deg an identifiable interface exists between a region
+of high velocity flow below the wing and very low velocity imme-
+diately adjacent to the wing. In other words, at this interface this
+velocity  field  is  characteristic  of  a  separated  free-shear  layer.  At
+P1: ILT/GUB        P2: ILT
+AIAA [aiaaj]        9:52    22 January 2004              March’2004 #10-J26594(A)/Yaniktepe
+516                                                                                                YANIKTEPE AND ROCKWELL
+a)
+b)
+c)
+d)
+Fig. 2    Dye visualization at three representative angles of attack. For images α= 7 and 13 deg, dye is injected through two discrete ports at the apex
+of the wing, whereas at α= 17 deg, dye is injected along the leading edge on the windward side of the wing. For the perturbed wing, the perturbation
+amplitude and period are α0 = 1 deg and T = 0.5 s.
+Fig. 3    Patterns of averaged velocity V and streamline Ψ topology at four values of angle of attack α= 7, 13, 17, and 25 deg. Laser sheet is located
+at x/C = 0.8. Spanwise extent of wing corresponds to 0.82 S at α= 7 and 13 deg and 0.94 S at α= 17 and 25 deg, in which S is the semispan of the delta
+wing at the location of the laser sheet x/C = 0.8.
+P1: ILT/GUB        P2: ILT
+AIAA [aiaaj]        9:52    22 January 2004              March’2004 #10-J26594(A)/Yaniktepe
+YANIKTEPE AND ROCKWELL                                                                                                              517
+α = 25 deg, the interface region has a different form, and the spatial
+extent of the very low velocity region is confined to a domain very
+close to the surface of the wing. Unlike cases at low angle of attack,
+the interface does not correspond to an abrupt decrease of velocity
+between the exterior flow and the region of flow closer to the wing.
+Rather, the magnitude of velocity is of the same order on either side
+of the interface.
+The  corresponding  streamline  topology,  which  is  constructed
+from  these  averaged  velocity  fields,  indicates  a  saddle  point  at
+α = 7 deg, which is designated by a circular dot. It appears well
+below and slightly outboard of the leading edge of the wing. Fur-
+thermore, the streamline pattern inside the major streamlines that
+connect to the saddle point does not exhibit a well-defined swirl pat-
+tern. All of these features of the streamline topology are distinctly
+different from those associated with wings having relatively high
+sweep angle, as characterized by Magness et al.1
+At  α = 13  deg,  the  aforementioned  saddle  point  has  been  dis-
+placed downward and lies outside of the field of view. A well-defined
+Fig. 4    Patterns of averaged vorticity ω, contours of constant vertical (transverse) velocity fluctuation wrms/U, and Reynolds-stress correlation
+v′w′/U2. Angles of attack are α= 7, 13, 17, and 25 deg. Laser sheet is located at x/C = 0.8. For contours of averaged vorticity, minimum and incremental
+values are [ω]min = ??0.3 s?1  and ?[ω] = ??0.15 s?1. For contours of constant velocity fluctuation, [wrms/U]min = 0.025, and ?[wrms/U] = 0.005.
+For contours of constant Reynolds-stress correlation, [v′w′/U2]min = ??0.0004, and ?[v′w′/U2] = ??0.0002. Spanwise extent of wing corresponds
+to 1.0 S, in which S is the semispan of the delta wing at the location of the laser sheet x/C = 0.8.
+swirl pattern exists. It does not emanate, however, from the leading
+edge of the wing. Rather, it appears to originate from a saddle point
+located at the position of the black dot. This displacement from the
+leading edge of the wing is caused by the extensively separated flow,
+evident by comparison with the dye visualization at α = 13 deg in
+Fig. 2. A similar saddle point, which is displaced inboard from the
+leading edge, is indicated by the black dot in the streamline topology
+at α = 17 deg. Finally, at α = 25 deg an identifiable swirl pattern is
+barely evident, and the entire streamline topology takes on an un-
+conventional form, as a result of the highly stalled flow over the
+surface of the wing.
+V.    Patterns of Averaged Vorticity
+and Fluctuating Velocity
+In Fig. 4, patterns of time-averaged vorticity ω are compared
+with the rms of the transverse (vertical) velocity fluctuation wrms
+normalized by the freestream velocity U, that is, wrms/U, as well as
+P1: ILT/GUB        P2: ILT
+AIAA [aiaaj]        9:52    22 January 2004              March’2004 #10-J26594(A)/Yaniktepe
+518                                                                                                YANIKTEPE AND ROCKWELL
+with the Reynolds-stress correlation v′w′/U2, for angles of attack
+α = 7, 13, 17, and 25 deg.
+To allow direct comparison, the minimum and incremental values
+of all contour patterns of averaged vorticity ω in Fig. 4 are main-
+tained the same at all values of α = 7, 13, 17, and 25 deg. Similarly,
+the same minimum and incremental values are maintained for the
+contours of wrms/U and v′w′/U2.
+Consider, first, the patterns of averaged vorticity ω at α = 7 and
+13 deg. They take the form of an elongated layer with one or two
+vorticity extrema. Comparison with Fig. 3 shows that, along each
+of these layers, the maximum value of vorticity ω corresponds
+to  the  interface  between  regions  of  high  and  low  velocity  in  the
+corresponding plots of averaged velocity V  at α = 7 and 13 deg.
+That is, the elongated layers are characteristic of a free-shear layer
+as viewed in this crossflow plane. Furthermore, the pattern of ω
+at α = 17 deg in Fig. 4 has a generally similar form, but the loci
+of maximum vorticity are at a less well-defined interface between
+higher and lower velocities. It is evident that, however, at this larger
+angle of attack the peak value of vorticity is not as large as at α = 7
+and 13 deg. Finally, at the largest angle of attack α = 25 deg, the
+form  of  the  vorticity  pattern  ω is  fundamentally  different.  The
+elongated region of vorticity no longer appears to emanate from the
+leading edge of the wing. Furthermore, the peak values of vorticity
+no longer occur at the interface referred to in the pattern of V  at
+α = 25 deg in Fig. 3. Remarkably, the peak values of vorticity are
+further reduced from those at α = 17 deg.
+It is appropriate to compare the elongated layers of vorticity ωat,
+for example, α = 7 and 13 deg in Fig. 4, with the corresponding pat-
+terns of streamline topology in Fig. 3. The location of an extremum
+of vorticity is not always coincident with the focus (apparent center)
+of the streamline pattern, and, furthermore, the spatial extent of the
+large-scale swirl pattern of streamlines is substantially larger than
+the thickness of the elongated vorticity layer. These observations are
+apparently caused by the very rapidly distorting flow that separates
+from the leading edge of the wing and, in fact, directly analogous
+patterns of averaged vorticity and streamline topology, including
+the lack of precise correspondence between them, that have been
+observed in the very near wake of a cylinder, where the plane of ob-
+servation is orthogonal to the axis of the separating shear layer. As
+shown, for example, by Akilli and Rockwell,25  an elongated vortic-
+ity layer, which does not culminate in a single, large-scale vortical
+structure,  is  nevertheless  associated  with  a  pattern  of  streamline
+topology having a well-defined swirl pattern with a focus.
+The aforementioned values of vorticity ω are related to the nor-
+malized component of vertical velocity fluctuation wrms/U, at least
+for the lower values of angle of attack α = 7, 13, and 17 deg. For
+these values of α, the locations of maximum values of wrms/U can
+be tracked as a function of spanwise distance along each elongated
+pattern of wrms/U. These maxima generally follow the peak val-
+ues  of  ω.  That  is,  the  largest  velocity  fluctuations  occur  in  the
+region of maximum vorticity and thereby at the interfaces in the
+patterns of V  shown in Fig. 3.
+In turn, the patterns of velocity fluctuation wrms/U are associated
+with the Reynolds-stress correlation v′w′/U2, that is, with the de-
+gree of turbulence production in the free-shear flow, at least at angles
+of attack α = 7, 13, and 17 deg. The largest values of v′w′/U2 tend
+to occur approximately at half the semispan S, that is, at 0.5 S for all
+values of angle of attack α = 7?17 deg. The loci of extrema of the
+correlation v′w′/U2  are generally in accord with the maxima of
+wrms/U. In fact, the peak magnitude of the correlation v′w′/U2
+increases with angle of attack α = 7?17 deg.
+At the highest angle of attack α = 25 deg, the patterns have a fun-
+damentally different form. The pattern of wrms/U  is substantially
+broader than at lower angle of attack, and, moreover, the peak value
+is substantially lower than at α = 17 deg. Regarding the correspond-
+ing Reynolds-stress correlation v′w′/U2, its value is substantially
+lower than at α = 17 deg. This remarkable attenuation of the fluctuat-
+ing velocity magnitude, and the corresponding Reynolds-stress cor-
+relation is associated with the radical change of the pattern of veloc-
+ity V and streamline topology shown at α = 25 deg in Fig. 3. In
+essence, the loss of identity of the shear-layer interface and the elon-
+gated vorticity layer emanating from the leading edge of the wing,
+which are present at lower angle of attack α = 7?17 deg, yield a sub-
+stantial reduction in the magnitude of the fluctuating velocity field.
+VI.    Instantaneous Patterns of Vorticity
+The patterns of velocity fluctuation wrms/U and Reynolds-stress
+correlation  v′w′/U2   described  in  Sec.  V  are  intimately  related
+to the patterns of instantaneous vorticity and their evolution with
+time. Figure 5 shows two randomly selected patterns of instanta-
+neous vorticity at each angle of attack α = 7?25 deg. At α = 7 deg,
+the individual vorticity concentrations retain their identity along the
+surface of the wing. That is, interaction between concentrations is
+not evident. This pattern is also evident in Fig. 4, in a smoothed
+version, as a result of the effects of time-averaging of fluctuations,
+or jitter, of the instantaneous locations of the vorticity concentra-
+tions. It is remarkably similar to that on a wing of low sweep an-
+gle ( = 50 deg) at low angle of attack (α = 5 deg) computed by
+Gordnier  and  Visbal.12   In  Fig.  5,  at  α = 7  deg  the  typical  wave-
+length between these concentrations is λ/S = 0.25, in which S is the
+semispan of the wing at the chordwise location of interest herein,
+x/C = 0.8. On the other hand, at α = 13 deg, smaller-scale vorticity
+concentrations, with a smaller wavelength λ/S = 0.15 are formed
+immediately  after  separation  from  the  leading  edge  of  the  wing.
+Note that these concentrations do not form directly from the edge,
+but are initially identifiable along the surface of the wing inboard of
+the edge. In fact, this feature is even more prevalent at high values
+of α = 17 and 25 deg. Farther inboard, larger-scale clusters of vor-
+ticity appear. At α = 17 deg, the initially formed concentrations also
+have a relatively small wavelength, which is not as clearly defined
+as at lower α. The change in the patterns of instantaneous vorticity
+ω at successive values of α = 7, 13, and 17 deg is associated with a
+substantial increase in both velocity fluctuation amplitude wrms/U
+and Reynolds-stress correlation v′w′/U2, which is evident from
+cross comparison of the images at α = 7, 13, and 17 deg in Fig. 4.
+On the other hand, at the highest angle of attack α = 25 deg de-
+fined clusters of vorticity are first detectable at a significant distance
+inboard from the leading edge. Such patterns are associated with
+relatively low values of the Reynolds-stress correlation v′w′/U2
+and velocity fluctuation wrms/U, evident at α = 25 deg in the images
+of Fig. 4. The occurrence of large-scale stall at α = 25 deg there-
+fore results in a reduction in level of the unsteadiness, relative to
+lower values of α where a well-defined separated shear layer, that
+is, vorticity layer, is located adjacent to the surface of the wing.
+VII.    Spectra Along Separated Vorticity Layer
+As shown in Fig. 4, the elongated vorticity layers from the leading
+edge are associated with corresponding patterns of vertical velocity
+fluctuation amplitude wrms/U, and at lower values of angle of attack
+α the peak values of wrms/U  follow the peak values of averaged
+vorticity ω. In Fig. 6, for each value of angle of attack α spectra
+of the transverse (vertical) velocity fluctuation were evaluated at
+successive locations along the locus of maximum wrms/U. These
+locations  are  indicated  by  the  solid  black  points  on  each  of  the
+patterns of wrms/U for angles of attack α = 7, 13, 17, and 25 deg.
+At  α = 7  deg,  the  frequency   f0    of  the  spectral  peak  is  at
+f0 = 3.4 Hz, and the largest amplitude of this spectral peak occurs at
+the maximum of wrms/U, which is well inboard of the leading edge.
+Then, as the surface of the wing is approached this peak is rapidly at-
+tenuated, and barely detectable. The form of these spectra is directly
+related to the patterns of instantaneous vorticity concentrations, as
+shown at α = 7 deg in Fig. 5.
+At α = 13 deg, the spectral peak closest to the leading edge, which
+is relatively broad, is initially centered at  f0 = 4.6 Hz. For increasing
+distance along the vorticity layer, peaks at lower values of  f0  are
+evident; they lie in the range 2.4 ? f0 ? 3.2 Hz. This lowering of the
+peak frequency  f0  is consistent with the occurrence of larger-scale
+vortical structures shown at α = 13 deg in Fig. 5.
+Similarly,  at  α = 17  deg  the  initial,  broad  spectral  peak  has  a
+relatively high center frequency  f0 = 4.1 Hz. Farther along the layer,
+two peaks are evident at  f0 = 2.1 and 3.2 Hz, and, finally, a relatively
+low-frequency component is apparent at  f0 = 0.5 Hz, as the shear
+P1: ILT/GUB        P2: ILT
+AIAA [aiaaj]        9:52    22 January 2004              March’2004 #10-J26594(A)/Yaniktepe
+YANIKTEPE AND ROCKWELL                                                                                                              519
+Fig. 5    Patterns of instantaneous vorticity ωat two randomly selected instants from a cinema sequence. Angles of attack are α= 7, 13, 17, and 25 deg.
+Minimum and incremental values are ωmin = ??1.5 s?1  and ?ω= ??0.25 s?1. Spanwise extent of wing corresponds to 1.0 S, in which S is the semispan
+of the delta wing at the location of the laser sheet x/C = 0.8.
+Fig. 6    Spectra Sw  of velocity fluctuation at selected locations in separated shear layer. Each spectrum is referenced to the indicated location in the
+pattern of constant contours of wrms/U. Parameters for these contour levels are given in Fig. 4. Spanwise extent of wing corresponds to 1.0 S, in which
+S is the semispan of the delta wing at the location of the laser sheet x/C = 0.8.
+P1: ILT/GUB        P2: ILT
+AIAA [aiaaj]        9:52    22 January 2004              March’2004 #10-J26594(A)/Yaniktepe
+520                                                                                                YANIKTEPE AND ROCKWELL
+layer approaches the surface of the wing. This successive lowering
+of the values of  f0  is again associated with the occurrence of larger-
+scale vortical structures along the shear layer.
+At the highest angle of attack α = 25 deg, a reasonably defined,
+somewhat broadband peak is detectable at a location well inboard of
+the leading edge. This predominant peak is centered at  f0 = 3.4 Hz
+and moves to a lower value of  f0 = 2.5 Hz farther along the layer. At
+this high angle of attack, it is apparent that the occurrence of larger-
+scale vortical structures along the separated vorticity layer still plays
+a role in shifting the broadly defined peak at  f0 to lower frequencies.
+Viewing  the  patterns  of  spectra  at  all  values  of  α in  Fig.  6,  it
+is evident that, at the smallest angles of attack α = 7 and 13 deg,
+the eventual reattachment of the shear layer to the surface of the
+wing, evident in patterns of averaged velocity of Fig. 3 and vorticity
+of Fig. 4, is associated with attenuation of the predominant spectral
+peak. At a sufficiently high angle of attack α = 17 deg, this tendency
+toward reattachment is associated with the appearance of a very low
+frequency. At α = 25 deg, such reattachment does not occur, and a
+defined, but relatively broadband, peak persists.
+The dimensionless frequencies of the spectral peaks at  f0   can
+be  expressed  as   f0C/U.  For  the  spectra  of  Fig.  6,  the  identi-
+fiable  spectral  peaks  in  the  early  stages  of  development  of  the
+shear  layer  are  in  the  range  3.3 ? f0 ? 4.6  Hz,  which  corre-
+spond to 3.39 ? f0C/U ? 4.73. Farther along the separated layer,
+where  larger-scale  clusters  of  vorticity  occur,  the  range  of  val-
+ues  is  lower,  that  is,  0.5  Hz ? f0 ? 3.2,  which  correspond  to
+0.51 ? f0C/U ? 3.29. This range of  f0C/U  is remarkably simi-
+lar to the band of identifiable frequencies in a spectrum computed
+Fig. 7    Effect of small perturbations of wing on time-averaged patterns of velocity V and streamlines Ψ, relative to the case of he stationary wing.
+Perturbation amplitude is α0 = 1 deg, and mean angle of attack is α￣= 17 deg. Perturbation is applied according to α(t) = α￣+ α0 sin(2πt/T). Values of
+perturbation period T are T = 0.5, 1.0, and 1.5 s. Spanwise extent of wing corresponds to 1.0 S, in which S is the semispan of the delta wing at the
+location of the laser sheet x/C = 0.8.
+by Gordnier and Visbal12  in the region downstream of vortex break-
+down on a wing of low sweep angle  = 50 deg.
+As  indicated  in  the  citations  in  Sec.  I,  several  physical  mech-
+anisms  can  contribute  to  unsteadiness  of  the  flow  structure  on  a
+delta wing. Menke et al.,22  as well as works of Gursul cited therein,
+provide a classification of types of unsteadiness for wings having
+relatively large values of sweep angle  = 65 to 75 deg. Most rel-
+evant to our present considerations is the occurrence of 1) vortex
+shedding,  typically  when  the  vortex  breakdown  location  reaches
+the apex of the wing (0.25 ? f0/C/U ? 0.6); 2) unsteadiness as-
+sociated with the helical mode of instability of vortex breakdown
+(1.0 ? f0/C/U ? 4); and 3) the small-scale Kelvin?Helmholtz in-
+stability of the shear layer separating from the leading edge of the
+wing (6 ? f0/C/U ? 30). For a wing having a relatively low sweep
+angle, for example,  = 38.7 deg of the present study, this type of
+detailed classification is not available.
+As  indicated  in  the  foregoing  images,  a  classical  vortex  core,
+marked by an approximately circular region of vorticity, does not
+exist in the images of the vorticity layer formed from the leading
+edge. It is therefore questionable that one can speak of a helical
+mode instability of vortex breakdown on wings of such low sweep.
+In fact, for the wing of relatively low sweep angle  = 38.7 deg
+investigated herein, it is apparent from the dye visualization at, for
+example, α = 7 deg in Fig. 2, that a well-defined spiral, or bubble
+mode  of  vortex  breakdown,  does  not  occur.  For  all  values  of  α
+considered herein, the crossflow planes lie within regions of vortex
+breakdown and stall, and maximum amplitudes of the spectra occur
+well inboard of the leading edge. For the present purposes, vortex
+P1: ILT/GUB        P2: ILT
+AIAA [aiaaj]        9:52    22 January 2004              March’2004 #10-J26594(A)/Yaniktepe
+YANIKTEPE AND ROCKWELL                                                                                                              521
+breakdown is simply defined as a severe disruption of the core of the
+vortex, as evident in the dye visualization of Fig. 2 at α = 7 deg. This
+type of apparent breakdown might be associated with either jitter
+of the nominally stationary vortical substructures or unsteadiness
+associated with the fundamental or subharmonics of the inherent
+instability of the shear layer separating from the leading edge.
+VIII.    Effect of Controlled Perturbations on Averaged
+and Instantaneous Structure
+Preliminary experiments indicated that at sufficiently high angle
+of attack, that is, α = 17 deg, the flow structure was particularly sen-
+sitive to small-amplitude perturbations. On this basis, the delta wing
+was subjected to perturbations about its midchord. The amplitude
+α of these perturbations was kept small at α = 1 deg, while the
+period T  of the perturbation was varied. The smallest period of os-
+cillation was T = 0.5, that is,  f  = 2 Hz, which lies in the lower range
+of frequency 0.5 ? f0 ? 3.15 of the self-excited instability, shown
+in the spectra of Fig. 6. In fact, this value of the perturbation period
+corresponds  to the frequency range of the coalesced, or  merged,
+small-scale  vortical  structures  indicated  at  α = 17  deg  in  Fig.  5.
+Fig. 8    Consequence of small-amplitude perturbation on patterns of averaged vorticity ω, rms of vertical (transverse) velocity fluctuation wrms/U,
+and Reynolds stress correlation v′w′/U2. For patterns of vorticity, ωmin = ??0.4 s?1  and ?[ω] = ??0.2 s?1. For contours of constant wrms/U,
+[wrms/U]min = 0.04, and ?[wrms/U] = 0.01. For contours of constant Reynolds-stress correlation, [v′w′/U2]min = ??0.001, and ?[v′w′/U2] = ??0.0005.
+Spanwise extent of wing corresponds to 1.0 S, in which S is the semispan of the delta wing at the location of the laser sheet x/C = 0.8.
+More specifically, T = 0.5 corresponds to the subharmonic of the
+highest frequency  f0 =? 4 Hz in the initial region of the shear layer, as
+shown in Fig. 6. In addition, larger values of T = 1.0, 1.5, and 2.0 s
+were applied, with T = 2.0 corresponding to  f  = 0.5 Hz, which is
+the lowest low frequency in the spectrum at the location farthest
+from the leading edge along the vorticity layer, as shown in Fig. 6.
+Patterns  of  time-averaged  velocity  V  and   are  shown  in
+Fig. 7. It is evident that the streamline topology undergoes a fun-
+damental transformation, relative to the topology on the stationary
+wing, evident by comparison of the top two images of Fig. 7. That
+is, the topology is characteristic of a typical leading-edge vortex,
+and, in fact, comparison with the topology at α = 13 deg for the
+stationary wing in Fig. 3, shows a close similarity to the pattern of
+T = 0.5 in Fig. 7. As the period of excitation is increased to values
+of T = 1.0 and 1.5, the topology relaxes toward that of the station-
+ary wing, that is, the center of the spiral streamline pattern moves
+farther inboard and becomes less defined.
+These changes in the patterns of velocity V  and the stream-
+line  topology are associated with corresponding alterations of
+the patterns of averaged vorticity ω, velocity fluctuation ampli-
+tude wrms/U, and Reynolds stress v′w′/U2, as indicated in Fig. 8.
+P1: ILT/GUB        P2: ILT
+AIAA [aiaaj]        9:52    22 January 2004              March’2004 #10-J26594(A)/Yaniktepe
+522                                                                                                YANIKTEPE AND ROCKWELL
+Fig. 9    Comparison  of  representative  patterns  of  instantaneous  vor-
+ticity  ω for  the  stationary  wing  and  the  wing  subjected  to  small-
+amplitude  perturbations  according  to  α(t) = α￣ sine(ωt)  in  which  α￣
+17 deg, α0 = 1 deg, and ω= 2πt/T. Minimum and incremental values
+of vorticity are ωmin = ??1.5 s?1  and ?ω= ??0.25 s?1. Spanwise extent
+of wing corresponds to 1.0 S, in which S is the semispan of the delta wing
+at the location of the laser sheet x/C = 0.8.
+Comparing, first, the patterns of ω, it is evident that the pertur-
+bation at T = 0.5 results in a radically increased level of peak ω,
+as well as an increase in the degree of organization of the distribu-
+tion of ω, relative to the pattern of ω for the stationary wing.
+At larger values of perturbation period T = 1.0 and 1.5, this peak
+vorticity level decreases, and the ordered nature of the pattern is less
+apparent.
+The increase in level of averaged vorticity ω at T = 0.5 is ac-
+companied by a substantial increase in the peak values of the velocity
+fluctuation in wrms/U  and Reynolds-stress correlation v′w′/U2,
+relative  to  the  case  of  the  stationary  wing.  At  the  highest  value
+T = 1.5, these peak values have decreased significantly, relative to
+those at T = 0.5.
+The patterns of instantaneous vorticity associated with the pertur-
+bation at T = 0.5 are shown in Fig. 9. It is evident that in presence of
+the perturbation a relatively large-scale cluster of vorticity is formed,
+as a result of the coalescence of a number of small-scale concen-
+trations of vorticity. This larger-scale vorticity cluster forms closer
+to the leading edge of the wing than the cluster on the stationary
+wing. The physical mechanism for enhancement of the averaged
+structure described in the foregoing therefore involves more rapid
+development of patterns of coalesced vorticity.
+IX.    Conclusions
+The flow structure on a delta wing of low sweep angle exhibits
+a number of distinctive characteristics, relative to the extensively
+investigated case of a slender, highly swept delta wing. Emphasis in
+the present investigation has been on crossflow planes, where vortex
+breakdown and stall phenomena occur; these phenomena are known
+to be important origins of unsteady buffet loading of the wing. The
+primary features of the flow structure, and the potential for their
+control, are summarized in the following:
+1) The time-averaged flow structure shows a number of distinc-
+tive  features  relative  to  the  structure  on  wings  of  relatively  high
+sweep angle. Patterns of averaged velocity show a relatively narrow
+elongated region of low velocity immediately adjacent to the sur-
+face of the wing, which is bounded by a higher speed region. The
+interface between these two domains of the velocity field represents
+a region of high shear, and thereby the locus of unsteady events.
+The corresponding streamline topology exhibits a saddle point that
+is located outboard of the leading edge of the wing. At sufficiently
+high angle of attack, the separation streamline from the leading edge
+loses its identity. Patterns of averaged vorticity show an elongated
+layer parallel to the surface of the wing at sufficiently low angle
+of attack, a well-defined, dual-vortex substructure system is estab-
+lished. The aforementioned patterns of vortical structures and stall
+are expected to be a function of Reynolds number. Separation of the
+shear layer from the leading edge will be influenced by the existence
+of small-scale Kelvin?Helmholtz instabilities, of varying scale and
+circulation,  as  the  Reynolds  number  is  altered.  Furthermore,  the
+onset of stall from the surface of the wing can also be a function of
+Reynolds number. These issues await further investigation.
+2) Unsteadiness of the flow structure is represented by patterns of
+rms velocity fluctuation wrms/U normal to the surface of the wing,
+as well as Reynolds stress correlation v′w′/U2, both of which are
+essentially coincident with maxima of the averaged vorticity ω
+of the separated layer. Peak values of these fluctuation quantities
+occur well inboard of the leading edge of the wing, and their peak
+magnitudes continue to increase with increasing angle of attack up
+to a moderately high value of α. Then, at sufficiently high angle
+of attack, where substantial stall occurs, the peak value is actually
+decreased.
+3) The instantaneous structure of the flow is represented by pat-
+terns of instantaneous vorticity, which take the form of well-defined
+concentrations. At sufficiently low angle of attack, these individual
+concentrations of vorticity retain their identity, whereas at moderate
+and moderately high values of angle of attack, both smaller-scale
+and larger-scale concentrations are evident. These patterns of in-
+stantaneous  vorticity  concentrations  allow  physical  interpretation
+of  the  spectral  content  of  the  unsteadiness.  Most  of  the  spectral
+peaks along the separated vorticity layer are relatively broadband
+and attain maximum amplitude well inboard of the leading edge.
+When the averaged vorticity layer deflects toward the surface of the
+wing near its plane of symmetry, the spectral peaks become small
+or undetectable. At relatively low angle of attack, the same spec-
+tral peak persists along the vorticity layer, whereas at moderate and
+moderately high angle of attack, the predominant spectral peak is
+successively lowered with increasing distance inboard of the leading
+edge, where larger-scale clusters of vorticity are evident.
+4) When the wing is subjected to small-amplitude perturbations,
+substantial alterations of both the instantaneous and time-averaged
+structure were observed. The most effective frequency of excitation
+corresponds to the subharmonic of the broadband fluctuations in
+the region of the shear layer closest to the leading edge, though this
+criterion is not necessarily universal for other geometric and flow
+parameters.
+Acknowledgments
+The authors are pleased to acknowledge support of the U.S. Air
+Force Office of Scientific Research (AFOSR) under Grant F49620-
+02-1-0061,  monitored  by  John  Schmisseur.  The  first  author  was
+supported jointly by AFOSR and Cukurova University during his
+research stay as a visiting scientist at Lehigh University. Prior to
+and subsequent to his stay at Lehigh, he has been supported as a
+research assistant at Cukurova University.
+References
+1Magness, C., Robinson, O., and Rockwell, D., “Instantaneous Topol-
+ogy of the Unsteady Leading-Edge Vortex at High Angle of Attack,” AIAA
+Journal, Vol. 31, No. 8, 1993, pp. 1384?1391.
+2Visbal, M. R., and Gordnier, R. E., “Cross-Flow Topology of Vortical
+Flows,” AIAA Journal, Vol. 32, No. 5, 1994, pp. 1085?1087.
+3Riley, A. J., and Lowson, M. V., “Development of a Three-Dimensional
+Free Shear Layer,” Journal of Fluid Mechanics, Vol. 369, 1998, pp. 49?89.
+4Ol, M. V., and Gharib, M., “The Passage Toward Stall of Nonslender
+Delta Wings at Low Reynolds Number,” AIAA Paper 2001-2843, 2001.
+5Gursul, I., Taylor, G., and Wooding, C. L., “Vortex Flows over Fixed-
+Wing Micro Air Vehicles,” AIAA Paper 02-0698, Jan. 2002.
+6Payne, F. M., Ng, T. T., Nelson, R. C., and Schiff, L. B., “Visualization
+and  Wake  Surveys  of  Vortical  Flow  over  a  Delta  Wing,”  AIAA  Journal,
+Vol. 26, 1988, pp. 137?143.
+7Lowson, M. V., “The Three Dimensional Vortex Sheet Structure on Delta
+Wings,” AGARD, CP 438, Paper 11, 1988.
+8Reynolds, G. A., and Abtahi, A. A., “Three-Dimensional Vortex Devel-
+opment, Breakdown and Control,” AIAA Paper 89-0998, 1989.
+9Washburn, A. E., and Visser, K. D., “Evolution of Vortical Structures in
+the Shear Layer of Delta Wings,” AIAA Paper 94-2317, 1994.
+10Mitchell, A., Molton, P., Barberis, D., and Delery, J., “Characterization
+of  Vortex  Breakdown  by  Flow  Field  and  Surface  Measurements,”  AIAA
+Paper 2000-0788, 2000.
+11Visbal, M. R., and Gordnier, R. E., “On the Structure of the Shear Layer
+Emanating from a Swept Leading Edge at Angle of Attack,” AIAA Paper
+2003-4016, June 2003.
+P1: ILT/GUB        P2: ILT
+AIAA [aiaaj]        9:52    22 January 2004              March’2004 #10-J26594(A)/Yaniktepe
+YANIKTEPE AND ROCKWELL                                                                                                              523
+12Gordnier, R. E., and Visbal, M. R., “Higher-Order Compact Difference
+Scheme Applied to the Simulation of a Low Sweep Delta Wing Flow,” AIAA
+Paper 2003-0620, Jan. 2003.
+13Gad-el-Hak, M., and Blackwelder, R. F., “The Discrete Vortices form a
+Delta Wing,” AIAA Journal, Vol. 23, 1985, pp. 961, 962.
+14Ozgoren, M., Sahin, B., and Rockwell, D., “Vortex Structure on a Delta
+Wing at High Angle-of-Attack,” AIAA Journal, Vol. 40, No. 2, pp. 285?292.
+15Winant, C. D., and Browand, F. K., “Vortex Pairing: The Mechanism of
+Turbulent Mixing?Layer Growth at Moderate Reynolds Number,” Journal
+of Fluid Mechanics, Vol. 63, 1974, pp. 237?255.
+16Gordnier, R., and Visbal, M. R., “Numerical Simulation of the Unsteady
+Vortex Structure over a Delta Wing,” AIAA Paper 91-1811, 1991.
+17Gordnier,  R.,  and  Visbal,  M.  R.,  “Unsteady  Vortex  Structure  over  a
+Delta Wing,” Journal of Aircraft, Vol. 31, 1994, pp. 243?248.
+18Gordnier, R. E., and Visbal, M. R., “Instabilities in the Shear Layer of
+Delta Wings,” AIAA Paper 95-2281, 1995.
+19Cipolla,  K.,  and  Rockwell,  D.,  “Small-Scale  Vortical  Structures  in
+Crossflow Plane of a Rolling Delta Wing,” AIAA Journal, Vol. 36, No. 12,
+1998, pp. 2276?2278.
+20Garg,  A.  K.,  and  Leibovich,  S.,  “Spectral  Characteristics  of  Vortex
+Breakdown Flowfields,” Physics of Fluids, Vol. 22, 1979, pp. 2053?2064.
+21Gursul, I., “Unsteady Flow Phenomena over Delta Wings at High Angle
+of Attack,” AIAA Journal, Vol. 32, No. 2, 1994, pp. 225?231.
+22Menke, M., Yang, H., and Gursul, I., “Experiments on the Unsteady
+Nature  of  Vortex  Breakdown  over  Delta  Wings,”  Experiments  in  Fluids,
+Vol. 27, 1999, pp. 262?272.
+23Gad-el-Hak, M., and Blackwelder, R. F., “Control of the Discrete Vor-
+tices from a Delta Wing,” AIAA Journal, Vol. 25, 1986, pp. 1042?1049.
+24Ozgoren, M., Sahin, B., and Rockwell, D., “Perturbations of a Delta
+Wing: Control of Vortex Breakdown and Buffeting,” Journal of Aircraft,
+Vol. 38, No. 6, 2001, pp. 1040?1050.
+25Akilli, H., and Rockwell, D., “Vortex Formation from a Cylinder in
+Shallow Water,” Physics of Fluids, Vol. 14, No. 9, 2002, pp. 2957?2967.
+R. Lucht
+Associate Editor
+View publication stats
+View publication stats

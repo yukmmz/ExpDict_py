@@ -1,0 +1,1800 @@
+Measurement Science and Technology
+REVIEW ARTICLE
+Iterative image deformation methods in PIV
+To cite this article: F Scarano 2002 Meas. Sci. Technol. 13 R1
+ 
+View the article online for updates and enhancements.
+Related content
+Analysis and alternatives in 2D multigrid
+PIVmethods
+J Nogueira, A Lecuona, U Ruiz-Rivas et al.
+-
+A super-resolution PIV interrogation
+approach by means of velocity second
+derivativescorrelation
+F Scarano
+-
+Windowing, re-shaping and re-orientation
+interrogationwindows in PIV
+D Di Florio, F Di Felice and G P Romano
+-
+Recent citations
+Robust principal component analysis for
+modal decomposition of corrupt fluid flows
+Isabel Scherl et al
+-
+Characteristics of wall-attached motions in
+open channel flows
+-
+Particle Image Velocimetry Based on a
+Deep Learning Motion Estimator
+Shengze Cai et al
+-
+This content was downloaded from IP address 145.94.79.174 on 01/06/2020 at 14:05
+INSTITUTE OF PHYSICS PUBLISHING                                                                                                                                                                              MEASUREMENT SCIENCE AND TECHNOLOGY
+Meas. Sci. Technol. 13 (2002) R1?R19                                                                                                                                               PII: S0957-0233(02)20239-8
+REVIEW ARTICLE
+Iterative image deformation methods in
+PIV
+F Scarano
+Faculty of Aerospace Engineering, Delft University of Technology, Kluyverweg 1, 2629 HS
+Delft, The Netherlands
+Received 19 December 2000, in final form and accepted for publication
+27 September 2001
+Published 23 November 2001
+Online at stacks.iop.org/MST/13/R1
+Abstract
+Image processing methods for particle image velocimetry (PIV) are
+reviewed. The discussion focuses on iterative methods aimed at enhancing
+the precision and spatial resolution of numerical interrogation schemes.
+Emphasis is placed on the efforts made to overcome the limitations of
+the correlation interrogation method with respect to typical problems such as
+in-plane loss of pairs, velocity gradient compensation and correlation peak
+locking. The discussion shows how the correlation signal benefits from
+simple operations such as the window-offset technique, or the continuous
+window deformation, which compensates for the in-plane velocity gradient.
+The image interrogation process is presented within the discussion of the
+image matching problem and several algorithms and implementations
+currently in use are classified depending on the choice made about the
+particle image pattern matching scheme.
+Several methods that differ in their implementations are found to be
+substantially similar. Iterative image deformation methods that account for
+the continuous particle image pattern transformation are analysed and the
+effect of crucial choices such as image interpolation method, displacement
+prediction correction and correlation peak fit scheme are discussed. The
+quantitative performance assessment made through synthetic PIV images
+yields order-of-magnitude improvement on the precision of the particle
+image displacement at a sub-pixel level when the image deformation is
+applied. Moreover, the issue of spatial resolution is addressed and the
+limiting factors of the specific interrogation methods are discussed.
+Finally, an attempt for a flow-adaptive spatial resolution method is
+proposed. The method takes into account the local velocity derivatives in
+order to perform a local increase of the interrogation spatial density and a
+refinement of the local interrogation window size. The resulting spatial
+resolution is selectively enhanced. The method’s performance is analysed
+and compared with some precursor techniques, namely the conventional
+cross-correlation analysis with and without the effect of a window discrete
+offset and deformation.
+The suitability of the method for the measurement in turbulent flows is
+illustrated with the application to a turbulent backward facing step flow.
+Keywords:  image processing, PIV, CIV, window deformation, adaptive
+resolution, iterative, multigrid
+(Some figures in this article are in colour only in the electronic version)
+0957-0233/02/010001+19$30.00    c 2002 IOP Publishing Ltd    Printed in the UK                                                                                      R1
+F Scarano
+1.  Introduction
+The    particle    image    velocimetry    (PIV)    technique    has
+experienced a considerable progress over more than a decade
+and  is  still  considered  as  under  development.    Due  to  its
+increased reliability and accuracy the PIV technique has gained
+the reputation of a powerful and time-effective flow diagnostic
+method. It is currently employed as a measurement technique
+for the quantitative whole-field study of complex fluid flows
+and in several industrial applications.
+The growth of the PIV technique due to the improvement
+of  its  hardware  components  is  clear:    nanosecond  pulse
+duration and high-energy lasers, high-resolution and low-noise
+interline  transfer  CCD  captors,  fast  frame  grabbers,  etc  are
+among  the  major  factors  that  have  raised  the  quality  of  the
+illuminating and recording conditions (Riethmuller 2000).
+Nevertheless,    digital   image   analysis   methods   have
+an  undoubted  impact  on  the  performance  of  the  overall
+measurement technique and often such contribution is more
+difficult to quantify.
+On  such  a  basis  a  distinction  can  be  made  between
+two  specific  problems  to  be  solved  when  performing  a
+PIV  measurement.   At  first,  providing  the  experiment  with
+appropriate flow seeding as well as lighting and an accurate
+image recording mostly relies on the choice of the hardware
+configuration.      After  that,   analysing  the  recordings  and
+extracting  most  of  the  embedded  information  becomes  a
+problem of digital image analysis and depends on a specific
+algorithm implementation.
+The introduction of the PIV technique based on digital
+technology  opened  at  the  beginning  of  the  last  decade  a
+remarkable activity in the domain of digital analysis of seeded
+fluid motion (Utami and Ueno 1984, 1991).
+Initial  attempts  at  digital  particle  imaging  (Kimura  and
+Takamori  1986)  were  viewed  with  scepticism  due  to  the
+far lower spatial resolution with respect to the photographic
+technique, the argument being that the accuracy in the estimate
+of the displacement was basically given by half the pixel unit
+(Hesselink 1988).  This turned out to be too conservative and
+estimate of the correlation peak location by means of sub-pixel
+interpolation was demonstrated to considerably improve the
+accuracy, with errors as low as one-tenth of a pixel (Willert
+and Gharib 1991).
+However, early approaches to PIV image processing were
+mostly a reproduction of the optical interrogation technique
+based on Young’s fringe analysis (Cho 1989, Keane and Adrian
+1992).  The hardware optical correlation was coded with the
+spatial  auto-  and  cross-correlation  functions  via  numerical
+Fourier transform of the image intensity field.   At the same
+time it was demonstrated that it was possible to obtain, with
+relatively low resolution, digital images results comparable to
+those coming from photographic PIV (Westerweel 1993).
+Within   less   than   a   decade   the   literature   flourished
+with  investigations  focusing  on  digital  algorithms  for  PIV
+image  analysis  resulting  in  a  global  effort  directed  towards
+the  improvement  of  measurement  precision  and  reliability.
+A   further   demonstration   of   the   ongoing   development
+of   the   PIV   technique   is   the   organization   of   dedicated
+conferences  on  a  constant  basis  and  the  recent  worldwide
+co-operation/challenge  project  for  the  assessment  of  PIV
+performances (www.pivchallenge.org).
+As  an  indicator  of  the  performance  growth  it  can  be
+mentioned  that  from  the  earlier  methods  to  those  currently
+used,   the  spatial  resolution  collectively  improved  with  a
+reduction  of  the  interrogation  window  size  (in  pixels).    A
+typical  box  size  of  64  ×  64  pixels  or  larger,   in  use  at
+the  beginning  of  the  decade,  was  reduced  to  a  standard  of
+32 × 32  pixels,  or  even  to  less  than  10 × 10  pixels  under
+prescribed conditions (Hart 1998, 2000, Fincham and Delerce
+2000, Louren，
+co and Krothapalli 1998, Nogueira et al 2001).
+Moreover, the measurement uncertainty solely associated
+with    the    image    interrogation    procedure    was    reduced
+considerably from a typical value of one-tenth of a pixel to
+a few hundredths or even less (Westerweel 1997,  Lecordier
+1997,  Louren，
+co  1999,  Scarano  and  Riethmuller  1999  and
+others). Examples are shown in figure 1.
+Despite the recognized maturity of the cross-correlation-
+based methods, new investigations of the PIV image processing
+appear in the literature almost on a monthly basis, and often
+methods with a common mathematical background are given
+different names or sophisticated acronyms due to a different
+algorithmic implementation. The result is a misleading picture
+with an increasing variety of solutions to a common image-
+processing  problem.   It  is  therefore  important  to  attempt  to
+describe some of the common problems encountered in PIV
+image  analysis  with  traditional  tools  and,  as  a  counterpart,
+to  discuss  some  of  the  different  strategies  proposed  in  the
+literature as advanced methods.
+In  this  paper  we  discuss  correlation-based  algorithms
+under  the  common  denominator  of  the  image  matching
+problem. Finally, an image processing method that proposes an
+adaptive spatial resolution approach developed by the author is
+introduced (window deformation iterative multigrid adaptive
+resolution)  with  details  of  the  performance  assessment  and
+with a comparative analysis with predecessor methods.
+2.  Background
+The performance of the PIV technique can be assessed through
+the evaluation of quality parameters, namely the measurable
+velocity  dynamic  range  (umax    ?  umin)/umin   and  the  spa-
+tial  resolution  r.    The  velocity  gradient  dynamic  range
+(umax ? umin)/umin  is in most cases a direct result of the
+above two quantities (Louren，
+co and Krothapalli 1995).  The
+dynamic range of the velocity gradient is of interest per se since
+it describes important kinematic flow properties (e.g. vorticity,
+rate-of-strain, divergence) that drive fluid mechanics phenom-
+ena. The confidence level R is addressed as the most important
+parameter when discussing the measurement robustness.
+The  evaluation  of  the  particle  image  velocity  from  a
+digital pair of recordings is usually composed of two separate
+problems.    The  image  processing  returns  the  displacement
+(i.e. velocity) vector distribution from the particle image of
+the  recordings.    The  data  validation  detects  the  presence
+of  spurious  measurements  on  the  basis  of  selected  criteria
+such  as  correlation  signal-to-noise  ratio  S/N  (Keane  and
+Adrian 1992), local median thresholding (Westerweel 1994),
+correlation map symmetry (Rohaly et al 2000) among others.
+Often these two steps are kept separate and the data validation
+is performed only at the end of the evaluation.   However, it
+should be mentioned that with recursive methods that repeat
+R2
+Iterative image deformation methods in PIV
+Displacement [pixels]
+10-4
+10-3
+10-2
+10-1
+100
+101
+Displacement RMS error [pixels]
+162  px, basic cross-correlation
+162  px, discr. offset (WIDIM)
+162  px, sub-pixel offset
+322  px, basic cross-correlation
+322  px, discr. offset (WIDIM)
+322  px, sub-pixel offset
+0                             1                             2                             3
+Figure 1.  Left: performance comparison of the cross-correlation method, the local field correction (LFC) method (Nogueira et al 1999) and
+an iterative image distortion method (Jambunathan et al 1995). Right: performance of cross-correlation methods: basic cross-correlation;
+discrete window offset; iterative multigrid window deformation (Scarano and Riethmuller 2000).
+the image evaluation several times, image processing and data
+validation might mutually interact.
+The following part of the discussion focuses on the image-
+processing problem that aims at improving and assessing the
+velocity  measurement  precision.    Only  the  case  of  single-
+exposure  image  analysis  is  discussed  since  nowadays  this
+recording mode is properly supported by standard hardware
+in the majority of cases.
+It is common for researchers investigating new methods
+to compare their performance with a benchmark method.  In
+the  case  of  PIV  image  processing  the  reference  method  is
+the numerical cross-correlation function.  Its most important
+features are:
+? a rectangular region (interrogation window) is selected at
+a prescribed location on each recording;
+? the cross-correlation is performed over the two windows;
+? the location of maximum correlation is identified;
+? the sub-pixel estimate of the above location is obtained
+via local interpolation.
+Willert and Gharib (1991) proposed the use of a three-point
+Gaussian fit for the peak interpolation and this choice is still
+widely adopted.
+The normalized cross-correlation function reads as
+φfg (m, n) = 
+M
+i,j=1 f (i, j) g (i ? m, j ? n)
+√cov(f )cov(g)                   (2.1)
+where  f  and  g  denote  the  grey  intensity  distribution  over
+the  interrogation  areas  (with  mean  value  subtraction).   The
+denominator is the product of the image covariance over the
+respective interrogation windows.
+The  parameters  that  most  influence  the  measurement
+error ascribed to the recording process are the particle image
+diameter,   the  particle  image  density,   the  particle  image
+contrast, the out-of-plane displacement and the in-plane image
+deformation associated with the velocity gradient.
+Several authors have investigated the influence of these
+parameters on the measurement uncertainty (Keane and Adrian
+(1990), Westerweel (1993), Boillot and Prasad (1996), Raffel
+et al (1998) among others). Although discussion is still open on
+the subject there is general agreement concerning some points:
+Figure 2.  Instantaneous tracer pattern (the two exposures are added
+in order to visualize the particle displacement) and velocity
+distribution. The labelled squares indicate the interrogation window
+size (64 × 64 pixels).
+? The velocity dynamic range is limited due to the conflict
+between the interrogation window size and the in-plane
+displacement that causes ‘loss of pairs’ (Adrian 1991).
+? A velocity bias (systematic underestimation) occurs, due
+to the finite extent of the interrogation window, resulting
+into a trade-off between accuracy and spatial resolution
+(Westerweel 1993).
+? The  fractional  displacement  estimate  is  dependent  on
+the  peak  interpolation  function.     A  typical  form  of
+error  introduces  a  bias  towards  integer  values  of  the
+displacement bringing the measurement accuracy back to
+its ‘discrete nature’.  The phenomenon is thus referred to
+as ‘peak locking’ (Westerweel 1993, Louren，
+co 1996).
+? Peak locking error also occurs when the particles images
+R3
+F Scarano
+are sampled at a poor spatial resolution (particle image
+size smaller than two pixels).
+? vThe correlation peak signal drops in regions with a large
+elocity gradient. Loss of pairs is due to the particle image
+pattern deformation.
+? The  spatial  resolution  of  the  method  is  limited  by  the
+minimum number of particles in the interrogation window.
+These points are discussed below, qualitatively observing the
+behaviour of the correlation signal when critical conditions are
+met with respect to the mentioned problems.
+Figure 2 shows an example of a typical PIV experiment in a
+turbulent shear flow. The seeding density is relatively uniform
+and some spurious reflections occur close to the solid walls.
+Some conclusions can be drawn about the characteristics of
+the  correlation  signal  in  different  regions  of  the  flow.    In
+region A the fluid is practically at rest and the correlation map
+is expected to show a maximum located close to the origin and
+well distinguished from the noise (figure 3, left).
+At location B a significant loss of particle pairs occurs due
+to the in-plane displacement.  In fact, since the displacement
+is of about ten pixels and the window size is 64 × 64 pixels,
+the resulting matching area is reduced of about one-sixth. The
+resulting correlation signal is weaker (figure 3, right).
+When  dealing  with  the  highly  sheared  flow  at  C,  the
+deformation  of  the  particle  image  pattern  between  the  two
+exposures  becomes  critical:   the  correlation  peak  becomes
+broader and multiple peaks can occur in the direction where
+the velocity exhibits the larger variation along the interrogation
+window (figure 4, left).  This behaviour is undesirable since it
+leads to a higher measurement noise for those regions where
+interest is often focused, such as boundary layers, shear layers
+or vortices.
+Finally,  when  approaching  an  optical  interface  (most
+commonly a solid boundary as in region D) spurious reflections
+mask the particle image pattern. The resulting correlation map
+is affected by a noise pattern aligned in the same direction as
+the interface (figure 4, right).
+The  remainder  of  this  paper  focuses  on  the  third  case
+from the above example, namely the problem of correlating
+a particle image pattern that is deformed by a large velocity
+gradient.  Some concepts of kinematics and visual motion are
+first introduced, in order to then discuss different approaches
+to the problem proposed in the literature.
+3.  Cross-correlation image matching
+Consider  the  planar  motion  of  a  fluid  element  containing  a
+tracer  pattern  (figure  5).   The  spatio-temporal  evolution  of
+the tracers within the fluid element constitutes a succession of
+mappings that produce each image from the previous one. For
+each neighbourhood at time t1 the mapping can be expressed in
+terms of the local displacement d(x, y) of the neighbourhood
+at a location rthat produces the corresponding neighbourhood
+in the next image at time t2  in the sequence.
+The image flow velocity can be defined as the time rate
+of change u(x, y, t) (Horn and Schunk 1981) of the mapping
+displacement field d(x, y, t).
+As  was  anticipated,  most  PIV  interrogation  techniques
+rely on the cross-correlation function to determine the (image)
+flow velocity from particle image pairs.
+With a degree of generality, the application of this operator
+can be interpreted as an optimization process:
+max
+d    W  f (x, y) g (x + x, y + y) dx dy           (3.1)
+where d = (x, y) is the vector parameter to be determined
+that maximizes the correlation function between the functions
+g(x, y) and f (x, y). The formula yields under certain hypothe-
+ses the most probable tracer displacement over the ensemble of
+tracers that belong to the interrogation region W (Adrian 1991).
+For  an  image  pair  the  velocity  within  the  interrogation
+region is then approximated by the expression
+u ? t1  ?d
+t2 .                             (3.2)
+It  is  clear  that  equation  (3.1)  yields  an  exact  match  (unit
+correlation peak intensity) when the displacement is uniform
+across the interrogation window.
+A  higher  degree  of  generality  is  obtained  when  the
+optimization is performed considering the displacement spatial
+distribution
+max
+x,yW
+f (x, y) g[x + x (x, y) , y + y (x, y)] dx dy.
+(3.3)
+In this case the intensity distribution in the function g(x, y) is
+evaluated considering a displacement distribution that varies
+spatially over the interrogation window.
+The  implementation  of  such  a  method  implies  that  the
+two windows are subjected to a relative translation matching
+(performed by ordinary cross-correlation) and to the relative
+deformation.
+The  output  of  such  an  operator  depends  on  the  spatial
+distribution of the displacement over the interrogation window.
+When  the  imposed  spatial  distribution  of  the  displacement
+corresponds to the actual displacement field, the two images
+are expected to produce the maximum match.
+The displacement distribution over the finite interrogation
+region is estimated by means of a Taylor series:
+u (x, y) = u (x0, y0) + ∂∂u
+x  (x ? x0)
++∂u
+∂y  (y ? y0) + ・ ・ ・ +
+1
+2!
+∂2u
+∂x2  (x ? x0)
+2
++ ∂
+2u
+∂x∂y  (x ? x0) (y ? y0)
++∂
+2u
+∂y2  (y ? y0)
+2  + ・ ・ ・ + o (x ? x0)3                            (3.4)
+with
+x ∈ x0  ? 21 W, x0  + 21 W    and    y ∈ y0  ? 21 W, y0  + 21 W .
+In  the  above  expression  (x0,  y0)  denotes  the  centre  of  the
+interrogation window W.
+When the optimization described in equation (3.4) is im-
+plemented using the Taylor series to describe the displacement,
+the number of parameters that play a role in the optimization
+depend directly on the order of the truncated Taylor expan-
+sion. The number of parameters used in the optimization pro-
+cess increases with increasing order of the series expansion as
+discussed by Tokumaru and Dimotakis (1995).
+R4
+Iterative image deformation methods in PIV
+Figure 3.  Correlation map corresponding to region A (left) and B (right).
+Figure 4.  Correlation map corrresponding to region C (left, note the smaller vertical scale) and D (right).
+Table 1 summarizes the situation for the two-dimensional
+problem. The computational effort for the direct correlation is
+used as a reference and is given by N4  where N is the linear
+size in pixel of the correlation window.   It should be added
+that the computational cost for the case of p   1 is further
+increased by the necessary operation of image interpolation at
+sub-pixel locations, which is discussed later.  Considering the
+overall computational effort, it is clear that the method can be
+implemented only when the Taylor series is truncated at a low
+order.
+Several  methods  currently  adopted  follow  a  different
+approach  to  the  problem  of  higher-order  image  matching.
+If   an   estimate   of   the   displacement   field   is   available,
+for   instance   by   conventional   cross-correlation   analysis,
+then  such  a  result  can  be  used  to  apply  the  convection
+equation  to  the  scalar  intensity  field.   Then  the  subsequent
+interrogation  is  still  performed  via  cross-correlation,   but
+the  argument  functions  (the  particle  image  windows)  are
+selected   in   such   a   way   that   the   image   matching   is
+augmented.
+The two-dimensional cross-correlation can be rewritten as
+φfg (m, n) = 	
+M
+
+
+i,j=1
+f i + upt
+2    , j +
+vpt
+2    
+×g i ? m ? upt
+2    , j ? n ?
+vpt
+2     
+× cov(f )cov(g)?1                                                                  (3.5)
+where  up   and  vp   represent  the  components  of  the  spatial
+(image)  velocity  distribution  as  obtained  by  means  of  the
+previous image interrogation.
+It should be remarked that when the inserted up  and vp
+are the actual velocity components distribution,  then a peak
+will  appear  exactly  at  the  origin  of  the  correlation  map  of
+approximately unit value.
+3.1.  Building the predictor displacement field
+In  the  previous  discussion  the  Taylor  series  expansion  is
+hypothesized  to  locally  describe  the  displacement  function
+using  a  limited  number  of  parameters.     Figure  6  depicts
+the  effect  of  the  first  three  terms  of  the  Taylor  expansion
+R5
+F Scarano
+Table 1.  Parameters participating in the optimization procedure with increasing order of the series expansion.
+Truncation order     0             1                       2
+# Parameters (p)     2             6                       12
+Yield                        u, v        u, v, ux , uy ,     u, v, ux , uy , vx , vy
+vx , vy                     uxx , uxy , uyy , vxx , vxy , vyy
+# Computations       (N2)2        (N2)6                       (N2)12
+Figure 5.  Motion of a fluid element and tracers.
+0th  o rd er                    1st  o rd er                    2n d  o rd er
+Figure 6.  The effect of window deformation with a different
+truncation order of the displacement distribution.
+on  the  displacement  predictor,  and  therefore  on  the  relative
+transformation of the correlating window.
+Several methods are listed in the literature that make use
+of such a displacement prediction. It is possible to establish a
+classification depending on the order of the polynomial in the
+Taylor expansion.
+It  should  be  clear  that  the  ordinary  cross-correlation
+method  reduces  to  the  case  of  d(r)   =   0  everywhere,
+therefore no predictor displacement is applied a priori  when
+the correlation is computed.
+3.1.1.  Zero-order displacement predictor.     Two of the most
+popular interrogation methods fall into this category:
+(a)   One-step   direct   correlation   with   different   size   of   the
+interrogation  window  and  search  area.      The  algorithm  is
+described and performances are analysed in detail in several
+studies (Adrian 1998, 1991, Keane and Adrian 1990, Fincham
+and Spedding 1997, Westerweel 1997, 2000, Gui et al  2000,
+2001).  In this case the translation displacement is accounted
+for by the increased extent of the search area (figure 7) and
+the problem of loss of pairs due to in-plane motion is partially
+solved.  Among the advantages of the method are the simple
+implementation and reliability as well as the low computational
+cost.
+(b) Multi-step cross-correlation with a discrete window offset
+(Westerweel  et  al  1997).      The  displacement  prediction  is
+obtained by a conventional cross-correlation analysis and the
+result is applied uniformly to shift the interrogation windows
+Figure 7.  Correlation window and search area (from Fincham and
+Spedding (1997)).
+one  with  respect  to  the  other.     The  method  significantly
+improves the performances of ordinary cross-correlation with
+a  higher  S/N  and  a  higher  measurement  precision.     An
+additional  advantage  of  the  method  is  its  suitability  for  the
+multigrid implementation (Scarano and Riethmuller 1999) that
+allows one to improve the spatial resolution.
+It  is  important  to  remark  that  applying  a  symmetric
+window shift with respect to the interrogation location results
+in  a  central  difference  interrogation  (CDI)  (Wereley  and
+Meinhart 2000); see figure 8. Compared with the usual forward
+shift  interrogation  (FDI),  such  a  scheme  has  the  advantage
+of  being  second-order  time  accurate,  and  therefore  yields  a
+considerable  improvement  when  a  large  time  delay  occurs
+between exposures.
+Therefore, the result of the correlation of the two windows
+should be located on the mean position between the centre of
+the interrogation window and that of the search window. This
+method also has a relatively low computational cost which is
+comparable to that of ordinary correlation (multiplied by the
+number of iterations).
+In terms of image deformation,  the above two methods
+apply piecewise uniform displacement prediction to the whole
+particle image recordings.
+(c) Multi-step iterative sub-pixel window offset.     This method
+is  a  variation  of  the  previously  mentioned  ones  in  that  the
+value of the displacement predictor is not limited to integer
+numbers.     As  a  dramatic  consequence,   when  displacing
+the  interrogation  windows,  the  image  intensity  is  required
+at  intermediate  locations  between  pixels.     Therefore,   an
+image  interpolation  procedure  must  be  applied  in  order  to
+retrieve the light intensity at those locations pointed to by the
+displacement  predictor.   The  method  claims  a  considerable
+improvement in precision and accuracy with an error level of
+the  order  of  10?2  pixels,  as  assessed  with  synthetic  images
+(Lecordier 1997). The image interpolation scheme becomes a
+R6
+Iterative image deformation methods in PIV
+x
+y
+(b)
+(b')
+d
+(b’)
+(a’)
+Interrogation. location
+d
+Figure 8.  Window shift method with FDI (left) and with CDI (right). Piecewise uniform displacement predictor distribution.
+x
+y
+x
+y
+(a)
+d
+t0                                                                                              t0+?t
+(b)                                     (b')
+Figure 9.  Schematic illustration of the image transformation due to
+linear in-plane motion. Particles follow the mean displacement d
+(translation) and the local displacement gradient.
+crucial aspect in such a procedure and it must be consistent
+with  signal  theory.    Suitable  schemes  must  be  adopted  so
+as  to  avoid  or  minimize  image  degradation  or  signal  loss
+(Niblack  1986).     Common  choices  are  multidimensional
+polinomial interpolation (bilinear biquadratic, bicubic splines)
+and regression formulae such as least-squares biquadratic.
+3.1.2.           Linear    displacement    predictor.         When    the
+displacement  distribution  is  obtained  after  a  first  image
+interrogation,    the    continuous    displacement    distribution
+(piecewise linear) can be estimated using a two-dimensional
+linear interpolation with respect to the interrogation grid points
+(figure 9).
+Huang  et   al   (1993b)  contributed  to  the  development
+of  such  an  approach,  proposing  the  particle  pattern  image
+distortion   (PID)   technique.        The   major   goal   of   the
+technique   was   that   of   maximizing   the   effective   particle
+image  pattern  (PIP)  matching  during  the  cross-correlation
+analysis.    As  a  result,  the  technique  brought  a  significant
+improvement,  enlarging  the  vorticity  dynamic  range  with
+respect to conventional cross-correlation.  The work is widely
+referred to in subsequent literature studies that followed similar
+approaches.   The  authors  showed  that  the  distortion  of  the
+interrogation window allowed the measurement of the particle
+image displacement over a larger range of the velocity gradient
+with  respect  to  the  traditional  correlation.    The  maximum
+velocity  gradient  measured  was  55.3  s?1   (1.1  pixel/pixel
+deformation rate) compared with 15 s?1  (0.5 pixel/pixel) from
+Willert and Gharib (1991). However, the analysis of synthetic
+images of a simulated Oseen vortex yielded a measurement
+uncertainty  of  about  0.25  pixels,  which  is  relatively  high,
+presumably due to the low-accuracy centroid scheme used for
+the determination of the correlation peak sub-pixel location.
+The  results  obtained  on  a  water  flow  past  a  backward-
+facing step (Reh  = 4000) with a comparison of PIV and the
+PIP method are reported in figure 10.   Clearly it is possible
+to enlarge the range of the measurable velocity gradient.  The
+effectiveness of the image distortion procedure is proven by
+the higher S/N level (consequently a lower yield of spurious
+vectors) in the highly sheared/vortical region downstream of
+the separation point.  In comparison, the conventional cross-
+correlation for a given choice of the S/N threshold fails in the
+region of higher vorticity.
+However,   the  method  was  implemented  with  a  high
+computational cost since there was a high resolution associated
+with  the  dense  data  spacing  obtained  by  means  of  a  large
+overlap between adjacent windows.
+Moreover,   a   relatively   simple   image   reconstruction
+scheme (bilinear interpolation) and the sub-pixel correlation
+peak  fit  (centroid)  are  considered  inaccurate  for  the  image
+resampling  and  for  the  correlation  peak  location  estimate,
+as  was  demonstrated  in  later  studies  (Westerweel  1993,
+Louren，
+co  1996).   Therefore,  the  above  implementation  did
+not completely succeed in exploiting the benefit of the image
+deformation philosophy in terms of measurement precision.
+A method similar to PID was proposed by Jambunathan
+et al (1995) who also evaluated the method’s performance by
+means of synthetic PIV images with a known particle image
+displacement.
+The  choice  of  the  displacement  distribution  to  test  the
+method  performance  was  made  on  the  basis  of  physical
+considerations;  namely,  the  Helmoltz  velocity  theory  was
+invoked that divides the movement of a fluid element into three
+subsidiary terms:
+V (r) = V0  + 21 V δr + ∇φ                  (3.6)
+where V (r) is the velocity distribution across the fluid element.
+The  three  terms  in  the  right-hand  side  of  the  equation  are
+translation, rotation and bi-axial shear, respectively.
+The  two  most  important  outcomes  were  that  (a)  the
+measurement accuracy can be improved from a factor of 2 to
+5 using the image deformation method and (b) the correlation
+peak height is weakly dependent of the in-plane displacement
+distribution.
+The  assessment  of  the  method  returned  a  measurement
+error  level  of  only  0.02  pixels  on  synthetic  particle  images
+with a uniform displacement.  Although much emphasis was
+given to the pattern matching algorithm, the image re-sampling
+process  was  performed  with  a  bilinear  interpolation,  which
+has  a  relatively  low  accuracy  compared  with  higher-order
+interpolation schemes.
+R7
+F Scarano
+Figure 10.  Comparison between results as obtained with the conventional (left) and the PID technique (right) for the measurement of the
+water flow downstream of a backward-facing step (Huang et al 1993).
+A   method   referred   to   as   window   (displacement)
+deformation iterative multigrid (WIDIM) has been proposed
+by the author on the trend-line of the PID method.   Several
+points of improvement were exploited concerning the accuracy
+of the correlation sub-pixel interpolation (three-point Gaussian
+fit)  and  the  image  interpolation  scheme  (two-dimensional
+cardinal interpolation formula with Whittaker reconstruction
+(Pratt 1978)).   Moreover,  the method demonstrated that the
+image  distortion  technique  could  be  successfully  combined
+with  multigrid  interrogation  with  the  progressive  window
+refinement method.  The method’s performance was assessed
+by means of synthetic PIV images.  The results showed that
+an error level below 10?2  pixels could be obtained. A detailed
+description of the results is provided in the remainder of this
+paper.
+3.2.  Higher-order methods
+Tokumaru and Dimotakis (1995) investigated an image anal-
+ysis  technique  referred  to  as  correlation  image  velocime-
+try (CIV). The authors adopted a method that utilizes the con-
+cepts of domain transformation defined on the basis of the im-
+age flow mapping with correlation.  The global optimization
+process that relies on the minimization (in a least-square sense)
+of a Lagrangian operator properly defined was implemented.
+The expression of the optimization process reads as
+min
+ξ(x,t0), ξ(x,t1)V  {
+c1[ξ (x, t1)] ? c0[ξ (x, t0)]}2  + σ2 d2x.
+(3.7)
+An appropriate choice of the smoothing function, σ2 is needed.
+Here   ξ(x, t0)  and   ξ(x, t1)  represent   the   Lagrangian
+displacement field at two subsequent time instants while c(ξ) is
+the transported  scalar field.  The present method restricts the
+form of the displacement field to a truncated (Taylor) series
+approximation (equation (3.4)).  As previously remarked, the
+higher the order of the approximating series the larger is the
+number of parameters to be considered in the optimization, and
+therefore the computational cost increases exponentially with
+the series order.
+The  validity  of  such  a  method  was  assessed  in  the
+application   to   laboratory   flows   (Couette   flow   between
+concentric cylinders, cylinder-wake flow (figure 11)) as well
+as atmospheric flows (Voyager images of Jupiter).
+Such  an  interrogation  method  is  conceived  to  perform
+a  global  optimization  of  the  correlation  coefficient  in  a
+multidimensional  space  where  not  only  the  displacement
+component are considered as optimization parameters but also
+the local spatial derivatives of the displacement.
+The CIV technique lists several advantages with respect to
+a basic correlation method: (a) a multi-dimensional correlation
+function  locally  estimates  the  velocity  and  the  deformation
+rate, (b) the method is suitable for the analysis of a generic
+tracer  motion  and  the  tracer  pattern  does  not  need  to  be  of
+particle  type  as  is  common  in  PIV  and  (c)  a  higher  spatial
+resolution can be achieved since the velocity derivatives and
+the associated relevant flow quantities (vorticity,  strain-rate,
+divergence)  are  measured  at  each  independent  interrogation
+spot.     In  comparison,   ordinary  cross-correlation  analysis
+requires  the  velocity  derivatives  to  be  estimated  by  finite
+differences of the velocity data evaluated at neighbouring grid
+locations. However, a detailed assessment of the CIV method
+has not been performed.
+A  recent  study  (Ruan  et  al  2001)  proposes  to  perform
+the  optimization  process  previously  described  at  a  lower
+computational  cost  by  means  of  local  rather  than  global
+optimization. The method is referred to as direct measurement
+of  vorticity  (DMV)  and  performs  the  direct  evaluation  of
+the  vorticity  from  the  analysis  of  the  image  flow  rotation.
+The vorticity is associated to the PIP rotation, therefore after
+the polar coordinates transform,  the cross-correlation of the
+transformed  PIP  yields  directly  the  local  rate  of  rotation.
+Figure  12  shows  the  PIP  in  the  physical  x?y  plane  and  its
+mapped  counterpart  MPIP  after  the  transformation  in  polar
+coordinates r??. A rotation in the x?y plane corresponds to a
+simple translation in polar coordinates, which can be evaluated
+applying the cross-correlation operator.
+The main advantages of the method are a higher spatial
+resolution and the de-coupling of the measurement error of
+velocity and vorticity.  In fact, small errors on the velocity do
+not directly affect the evaluation of the vorticity.
+The  performance  assessment  on  synthetic  images  of
+an Oseen-vortex displacement distribution yielded promising
+results  with  a  noise  level  of  the  DMV  method  comparable
+to  that  coming  from  conventional  PIV  results  and  finite
+differences.
+Fincham and Delerce (1999) proposed an advanced CIV
+technique. The method called peak anti-aliasing spline trans-
+formed interrogation scheme (PASTIS) was conceived in par-
+ticular  to  minimize  peak  locking  effects.   The  scheme  was
+based on a small interrogation region to be correlated with a
+R8
+Iterative image deformation methods in PIV
+Figure 11.  Cylinder-wake flow. (a) Initial placement of series expansion neighbourhood, each square denotes a control volume;
+(b) displacement of grid after 100 ms, estimated using the nonlinear correlation process; (c) displacement of centres of grid over 100 ms
+(Tokumaru and Dimotakis 1995).
+y
+r
+x
+(0, r0)
+(0,0)
+(r0, ?0)
+?
+Figure 12.  A PIP in x?y plane (left), and its mapped pattern MPIP
+in r?? plane (Ruan et al 2001).
+larger search area.  After each iteration a progressive refine-
+ment of the spatial resolution is applied.   The displacement
+field distribution is estimated with an earlier interrogation from
+which the image transformation is applied such that the search
+box  is  centred  on  the  predicted  location  prior  to  evaluating
+again the residual displacement by correlation.  The distorted
+image is reconstructed by means of a two-dimensional spline
+scheme.
+The  method  shows  interesting  performances  (assessed
+with synthetic images of known displacement distribution) in
+terms of spatial resolution, and dynamic range of velocity and
+vorticity.
+The  authors  report  that  most  of  the  RMS  error  in  the
+basic algorithm is due to the deformation of the continuum.
+The uncertainty level is drastically reduced when the image
+distortion  is  applied,  as  shown  in  figure  13.   Conversely,  it
+seems evident that most of the peak locking error linked to the
+pixelization of the images is compensated when the latter are
+treated with a fractional offset procedure.
+A  performance  assessment  with  synthetic  images  of  a
+DNS flow field was also proposed, showing the global impact
+of the method on the measurement in turbulent flows. Clearly,
+the measurement precision benefits from the introduction of
+the continuous domain transformation, as shown in figure 14.
+Quenot   et   al    (1998)   proposed   an   approach   based
+on    orthogonal    dynamic    programming    (ODP).    Optical
+flow  computation  consists  of  evaluating  the  displacement
+distribution  from  a  sequence  of  images  on  the  assumption
+that the image intensity is conserved during the motion.  The
+technique  introduced  by  Quenot  (1992)  as  the  orthogonal
+dynamic  programming  (ODP-PIV)  algorithm  represents  an
+extension  of  the  technique  for  the  detection  of  sub-pixel
+displacements from a pair of single-exposure PIV recordings.
+The  DP  algorithm  that  performs  image  strip  matching  was
+derived from a speech recognition algorithm where segments
+of  a  speech  signal  are  transformed  into  a  two-dimensional
+(time?frequency) strip representation.
+Instead   of   the   square   interrogation   boxes   used   in
+conventional  cross-correlation  analysis,   the  ODP  method
+performs the matching by strip-to-strip comparison between
+the  two  images.    The  images  are  sliced  into  parallel  and
+overlapping  strips  (figure  15).     Corresponding  strips  are
+aligned and the matching is performed minimizing the relative
+Minkowsky  distance  (in  the  present  case  L1)  between  the
+strips.   A  global  image  matching  constraint  is  applied  that
+enhances the methods robustness.  Performing several passes
+with  orthogonal  slicing  directions  solves  the  problem  of
+matching two-dimensional image strips.
+Several advantages are reported in such an approach with
+respect to the cross-correlation method:  (a) the interrogation
+returns  a  dense  displacement  field  (it  is  possible  to  obtain
+the  displacement  at  each  single  pixel);  (b)  the  method  is
+suitable  to  analyse  sequences  of  more  than  two  images;
+(c)  the  global  image  matching  is  performed  that  enforces
+data continuity yielding a more robust measurement; (d) local
+correlation is iterated over regions at high velocity, improving
+the measurement accuracy.
+The results of the analysis on synthetic PIV images report
+of error level of 0.5 pixels for an image pair and of 0.2 pixels
+for four images.
+Lin   and   Perlin   (1998)   applied   the   concept   of   sub-
+pattern  (smaller  than  the  interrogation  window)  analysis  to
+the  interrogation  of  PIV  recordings  with  a  large  velocity
+gradient.  Although iterative methods showed that significant
+improvements can be achieved in terms of spatial resolution
+and  accuracy,  nevertheless  most  of  them  relied  on  a  proper
+displacement  field  estimate  to  be  obtained  by  means  of
+conventional cross-correlation.
+When the velocity gradient is larger than allowed for in
+the first interrogation (e.g. when dealing with a boundary layer
+flow), then a proper velocity and velocity gradient estimate will
+not be available in that region and the first-step interrogation
+will not provide for a suitable predictor.  As a consequence,
+the  whole  iterative  method  will  not  progress  towards  the
+measurement over the specified region.
+R9
+F Scarano
+0.10
+Mean bias error (peak-locking)
+RMS error around mean
+True rms error
+Mean bias error (peak-locking)
+RMS error around mean
+True rms error
+0.08
+0.06
+0.04
+0.02
+0.00
+? 0.02
+? 0.04
+? 0.06
+? 0.08
+? 0.10
+? 0.50         ? 0.25           0.00            0.25           0.50                  ? 0.50          ? 0.25          0.00            0.25            0.50
+0.015
+0.010
+0.005
+0.000
+? 0.005
+? 0.010
+? 0.015
+Fractional displacement (pixels)                                              Actual fractional displacement (pixels)
+E (pixels)
+E (pixels)
+Figure 13.  Error as a function of the actual fractional displacement for CIV algorithms. (Left) Basic CIV; (right) CIV with PASTIS and
+deformation. Remark: vertical axes have different scales (Fincham and Delerce 2000).
+Figure 14.  Vorticity field from DNS particle simulation. Left: actual vorticity; centre: standard CIV analysis (10242  pixels image, 152  pixels
+windows); right: CIV analysis with PASTIS and deformation (Fincham and Delerce 2000).
+End line
+m                                              i
+0
+0
+Strip 1                  Strip 2
+Strip 3
+Image 0 strip k
+Strip k of image 0
+Strip k of image 1
+Image 1 strip k
+p
+p
+j
+1
+1
+Begin line
+Figure 15.  Dynamic programming. Image strips (top left); strip alignment (bottom left); image strips and the matching path (right).
+As  discussed  by  Keane  and  Adrian  (1990)  and  Keane
+et al  (1995) some criteria have to be fulfilled to optimize the
+interrogation  of  a  velocity  field  by  correlation  analysis.   In
+particular, a minimum number of particle images (at least 12)
+must be present in the interrogation window (image density).
+At  the  same  time,  the  maximum  velocity  gradient  has  a
+maximum value given by
+∂∂u
+x t <
+d
+D                            (3.8)
+where t is the time separation between the two exposures, D
+is the window size and d is the mean particle image diameter.
+Finally, the one-quarter rule is suggested to limit the loss
+of pairs due to in-plane motion.
+Often one or more of the above criteria cannot be satisfied
+in certain flow regions because the minimum window size (with
+respect to the minimum number of particle images) is too large
+with respect to the constraint on the velocity gradient. Thus, the
+iterative process fails at its start and never converges. The sub-
+pattern interrogation method proposed by Lin and Perlin makes
+use  of  sub-interrogation  windows  smaller  than  the  original
+interrogation window, circumventing the difficulty in fulfilling
+the optimality criteria.
+R10
+Iterative image deformation methods in PIV
+The method combines the information obtained from the
+analysis  at  sub-pattern  level  to  extract  a  suitable  prediction
+of the velocity gradient within the entire correlation window
+(figure  16).   The  prediction  is  therefore  given  as  the  linear
+image  distortion.    The  performance  assessment  made  with
+synthetic images shows that the restriction on large velocity
+gradient is significantly relaxed as compared with conventional
+cross-correlation.
+4.  Sub-pixel interpolation
+4.1.  Particle image sub-pixel interpolation
+PIV  interrogation  methods  that  employ  a  continuous  image
+displacement   distribution   require   an   image   re-sampling
+process that yields the image intensity at intermediate locations
+between the pixel array.
+It has to be remarked that the image re-sampling process
+is  a  crucial  step  for  the  appropriate  reconstruction  of  the
+image  signal  (Pratt  1978).     A  variety  of  interpolation  or
+regression  methods  that  may  be  applied  from  the  simplest
+linear interpolation to more refined schemes. A suitable image
+interpolation method should avoid loss of information in the
+re-sampling process.
+In  the  present  discussion  several  schemes  have  been
+introduced.  However, one should bear in mind that the PIV
+image signal spectrum has a major component on the high-
+frequency  side.    Therefore,  the  adopted  scheme  requires  a
+spectral  response  that  respects  the  constraints  coming  from
+sampling theory, i.e. the Nyquist criterion.
+Two-dimensional linear interpolation is therefore inappro-
+priate  and  higher-order  polynomial  forms  are  preferred,  al-
+though they require a larger computational cost.
+The cardinal function interpolation formula (Hall 1979)
+fulfils the above prerequisite:
+R (x, y) =
+i=+∞
+i 
+
+=?∞
+j=?∞
+j
+
+=?∞
+f (i, j)
+×sin [π (i ? x)]
+π (i ? x)
+sin [π (j ? y)]
+π (j ? y)    .                            (4.1)
+Here, R(x, y) represents the image intensity retrieved at a sub-
+pixel  location  ([x, y]  ∈  ?2) from  the  discrete  image  array
+f (i, j).   From the image sampling theory this interpolation
+allows reconstruction of the image without loss of information
+if the original signal (image) has been sampled according to
+the Nyquist criterion.
+Clearly,  the  reconstruction  scheme  cannot  be  applied
+following the above equation since the sinc function continues
+to both positive and negative infinity. Therefore, only a limited
+number of neighbouring pixels are considered, resulting in a
+truncated-sinc  filter  kernel  and  the  summation  is  computed
+over M + 1 points in each direction. The computational effort
+for the image interpolation increases with the square of M and it
+can be fairly intensive when M > 6.  However, the truncated-
+sinc  filter  response  shows  excessive  ripple  in  the  pass-band
+(Gibbs effect) resulting from the abrupt discontinuity at the
+ends of the truncated sinc function.
+A simple method of improving the response consists in
+the multiplication of the truncated-sinc by a Hamming or a
+Blackman window (Niblack 1986).  The idea is to reduce the
+(a)                               (b)                               (c)
+(d )                              (e)                               ( f )
+Figure 16.  Step-by-step results of the sub-pattern PIV procedure.
+(a) Interrogation window (large square) and sub-pattern windows;
+(b) candidate set of displacement vectors (small squares) and related
+interrogation window deformation; (c) sub-pattern ‘2’
+cross-correlation map; (d) full-size distorted interrogation window;
+(e) different choice of sub-pattern windows for further iterations;
+(f ) cross-correlation signal after window distortion.
+abruptness of the truncated ends.  When the truncated-sinc is
+windowed by a smooth function, a smooth frequency response
+is returned:
+w (i) = 0.54 ? 0.46 cos (2πi/M)
+(1D Hamming window)
+w (i) = 0.42 ? 0.5 cos (2πi/M) + 0.08 cos (4πi/M)
+(1D Blackman window).
+(4.2)
+4.2.  Correlation peak sub-pixel interpolation
+Since the precision of the measurement is directly linked to
+that  of  the  peak  location  in  the  correlation  map,  it  is  clear
+that  the  structure  of  the  correlation  map  as  a  whole  and  in
+particular that of the peak were the subject of well-focused
+studies.   Since the introduction of peak fitting functions for
+sub-pixel displacement estimates (Willert and Gharib 1991), a
+number of anomalies were progressively found from analytical
+and  numerical  studies  concerned  with  the  accuracy  of  the
+fractional displacement estimators.
+The  three  most  frequently  reported  peak  interpolation
+or  fitting  schemes  are  the  centroid,  parabolic  and  Gaussian
+(based  on  a  three-by-three  pixels  kernel).     The  accuracy
+of  the  fractional  displacement  estimate  associated  with  the
+above schemes has been widely studied and detailed results
+from theoretical and numerical investigations were given by
+Westerweel  (1993),  Louren，
+co  (1996),  Raffel  et  al  (1998),
+Nogueira et al (1999) among others.
+More sophisticated schemes that involve two-dimensional
+interpolation or convolution reconstruction were also widely
+investigated (Ronnerberger et al 1998, Louren，
+co 1999, Sugii
+et al 2000).  In some cases it appeared that the existing forms
+of  systematic  error  of  the  fractional  displacement  initially
+ascribed to an improper peak fit method were to be found in
+the structure of the discrete correlation map itself (Westerweel
+1997, Fincham and Delerce 2000).
+R11
+F Scarano
+-0.4          -0.2             0              0.2            0.4
+Fractional displacement [pixels]
+-0.4
+-0.2
+0
+0.2
+0.4
+Fractional error [pixels]
+no interp.
+Centroid
+Parabolic
+Gaussian
+Figure 17.  Tracking error ε??ε for common peak-fit functions and
+for the closest integer estimate (no interpolation). Vertical lines
+indicate the typical RMS uncertainty of cross-correlation analysis.
+Commonly it was found that for cross-correlation analysis
+a  main  bias  term  underestimates  the  displacement  with  a
+periodic behaviour of one pixel wavelength.  It was clear that
+the  source  of  this  kind  of  error  must  be  sought  for  in  the
+image  pixelization  and  in  the  consequent  discrete  nature  of
+the correlation signal.
+Several arguments help clarify the periodic error of one
+pixel  wavelength  that  occurs  when  we  try  to  recover  sub-
+pixel information from the correlation table.  As discussed by
+Westerweel (1993), for a typical choice of the peak fit function
+(three-point Gaussian) the fractional error pattern resembles
+that outlined in figure 17 where the centroid and the parabolic
+scheme are also plotted for comparison.
+In  this  example,  the  Gaussian  scheme  shows  the  best
+performance.  This result is confirmed by several authors and
+implicitly supported by the broad application of the Gaussian
+scheme in the research community.
+Independently  of  the  interpolating  function,  the  error
+vanishes when the fractional displacement approaches zero. If
+no interpolation scheme is used, the error equals the fractional
+displacement, thus it is maximized at ±0.5 pixels. In this case
+the displacement values are locked  at integer values because
+the returned domain is given by the integer numbers.
+Adopting an interpolation scheme still shows a bias of the
+displacement estimate towards integer values.   In particular,
+the effects are visible when field quantities such as vorticity
+or rate of strain are displayed which amplify the measurement
+noise.  Although the peak locking effect occurs with a regular
+pattern, it is not possible to remove it a posteriori, subtracting
+it from the measured value. In fact, the unknown phase of the
+error is embedded into the random noise.
+The above problem can be properly treated with methods
+that try to compensate for this form of error.
+If  the  exact  particle  displacement  is  known,   then  a
+local  shift  can  be  applied  between  the  correlating  areas
+before evaluating the correlation.  Therefore a zero fractional
+displacement is obtained and the associated bias error vanishes.
+However, since the actual particle image displacement is not
+known  a  priori,  only  a  prediction  can  be  assumed  to  be
+available from a previous interrogation.  Thus, the behaviour
+of the displacement estimate should be investigated when a
+relative offset is applied between the two correlating windows
+with the precision of a displacement predictor.   Assessment
+of  cross-correlation  performances  widely  reported  in  the
+literature  (Huang  et   al   1997,   Raffel  et   al   1998)  over  a
+wide  range  of  simulation  parameters  shows  that  in  typical
+conditions  (32 × 32  pixel  window,  five  pixel  displacement,
+ten particle/window, moderate gradient) the RMS error εr does
+not exceed one-tenth of a pixel.
+The   improvement   in   accuracy   can   be   estimated   by
+comparing the error due to the periodic bias (peak  locking)
+effect with discrete window offset and that associated with a
+sub-pixel window offset method.
+The fractional displacement can be modelled as a variable
+with  uniform  distribution  between  +0.5  and  ?0.5,  thus  the
+RMS tracking error εb′  is defined as follows:
+εb′  ≡ 
++1/2
+?1/2
+(ε? ? ε)2 dε.                    (4.3)
+For the Gaussian peak-fit εb′  = 0.062.  After the application
+of  the  sub-pixel  window  offset  it  can  be  assumed  that  the
+residual displacement is a statistical variable with zero mean
+and  uniform  distribution  with  an  amplitude  given  by  εb′.
+Consequently, the expression of the residual peak locking bias
+in the case of sub-pixel window offset becomes
+εb′? ≡ 21
+εr 
++εb′
+?εb′
+(ε? ? ε)2 dε.                 (4.4)
+Thus, depending on the RMS uncertainty, this form of error
+can be reduced significantly, while its upper limit is given by
+the peak locking error given by the discrete window offset. For
+the Gaussian peak fit, εb′? = 0.011.
+According to this model procedure the bias error on the
+displacement estimate becomes negligible in comparison with
+the random error.
+Algorithms that use such a technique imply that the image
+has  to  be  reconstructed  in  order  to  retrieve  the  grey-level
+intensity at fractional locations.
+Among  the  works  that  proposed  the  fractional  window
+offset  is  that  of  Lecordier  (1997),  which  also  reorients  the
+interrogation  windows  to  minimize  the  velocity  difference
+due  to  the  velocity  gradient.     Results  were  shown  from
+simulated  PIV  images  reporting  RMS  uncertainties  of  the
+order of 10?2  pixel.  However, the computational load of the
+method is significantly increased due to two factors:  (1) the
+interrogation  was  performed  multiple  times  since  several
+iterations  are  performed  for  the  result  to  converge;  (2)  the
+image   reconstruction   by   interpolation   is   computationally
+intensive.
+5.  Spatial resolution
+The spatial resolution of the interrogation method is clearly
+related to the minimum size of the correlation window (Keane
+et  al   1995)  that  can  be  used  in  the  image  interrogation.
+Decreasing  the  size  of  the  interrogation  spot  is  known  to
+be  a  common  procedure  to  improve  the  spatial  resolution.
+R12
+Iterative image deformation methods in PIV
+However,  it  is  well  known  that  by  decreasing  the  number
+of particle images per interrogation window (image density),
+the  amount  of  information  is  also  reduced  and  the  result  is
+more susceptible to both random correlation peaks (lower S/N,
+Keane and Adrian 1990, Prasad et al 1992) and random errors
+in the sub-pixel peak interpolation.
+Larger interrogation windows are more robust and when
+the  velocity  gradient  is  sufficiently  small  they  can  provide
+very  accurate  sub-pixel  displacements.   However,  when  the
+length  scale  of  the  velocity  fluctuations  is  smaller  than  the
+interrogation window the interrogation performs poorly.
+Since the size of the interrogation window is limited by
+the particle average spacing, a high seeding density is desirable
+to attain a lower spatial wavelength cut-off.
+The spatial response of the cross-correlation is similar to
+that of a spatial low-pass filter with top-hat distribution.  For
+such a linear filter it is possible to define a modulation transfer
+function  (Willert  and  Gharib  1991).   The  latter  assumption
+was  verified  using  synthetic  PIV  images  with  sinusoidal
+displacement distribution (Scarano and Riethmuller 2000a) as
+it is shown in figure 21.
+Clearly,  a  faithful  reconstruction  of  the  velocity  spatial
+fluctuations  can  be  obtained  when  the  window  size  does
+not  exceed  20%  of  the  spatial  wavelength  of  the  velocity
+distribution. Conversely, it is remarkable that a window size of
+only half the spatial wavelength returns a signal that is reduced
+to 60% of the original peak.
+In  several  cases  it  is  often  unclear  whether  it  is  more
+important  to  resolve  the  small  flow  scales  at  the  cost  of  an
+increased  measurement  noise  or  to  obtain  a  low-pass  flow
+representation with a higher smoothness.  In the first case the
+data set is not directly suitable for differentiation and low-pass
+filtering will be needed anyway.
+Further suggestions to improve the spatial resolution have
+been proposed in the literature, namely hybrid methods that
+combine  the  robust  pattern  matching  capability  of  cross-
+correlation together with the large data/particle yield, which
+is typical of individual particle tracking techniques.  Such an
+approach proposed by Keane et al  (1995) under the name of
+super-resolution PIV has led to several developments (Cowen
+and  Monismith  1996,   van  der  Plas  and  Bastiaans  1998,
+Ishikawa et  al  2000, Takehara et  al  2000, Wernet 2001 and
+others).   However,  the  PTV  technique  and  related  methods
+will not be discussed in the present context.
+Among the super-resolution methods, sub-pattern interro-
+gation can also be mentioned (Lin and Perlin 1998, Nogueira
+et al 2001, Louren，
+co and Krothapalli 1998).
+6.  An iterative image deformation interrogation
+algorithm
+The remainder of this paper describes in detail the practical
+implementation  of  the  WIDIM  iterative  image  distortion
+interrogation algorithm (Scarano and Riethmuller 1998).
+The technique is based on the PID methodology proposed
+by Huang et  al  (1993) and is implemented as a hierarchical
+scheme that allows a progressive refinement of the window
+size. As a result, the method progressively compensates for the
+in-plane flow motion at smaller scale iteration after iteration.
+The  application  of  hierarchical  schemes  for  the  multi-
+resolution  analysis  of  PIV  images  is  currently  widespread
+and   although   different   approaches   are   proposed   for   its
+implementation,   there   is   a   general   agreement   about   its
+effectiveness (Kumar and Banerjee 1998, Fincham and Delerce
+2000, Nogueira et al 2000).
+A brief description of the basic principle of the method is
+as follows:
+(1)  The  PIV  images  are  interrogated  with  a  basic  cross-
+correlation  method  with  a  relatively  coarse  grid.    The
+window size is chosen so as to fulfil the basic interrogation
+criteria such as the one-quarter rule. Results are validated
+so as to not include spurious data in further steps.
+(2)  The result of the correlation is used to build a predictor
+displacement field over all the image pixels.  A bilinear
+interpolation is used for this purpose.
+(3)  The two images are deformed according to the predictor
+spatial distribution.   Since both the images compensate
+for half of the displacement, the measurement is centred
+on  the  original  pixel  location,  resulting  in  a  second-
+order accurate estimate of the displacement.  The image
+deformation involves the re-sampling of the pixel values
+at  intermediate  locations,  therefore  an  interpolation  is
+applied (cardinal function interpolation formula).
+(4)  The interrogation window size is reduced according to a
+pre-defined refinement step.
+(5)  The images are interrogated, yielding a displacement field
+with a finer resolution.
+(6)  The velocity result is validated with respect to prescribed
+criteria.
+(7)  The  validated  velocity  distribution  is  then  used  as  a
+final  output  or  as  an  iterative  input  to  point  (2).    The
+interrogation  process  is  repeated  until  a  convergence
+criterion is satisfied.
+6.1.  Performance assessment
+To  assess  in  detail  the  performance  of  the  algorithm  a
+systematic analysis was carried out by means of a reference
+particle image displacement field applied to synthetic particle
+images.    Particles’  light  imaging  and  tracers’  motion  were
+simulated  to  build  benchmark  PIV  images.   Different  types
+of   displacement   distribution   were   investigated:     uniform
+translation,  uniform  shear  and  sinusoidal  displacement.    A
+detailed description of the simulation is given in Scarano and
+Riethmuller (2000).
+Particle images with a Gaussian profile were artificially
+generated  at  locations  randomly  distributed  in  space.    The
+pixel  intensity  level  (I   ∈    [0, 1 . . . 255])  was  obtained  by
+integration  of  the  Gaussian  distribution  over  a  virtual  array
+sensor  (pixel  fill  factor  1.0).    Particle  peak  intensity  and
+diameter  were  also  modelled  as  random  variables  (Ip    =
+80, σIp   =  80;  dp   =  2 pixels, σdp   =  1).  A particle density
+of 0.10 particle/pixel was obtained generating 6554 particles
+over an array of 256 × 256 pixels.
+The  spatial  wavelength  response  of  the  technique  was
+tested over a reference sinusoidal displacement distribution.
+Different sizes of the interrogation window were tested.  The
+sinusoidal displacement distribution is uniform along the x-
+coordinate  of  amplitude  A  =  2  pixels  and  wavelength  (
+R13
+F Scarano
+varying  in  the  range  from  8  to  128  pixels.    The  reference
+response  was  assumed  to  be  that  of  a  single  low-pass  filter
+(moving average) with a rectangular window of the same size
+as the interrogation spot.
+6.2.  Results
+Figure   20   shows   the   mean   displacement   error   pattern
+associated   with   different   correlation-based   interrogation
+procedures  when  a  uniform  displacement  is  applied.    The
+systematic  underestimation  for  the  conventional  correlation
+(labelled with triangles) agrees with Westerweel (1993) and
+Raffel  et  al  (1998).    The  discrete  window  offset  method
+(labelled  with  squares)  compensates  for  this  effect,  but  it
+suffers  from  a  periodic  bias  associated  with  the  fractional
+displacement.    Moreover,  the  offset  at  the  closest  integer
+introduces  a  discontinuity  when  the  fractional  displacement
+equals  0.5  pixels.   The  bias  error  associated  with  the  sub-
+pixel  window  offset  procedure  (labelled  with  diamonds)  is
+significantly smaller since it keeps below 5 × 10?3  pixels.
+The  behaviour  of  the  RMS  error  is  one  of  the  most
+important outcomes of the simulation (figure 1, right).
+The data series related to the basic cross-correlation lies
+at  about  0.1  pixels,  while  the  multigrid  iterative  discrete
+offset   technique   yields   a   result   about   half   an   order   of
+magnitude below.   Considering a displacement of ten pixels
+as  the  reference  maximum  displacement,  the  discrete  offset
+technique yields a dynamic range of 2.5 orders of magnitude.
+When  the  fractional  window  displacement  is  applied,  the
+error is drastically reduced at about 10?3  pixels resulting in
+a dynamic range of almost four orders of magnitude.
+7.  Towards adaptive resolution
+The  method  discussed  in  the  previous  section  shows  the
+potential  of  hierarchical  schemes  yielding  multigrid  flow
+image analysis. However, the progressive window refinement
+is applied uniformly over the entire image and it is therefore
+independent of the local flow features.
+When dealing with highly inhomogeneous flows (shear
+flows, compressible flows) a high spatial resolution might be
+required only in some parts of the investigated domain, whereas
+large parts of the flow might require information with lower
+spatial density.
+In terms of signal analysis, it is desirable that the spatial
+response of the interrogation method be adapted with respect to
+the spatial scale of the signal to be analysed (namely, velocity
+distribution).
+Recalling the diagram in figure 18, it is desirable to apply
+a window size that is proportional to the wavelength of the
+spatial velocity fluctuations.
+The  method  proposed  herein  aims  at  suppressing  the
+unnecessary  constraint  that  the  interrogation  window  size
+should  be  constant  over  the  whole  domain  of  analysis.
+Similarly to what is obtained in the field of computational fluid
+dynamics (CFD), with solution adaptive domain discretization
+with  unstructured  meshing,  the  measurement  or  evaluation
+points  should  be  chosen  with  a  density  according  to  the
+wavelength of the local spatial velocity fluctuations.
+0              0.2            0.4            0.6            0.8              1
+Normalised window size Ws/Λ
+0
+0.2
+0.4
+0.6
+0.8
+1
+Modulation coefficient
+Moving avg
+162  px, window offset
+162  px, window def.
+322  px, window offset
+322  px, window def.
+Figure 18.  Spatial response of the correlation analysis to a
+sinusoidal displacement distribution.
+The   local   radius   of   curvature   r(x, y)   of   the   scalar
+velocity distribution gives a suitable description of the spatial
+wavelength of the velocity fluctuation ((x, y).  The velocity
+components  are  regarded  as  functions  of  two  independent
+variables:  the spatial coordinates.   Therefore,  the minimum
+local curvature radius is given by the inverse of the maximum
+eigenvalue of the Hessian matrix Hu(x, y) defined as
+Hu (x, y) =  uuxx      uxy
+yx      uyy 
+.                  (7.1)
+For a non-singular matrix the eigenvalues problem yields
+λ2  ? λ(uxx  + uyy) ? ux2y  = 0
+λ1,2  = uxx  + uyy
+2        ± 
+uxx  + uyy
+2       
+2
+? ux2y.
+(7.2)
+Finally the local curvature radius is expressed by
+r (x, y) = max {1
+λ1, λ2}.                    (7.3)
+For a sinusoidal displacement distribution the relation between
+the spatial wavelength and the curvature radius is
+( = 2π√r.                             (7.4)
+According to a linear response of the spatial cross-correlation
+operator (Scarano and Riethmuller 2000) the effect of spatial
+modulation depends on the ratio between the window linear
+size Ws  and spatial wavelength ( of the velocity fluctuation.
+A linear relation can be applied between ( and the local
+spatial sampling length expressed in terms of the mean distance
+h between neighbouring interrogation points:
+h = a + b(.                             (7.5)
+The window linear size Ws  and the sampling length are related
+through the window overlap factor OF  = 1 ? h/Ws.  Once
+the window overlap (typically 50 or 75%) has been chosen it is
+R14
+Iterative image deformation methods in PIV
+Figure 19.  Multigrid image deformation method. Top left: interrogation grid and result of cross-correlation on the coarse grid; top right:
+image deformation at the resolution of the coarse grid; bottom left: image deformation at the resolution of the refined grid; bottom right:
+interrogation grid and result of cross-correlation on the refined grid.
+0          0.5          1          1.5          2          2.5          3
+Displacement [pixels]
+-0.15
+-0.10
+-0.05
+0.00
+0.05
+0.10
+0.15
+Displacement mean error [pixels]
+Figure 20.  Mean displacement error as a function of the
+displacement for different window sizes and interrogation
+procedures. Full symbols 32 × 32 pixels and empty symbols
+16 × 16 pixels analysis: basic cross-correlation;     discrete
+window offset; iterative multigrid window deformation.
+Corresponding RMS error is given in figure 1, right (Scarano and
+Riethmuller 2000).
+possible to establish a direct relation between the local velocity
+fluctuation wavelength and the interrogation window size:
+Ws  = 1a + b(
+? OF .                          (7.6)
+The  constant  a  is  determined  by  the  minimum  size  of  the
+interrogation window size.   This parameter is related to the
+size and the spatial density (in pixels) of the particle images.
+Typically  a  ∈  [8, 32]  pixels.    Conversely,  the  constant  b
+expresses the direct relation between the spatial wavelength
+of  the  velocity  fluctuations  and  the  spatial  response  of  the
+interrogation element.  The choice b < 1 yields a modulation
+effect below 5%.
+0              0.2            0.4            0.6            0.8             1
+Normalised window size Ws/Λ
+0
+0.2
+0.4
+0.6
+0.8
+1
+Modulation coefficient
+moving avg
+Gaussian window (σ=Ws/4)
+top-hat window correlation
+Gaussian window correlation
+AR rectangular window
+Figure 21.  Spatial response of the AR correlation analysis for a
+sinusoidal displacement distribution.
+The whole technique relies on the knowledge of the actual
+velocity spatial distribution, which is not known a priori and
+which  is  the  objective  of  the  measurement  procedure  itself.
+Therefore,  the  above  concepts  of  adaptive  spatial  sampling
+density and interrogation window size are implemented in the
+image  analysis  technique  within  a  recursive  structure.   The
+result of each single interrogation is used as an input to evaluate
+the interrogation parameters for the subsequent iteration. The
+process  terminates  either  when  a  convergence  criterion  is
+fulfilled or after a prescribed number of iterations.  Typically
+after five iterations the results reached convergence, and further
+iterations do not add any significant accuracy improvement.
+When the method is applied to a sinusoidal displacement
+R15
+F Scarano
+Figure 22.  Image analysis with the iterative adaptive resolution scheme: random interrogation locations chosen at the beginning of the
+process (top left); velocity vector distribution from cross-correlation (top right); refined and adapted interrogation points distribution at the
+third iteration (bottom left); velocity vector distribution from cross-correlation (bottom right). Dense areas correspond to smaller
+interrogation windows.
+field, the response of the adaptive resolution method can be
+evaluated  in  terms  of  spatial  modulation.   Figure  21  shows
+the results from the sinusoidal displacement simulation.  The
+modulation  transfer  function  of  rectangular  and  Gaussian
+linear filter (σ = Ws/4) is also plotted for reference.
+The  data  series  relative  to  the  local  refinement  method
+shows that it is possible to minimize the modulation effect;
+nevertheless, such a process must take into account the lower
+limit for the window size.
+7.1.  Experimental assessment
+Completeness requires that the proposed method performance
+be  evaluated  over  real  experimental  conditions  in  order  to
+verify the outcomes of the simulated PIV images.
+The turbulent flow over a backward-facing step flow is
+considered to be a valuable a test case since it contains several
+features of interest, such as the sharp separation with a steep
+velocity profile in the free mixing layer and a large spectrum of
+scales developing downstream. Several investigations are still
+devoted to this subject due to the complex flow behaviour (Le
+et al 1997, Huang and Fiedler 1997, Scarano and Riethmuller
+1999, 2000, among others).
+The experiments are performed in a gravity-driven water
+tunnel of 240(w)×120(h) mm2 cross section. The contraction
+ratio  between  the  settling  chamber  and  the  test  section  is
+6:1.  The channel step is placed 760 mm downstream of the
+contraction.
+The step expansion ratio is in the present case ER = 1.2.
+The light source is a double cavity pulsed Nd:Yag laser.  Two
+semi-cylindrical lenses and a spherical lens are used to shape
+the laser beam into a 0.8 mm thick light sheet. Latex particles
+(25 μm diameter) are used to seed the flow.
+The image acquisition system is composed of a CCD video
+sensor  PCO-SensiCam  with  1280 × 1024  pixel  resolution,
+12 bits quantization. Measurements are performed in the plane
+of symmetry over a region extending from the x/h = ?1 up
+to 8.
+Experiments  are  conducted  at  Reh   =  5.0 × 103,  and
+the  free  stream  velocity  U0    =  0.125  m  s?1   (evaluated  at
+x/h  =  ?1).   The  typical  time  separation  between  the  two
+laser pulses of 5 ms is selected so as to obtain a maximum
+in-plane displacement of about 0.5 mm (five pixels).
+The  image  processing  is  performed  with  three  image
+distortion  iterations.   The  interrogation  window  size  ranges
+from 15 × 15 pixels to 31 × 31 pixels and an overlap factor of
+75% is applied between adjacent windows.  The invalid data
+yield (S/N < 1.5) is 2%. An example is shown in figure 22.
+The same images are analysed with the WIDIM scheme
+with a window size of 23×23 pixels and 75% window overlap,
+with an invalid data yield of 3%.
+The data are obtained over an unstructured grid and are
+restored over a uniform Cartesian mesh by means of a two-
+dimensional  quadratic  least-squares  regression.    From  the
+representation of the velocity vector distribution over a regular
+grid it is possible to compare the results obtained with the AR
+method and those coming from the interrogation on a regular
+mesh with uniform window size.
+Figure  23  shows  the  improvement  obtained  with  the
+adaptive resolution in terms of velocity gradient range.  From
+the  vorticity  distribution  it  can  be  appreciated  that  the  two
+methods  have  a  similar  performance  except  for  the  highly
+sheared  and  vortical  regions  where  AR  returns  peak  values
+about 20% higher. Finally, a direct comparison of the velocity
+vector distribution is also shown in figure 24.   The velocity
+vertical profiles are shown one-in-eight for clarity. It is possible
+to identify those regions of the flow where the AR methods
+brings a significant improvement: in the left side of the picture
+the intense shear layer emanating from the step edge attains
+values  of  the  strain  rate  as  high  as  0.5  pixel/pixel.   Further
+R16
+Iterative image deformation methods in PIV
+Figure 23.  Instantaneous vorticity distribution (pixels/pixel). Uniform window size 23 × 23 pixels (left); adaptive window size
+31 × 31 → 15 × 15 pixels (right).
+600                                                  500                                                  400
+X [pixels]
+80
+100
+120
+140
+160
+180
+200
+220
+Y [pixels]
+ 
+Figure 24.  Instantaneous velocity distribution (flow detail from figure 23). Uniform window size (black) and AR (red). A one-in-eight
+velocity vertical profile is shown for clarity.
+downstream  a  vortex  roll-up  exhibits  a  similar  value  of  the
+vorticity.
+It  is  worth  remarking  that  the  data  constitute  the  raw
+output of the image evaluation and no spatial filtering or post-
+processing is applied to the velocity vector data except for the
+necessary interpolation from the unstructured to the Cartesian
+mesh. A two-dimensional quadratic least-squares regression is
+applied to evaluate the velocity at the structured grid locations.
+8.  Conclusions
+The  overview  of  PIV  interrogation  techniques  has  shown
+that  the  cross-correlation  method  constitutes  the  basis  of  a
+wide variety of algorithms in particle image motion analysis.
+The  discussion  began  with  the  statement  that  the  digital
+PIV  image  recording  technique  opened  the  development  of
+interrogation algorithms of higher performances with respect
+to  optical  methods.     The  general  features  of  the  digital
+correlation algorithm were recalled and the main drawbacks
+were discussed, such as the limit of the velocity and vorticity
+dynamic  range  due  to  in-plane  loss  of  pairs.    The  typical
+problems occurring during the cross-correlation analysis were
+explained, showing the cross-correlation of a pair of single-
+exposure digital PIV recordings.
+The   problem   of   the   limited   velocity   range   was
+handled  successfully  with  the  introduction  of  a  second-step
+interrogation  with  the  offset  of  the  interrogation  area  or,
+equivalently, performing the correlation search over a larger
+extent  with  respect  to  the  interrogation  area.   The  resulting
+method allows minimization of the dependence between the
+velocity dynamic range and the spatial resolution.
+Concerning    the    discrete    window    offset    technique
+(described as the simplest two-step adaptive scheme) the CDI
+method that shifts both windows equally with respect to the
+centre  of  the  interrogation  location  yields  a  better  accuracy
+without additional computational cost.
+Among the most difficult forms of error to correct for is
+the bias due to peak locking, which is inherent to the digital
+imaging hardware.   This problem seems to be addressed by
+the  introduction  of  schemes  that  apply  the  window  offset
+with  a  sub-pixel  precision.   Techniques  that  apply  the  sub-
+pixel window offset method (PID, WIDIM, PASTIS) showed
+improvements in accuracy of about one order of magnitude.
+Direct  computation  of  the  image  flow  velocity  and  its
+derivatives  (CIV,  DMV)  was  demonstrated  to  be  a  viable
+approach, although the performances on the determination of
+the velocity gradient (vorticity) have not been fully assessed.
+The  typical  answer  to  the  analysis  of  flows  with  a
+high   deformation   rate   was   given   by   iterative   schemes.
+The  displacement  spatial  distribution  obtained  with  cross-
+correlation  analysis  is  used  to  predict  the  actual  particle
+motion and to perform the image pattern deformation.   The
+interrogation accuracy and robustness in the presence of highly
+sheared  flows  is  significantly  improved  with  respect  to  the
+basic scheme. However, in general such advanced algorithms
+increase  the  computational  cost  because  of  their  iterative
+structure, and most of all because of the additional image re-
+sampling process.
+Spatial  resolution  was  discussed  in  terms  of  spatial  re-
+sponse of the correlation method to sinusoidal displacement
+distribution.   It was proven that both the basic and iterative
+cross-correlation methods have a response that is similar to
+that of a top-hat filter having the same dimensions as the inter-
+rogation window. It was concluded that the major limitation on
+improving the spatial resolution consists in the seeding particle
+spatial density and the resolution of the recording devices.
+R17
+F Scarano
+A possible step towards adaptive resolution was proposed
+with  a  flow-adaptive  local  window  refinement  scheme  that
+shrinks  the  interrogation  window  according  to  the  local
+curvature of the velocity components.  As a result, the spatial
+response of the AR method returned a significant improvement
+showing a lower modulation effect.
+The performance assessment of the AR-WIDIM method
+was   completed   with   an   experimental   verification   made
+with   PIV   images   of   a   turbulent   flow   over   a   BFS.   In
+the  comparative  analysis  the  method  showed  an  improved
+robustness and accuracy, especially with respect to the highly
+sheared flow region.   As an overall impression,  the window
+deformation method returned a lower noise level and small-
+scale fluctuations were measured with a higher precision.
+In   conclusion,   several   efforts   were   reported   in   the
+development of methods based on iterative cross-correlation
+and image deformation over the last decade.  It is the author’s
+opinion that the PIV technique has already reached its maturity
+concerning the image processing methods,  therefore further
+studies  in  this  direction  might  not  repeat  the  improvements
+obtained  so  far.     However,   it  is  expected  that  marginal
+developments could bring further improvements with respect
+to the interrogation robustness (data validation) and the spatial
+resolution with AR or hybrid methods.
+References
+Adrian R J 1988 Statistical properties of particle image velocimetry
+measurements in turbulent flow Laser Anemometry in Fluid
+Mechanics?III (Lisbon: Instituto Superior Tecnico) pp 115?19
+Adrian R J 1991 Particle-imaging techniques for experimental fluid
+mechanics Ann. Rev. Fluid Mech. 23 261?304
+Boillot A and Prasad A K 1996 Optimization procedure for pulse
+separation in cross-correlation PIV Exp. Fluids 21 87
+Cho Y-C 1989 Digital image velocimetry Appl. Opt. 28 740?8
+Cowen E A and Monismith S G 1996 A hybrid digital particle
+tracking velocimetry technique Exp. Fluids 22 199?201
+Fincham A M and Delerce G 2000 Advanced optimization of
+correlation imaging velocimetry algorithms Exp. Fluids 29
+S013?22
+Fincham A M and Spedding G R 1997 Low cost, high resolution
+DPIV for measurement of turbulent fluid flow Exp. Fluids 23
+449?62
+Guezennec Y G and Kiritsis N 1990 Statistical investigation of
+errors in particle image velocimetry Exp. Fluids 10 138?46
+Gui L, Longo J and Stern F 2001 Biases of PIV measurement of
+turbulent flow and the masked correlation-based interrogation
+algorithm Exp. Fluids 30 27?35
+Gui L and Merzkirch W 2000 A comparative study of the MQD
+method and several correlation-based PIV evaluation
+algorithms Exp. Fluids 28 36?44
+Gui L, Merzkirch W and Fei R 2000 A digital mask technique for
+reducing the bias error of the correlation-based PIV
+interrogation algorithm Exp. Fluids 29 30?5
+Hall E L 1979 Computer Image Processing and Recognition (New
+York: Academic)
+Hart D P 1998 The elimination of correlation errors in PIV
+processing 9th Int. Symp. on Applications of Laser Techniques
+to Fluid Mechanics (Lisbon, Portugal, July 1998)
+Hart D P 2000 DPIV error correction Exp. Fluids 29 13?22
+Hesselink L 1988 Digital image processing in flow visualization
+Ann. Rev. Fluid Mech. 20 421?85
+Horn B K P and Schunck B G 1981 Determining optical flow Artif.
+Intell. 17 185?203
+Huang H, Dabiri D and Gharib M 1997 On errors of digital particle
+image velocimetry Meas. Sci. Technol. 8 1427?40
+Huang H T and Fiedler H E 1997 A DPIV study of a starting flow
+downstream of a backward-facing step Exp. Fluids 23 395?404
+Huang H T, Fielder H F and Wang J J 1993a Limitation and
+improvement of PIV, part I. Limitation of conventional
+techniques due to deformation of particle image patterns Exp.
+Fluids 15 168?74
+Huang H T, Fielder H F and Wang J J 1993b Limitation and
+improvement of PIV, part II. Particle image distortion, a novel
+technique Exp. Fluids 15 263?73
+Ishikawa M, Murai Y, Wada A, Iguchi M, Okamoto K and
+Yamamoto F 2000 A novel algorithm for particle tracking
+velocimetry using the velocity gradient tensor Exp. Fluids 29
+519?31
+Jambunathan K, Ju X Y, Dobbins B N and Ashforth-Frost S 1995
+An improved cross correlation technique for particle image
+velocimetry Meas. Sci. Technol. 6 507?14
+Keane R D and Adrian R J 1990 Optimization of particle image
+velocimeters. Part 1: double pulsed system Meas. Sci. Technol.
+1 1202?15
+Keane R D and Adrian R J 1992 Theory of cross correlation analysis
+of PIV images J. Appl. Sci. Res. 49 191?215
+Keane R D, Adrian R J and Zhang Y 1995 Super-resolution particle
+imaging velocimetry Meas. Sci. Technol. 6 754?68
+Kimura I and Takamori T 1986 Image processing of flow around a
+circular cylinder by using correlation technique Flow
+Visualization IV ed C Veret pp 2334?6
+Kumar S and Banerjee S 1998 Development and application of a
+hierarchical system for digital particle image velocimetry to
+free-surface turbulence Phys. Fluids 10 160?77
+Le H, Moin P and Kim J 1997 Direct numerical simulation of
+turbulent flow over a backward facing step J. Fluid Mech. 330
+349?74
+Lecordier B 1997 Etude de l’interaction de la propagation d’une
+flamme premelang
+´
+ee avec le champ aerodynamique, par
+association de la tomographie Laser et de la V
+´
+elocim
+´
+etrie par
+Images de particules Th`
+ese de doctorat de l’Universite´ de
+Rouen
+Lin J H and Perlin M 1998 Improved methods for thin, surface
+boundary layer investigations Exp. Fluids 25 431?44
+Louren，
+co L 1996 Particle image velocimetry Particle Image
+Velocimetry (Von K´
+arm´
+an Institute Lecture Series 1996-03)
+(Belgium: Rhode-Saint Gen
+´
+ese)
+Louren，
+co L 1999 Particle image and tracking velocimetry Optical
+Diagnostics of Particles and Droplets (Von K´
+arm´
+an Institute
+Lecture Series 1999-01) (Belgium: Rhode-Saint Gen
+´
+ese)
+Louren，
+co L and Krothapalli A 1995 On the accuracy of velocity and
+vorticity measurements with PIV Exp. Fluids 18 421?8
+Louren，
+co L and Krothapalli A 1998 Mesh-free second order
+accurate algorithm for PIV processing Proc. Int. Conf. on
+Optical Technology and Image Processing in Fluid, Thermal
+and Combustion Flows (Yokohama, Japan, Dec. 1998) p 224
+Niblack W 1986 An Introduction to Digital Image Processing
+(Englewood Cliffs, NJ: Prentice-Hall)
+Nogueira J, Lecuona A and Rodriguez P A 1999 Local field
+correction PIV: on the increase of accuracy of digital PIV
+systems Exp. Fluids 27 107?16
+Nogueira J, Lecuona A and Rodriguez P A 2001 Identification of a
+new source of peak locking, analysis and its removal in
+conventional and super-resolution PIV techniques Exp. Fluids
+30 309?16
+Plas van der G A J and Bastiaans R J M 1998 Accuracy and
+resolution of a fast PTV-algorithm suitable for HIRES-PIV
+Proc. 8th Int. Symp. Flow Vis. (Sorrento, Italy)
+Prasad A K, Adrian R J, Landreth C C and Offutt P W 1992 Effect
+of resolution on the speed and accuracy of particle image
+velocimetry interrogation Exp. Fluids 13 105?16
+Pratt W K 1978 Digital Image Processing (New York: Wiley)
+Quenot G M 1992 The orthogonal algorithm for optical flow
+detection using dynamic programming Proc. IEEE ICASSP 3
+249?52
+Quenot G M, Pakleza J and Kowalewsky T A 1998 Particle image
+velocimetry with optical flow Exp. Fluids 25 177?89
+R18
+Iterative image deformation methods in PIV
+Raffel M, Willert C E and Kompenhans J 1998 Particle Image
+Velocimetry, a Practical Guide (Berlin: Springer)
+Riethmuller M L (ed) 2000 Particle Image Velocimetry and
+Associated Techniques, VKI LS 2000-01 (Rhode-Saint Genese,
+BE: Von Karman Institute)
+Rohaly J, Nakajiama T and Ikeda Y 2000 Identification of true
+particle image displacement based on false correlation
+symmetry at poor signal peak detectability Exp. Fluids 29
+S023?33
+Ruan X, Song X and Yamamoto F 2001 Direct measurement of the
+vorticity field in digital particle images Exp. Fluids 30
+696?704
+Scarano F, Benocci C and Riethmuller M L 1999 Pattern recognition
+analysis of the turbulent flow past a backward facing step Phys.
+Fluids 11 3808?18
+Scarano F and Riethmuller M L 1998 Perfectionnement dans les
+techniques de traitement des donn
+´
+ees en v
+´
+elocim
+´
+etrie par
+images de particules Actes 6`
+eme Congr`
+es Francophone de
+V´
+elocim´
+etrie, Laser (Saint-Louis, France)
+Scarano F and Riethmuller M L 1999 Iterative multigrid approach in
+PIV image processing Exp. Fluids 26 513?23
+Scarano F and Riethmuller M L 2000a Advances in iterative
+multigrid PIV image processing Exp. Fluids 29 S051?60
+Scarano F and Riethmuller M L 2000b Temporal analysis of
+coherent structures in a turbulent BFS flow with PIV 10th Int.
+Symp. on Applications of Laser Techniques to Fluid Mechanics
+(Lisbon, Portugal)
+Sugii Y, Nishio S, Okuno T and Okamoto K 2000 A highly accurate
+iterative PIV technique using a gradient method Meas. Sci.
+Technol. 11 1666?73
+Takehara K, Adrian R J, Etoh G T and Christensen K T 2000 A
+Kalman tracker for super-resolution PIV Exp. Fluids 29
+S034?41
+Tokumaru P T and Dimotakis P E 1995 Image correlation
+velocimetry Exp. Fluids 19 1?15
+Utami T and Ueno T 1984 Visualization and picture processing of
+turbulent flow Exp. Fluids 2 25?32
+Utami T and Ueno T 1991 A cross-correlation technique for
+velocity field extraction from particulate visualization Exp.
+Fluids 10 213?23
+Wernet M P 2001 New insights into particle image velocimetry data
+using fuzzy-logic-based correlation/particle tracking
+processing Exp. Fluids 30 434?47
+Wereley and Meinhart 2000 Accuracy improvements in particle
+image velocimetry algorithms. PIV 10th Int. Symp. on
+Applications of Laser Techniques to Fluid Mechanics, (Lisbon,
+Portugal)
+Westerweel J 1993 Digital particle image velocimetry PhD
+Dissertation Delft University Press, Delft
+Westerweel J 1994 Effcient detection of spurious vectors in particle
+image velocimetry data Exp. Fluids 16 236?47
+Westerweel J 1997 Fundamentals of digital particle image
+velocimetry Meas. Sci. Technol. 8 1379?92
+Westerweel J 2000 Theoretical analysis of the measurement
+precision in particle image velocimetry Exp. Fluids 29 S3?12
+Westerweel J, Dabiri D and Gharib M 1997 The effect of a discrete
+window offset on the accuracy of cross-correlation analysis of
+digital PIV recordings Exp. Fluids 23 20?8
+Willert C E and Gharib M 1991 Digital particle image velocimetry
+Exp. Fluids 10 181?93
+R19

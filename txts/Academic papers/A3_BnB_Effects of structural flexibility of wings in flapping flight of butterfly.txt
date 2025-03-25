@@ -1,0 +1,1199 @@
+﻿Effects of structural flexibility of wings in flapping flight of butterfly
+This article has been downloaded from IOPscience. Please scroll down to see the full text article.
+2012 Bioinspir. Biomim. 7 025002
+(http://iopscience.iop.org/1748-3190/7/2/025002)
+Download details:
+IP Address: 130.54.110.73
+The article was downloaded on 23/05/2012 at 03:48
+Please note that terms and conditions apply.
+View the table of contents for this issue, or go to the journal homepage for more
+Home     Search     Collections    Journals    About    Contact us    My IOPscience
+IOP PUBLISHING                                                                                                                                                                                                                                           BIOINSPIRATION & BIOMIMETICS
+Bioinspir. Biomim. 7 (2012) 025002 (15pp)                                                                                                                      doi:10.1088/1748-3182/7/2/025002
+Effects of structural flexibility of wings in
+flapping flight of butterfly
+Kei Senda1, Takuya Obara2, Masahiko Kitamura2, Naoto Yokoyama1,
+Norio Hirai3  and Makoto Iima4
+1  Kyoto University, Yoshida-Honmachi, Sakyo-ku, Kyoto 606-8501, Japan
+2  Kanazawa University, Kakuma-machi, Kanazawa, Ishikawa 920-1192, Japan
+3  Osaka Prefecture University, 1-1 Gakuen-cho, Nakaku, Sakai, Osaka 599-8531, Japan
+4  Hiroshima University, 1-7-1 Kagamiyama, Higashi-Hiroshima, Hiroshima 739-8521, Japan
+E-mail: senda@kuaero.kyoto-u.ac.jp
+Received 12 September 2011
+Accepted for publication 4 April 2012
+Published 22 May 2012
+Online at stacks.iop.org/BB/7/025002
+Abstract
+The objective of this paper is to clarify the effects of structural flexibility of wings of a
+butterfly in flapping flight. For this purpose, a dynamics model of a butterfly is derived by
+Lagrange’s method, where the butterfly is considered as a rigid multi-body system. The panel
+method is employed to simulate the flow field and the aerodynamic forces acting on the wings.
+The mathematical model is validated by the agreement of the numerical result with the
+experimentally measured data. Then, periodic orbits of flapping-of-wings flights are
+parametrically searched in order to fly the butterfly models. Almost periodic orbits are found,
+but they are unstable. Deformation of the wings is modeled in two ways. One is bending and
+its effect on the aerodynamic forces is discussed. The other is passive wing torsion caused by
+structural flexibility. Numerical simulations demonstrate that flexible torsion reduces the flight
+instability.
+(Some figures may appear in colour only in the online journal)
+1. Introduction
+Butterflies  can  maintain  desired  flapping-of-wings  flights
+stably   against   environmental   uncertainties   and   variations
+such  as  gust,  weight  gain  or  loss,  etc,  by  their  adaptation
+capability, whereas they cannot repeat the same movements
+with  sufficient  accuracy.  This  study  discusses  the  principle
+that  realizes  flapping-of-wings  flights  which  are  rhythmical
+periodic motion.
+There  are  many  unknowns  for  the  stable  flight,  for
+example,  ‘how  the  butterfly  moves’,  and  ‘how  the  control
+is  realized’.  A  research  project  investigates  these  issues
+by biological analysis through experimental observations of
+living  butterflies  and  by  systems  engineering  or  synthetic
+approach  [1–7].  One  of  the  obtained  results  is  that  the  free
+vortices  in  the  wakes  stabilize  the  flight.  Following  these
+studies,  stabilization  due  to  the  structural  flexibility  of  the
+wings is demonstrated.
+There  are  some  pieces  of  research  relating  deformable
+wings of insects. Vanella et al [8] studied numerically using a
+deformable wing model composed of two links articulated by
+a rotary joint. Their two-dimensional numerical simulations
+show  that  the  elastic  deformation  of  the  wings  sometimes
+enhances the aerodynamic performance. Walker et al [9, 10]
+and  Young  et  al  [11]  measured  deformation  of  wings  of  a
+desert locust through a stroke, and showed that the camber and
+twist enhance aerodynamic efficiency. Tanaka and Shimoyama
+[12] made a butterfly ornithopter that can fly for a few periods
+without  feedback  control  of  the  flapping  motion.  However,
+the effects of deformable wings of butterflies have not been
+discussed in detail; especially, the stability of flight dynamics
+has not clarified yet. Further study is needed. Therefore this
+study discusses two different effects of wing deformation as
+follows, i.e. effects on aerodynamic forces and effects on flight
+stability.
+A  mathematical  model  of  a  butterfly  is  explained  in
+section  2.  The  mathematical  model  of  a  flapping  butterfly
+1748-3182/12/025002+15$33.00                                                                       1                          © 2012 IOP Publishing Ltd    Printed in the UK & the USA
+Bioinspir. Biomim. 7 (2012) 025002                                                                                                                                                                            K Senda et al
+is  constructed  for  numerical  simulations.  In  the  modeling,
+the butterfly is considered as a rigid multi-body system, and
+its  wings  are  flat  without  deformation.  Aerodynamic  forces
+applied  to  the  wings  are  formulated  by  the  panel  method
+[3–5]  where  the  influence  of  the  unsteady  wakes  can  be
+incorporated.  This  model  is  referred  as  the  basic  model  in
+this paper. The experimental observation of living butterflies
+is  also  outlined  in  section  2.  Observation  experiments  are
+conducted  using  an  experimental  system  with  a  low-speed
+wind tunnel, and the motions and aerodynamic forces applied
+to  the  living  butterflies  are  measured  quantitatively.  The
+flapping  motion  of  a  free-flying  butterfly  is  also  measured
+by the experimental system, where the trajectory of flapping
+flight, i.e. the trajectory of the thorax and joints is measured.
+The validity and accuracy of the numerical model are examined
+by  comparing  the  calculated  aerodynamic  forces  with  the
+measured experimental data. However, the flapping flight does
+not continue stably even if the numerical model repeats the
+measured joint trajectory.
+Hence in section 3, periodic orbits of flapping-of-wings
+flights  are  searched  in  order  to  fly  the  butterfly  model,  and
+almost periodic orbits are obtained. The butterfly can fly for
+several periods when one of those motions is just repeated,
+whereas  no  feedback  control  is  applied.  It  is  reported  that
+the  unsteady  wake-induced  flow  has  a  type  of  feedback
+stabilization  effect  that  enables  the  butterfly  to  fly  several
+periods [3, 5]. This is the feedback stabilization effect brought
+by this system through the dynamic characteristic of the flow
+field, and it can be considered as an implicit control. However,
+the flapping flights are not sufficiently stabilized by this effect
+alone and the numerical model oscillates and goes down after
+several flapping motions.
+In  section  4,  experiments  are  conducted  again  using
+tethered   actual   butterflies,   where   wing   deformation   is
+observed,   and   the   necessity   of   introducing   the   wing
+deformation  into  the  basic  model  is  presented.  Structurally
+flexible  wings  of  the  butterflies  are  passively  deformed  by
+the  aerodynamic  forces  applied  to  the  wings.  The  above
+model is called the time-varying camber model that describes
+the measured deformation as a function of time. This time-
+varying  camber  is  introduced  into  the  basic  model,  and
+the  aerodynamic  forces  are  calculated.  The  effects  of  wing
+deformation on the aerodynamic forces using this model are
+quantitatively evaluated. The wing deformations of a tethered
+butterfly  are  used  to  maintain  measurement  accuracy.  The
+time-varying camber model is compared with the basic model
+whose  wings  are  always  flat.  The  aerodynamic  effects  of
+wing  deformation  are  quantified  by  using  the  experimental
+observation   and   the   models.   It   will   be   shown   that   the
+aerodynamic forces in the time-varying camber model agree
+better with that in the experiment than that in the basis model.
+It is based on the measured deformation and is the same way
+that Young et al [11] did for the desert locust.
+In section 5, the effects of the passive deformation to the
+flight stability are clarified.
+The  wings  of  the  time-varying  camber  model  are  not
+passively  deformed  by  aerodynamic  forces  applied  to  the
+wings  because  the  wing  deformation  is  given  as  a  function
+of time. In the case of the structurally flexible wings of actual
+butterflies, the wing motion determines the flow field around
+the wings, and the aerodynamic forces applied to the wings
+determine  the  elastic  deformation  of  the  wings.  This  is  a
+fluid–structure  interaction  problem.  To  determine  the  wing
+deformation  accurately  by  solving  the  problem,  a  precise
+model  of  wing  stiffness  distribution  is  needed.  It  is  almost
+impossible to calculate the deformation accurately because this
+precise modeling is more difficult than the wing deformation
+measurement.
+As the  typical  modeling  of  the deformation,  only  wing
+torsion is modeled [13–15] when the measurements of the wing
+deformation  are  inaccurate.  In  this  study,  a  passive  torsion
+model  is  introduced  where  a  flat  wing  is  passively  twisted
+in  accordance  with  the  aerodynamic  disturbance.  The  joint
+trajectory of the basic model can be controlled to the desired
+trajectory  without  error,  whereas  that  of  actual  butterflies
+cannot be controlled as well because their wings are twisted
+by various unexpected disturbances. The passive torsion model
+is compared with the basic model whose wings always track
+the planned trajectory. It will be shown that the passive wing
+deformation increases the stability of flapping flight.
+Sections 3 and 5 deal with the flight dynamics of butterflies
+that discuss the stabilizing effects introduced by the implicit
+controls.  The  model  in  this  study  will  agree  well  with
+experimental results in section 2, whereas both the rigid multi-
+body  model  in  section  3  and  the  passive  torsion  model  in
+section 5 are unstable in terms of flight dynamics. Hence, a
+living butterfly stabilizes its flight by an active control though
+its flight dynamics may be unstable. Taylor and Zbikowski [16]
+also consider that the flight dynamics of the desert locust is
+unstable and is stabilized by an active control. It is reasonable
+that the model is dynamically unstable if the modeled original
+system is unstable. In this situation, it is difficult to predict the
+behavior of original system qualitatively by using the model.
+If the model and/or the initial state has an even small error
+from those of the original system, the error increases in time
+because of the instability. Therefore, this study will not obtain
+quantitative results but qualitative results. It is that the stability
+of the flapping butterfly is increased by the unsteady wake-
+induced flow in section 3 and by the passive wing torsion in
+section 5.
+Finally, concluding remarks are given in section 6.
+2. Model and experiments of butterfly
+2.1. Outline of flapping mechanism
+Figure  1  schematically  illustrates  a  flapping  mechanism  of
+insects that is driven by indirect muscles [17]. The wings are
+connected to the thorax by lever mechanisms, where the wings
+have been evolved from exoskeleton. The end of the wing link
+is connected to the lateral suctum by a hinge in the thorax. The
+wing link is also connected to the thoracic wall in the thorax
+by the other hinge next to the end hinge. When the suctum
+lifts up, the principle of leverage moves the wing down. The
+horizontal muscles connecting the front wall to the posterior
+wall  of  the  thorax,  which  are  known  as  dorsal  longitudinal
+2
+Bioinspir. Biomim. 7 (2012) 025002                                                                                                                                                                            K Senda et al
+Figure 1. Indirect muscle system driving wing mechanism (left:
+thorax cross section, right: thorax longitudinal section).
+muscles,  tend  to  contract  and  increase  the  curvature  of  the
+suctum.  The  butterflies  have  vertical  muscles  known  as  the
+dorsoventral muscles running from the roof of the thorax to
+the  floor.  Contraction  of  the  dorsoventral  muscles  pulls  the
+suctum down. Relaxation of the dorsoventral muscles results
+in the dorsal longitudinal muscles’ contraction and the suctum
+is pushed up. This flapping mechanism can be considered as
+almost  one  degree-of-freedom  (DOF)  vibrating  mechanism.
+A butterfly contracts the dorsoventral muscles periodically to
+vibrate the mechanism for flapping of the wings. According to
+experimental observations in a later section, each butterfly has
+an almost unique flapping eigenfrequency. It may be because to
+vibrate sympathetically at eigenfrequency of the mechanism
+realizes  efficient  flapping  motion  [18].  As  suggested  in  the
+anatomical observation below, the other direct muscles may
+add slight motions, which are in the extent of modification to
+the basic vibration.
+2.2. Dynamics model of butterfly as a rigid multi-body system
+A  butterfly  is  modeled  by  a  rigid  multi-body  system  in  the
+same way as typical robot modeling, which is simple dynamics
+modeling. The model defined in this section is referred as the
+basic  model.  In  later  sections,  it  will  be  modified  so  as  to
+consider wing deformation because experimental observations
+have  found  that  butterfly  wings  are  elastically  deformed  by
+aerodynamic forces.
+The  butterfly  model  is  a  multi-body  system  with  four
+links as shown in figure 2, which is composed of the thorax
+Bt  considered  as  the  main  body,  the  abdomen  Ba,  the  left
+wings WL and the right wings WR. Both the model and its
+motions are supposed to be symmetric bilaterally. A pair of
+fore-  and  hindwings  on  each  side  is  modeled  by  a  plate  as
+shown in figure 2. The joint between the thorax and wing has
+three rotational DOFs and the joint between the thorax and the
+abdomen has one DOF.
+The  kinematics  of  the  butterfly  is  described  by  the
+Lagrangian formalism
+d
+dt 
+∂L
+∂θ˙  −
+∂L
+∂θ = τ.                           (1)
+The  Lagrangian  L   =  K  − V   is  composed  of  the  kinetic
+energy K = 21 θ˙T M(θ)θ˙ and the potential energy due to gravity
+Σ
+Σ
+θ
+Σ
+β + π  
+ 
+ 
+−η          
+                                                                                                                                             Σ
+−θ
+− θ
+Figure 2. Frames and coordinates for the modeling of a butterfly.
+V .  The  generalized  coordinates  are  divided  into  the  thorax
+coordinates denoted by the subscript 1 and the joint coordinates
+by the subscript 2; θ = [θ1T      θ2T ]T , where θ1   = [xzθt ]T   and
+θ2  = [θaβηθ]T . As illustrated in figure 2, x, z and θt  are the
+x-, z-positions and the attitude angle of the thorax, θa  is the
+abdomen angle, β is the flapping angle in up–down direction, η
+is the lead-lag angle and θ is the feathering angle representing
+a torsion angle. The generalized forces are also divided into
+τ = [τ1T     τ2T ]T ,  where  τ1   and  τ2   correspond  to  θ1   and  θ2,
+respectively. Note that the inertial matrix M depends on time
+through θ. The generalized force τ consists of the aerodynamic
+force τair  obtained from the forces  fair  according to the panel
+method developed in the following sections and the control
+force τcont applied to the thorax and the joints. The Lagrangian
+equation of the motion is rewritten as
+Mθ¨ + M˙θ˙ − 1
+2
+∂
+∂θ(
+θ˙Mθ˙) + ∂V
+∂θ = τair  + τcontrol.     (2)
+By dividing the variables into the thorax part denoted by the
+subscript 1 and the joint parts by the subscript 2, equation (2)
+can symbolically be rewritten as
+MM11      M12
+21      M22
+θ¨1
+θ¨2 + 
+h1
+h2 = 
+τcont1
+τcont2,              (3)
+where h = h1T   h2T T  = M˙θ˙ − 21 ∂∂θ (θ˙Mθ˙) + ∂∂Vθ − τair.
+In  every  simulation,  θ2   is  given  as  a  desired  trajectory
+θ2d(t) of  time  t.  In  a  tethered  simulation,  θ1   is  constant  in
+time since the thorax is fixed. In a free-flight situation, τcont1
+is  zero  because  the  butterfly  cannot  directly  apply  force  to
+the thorax. In the following section, the aerodynamic forces
+fair  and the generalized forces τair  are obtained by the panel
+method. Then, the desired motions in both cases are realized
+by τcont1  and τcont2.
+In the tethered simulation, the acceleration of thorax is
+θ¨1  = 0 and
+τcont1  = M12θ¨2d  + h1
+τcont2  = M22θ¨2d  + h2,
+(4)
+where τcont1  is applied to the thorax as the constraint force to
+maintain θ¨1  = 0.
+In the free-flight situation,
+τcont1  = 0
+τcont2  = M21θ¨1  + M22θ¨2d  + h2,                    (5)
+where θ¨1  = −M−111(M12θ¨2d  + h1 ).
+3
+Bioinspir. Biomim. 7 (2012) 025002                                                                                                                                                                            K Senda et al
+Figure 3. Unsteady wake computed by the panel method.
+2.3. Panel method model for aerodynamics
+In the flight  of  the butterfly,  there is a feature  in which the
+flapping  frequency  is  small  [18]  as  well  as  small  Reynolds
+number.  Moreover,  the  relative  velocity  of  the  flow  to  the
+wings is completely unsteady because of the flapping motion,
+whereas  the flow  to a cruising fixed-wing  aircraft is almost
+steady.  Wing-tip  vortices  greatly  affect  the  aerodynamic
+characteristics  because  a  butterfly  has  almost  flat  wings  of
+a small aspect ratio. In addition, the flapping motion generates
+very strong wing-tip vortices. The wing-tip vortices may merge
+with the free vortices departing from the trailing edge, make
+complex  structures  and  greatly  influence  the  aerodynamic
+characteristics.
+Therefore,  this  study  models  the  aerodynamics  of  a
+flapping  butterfly  using  a  panel  method  [19].  Vortex  ring
+element  panels  are  set  on  wing  surfaces  and  panels  with
+constant strengths of vortices are shed into wakes. Unknown
+strengths  of  vortices  are  determined  so  as  to  satisfy  the
+boundary condition of no normal flow across the wing surfaces.
+The  free  wake  model  sheds  the  panels  fulfilling  the  Kutta
+condition at trailing edge and the panels move with local stream
+velocity. This free wake model enables to contain the influence
+of the unsteady wakes. As a result, this study made a panel
+method model [3–5].
+Figure 3 shows a wake computed by the panel method for
+the right wing of the butterfly that is fixed at the thorax in the
+uniform flow. This figure explains the necessity for considering
+the influence of the unsteady wakes.
+2.4. Outline of an experimental system
+Verification  of  the  models  and  parameter  setting  require
+fundamental    data    of    flapping-of-wings    motions    and
+aerodynamic forces. For this purpose, an experimental system
+with a low-speed wind tunnel is constructed and a wind tunnel
+experiment is conducted using living butterflies [4].
+Figure 4. Experimental setup.
+Table 1. Physical properties of Parantica sita niphonica.
+Total mass               M                kg           0.238 × 10−3
+Aspect ratio             AR                             4.068
+Wing loading          Mg/2SW         Nm−2        0.988
+Thorax mass            mBt                     kg           0.095 × 10−3
+Thorax length          2lBt                    m            15 × 10−3
+Thorax width          2wBt                  m            8 × 10−3
+Abdomen mass       mBa                    kg           0.105 × 10−3
+Abdomen length     2lBa                    m            20 × 10−3
+Abdomen width      wBa                    m            5 × 10−3
+Wing mass              mW                     kg           0.019 × 10−3
+Wing length            ytip                      m            0.049
+Wing area                SW                       m2                0.118 × 10−2
+The butterfly’s scientific name is Parantica sita niphonica,
+which is similar to Danaus in the United States of America.
+Specifications of the butterfly are listed in table 1.
+The simultaneous measurement system is constructed as
+illustrated in figure 4. The butterfly’s motion is measured by
+an optical measurement system with three high-speed cameras
+that are type FASTCAM-PCI R2 10K of Photoron Ltd. The
+forces  applied  to  the  butterfly  are  measured  by  the  force
+measurement system. The butterfly is tethered to the tip of the
+measure, i.e. the force/torque sensor. The force/torque sensor
+was made with strain gauges in laboratory. The forces L and
+D, and the moment M corresponding to θt  are sensed by the
+force/torque  sensor.  These  forces  apply  to  the  force/torque
+sensor from the butterfly, where L is in vertical upward, D in
+the mainstream and M in head-up rotation. They include the
+inertia forces of flapping motion. But, this study refers L, D and
+M as the lift, the drag and the pitching moment, respectively.
+There  is  a  smoke  wire  for  airflow  visualization.  Motion  of
+a free-flying butterfly is measured by using the experimental
+system, where measured is the trajectory of flapping flight, i.e.
+the trajectory of the thorax and joints.
+According   to  calibration   experiments,   the  maximum
+measuring  error  in  L  and  D  is  0.001  (N)  for  a  range  of
+±0.02 (N), and that in M  is 0.04 × 10−3  (Nm) for ±0.6 ×
+10−3 (Nm). The cutoff frequency of the measure is 50 (Hz) for
+4
+Bioinspir. Biomim. 7 (2012) 025002                                                                                                                                                                            K Senda et al
+-900        0.02      0.04      0.06      0.08
+-60
+-30
+0
+30
+60
+90
+Time [s]
+[deg]
+θ
+a       β      η      θ
+(a)
+-0.0150         0.02       0.04       0.06       0.08
+-0.01
+-0.005
+0
+0.005
+0.01
+0.015
+0.02
+Time [s]
+Drag [N]
+Experiment
+Simulation
+(c)
+-0.0150         0.02       0.04       0.06       0.08
+-0.01
+-0.005
+0
+0.005
+0.01
+0.015
+0.02
+Time [s]
+Experiment
+Simulation
+(b)
+-10         0.02       0.04       0.06       0.08
+-0.8
+-0.6
+-0.4
+-0.2
+0
+0.2
+0.4
+0.6
+0.8
+1 x 10
+-3
+Time [s]
+Pitching moment [Nm]
+Experiment
+Simulation
+(d)
+Figure 5. Motion and aerodynamic forces of the experiment and panel method model. (a) Motion. (b) Lift. (c) Drag. (d) Pitching moment.
+noise reduction. The maximum error in position measurements
+using the video images is 0.13 × 10−3  (m) in each direction,
+which  is  caused  by  the  resolution  of  images:  0.260 × 10−3
+(m pixel−1). Based on this error, the maximum error in the
+abdomen angle is 0.37◦ for motion measurement. The smoke
+is  made  of  the  propylene  glycol  by  a  smoke  wire  method.
+According to an evaluation method [20], the tracers in smoke
+accurately follow the air flow.
+2.5. Experimental observation of motion and force
+Flapping   motions   and   applied   aerodynamic   forces   are
+measured by wind tunnel experiments using living butterflies
+[5].   An   experiment   with   Parantica   sita   niphonica   is
+conducted under a condition that the mainstream velocity is
+1.54 (m s−1), the thorax position x = z = 0 (m) and its angle
+θt   =  28.1◦.  Figure  5(a)  shows  the  generalized  coordinates
+θ of  an  experimental  result.  Figures  5(b)–(d)  illustrate  the
+measured forces, i.e. the lift L, the drag D and the pitching
+moment  M.  The  butterfly  repeats  this  periodic  motion  in  a
+period of 0.096 s during continuous periodic flapping-of-wings
+motion. Measured aerodynamic forces are also cyclic during
+the periodic flapping-of-wings motion.
+As can be seen in figure 5(a), the flapping angle β  is a
+cosine-like curve whose maximum and minimum are 60◦ and
+−20◦. The abdomen angle θa  is also a sinusoidal curve, but
+is  out  of  phase  to  the  flapping  angle  β.  When  the  butterfly
+varies amplitude of β, it changes the minimum of β mainly
+and the maximum marginally. The tethered butterfly swings
+the  abdomen  in  a  larger  amplitude  than  butterflies  flying
+freely. Even if β  or θa  changes the amplitude depending on
+flying conditions and/or individuals, they keep similar smooth
+cosine curves. Lead-lag angle η has a vibration mode whose
+frequency is twice as large as β. The feathering angle θ varies
+for  30◦  from  −10◦  to  +20◦  through  a  flapping  period.  The
+flapping  cycle  is  split  into  downstroke  and  upstroke  by  the
+stroke reversal at t  = 0.055 (s). Fry et al [21, 22] similarly
+observe a fly’s flapping-of-wings motion.
+This  fluctuation  of  the  θ  is  considered  as  a  result  of  a
+passive wing torsion caused by its structural flexibility since
+butterflies cannot actively twist their wings in a large angle
+because  of  the  flapping  mechanism.  Actually,  the  torsional
+torque applied to a wing varies for 0.3 × 10−3  (Nm) and θ
+changes  for  28◦  as  the  passive  torsion  that  is  estimated  by
+using  the  wing  rigidity  measured  in  a  later  section.  In  the
+later  section,  the  passive  wing  torsion  is  introduced  to  the
+model, and its effect on the flapping-of-wings flight stability
+is evaluated.
+The  joint  trajectory  of  the  tethered  butterfly  might  be
+different  from  that  of  the  free-flying  butterfly.  Actually,  the
+numerical model of the free-flying butterfly falls down quickly
+if  the  measured  joint  trajectory  of  the  tethered  butterfly  is
+used. Therefore, this study considers the data obtained by the
+aerodynamic force measuring experiment as the fundamental
+data  to  evaluate  the  basic  model,  but  does  not  regard  them
+as  the  joint  trajectory  of  the  free-flying  butterfly.  Fry  et  al
+[22] discuss the differences in flapping motions of flies under
+tethered and free-flying conditions.
+2.6. Verification of the mathematical model
+The wing on each side is divided by ten panels in the span
+direction and four panels in the cord direction. There are panels
+as  the  free  vortices  in  wakes  for  two  flapping  periods.  The
+butterfly flaps for two periods before simulation starts in order
+to converge the flow field induced by the free vortices in the
+wakes. The number of panels in the cord direction is chosen as
+recommended by Katz and Plotkin [19]. In typical numerical
+simulations, instantaneous aerodynamic forces at any moment
+change up to 1% of the averaged forces even if other numbers
+increase. The thorax trajectory is changed less.
+5
+Bioinspir. Biomim. 7 (2012) 025002                                                                                                                                                                            K Senda et al
+Figure 6. Comparison of flow fields of experimental visualization and numerical simulation by the panel method at the beginning of
+downstroke (V  = 1.0 (m s−1), θt  = −10◦).
+The motion of the butterfly is solved by the modified Euler
+method that has the second-order accuracy, where the sampling
+time  is  T/1000  and  T  is  a  flapping  period.  New  panels  of
+wakes depart from the wing trailing edges every T/20. The
+period T/20 is used because the differences of trajectories are
+less than the differences caused by the above-mentioned wake
+length  and  so  on.  Hence,  numerical  results,  e.g.  the  thorax
+trajectory, converge. The obtained results agree well with the
+following experimental results.
+The  θ in  figure  5(a)  obtained  from  the  experiment  and
+its derivatives θ˙ and θ¨ are substituted into the mathematical
+models of the butterfly that is tethered on the back of the thorax.
+Its  aerodynamic  forces  τair   are  illustrated  in  figures  5(b)–
+(d). The forces L, D and M  in both the experiment and the
+simulation include the inertia forces of flapping motion. In the
+case of L, the inertial force is up to 20% of the maximum of
+L. The average values of L, D and M  per flapping cycle are
+0.3 × 10−3  (N), 1.8 × 10−3  (N) and 0.14 × 10−3  (Nm) in the
+experiment and 0.7 × 10−3  (N), 1.3 × 10−3  (N) and 0.04 ×
+10−3   (Nm)  in  the  simulation.  Validity  of  the  model  can
+be  evaluated  by  comparing  the  simulation  results  with  the
+experimental  data.  The  panel  method  model  can  calculate
+the aerodynamic forces with the same degree of accuracy for
+any experiment and agree well with them though it tends to
+estimate  the  lift  being  a  little  smaller  than  the  experiment
+results.  The  numerical  results  in  this  study  are  in  good
+agreement  with  the  experimental  measurements.  There  are
+only a few other pieces of research [23] that report numerical
+results  compared  with  experimental  measurements  of  small
+insects.
+The left panel of figure 6 shows that the flow around the
+wings is visualized by a smoke wire. From the experimental
+result, it is understood that the complex flow field is formed
+by  the  flapping-induced  free  vortex  in  wakes.  In  numerical
+simulations of the panel method, the velocity at any point can
+be obtained by Biot–Savart law, which calculates the velocity
+induced by each vortex element. In the right panel of figure 6,
+small arrows at lattice points denote the local velocities relative
+to mainstream calculated by the panel method. In the depth
+direction, the arrows are illustrated simultaneously from −0.12
+to 0 (m). In the figures, more long arrows appear at a region
+with  larger  induced  velocity.  These  figures  are  suitable  to
+compare  with  the  experimental  images  qualitatively.  This
+numerical simulation captures the unsteady flow field of the
+experiment.
+Viscosity effect should be considered in the model because
+of  the  low  Reynolds  number  Re  ≃  103   for  the  butterfly.
+However,  both  computational  and  experimental  evaluations
+show  that  the  viscous  drag  is  a  negligible  amount,  with
+approximately  0.5%  of  the  maximum  drag.  The  viscous
+drag  is  measured  when  a  butterfly  is  stationary  and  its
+wings are parallel to the mainstream. Analytical computation
+for  this  situation  supports  the  experimental  measurement.
+Compressibility is not taken into account because of low speed.
+In  addition,  it  is  observed  by  the  smoke  wire  visualization
+that  the  flow  passes  along  wing  surfaces  during  wingbeat
+[1,  2].  Hence,  by  assuming  inviscid  incompressible  flow
+without  separation,  a  panel  method  based  on  the  potential
+flow is applied in this study. The mean wing-tip velocity and
+the maximum wing-tip velocity are 4Cβ f ytip   = 1.2 (m s−1)
+and 2πCβ f ytip  = 1.9 (m s−1), respectively, where Cβ ,  f  and
+ytip  are the amplitude of β, the frequency of flapping and the
+wing-tip length, respectively. The maximal wing-tip velocity is
+larger than the velocity of the main stream u0  = 1.54 (m s−1).
+It indicates that the maximal wing-tip velocity is larger than
+the traveling velocity of the butterfly. The Reynolds number
+estimated  by  the  mean  wing-tip  velocity  and  the  wing-tip
+length is Re  = 4Cβ f y2tip/νair   = 4800. The Strouhal number
+in the experiment is St  = 4Cβ f ytip/u0   = 0.80. The Froude
+number is Fr = 4Cβ f ytip/g = 1.6.
+Motion  of  a  free-flying  butterfly  is  measured  by  using
+the  experimental  system  of  figure  4.  Figures  7(a)  and  (b),
+respectively, show a period of the measured entire motion of
+the periodic free flight and a numerical result where the entire
+motion is calculated by the model using the measured joint
+trajectory.  Figure  7(c)  shows  the  measured  joint  trajectory.
+The flapping cycle is split into downstroke and upstroke by the
+stroke reversal at t = 0.06 (s). The numerical result duplicates
+the free flight, even though the final thorax angles are different.
+The other existing models constructed by the present authors
+cannot duplicate the free flight, i.e. the simple method [1], the
+6
+Bioinspir. Biomim. 7 (2012) 025002                                                                                                                                                                            K Senda et al
+θ                                         θ
+(a)
+(b)
+(c)
+θ                                        θ
+-900       0.02    0.04    0.06    0.08     0.1
+-60
+-30
+0
+30
+60
+90
+Time [s]
+[deg]
+θ
+a       β      η      θ
+Figure 7. Measured free flying of flapping butterfly and numerical
+simulation using measured joint motion. (a) Experimental
+measurement. (b) Numerical simulation. (c) Joint trajectory.
+lumped-vortex method considering characteristic flapping-of-
+wings  effects  [2]  and  the  panel  method  model  without  free
+vortices in wakes [2]. The numerical result duplicates the free
+flight  considering  flow  field  induced  by  the  free  vortices  in
+wakes.
+In addition, the flapping flight of this modeled butterfly is
+unstable. [5]
+˙
+Hence, the trajectory of the model is necessarily
+different from that of the living butterfly because there exist
+some  errors  in  modeling,  initial  condition,  etc.  It  has  not
+been reported that another numerical simulation using a joint
+trajectory of a living butterfly duplicates its periodic free flight.
+Therefore, the obtained model is relatively accurate.
+3. Periodic flapping flight of the model
+The  difference  of  the  entire  free-flying  motions  and  that  of
+the aerodynamic forces in figure 5 represents some dynamics
+differences of the model and the actual butterfly. It shows that
+the model does not perfectly reproduce the entire free-flying
+motion of the actual butterfly, even though the measured joint
+trajectory of an actual butterfly is used. Hence, a flapping joint
+trajectory is parametrically searched below for a periodic free
+flight of the numerical model.
+3.1. Trajectory search method
+The periodic flapping-of-wings flight is defined as ‘all other
+than x in state vector θf  and θ˙f  after a flapping period T agrees
+with initial values θs  and θ˙s’.
+Joint angle trajectories are described by the Fourier series
+for periodic motions. Fourier parameters and initial conditions
+are considered as learning parameters of vector w to find a
+trajectory  of  the  periodic  flapping-of-wings  flight.  In  order
+to  reduce  computation  efforts,  the  number  of  parameters  is
+cut down based on the knowledge from the experiments and
+observation.
+The  following  cost  function  J  is  used  for  the  learning
+evaluation:
+J = 	
+i
+Qi(θfi  − θsi )2
++R ⎨⎧
+⎩
+E(θf , θ˙f ) − E(θs, θ˙s ) + 	
+j
+0 T  τj dθj⎬⎫
+⎭
+,         (6)
+where E(θ,  θ˙) = T (θ,  θ˙) + V (θ) is the mechanical energy
+with  the  kinetic  energy  T (θ,  θ˙)  and  the  potential  energy
+V (θ). The θj  and τj  are the angle and the torque of joint  j.
+The  Qi   and  R  are  evaluation  weights.  The  suffix  i  denotes
+one  of  z,  θt ,  x˙,  z˙  or  θ˙t .  The  suffix   j  also  denotes  one
+of  θa,  β,  η  or  θ.  The  first  term  of  equation  (6)  evaluates
+the  periodicity  of  motion  by  the  quadratic  form  of  error
+between  boundaries.  The  second  term  of  equation  (6)  is
+mechanical energy loss during the period. One obtains the most
+efficient flapping-of-wings flight for a mathematical model by
+minimizing  the  cost  function.  A  gradient  method  finds  the
+above-mentioned learning parameters such that the obtained
+trajectory  satisfies  the  definition  of  the  periodic  flapping-
+of-wings  flight.  The  obtained  trajectories  are  evaluated  by
+comparing with experimental results.
+3.2. Searched trajectories
+The   panel   method   model   can   obtain   almost   periodic
+trajectories,  though  they  do  not  perfectly  correspond  to  the
+definition  of  the  periodic  flight.  One  of  the  obtained  flights
+is illustrated in figure 8. Figures 8(a)–(c) show the searched
+flapping  motion,  the  searched  joint  trajectory  and  the  joint
+trajectory  measured  by  the  experiment,  respectively.  The
+searched joint trajectory (figure 8(b)) is similar to the measured
+joint  trajectory  (figure  8(c)).  There  are  some  different  joint
+trajectories  that  realize  almost  periodic  trajectories.  On  the
+other  hand,  joint  trajectories  of  free  flights  measured  from
+living butterflies are more versatile. The peak and bottom of
+the flapping angle β are approximately 90◦  and −60◦  in the
+numerical  simulation  and  90◦  and  −70◦  in  the  experiment.
+Those  of  the  abdomen  angle  θa   are  approximately  60◦  and
+−60◦  in the numerical  simulation and 60◦  and −70◦  in the
+experiment. The peak and bottom positions of time are almost
+the  same.  The  differences  of  amplitudes  of  β  and  θa   are
+approximately 6% and 8%, respectively. The differences have
+almost the same dynamical effects as those of inertia because
+a butterfly changes the abdomen mass during experiments.
+The  butterfly  can  fly  for  several  periods  when  one  of
+those motions is just repeated, whereas no feedback control is
+applied. It is reported that the unsteady wake-induced flow has
+a type of feedback stabilization effect that enables the butterfly
+to fly several periods [3, 5], although the details are not men-
+tioned in this paper. This is the feedback stabilization effect
+7
+Bioinspir. Biomim. 7 (2012) 025002                                                                                                                                                                            K Senda et al
+θ                                                 θ
+(a)
+(b)
+(c)
+-900          0.05        0.1         0.15
+-60
+-30
+0
+30
+60
+90                 θ
+a        β       η       θ
+-900          0.05        0.1         0.15
+-60
+-30
+0
+30
+60
+90                  θa        β       η       θ
+Figure 8. Almost periodic flapping-of-wings flight of the panel
+method model with flat wings and its original joint trajectory
+measured by experiment. (a) Almost periodic flight obtained by
+numerical simulation. (b) Joint trajectory obtained by numerical
+simulation. (c) Joint trajectory measured by experiment.
+brought by this system through the dynamic characteristic of
+the flow field, and it can be considered as an implicit control.
+The solid line with open squares in figure 15(a) illustrates
+that the flapping flight of the model is leaving gradually from
+the initial flight and destabilized after four flapping periods. It
+is also seen in figure 15(a) that the oscillation of the thorax
+causes the instability of the flight, though the mathematical
+model precisely repeats the desired joint motion by a controller
+for numerical simulations.
+4. Effect of wing flexibility on aerodynamic forces
+The  wing  deformations  of  free-flying  butterflies  were  qual-
+itatively   shown   in   some   photographs   [24]   and   sketches
+[17],  whereas  quantitative  measurements  and  discussions
+[15,  25–30]  have  been  limited  yet.  Experimental  measure-
+ments of wing kinematics and wing structural characteristics
+have  been  conducted  mainly  for  the  tethered  insects.  Wang
+et al [31] measure wing deformation of a free-flying dragon-
+fly using a sophisticated equipment with a seated laser light
+and  high-speed  video  cameras.  They  capture  the  deforma-
+tion roughly because precise and accurate measurement is not
+available. A large field of view is needed because a free-flying
+insect changes its position, but it results in a low resolution
+and inaccurate measurements.
+Three   high-speed   video   cameras   take   synchronized
+images  to  maintain  measurement  accuracy.  A  wing  model
+with  a  time-varying  camber  is  introduced  into  the  basic
+model,  where  the  parameters  to  represent  the  deformation
+are  determined  at  each  time  so  that  the  outer  shape  of  the
+model agrees with the outline of video images. This is a robust
+three-dimensional reconstruction method as well as the strip
+method of Willmott and Ellington [25, 26], whereas the wing
+deformation model used in this method is different from the
+strip method. Walker et al [9, 10] measured the deformation
+of wings of a desert locust, whereas deformations of butterfly
+wings have not been known in detail.
+Structurally   flexible   wings   of   actual   butterflies   are
+passively deformed by inertia force and aerodynamic forces
+applied   to   the   wings.   The   above   model   is   called   the
+time-varying  camber   model  that  describes  the  measured
+deformation as a function of time. This time-varying camber
+is introduced into the basic model, and the aerodynamic forces
+are calculated. The time-varying camber model is compared
+with  the  basic  model  whose  wings  are  always  flat.  The
+aerodynamic  effects  of  the  wing  deformation  are  quantified
+by using the experimental observation and the models. It will
+be  shown  that  some  good  effects  are  provided  by  the  wing
+deformations.
+4.1. Observation wing deformation
+Video images of a flapping butterfly are taken to observe the
+bending  of  wings.  Figures  9  and  10  show  the  images  from
+three directions.
+When   aerodynamic   forces   are   applied,   wings   are
+deformed as follows:
+(1)  At  the  beginning  of  the  downstroke  (t   =  0.008  (s)),
+the  overlapping  right  and  left  wings  are  peeled  from
+the leading edges with elastic deformation and become
+convex upward. It is known as the peel mechanism [13].
+(2)  During the downstroke (t  = 0.024, 0.040 and 0.056 (s)),
+wings keep being convex upward.
+(3)  In  transition  between  the  downstroke  and  the  upstroke
+(t = 0.080 (s)), wings are almost flat.
+(4)  During  upstroke  (t   =  0.104  (s)),  wings  are  convex
+downward on the contrary.
+On  each  side,  the  forewing  and  the  hindwing  almost
+always  move  together  as  a  single  wing  and  do  not  flap
+separately. Therefore, two wings on each side are considered
+as a single wing and the time-varying camber will be modeled
+later for the combined wing.
+This experiment is chosen because the wing deformations
+are easy to observe, whereas this is different from figure 5.
+The characteristic wing deformations are observed commonly
+in other experiments including that of figure 5. In the parts with
+hatching in figure 5, numerical simulations often have large
+differences from experiments. The wings are convex upward
+in the former part, and they are convex downward in the latter.
+The wings deform largely in both parts.
+In the simulation, the difference should be caused since
+the butterfly is modeled by the rigid wings in the simulation.
+Therefore,  the  structural  flexibility  of  wings  needs  to  be
+modeled and the effects evaluated.
+8
+Bioinspir. Biomim. 7 (2012) 025002                                                                                                                                                                            K Senda et al
+Figure 9. Wing deformations of experiment and model (top: t = 0.008 (s), middle: t = 0.024 (s), bottom: t = 0.040 (s)).
+9
+Bioinspir. Biomim. 7 (2012) 025002                                                                                                                                                                            K Senda et al
+Figure 10. Wing deformations of experiment and model (top: t = 0.056 (s), middle: t = 0.080 (s), bottom: t = 0.104 (s)).
+10
+Bioinspir. Biomim. 7 (2012) 025002                                                                                                                                                                            K Senda et al
+γ
+γ
+ψ
+ψ
+Figure 11. Airfoil function ψh  defined by two lines.
+4.2. Wing model with the time-varying camber
+The modeled wings which can bend are shown in lower panels
+of figures 9 and 10 and the modeled wings successfully capture
+the deformations of the real wings. The shapes of the wings are
+given as a function of time that is observed in the experiment,
+where the reason will be described later.
+As shown in figure 11, the airfoil is defined as a hyperbolic
+curve ψh  that has two tangent lines. At a time, all of the front
+side tangent lines along the span direction are on a same flat
+plane.  The  rear  side  tangent  lines  also  form  a  flat  plane  at
+a time. Hence, the wing configuration is defined by two flat
+planes,  i.e.  the  front  side  plane  and  the  rear  side  plane.  By
+using video images of the experiment, the front side plane and
+the rear side plane are determined to be tangent at the leading
+edge of forewing and at the hindwing, respectively.
+The  wing  configuration  is  determined  as  a  function  of
+time, where the parameters defining the front side plane and
+the  rear  side  plane  are  given  as  functions  of  time.  In  the
+panel method, vortex panels are placed on the wings whose
+configurations are defined above.
+4.3. Effects on aerodynamic forces caused by wing
+deformation
+Figure 12 shows the aerodynamic forces of the experiment,
+the panel method model with flat wings and that with time-
+varying  camber  wings.  The  average  values  of  L,  D  and  M
+per flapping cycle are 2.4 × 10−3  (N), −2.5 × 10−3  (N) and
+−0.056 × 10−3   (Nm)  in  the  experiment,  0.3 × 10−3   (N),
+−2.9×10−3 (N) and −0.006×10−3 (Nm) in the panel method
+model with flat wings, and 1.1×10−3 (N), −3.5×10−3 (N) and
+−0.013 × 10−3  (Nm) in the model with time-varying camber
+wings. In terms of the lift, the bending wing model generates
+larger lift than the flat wing model during the downstroke. The
+lift typically increases by the upward convex of wings during
+the downstroke. In terms of the drag, the bending wing model
+generates less drag than the flat wing model at the latter half of
+the upstroke. It is because of the downward convex of wings
+during the upstroke. As a result, the bending wing model is
+closer to the experiment than the flat wing model.
+The  typical  effects  of  the  deformation  caused  by  the
+structural flexibility are organized as follows:
+(a)  It begins immediately after beginning of downstrokes that
+the wings become convex upward by the peel mechanism.
+(b)  During  downstrokes,  the  wings  remain  convex  upward,
+which improve the aerodynamic efficiency as increasing
+the lift and decreasing the drag.
+The    following    improvements    of    the    aerodynamic
+efficiency  are  observed  by  comparing  the  experiment  with
+the   numerical   simulation   with   bending   wings,   whereas
+the  numerical  simulation  has  small  discrepancies  from  the
+experiment.
+-90
+-60
+-30
+0
+30
+60
+90
+[deg]
+θ
+a        β       η       θ
+(a)
+(c)
+(b)
+(d)
+-0.0150                   0.05                  0.1
+-0.01
+-0.005
+0
+0.005
+0.01
+0.015
+0.02
+Time [s]
+Drag [N]
+Experiment
+Flat Wing
+Bending Wing
+0                   0.05                  0.1
+Time [s]
+Experiment
+Flat Wing
+Bending Wing
+-1 0                   0.05                  0.1
+-0.5
+0
+0.5
+1x 10
+-3
+Time [s]
+Pitching moment [Nm]
+Experiment
+Flat Wing
+Bending Wing
+Figure 12. Motion and aerodynamic forces of experiment, of numerical simulation with flat wings and of numerical simulation with
+bending wings. (a) Motion. (b) Lift. (c) Drag. (d) Pitching moment.
+11
+Bioinspir. Biomim. 7 (2012) 025002                                                                                                                                                                            K Senda et al
+(a)                                                                    (b)
+Figure 13. Side view images of experiments to measure wing torsional rigidity. (a) Without torsion. (b) With torsion.
+(c)  At the beginning of downstrokes, the experimental peel
+mechanism generates larger thrust.
+(d)  During  downstrokes,  the  experimental  wings  convex
+upward generate larger lift.
+Following  reasons  can  be  considered  why  the  panel
+method model with bending wings has the quantitative error.
+The  closer  the  aerodynamic  forces  to  the  experiment  are
+calculated, the more accurate the wing deformation is given.
+For  the  self-consistency  of  physical  phenomena,  the  wing
+deformation  should  be  obtained  as  the  elastic  deformation
+caused by the aerodynamic forces, whereas the deformation
+has been given by the function of time from the experimental
+observation.  It  will  be  a  future  subject  because  a  precise
+measurement of the rigidity distribution is more difficult than
+the  deformation  measurement.  Both  the  local  loads  and  the
+deformations should be measured precisely all over the wings
+for the rigidity distribution.
+5. Effect of wing flexibility on flight dynamics
+In  this   section,   only   torsion   is  considered   as   the   wing
+deformation but it is obtained as the elastic deformation caused
+by the aerodynamic forces, while the bending has been given
+by the function of time in section 3. This model is called a
+passive torsion wing model.
+As  discussed  in  figure  5(a),  deformation  of  wings  is
+observed  in  experiments,  and  the  structural  flexibility  leads
+to  large  torsion  of  wings.  Flapping  motion  of  the  model
+is  controlled  to  follow  the  desired  trajectory  without  error
+in  section  3,  whereas  that  of  actual  butterflies  cannot  be
+controlled  in  this  way  because  their  wings  are  twisted  by
+various unexpected disturbances. This passive torsion of wings
+has not been considered in the simulation of section 3. In this
+section, wing torsion due to structural flexibility is introduced
+to the model and its effect on the flapping-of-wings flight is
+examined.
+5.1. Experiments to measure wing rigidity
+To introduce the passive torsion to the mathematical model, the
+torsional rigidity of the wings has been measured with living
+Figure 14. One-DOF damped oscillator model of wing torsion.
+butterflies.  In  this  experiment,  three  typical-sized  butterflies
+are chosen. Both wings of three butterflies are used to measure
+rigidity.
+Torsional  torque  loads  are  applied  to  a  wing  of  living
+butterfly,  where  the root  of the wing is clamped  to fix  it to
+the horizontal plane. The torsional angle α is measured when
+torsional torque load τ is applied, where the angles are captured
+from camera images. Pure torsional torque is applied by using
+a jig so that the deformation of wings becomes twisting only.
+The  distance  of  the  load  point  from  the  fixed-wing  root  is
+half of wing length. Figure 13 shows camera images of the
+experiments. No torque is applied on the wing in figure 13(a),
+an appropriate torque is applied on the wing in figure 13(b)
+and the difference of angles is measured as the torsional angle.
+The torsional rigidity K of the wing is then given by K =
+τ/α with respect to the torsional torque loads. The torsional
+rigidity  of  wings  as  the  average  of  the  living  butterflies  is
+approximately 6.0 × 10−4  (Nm rad−1). The damping ratio is
+estimated as 0.7 from the wing motion, and it is applied to the
+model.
+5.2. Modeling of flexibly torsional wings
+Figure 14 shows a one-DOF damped oscillator model of wing
+torsion caused by its structural flexibility, where a spring and
+12
+Bioinspir. Biomim. 7 (2012) 025002                                                                                                                                                                            K Senda et al
+(a)
+0           0.2          0.4          0.6          0.8            1           1.2          1.4          1.6
+-8000
+-6000
+-4000
+-2000
+0
+2000
+4000
+6000              w/o torsion           with torsion
+ 
+ 
+θ
+(b)
+0           0.2          0.4          0.6          0.8            1           1.2          1.4          1.6
+-2000
+-1000
+0
+1000
+2000
+w/o torsion          with torsion
+θ
+(c)
+(d)
+Figure 15. Flapping-of-wings’ flights with/without flexible torsion. (a) Height. (b) Acceleration of pitching of thorax. (c) Acceleration of
+feathering angle. (d) Acceleration of pitching of thorax (0.5 t 0.75 [s]).
+a damper are installed in the joint at the wing root. The model
+of the wing remains as a flat plate.
+This modeling defines the joint torsion torque τθ  that is
+the  generalized  force  of  the  feathering  angle  representing  a
+torsion angle θ as
+τθ  = τ˜θ  + τθ,flex                                                                              (7)
+= τ˜θ  − GP,θ (θ − θd ) − GD,θ (θ˙ − θ˙d ),             (8)
+where τ˜θ  is the feedforward torque for the desired feathering
+angle θd, and τθ,flex  is the feedback torque when θ  has error
+from θd.  This  torque  models  the  structural  flexibility  of  the
+wing. Feedback gain GP,θ  corresponds to the torsional rigidity
+of the wing and GP,θ  = K. The flapping motions of the models
+with and without flexibly torsional wings are the same if the
+joint trajectories of the two models have no difference. Hence,
+the desired trajectory θd  is commonly used for the two models.
+Feedback gain GD,θ  is a damping coefficient that corresponds
+to the torsional damping of the wing.
+5.3. Effect of wing torsion on flapping-of-wings’ flight
+Numerical simulations show how the flexible torsion changes
+the flight stability using mathematical model with measured
+flexibility of wings. Figures 15(a)–(c) show two trajectories
+of flapping-of-wings  flights.  The  two trajectories have  been
+obtained using the models with and without flexibly torsional
+wings, where the same desired joint trajectories are applied
+to both models. The desired joint trajectory has been obtained
+by the trajectory searching for the rigid model in section 3. It
+is seen that the oscillation of the thorax causes the instability
+of the flight for the model without flexibly torsional wings.
+The  passive  torsion  wings  extend  the  stable  flight  for  four
+13
+Bioinspir. Biomim. 7 (2012) 025002                                                                                                                                                                            K Senda et al
+0           0.2          0.4          0.6          0.8            1           1.2          1.4          1.6
+-0.04
+-0.02
+0
+0.02
+Time [s]
+(a)                            w/o torsion          with torsion
+θ
+(b)
+Figure 16. Other flapping-of-wings’ flights with/without flexible torsion. (a) Height. (b) Acceleration of pitching of thorax.
+more periods. Figure 15(d) shows that the oscillation of θ¨t  is
+reduced, especially when the butterfly without the structural
+flexibility is going down at t = 0.8 (s). The joint trajectory of
+the model without flexibility before falling down is almost the
+same as that of the model with flexibility. The slight errors in
+joint motions are caused by the difference in joint dynamics.
+The wing flexibly damps the pitching oscillation of the thorax,
+where the oscillation may make the butterfly fall down. As a
+result, the instability of the thorax is reduced, and the flying
+periods are extended.
+The same stabilizing effects are demonstrated in three of
+the four other simulations by the passive wing torsion in the
+mathematical model, where flapping motion is different from
+each case. One of them is illustrated in figure 16. Therefore,
+the flexible torsion introduces the stabilization effect on the
+flapping-of-wings flight.
+This is a kind of feedback stabilization effect brought by
+this system through the dynamic property of the wing. It can
+be considered as a kind of preflex [32] as well as an implicit
+control.
+6. Concluding remarks
+To  discuss  effects  of  the  structural  flexibility  of  the  wings
+of  butterfly  in  flapping-of-wings  flights,  the  butterflies  are
+modeled.  The  panel  method  has  been  applied  to  calculate
+the aerodynamic forces. The flapping-of-wings flight obtained
+from the parametric search of the trajectories is unstable with
+the thoracic oscillation. Two models are proposed to integrate
+two aspects of the wing deformation. One model, in which the
+bending is modeled, has clarified the effect on the aerodynamic
+forces.  In  the  other  model,  passive  wing  torsion  caused  by
+structural flexibility is modeled. In this passive torsion model,
+the flat wings are passively twisted due to the aerodynamic
+disturbance.  Using this  model,  effects  of  passive  torsion on
+flight dynamics are discussed.
+The flight instability has been decreased by introducing
+the  passive  wing  torsion  in  the  second  model.  The  living
+butterflies  have  the  structurally  flexible  wings  that  improve
+both the aerodynamic efficiency and the flight stability.
+Acknowledgment
+A part of this work has been financially supported by a grant
+in aid for Scientific Research from the Ministry of Education,
+Science, Culture, and Sports of Japan.
+References
+[1]  Senda K, Tanaka T and Sawamoto M 2003 Measurement and
+numerical simulation of a flapping butterfly Proc. of 2nd
+Int. Symp. on Adaptive Motion of Animals and Machines
+(Kyoto) pp 1–7
+[2]  Senda K, Sawamoto M, Shibahara T and Tanaka T 2004 Study
+on flapping-of-wings flight of butterfly with experimental
+measurement Proc. of AIAA Atmospheric Flight Mechanics
+Conf. (Providence, RI) pp 1–14
+[3]  Senda K, Sawamoto M, Tanaka T and Shibahara T 2005
+Analysis on control of flapping-of-wings flight of butterfly
+Proc. of 3rd Int. Symp. on Adaptive Motion of Animals and
+Machines (Ilmenau, Germany) pp 1–12
+[4]  Senda K, Sawamoto M, Shibahara T, Kitamura M
+and Tanaka T 2006 Study on flapping-of-wings flight of
+butterfly with numerical and experimental analysis Proc. of
+AIAA Atmospheric Flight Mechanics Conf. (Keystone, CO)
+pp 1–16
+[5]  Senda K, Sawamoto M, Kitamura M and Tanaka T 2007
+Stabilization of flapping-of-wing flight of butterfly,
+considering wakes Bio-mechanisms of Swimming and
+Flying  ed N Kato and S Kamimura (Tokyo: Springer)
+pp 193–204
+[6]  Senda K, Sawamoto M, Kitamura M and Obara T 2008
+Towards realization of stable flapping-of-wings flight of
+butterfly Proc. of 4th Int. Symp. on Adaptive Motion of
+Animals and Machines (Cleveland, Ohio) pp 62–3
+[7]  Senda K, Obara T, Kitamura M and Nishikata T 2009
+On flight mechanics of flapping butterfly IEEE Int.
+14
+Bioinspir. Biomim. 7 (2012) 025002                                                                                                                                                                            K Senda et al
+Conf. on Robotics and Automation (Kobe, Japan)
+pp 17–22
+[8]  Vanella M, Fitzgerald T, Preidikman S, Balaras E
+and Balachandran B 2009 Influence of flexibility on the
+aerodynamic performance of a hovering wing J. Exp. Biol.
+212 95–105
+[9]  Walker S M, Thomas A L R and Taylor G K 2009
+Photogrammetric reconstruction of high-resolution surface
+topographies and deformable wing kinematics of tethered
+locusts and free-flying hoverflies J. R. Soc. Interface
+6 351–66
+[10]  Walker S M, Thomas A L R and Taylor G K 2009 Deformable
+wing kinematics in the desert locust: how and why do
+camber, twist and topography vary through the stroke? J. R.
+Soc. Interface 6 735–47
+[11]  Young J, Walker S M, Bomphrey R J, Taylor G K
+and Thomas A L R 2009 Details of insect wing design and
+deformation enhance aerodynamic function and flight
+efficiency Science 325 1549–52
+[12]  Tanaka H and Shimoyama I 2010 Forward flight of swallowtail
+butterfly with simple flapping motion Bioinspir. Biomim.
+5 026003
+[13]  Ellington C P 1984 The aerodynamics of flapping animal
+flight Integr. Comp. Biol. 24 95–105
+[14]  Dudley R and Ellington C P 1990 Mechanics of forward flight
+in bumblebees: I. Kinematics and morphology J. Exp. Biol.
+148 19–52
+[15]  Wakeling J M and Ellington C P 1997 Dragonfly flight: II.
+Velocities, accelerations and kinematics of flapping flight
+J. Exp. Biol. 200 557–82
+[16]  Taylor G K and Zbikowski R 2005 Nonlinear time-periodic
+models of the longitudinal flight dynamics of desert
+locusts schistocerca gregaria J. R. Soc. Interface
+2 197–221
+[17]  Brodsky A K 1994 The Evolution of Insect Flight (Oxford:
+Oxford University Press)
+[18]  Azuma A 2006 The Biokinetics of Flying and Swimming 2nd
+edn (Reston, VA: American Institute of Aeronautics and
+Astronautics)
+[19]  Katz J and Plotkin A 2001 Low-speed Aerodynamics 2nd edn
+(Cambridge: Cambridge University Press)
+[20]  The Visualization Society of Japan 2002 Handbook of Particle
+Image Velocimetry (Tokyo: Morikita Publishing)
+in Japanese
+[21]  Fry S N, Sayaman R and Dickinson M H 2003 The
+aerodynamics of free-flight maneuvers in drosophila
+Science 300 495–8
+[22]  Fry S N, Sayaman R and Dickinson M H 2005 The
+aerodynamics of hovering flight in drosophila J. Exp. Biol.
+208 2303–18
+[23]  Aono H, Liang F and Liu H 2008 Near- and far-field
+aerodynamics in insect hovering flight: an integrated
+computational study J. Exp. Biol. 211 239–57
+[24]  Dalton S 1986 Caught in Motion (London, UK: John Calmann
+and Cooper)
+[25]  Willmott A P and Ellington C P 1997 Measuring the angle of
+attack of beating insect wings: robust three-dimensional
+reconstruction from two-dimensional images J. Exp. Biol.
+200 2693–704
+[26]  Willmott A P and Ellington C P 1997 The mechanics of flight
+in the hawkmoth manduca sexta: I. Kinematics of hovering
+and forward flight J. Exp. Biol. 200 2705–22
+[27]  Wootton R J 1993 Leading edge section and asymmetric
+twisting in the wings of flying butterflies J. Exp. Biol.
+180 105–17
+[28]  Steppan S J 2000 Flexural stiffness patterns of butterfly wings
+J. Res. Lop. 35 61–77
+[29]  Combers S A and Daniel L T 2003 Flexural stiffness in insect
+wings: I. Scaling and the influence of wing venation J. Exp.
+Biol. 206 2979–87
+[30]  Combers S A and Daniel L T 2003 Flexural stiffness in insect
+wings: II. Spatial distribution and dynamic wing bending
+J. Exp. Biol. 206 2989–97
+[31]  Wang H, Zeng L, Liu H and Yin C 2003 Measuring wing
+kinematics, flight trajectory and body attitude during
+forward flight and turning maneuvers in dragonflies J. Exp.
+Biol. 206 745–57
+[32]  Brown I E and Loeb G E 2000 A reductionist approach to
+creating and using neuromuscular models Biomechanics
+and Neural Control of Posture and Movement
+ed J M Winters and P E Crago (New York:
+Springer)
+15

@@ -1,0 +1,647 @@
+ORIGINALS
+Markus Honkanen AE  Holger Nobach
+Background extraction from double-frame PIV images
+Received: 18 May 2004 / Revised: 3 December 2004 / Accepted: 4 December 2004 / Published online: 1 February 2005
+ Springer-Verlag 2005
+Abstract  This  study  presents  a  simple  image  pre-pro-
+cessing scheme to extract background information from
+double-frame  particle  image  velocimetry  (PIV)  images.
+Everything that stays stagnant in the image (e.g., image
+background   and   light   reflections   from   stationary
+objects) is assumed to be a source of disturbance and is
+removed by subtracting the second frame of the image
+pair  from  the  first  frame.  This  yields  a  single  frame
+difference  image,  which  is  transferred  back  to  a  back-
+ground extracted double-frame image. After the proce-
+dure  the  background  in  the  image  does  not  correlate
+with  itself  anymore  and  therefore  a  bias  error  in  PIV
+analysis  towards  zero  displacement  is  avoided.  The
+simulations show that the procedure conserves the pro-
+file   of   tracer   particle   images   when   a   displacement
+between the frames is larger than a particle image size.
+The performance of this procedure is emphasized with
+various  examples,  and  extensions  of  the  procedure  are
+introduced.   The   extended   procedure   extracts   back-
+ground objects that move between the image frames, e.g.
+dispersed  phase  particles  in  a  two-phase  flow  or  laser
+light sheet reflections from moving objects.
+1 Introduction
+The  performance  of  particle  image  velocimetry  (PIV)
+depends on the image acquisition (i.e., experiment) and
+signal processing. The signal processing can be divided
+into  image  pre-processing,  image  correlation  and  data
+post-processing. The aim of this study is to improve the
+performance  of  the  PIV  technique  by  means  of  a  new
+image   pre-processing   scheme.   Image   pre-processing
+refers  to  noise  removal  from  a  PIV  image  prior  to
+applying an image correlation function. Image pre-pro-
+cessing  can  only  serve  to  destroy  or  rearrange  the
+information as new information clearly cannot be added
+after  the  experiment  (Fincham  and  Spedding  1997).
+However, image pre-processing can improve the quality
+of  particle  images  to  some  extent  and  ease  the  image
+correlation   remarkably   while   saving   computational
+costs.  The  image  pre-processing  will  preserve  the  mea-
+surement  accuracy  if  it  does  not  change  the  grey-scale
+profile of particle images.
+The quality of the images should normally be insured
+already  in  the  image  acquisition  stage,  optimizing  the
+particle illumination, camera positioning and optics, and
+minimizing  the  background  noise  in  the  images.  To
+maximize  the  information  content  of  the  images,  the
+pixel  intensities  should  cover  the  allowable  brightness
+resolution range. The contrast should be maximized to
+provide  tracer   particle   images   that   are   distinctively
+brighter  than  the  background,  without  saturating  the
+particle  profiles  (Fincham  and  Spedding  1997).  If  the
+double  pulsed  lasers  are  configured  incorrectly,  two
+frames  of  the  image  pair  have  different  grey-scale  his-
+tograms.  This  might  produce  changing  intensities  for
+particles that are not even moving (Willert 1997).
+The  background  noise  consists  of  the  image’s  local
+background  grey-scale  level  (i.e.,  offset)  and  random
+noise  above  it.  Image  offset  and  laser  light  reflections
+from  the  stationary  objects  correlate  with  themselves
+and cause a bias error in a correlation analysis towards
+zero displacement. In addition, offset increases all cor-
+relation values over the interrogation area and creates a
+non-Gaussian   profile   of   a   correlation   peak,   which
+increases the pixel locking effect in the image correlation.
+The offset can be caused by the dark-noise of the camera
+sensor, zero-level grey-scale typical for CMOS sensors,
+environmental  light  coming  into  the  camera  sensor
+and laser light reflections and glow from the fluid. The
+M. Honkanen (&)
+Energy and Process Engineering,
+Tampere University of Technology,
+P.O. Box 589, FIN-33101 Tampere, Finland
+E-mail: markus.honkanen@tut.fi
+H. Nobach
+Stro¨mungslehre und Aerodynamik,
+Darmstadt University of Technology,
+Petersenstrasse 30, D-64287 Darmstadt, Germany
+Experiments in Fluids (2005) 38: 348?362
+DOI 10.1007/s00348-004-0916-x
+random noise is caused for instance by the camera’s dark
+noise,  by  photon  noise,  by  the  light  scattering  from
+objects  other  than  tracer  particles  in  the  fluid  and  by
+light  scattering  from  interacting  particles.  Background
+noise  changes  the  grey-scale  distribution  of  particle
+images,  which  leads  to  stochastic  errors  in  the  image
+correlation analysis.
+The  commonly  used  noise  removal  methods  can  be
+divided  into  five  different  categories.  The  global  offset
+can be removed simply by subtracting a constant value
+from  the  image,  but  then  the  local  changes  in  the
+background cannot be followed. A mean grey-scale va-
+lue approximately represents the mean background with
+a particle image density of 0.1 per  pixel, which is typical
+for PIV. However, the local offset with intensity gradi-
+ents is removed more accurately by subtracting a refer-
+ence  image,  which  represents  a  background  of  a  PIV
+image,  from  the  original  image.  This  background  sub-
+traction is also called a levelization (Todd and Hassan
+2001). The reference image can be obtained in the fol-
+lowing ways:
+1.  It is acquired during measurements of an illuminated
+flow without particles.
+2.  It is computed as an average or local minimum from
+all samples of the measurement set (Gui et al. 1997;
+Wereley et al. 2002).
+3.  It  is  computed  using  a  linear  or  non-linear  filter
+individually   for   each   sample.   Willert   (1997)   has
+demonstrated  a  low-pass  filtered  background  image
+with a linear smoothing filter. Westerweel (1997) has
+suggested  a  subtraction  of  an  average  inside  each
+interrogation window. The commercial PIV software
+of LaVision and Dantec provide non-linear filters for
+this  purpose.  Dantec  proposes  an  erosion  filter  for
+background  removal  (Dantec  Dynamics  2002)  and
+LaVision  proposes  a  sliding  minimum  filter  (LaVi-
+sion  2003)  or  optionally  a  sliding  average  filter.  In
+addition, the reference image can be produced with a
+local median filter or rather with a modified median
+type of filter (Scholz and Ka¨hler 2004) that considers
+the intensity range of tracer particle images.
+4.  In  the  proposed  procedure,  the  reference  image,
+which  is  individual  for  each  sample,  is  the  second
+image  frame  of  the  double  frame  PIV  image.  This
+means  that  the  second  frame  of  the  image  pair  is
+subtracted from the first one. The procedure can be
+extended   to   moving   background   objects.   Before
+subtraction  the  extended  procedure  translates  the
+second frame in line with background objects.
+The reference image obtained with items (1) and (2) is
+temporally averaged and it cannot follow the temporal
+changes of the background image. The items (3) and (4)
+produce  an  instantaneous  reference  image,  which  fol-
+lows  the  changes  in  the  background  grey-scale  level
+spatially  and  temporally.  The  background  extraction
+procedure (item 4) is able to capture all spatial changes
+in  the  background  grey-scale  level,  while  the  spatial
+frequency response for filter functions is limited by the
+kernel size that determines the filter. If the image back-
+ground  changes  during  the  time  delay  between  the
+frames,  residuals  of  the  background  still  remain  after
+background   extraction.   The   residuals   do   not   have
+counterparts  in  the  other  frame  and  therefore  they  do
+not  correlate  with  themselves;  they  only  produce  sto-
+chastic  errors.  Stochastic  errors  are  reduced  with  the
+extended   procedure   that   follows   the   movement   of
+background  objects.  Table 1  shows  those  sources  of
+noise  can  be  eliminated  by  the  background  extraction
+procedure.
+The main difference between items (3) and (4) is on
+what basis they discriminate the particle images from the
+image background. The filtering functions suggest that
+particle   images   are   small   compared   to   background
+objects and the discrimination is based on the difference
+in image size, while the background extraction procedure
+discriminates  the  particle  images  from  the  background
+objects based on the difference in motion. For images of
+dispersed  two-phase  flow,  Delnoij  et  al.  (1999)  have
+developed a phase discrimination method that relies on
+the inherent differences in the motion of the two phases
+to  discriminate  between  them.  The  separation  is  per-
+formed  in  correlation  space  by  identifying  the  two
+dominant  correlation  peaks,  where  one  represents  the
+motion of the tracer particles while the other provides the
+displacement of the dispersed phase. A velocity difference
+between  a  dispersed  phase  object  and  the  continuous
+phase  has  to  be  large  enough  to  avoid  interference  of
+signals of the two phases. In the background extraction
+procedure, the discrimination of background objects and
+the signal of tracer particles is also based on the principle
+presented by Delnoij et al. (1999), except that the phase
+separation  is  already  completed  in  the  pre-processing
+stage before the image correlation.
+2 Background extraction procedure
+Here a new pre-processing scheme is presented. Every-
+thing that stays stagnant in the image is assumed to be a
+Table 1  The types of noise in the image and their removal
+Source of noise           Type of noise    Removed
+with
+background
+extraction
+Removed
+with extended
+background
+extraction
+Zero-level                    Offset                Yes                Yes
+Dark noise                  Random            No                 No
+Photon noise               Random            No                 No
+Environment light       Offset                Yes                Yes
+Varying illumination   Offset/random   Yes/no           Yes/no
+Laser light from
+stationary objects
+Offset                Yes                Yes
+Laser light from
+moving objects
+Random            No                 Yes
+349
+source  of  bias  and  is  removed.  Stagnant  objects  are
+simply removed by subtracting the second frame of the
+image  pair  from  the  first  frame.  This  yields  an  auto-
+correlation type of single frame difference image, where
+the particle images  belonging to the first frame have a
+positive sign and the other particle images belonging to
+the  second  frame  have  a  negative  sign.  Therefore,  the
+image  can  be  transferred  to  a  background  extracted
+double-frame image moving all the positive values to the
+first frame and  negative values to the  second  frame  of
+the image and changing their sign back to positive.
+The  background  extracted  image  consists  only  of
+moving   particle   images,   zero-background   level   and
+random noise. At least 50% of the image pixels have a
+grey-scale  value  of  zero.  This  means  that  whenever  an
+image pixel in one of the frames has a non-zero value,
+the corresponding  pixel in the  other frame is zero.  The
+zero-values are not necessarily distributed equally between
+the frames.
+In  the  case  of  an  unequal  illumination  between  the
+frames, the background extraction procedure leads to an
+erroneous result. If the two image frames have unequal
+background  intensity,  the  background  extraction  pro-
+cedure  will  result  in  a  double-frame  image,  where  one
+frame  has particle images  with  an offset and the other
+has   zero-background   with   shallow   particle   images,
+whose edges are cut off. This can be avoided by applying
+grey-scale equalization prior to the background extrac-
+tion  procedure.  The  unequal  peak  intensities  between
+the image frames can be equalized by dividing grey-scale
+values with corresponding values of sliding average grey-
+scale  in that frame. Also  a min?max filter  (Meyer  and
+Westerweel  2000)  or  a  histogram  equalization  (Todd
+and Hassan 2001) can be applied for this purpose. Even
+if the intensities in the frames are not properly equalized,
+after background extraction the remaining offset in one
+of the frames does not correlate with itself anymore.
+Figure 1 shows grey-scale histograms from a sample
+image (Fig. 2a) that is pre-processed by the background
+extraction procedure. It shows histograms of difference-
+images   and   background   extracted   images   with   and
+without image equalization and a histogram of a sliding
+average  subtracted  image.  The  background  noise  con-
+sists of a strong reflection in the middle of the image and
+smaller noise sources that correspond to grey-scale val-
+ues  less  than  1,000  counts.  The  background  grey-scale
+level, which corresponds to the peak of the histogram,
+should be placed at zero to avoid the image correlation
+errors.  The  subtraction  of  a  sliding  average  places  the
+background  grey-scale  level  at  a  negative  value,  which
+increases   the   pixel   locking   effect.   The   background
+extraction  procedure  places  the  peak  of  the  histogram
+always near zero. Comparison of the histograms shows
+that   the   background   extraction   without   grey-scale
+equalization  eliminates  background  noise,  as  does  the
+subtraction  of  a  sliding  average,  and  it  performs  even
+better when the grey-scale equalization is applied.
+3 Extensions of the background extraction procedure
+Extensions  of  the  procedure  are  necessary  if  the  laser
+light-sheet   reflection   or   other   background   noise   is
+moving between the frames. The background extraction
+procedure  can  be  applied  to  the  areas  attached  to  the
+moving background objects instead of to the entire field
+of view. The background objects can be detected based
+on  image  size  and  brightness  or  by  applying  a  2D-
+median filter (Kiger and Pan 2000). The displacements
+of  the  background  objects  can  be  defined  with  an
+Fig. 1  The grey-scale
+histograms of an original
+image, of difference images and
+background extracted images
+with and without grey-scale
+equalization between the
+frames, and of an image after
+subtraction of the output of
+sliding average
+350
+appropriate particle tracking algorithm and the second
+frame can be subtracted after translating the frame with
+a  given  displacement.  If  the  background  noise  is  high
+everywhere  in  the  image,  the  background  extraction
+procedure can first be executed once to the entire field of
+view  and  then  to  the  segments  of  moving  background
+objects.  The  following  examples  emphasize  the  perfor-
+mance  of  the  extended  procedure.  These  extensions
+make the background extraction procedure an efficient
+tool  to  study  the  PIV  images  of  two-phase  flow  or
+images    with    moving    background    objects.    After
+employing  the  background  extraction  procedure,  the
+signals of tracer particles can be detected even on top of
+a highly reflective object (e.g., bubble or a solid surface).
+4 Applications
+The  performance  of  the  procedure  is  demonstrated
+using  the  applications  described  below.  In  all  applica-
+tions, the image correlation analysis is performed with a
+standard  multi-pass  FFT  algorithm  with  interrogation
+window  sizes  from  64・64  to  16・16 pixels  with  50%
+overlap.
+4.1 Application: the flow close to a solid boundary
+When the fluid dynamics in a mixing vessel are studied,
+the  main  area  of  interest  is  located  in  a  propeller  dis-
+charge zone. The PIV experiments can be synchronized
+with a propeller blade angle to resolve velocity fields in
+each  phase  angle. The example image here  is  captured
+immediately after  the propeller blade left the measure-
+ment plane (in a phase angle of 5). Reflections from the
+vertically aligned propeller blade tip in the middle of the
+image are still visible (Fig. 2a). Figure 2 shows an ori-
+ginal  image  and  a  background  extracted  image,  where
+the  image  frames  are  overlayed  on  top  of  each  other.
+The  raw  vector  fields  derived  from  the  images  are
+shown  in  Fig. 3.  The  erroneous  vectors  caused  by  the
+laser  light  reflection  from  the  propeller  blade  tip  in
+Fig. 3a  cannot  be  seen  in  Fig. 3b.  This  application
+impressively shows the effect of the background extrac-
+tion procedure. However, a proper validation procedure
+could have also removed all the spurious vectors from
+both  vector  fields,  so  in  this  case  the  pre-processing
+scheme is not essential. In the following applications, the
+background extraction procedure with its extensions is
+clearly superior.
+4.2 Application: the flow around a turbine blade tip
+The flow of fluorescent particles is acquired with a dig-
+ital  camera  that  is  equipped  with  a  high-pass  optical
+filter. This optical signal discrimination ideally prevents
+all  the  Mie  scattering  of  laser  light  from  entering  the
+camera. Figure 4a shows flow over a turbine blade tip at
+a  condition  where  the  blade  is  perpendicular  to  the
+measurement plane. The direction of the laser light sheet
+illumination is downwards in a plane which partly tou-
+ches  the  blade  tip  moving  upwards.  Even  with  optical
+Fig. 2  a Original image. b Background extracted image
+351
+signal  discrimination  and  the  painted  black  surface  of
+the  turbine,  the  light  reflections  on  the  blade  tip  are
+strong. The reflections are correlated in the image cor-
+relation   analysis   and   a   resultant   vector   field   has
+numerous  erroneous  vectors  in  the  region  close  to  the
+blade (see Fig. 4b). However, the signal of particles still
+exists above the reflections of the solid surface. This can
+be  seen  in  Fig. 5a,  tracing  the  profiles  of  grey-scale
+values along the horizontal and vertical lines on the top
+of the turbine blade tip. After the background extraction
+in  Fig. 5b,  the  reflections  of  the  solid  surface  are  re-
+moved and only the  particle  images  remain.  The grey-
+scale  values  corresponding  to  turbine  blade  reflections
+are  subtracted  conserving  the  grey-scale  profile  of  the
+particle images and shifting the image background to a
+zero  value.  Figure 6a  shows  the  vector  field  calculated
+from the  background  extracted image,  from which the
+small  amount  of  erroneous  vectors  can  be  easily  re-
+moved  in  the  validation  process  and  an  undisturbed
+vector field of a fluid motion over a turbine blade tip is
+acquired.
+The  discrimination  of  noise  sources  and  tracer  par-
+ticle  images  allows  a  digital  mask  technique to be em-
+ployed (Gui et al. 2003). The digital mask is produced
+with   a   2D-median   filter   to   mask   the   image   pixels
+attached  to  the  turbine  blade  tip  from  the  correlation
+analysis.  In  this  study,  a  simplified  digital  mask  tech-
+nique is applied after the correlation analysis to remove
+the erroneous vectors of the raw vector field (Fig. 4b) on
+top of the digital mask. The results of simplified digital
+masking can be seen in Fig. 6b. The masking technique
+reliably removes all the information on top of the large
+reflection to obtain a smooth vector field after validation
+and interpolation. However, the background extraction
+procedure has preserved information on the top of the
+strong  reflections  and,  therefore,  more  reliable  fluid
+velocity estimates are obtained from that region.
+4.3 Application: bubbly flow in a mixing vessel
+Two  examples  of  bubbly  flow  with  tracer  particles  are
+considered.  The  flow  is  illuminated  with  two  diode
+lasers, one producing a light sheet and another used as a
+back-light. The first example image is shown in Fig. 7a,
+where  a  bubble  moves  up  and  to  the  left,  towards  the
+center  of  a  vortex.  Each  image  frame  is  exposed  four
+times  with  a  light  sheet  and  once  with  a  back-light
+simultaneously   with   the   last   light   sheet   pulse.   The
+background subtraction procedure is applied, obtaining
+the  image  in  Fig. 7b.  Figure 8a  shows  the  raw  vector
+field  derived  from  an  original  image,  where  the  move-
+ment  of  a  bubble  is  strongly  correlated,  leading  to
+erroneous vectors on top of the bubble. Figure 8b shows
+the raw vector field of the background extracted image,
+where the fluid flow field is captured correctly, even on
+top  of  the  bubble  without  any  interference  from  the
+bubble image.
+Figure 9  shows  another  example  of  a  bubbly  flow
+where a large bubble is moving upwards in a counter-
+flow.   The   flow   is   illuminated   twice,   simultaneously
+with  a  light  sheet  and  a  back-light.  The  calculated
+vector fields, without and  with background  extraction,
+Fig. 3  Raw vector fields of a original and b background extracted
+images
+352
+Fig. 4  a An overlaid double-frame image of a flow of fluorescent particles over a turbine blade tip. b Obtained raw vector field
+353
+are  shown  in  Fig. 10a  and  b,  respectively.  The  vector
+field  in  Fig. 10a  has  erroneous  vectors  that  are  corre-
+lated  to  edges  of  bubble  shadow  that  moves  upwards.
+After   extracting   the   bubble   shadow,   the   calculated
+vector field in Fig. 10b correctly follows the movement
+of  tracer  particles.  These  applications  clearly  show  the
+excellent  capability  of  the  background  extraction  pro-
+cedure   to   remove   background   from   PIV   images.
+Next  the  limitations  of  the  procedure  are  quantified
+and   the   errors   are   analyzed   with   artificial   particle
+images.
+5 Limitations of the procedure and error analysis
+The drawback of the background extraction procedure
+is that  the particle  displacements should be more  than
+one particle image width, not to consider also the par-
+ticle  images  as  a  source  of  bias  and  subtract  them.  In
+addition, in the case of high particle image density the
+probability  that  particle  images  overlap  in  consecutive
+frames  increases  and  consequently  the  probability  of
+subtraction of particle images increases, which increases
+the random noise. To quantify the bias due to subtrac-
+tion  of  overlapping  particle  images  numerical  simula-
+tions have been performed. Two bias sources have been
+investigated independently.
+If  the  displacement  of  the  particle  images  is  small
+compared to the particle image width, the difference in
+the two images affects the particle image shapes and a
+systematic  bias  occurs.  Figure 11a  shows  the  obtained
+bias  as  a  function  of  the  displacement  for  different
+particle  image  widths.  For  the  simulation  a  Gaussian
+model has been used. The width is determined by e2 of
+the  maximum  intensity.  The  bias  also  depends  on  the
+sub-pixel location of the particle images and the orien-
+tation  of  the  displacement.  Therefore,  the  standard
+deviation of the bias is shown for a series of 100 random
+realizations.
+The  obtained  bias  decreases  with  increasing  dis-
+placement,  down  to  a  certain  value  which  does  not
+vanish  even  for  larger  displacements.  This  remaining
+bias  is  caused  by  the  under-sampling  of  the  particle
+images  and  corresponds  to  earlier  investigations  (No-
+bach  et  al. 2004).  For  larger  particle  image  widths  the
+bias  for  a  given  displacement  is  larger,  while  for  suffi-
+ciently large displacements the remaining bias due to the
+under-sampling is smaller.
+Figure 11b  shows  the  obtained  systematic  bias  as  a
+function of the displacement normalized by the particle
+image diameter. For small arguments the remaining bias
+is larger for large particle images, while for large argu-
+ments the remaining bias due to the under-sampling is
+larger  for  small  particle  images.  In  the  intermediate
+range the curves overlap, which indicates that the bias is
+determined  only  by  the  normalized  displacement.  The
+simulation justifies the displacement limit of one particle
+image width.
+For  the  experimental  data  of  complex,  turbulent
+flows  with  recirculation  zones,  the  procedure  would
+produce   errors   at   regions   of   particle   displacements
+smaller  than  a  particle  image  diameter,  while  conven-
+tional PIV would only suffer from loss of accuracy. In
+the PIV technique there is a rule of thumb by which the
+time delay dt between the two exposures should be large
+enough to allow particle displacements in the image to
+exceed five pixels in order to decrease the relative mea-
+surement  error.  However,  the  errors  related  to  the
+velocity  gradients  of  the  flow  associated  with  in-plane
+loss-of-particle  pairs  and  out-of-plane  loss-of-particle
+pairs  limit  the  selection  of  dt.  The  largest  value  inside
+these limitations should be chosen. Ka¨hler (2004) stud-
+ied  the  separation  bubble  in  a  boundary  layer  of  an
+aerofoil with a time-resolved PIV (TRPIV). The particle
+displacements  on  the  separation  bubble  were  so  small
+that   only   erroneous   vectors   were   obtained.   Ka¨hler
+(2004) solved the problem by locally optimizing dt using
+Fig. 5  Vertical and horizontal grey-scale profiles of a an original
+image, and b a background extracted image of a flow over a turbine
+blade tip
+354
+a  multi-frame  PIV  method  (Ka¨hler  and  Kompenhans
+2000). Time resolved PIV (TRPIV) with the multi-frame
+PIV   method   allows   a   large   increase   in   applicable
+dynamic   range   of  PIV   measurements.   Therefore,   it
+would   attenuate   the   displacement   limitation   of   the
+proposed procedure.
+Fig. 6  a Raw vector field
+obtained from background
+extracted image. b Raw vector
+field obtained from original
+image after applying a digital
+mask technique
+355
+For   large   particle   densities   the   probability   of
+particle  images  affecting  other  particle  images  causes
+a   random   bias,   which   is   shown   in   Fig. 12a   as   a
+function  of  the  particle  density  for  different  particle
+image   widths.   The   shown   values   are   the   obtained
+standard  deviation  values  of  the  bias  for  a  series  of
+100  random  realizations.  The  bias  linearly  depends  on
+the   density   to   the   power   of   1/3   and   the   particle
+Fig. 7  An overlaid multi-
+exposure double-frame image
+of a bubble moving towards the
+vortex. a Original image.
+b Image after grey-scale
+equalization and an extended
+background extraction
+procedure
+356
+image  width  to  the  power  of  3/2.  For  comparison,
+Fig. 12b shows the bias as a function of the density to
+the  power  of  1/3  normalized  with  the  particle  image
+width  to  the  power  of  3/2.  The  overlaid  curves  show
+that  the  bias  is  determined  by  the  normalized  particle
+density.
+The errors due to subtraction of overlapping particle
+images  increase  with  increasing  particle  image  density,
+but remain below 0.2 pixels. Typically a PIV image has a
+particle  image  density  of  0.1  per pixel  with  a  particle
+image width of 2 pixels, which corresponds to a standard
+deviation error of 0.03 pixels. For comparison, the dou-
+Fig. 8  Raw vector fields
+obtained from a the original
+image, and b the background
+extracted image (Fig. 7b)
+357
+ble-exposure  single  frame  images  with  varying  particle
+image densities are simulated and studied with an auto-
+correlation function. The obtained standard deviation of
+a random bias remains larger than 0.1 pixels for all cases.
+6 Conclusions
+The  background  extraction  procedure  ensures  that  the
+bias  error  towards  zero  displacement  caused  by  an
+offset  and  background  objects  is  eliminated  from  PIV
+analysis.  It  also  reduces  the  pixel  locking  effect  by
+placing the background grey-scale level to a zero value.
+Fig. 9  An overlaid double-frame image of a large bubble moving
+upwards. a Original image. b After grey-scale equalization and an
+extended background extraction procedure
+358
+The  procedure  discriminates  the  tracer  particle  images
+from  the  background  based  on  the  difference  in  mo-
+tion.  The  procedure  produces  an  instantaneous  back-
+ground image, which accurately follows the changes in
+the  background  grey-scale  level  spatially  and  tempo-
+rally. If the image background changes during the time
+delay between the frames, residuals of the background
+remain.  However,  the  residuals  do  not  have  counter-
+Fig. 10  Raw vector fields obtained from a the original image, and b
+the background extracted image (Fig. 9b)
+359
+parts in the other frame and therefore do not correlate
+with  themselves  and  only  produce  stochastic  errors.
+Furthermore,  stochastic  errors  are  reduced  with  the
+extended   procedure   that   follows   the   movement   of
+background  objects.  The  procedure  works  better  than
+digital filtering, because it is able to capture all spatial
+changes  in  the  background  grey-scale  level,  while  the
+spatial frequency response for filter functions is limited
+by   the   kernel   size   that   determines   the   filter.   The
+advantage in comparison to digital masking techniques
+is   that   after   employing   the   background   extraction
+procedure,  the  signals  of  tracer  particles  can  be  de-
+tected  even  on  top  of  highly  reflective  objects  (e.g.,  a
+bubble or solid surface), while the digital mask removes
+this information. The background extraction procedure
+is  limited  by  the  fact  that  the  particle  displacements
+should  be  more  than  one  particle  image  width,  not  to
+consider  also  the  particle  images  as  a  source  of  bias
+and  subtract  them.  In  addition,  in  the  case  of  high
+particle   image   density   the   probability   that   particle
+images  overlap  in  consecutive  frames  increases  and
+consequently  the  probability  of  subtraction  of  particle
+images   increases,   which   leads   to   stochastic   errors.
+However,  the  described  procedure  works  reliably  for
+double-frame  PIV  images  that  have  high  noise  level
+and   disturbance   from   stationary   or   moving   back-
+ground objects. It yields an image that consists only of
+moving   particle   images,   zero-background   level   and
+random   noise.   Appropriate   applications   have   been
+shown.
+References
+Dantec Dynamics (2002) FlowManager Manual. Dantec Dynamics
+A/S, Skovlunde, Denmark
+Fig. 11  a Systematic bias as a
+function of the displacement for
+different particle image widths.
+b Systematic bias as a function
+of the displacement normalized
+by the particle image diameter
+360
+Delnoij  E,  Westerweel  J,  Deen  NG,  Kuipers  JAM,  van  Swaaij
+WPM  (1999)  Ensemble  correlation  PIV  applied  to  bubble
+plumes  rising  in  a  bubble  column.  Chem  Eng  Sci  54:5159?
+5171
+Fincham  AM,  Spedding  GR  (1997)  Low  cost,  high  resolution
+DPIV  for  measurement  of  turbulent  fluid  flow.  Exp  Fluids
+23:449?462
+Gui L, Merzkirch W, Shu JZ (1997) Evaluation of low image den-
+sity PIV recordings with the MQD method and application to
+the flow in a liquid bridge. J Flow Visual Image Proc 4:333?343
+Gui L, Wereley ST, Kim YH (2003) Advances and applications of
+the   digital   mask   technique   in   particle   image   velocimetry
+experiments. Meas Sci Technol 14:1820?1828
+Ka¨hler C (2004) Evaluation of time resolved PIV image sequences
+with  dynamic  evaluation  algorithms.  Pivnet  T5/ERCOFTAC
+SIG 32 7th Workshop on PIV, Lisbon, 9?10 July 2004
+Ka¨hler   C,   Kompenhans   J   (2000)   Fundamentals   of   multiple
+plane stereo particle image velocimetry. Exp Fluids 29:S70?S77
+Kiger  KT,  Pan  C  (2000)  PIV  technique  for  the  simultaneous
+measurement of dilute two-phase flows. J Fluids Eng 122:811?
+818
+LaVision  (2003)  DaVis  PIV-Manual.  LaVision  GmbH,  Goettin-
+gen, Germany
+Meyer  KE,  Westerweel  J  (2000)  Advection  velocities  of  flow
+structures estimated from particle image velocimetry measure-
+ments in a pipe. Exp Fluids 29:S237?S247
+Nobach  H,  Damaschke  N,  Tropea  C  (2004)  High-precision  sub-
+pixel interpolation in PIV/PTV image processing. In: Proceedings
+of   the   12th   international   symposium   on   application   of
+laser technology to fluid mechanics, Lisbon, Portugal, Paper No.
+24.1
+Scholz  U,  Ka¨hler  C  (2004)  Automated  image  processing  and
+segmentation  for  mask  generation  in  PIV.  In:  Proceedings
+of  the  12th  international  symposium  on  application  of  laser
+technology  to  fluid  mechanics,  Lisbon,  Portugal,  Paper  No.
+18.1
+Todd DR, Hassan YA (2001) Analysis of bubbly flow using par-
+ticle image velocimetry. In: Proceedings of the fourth interna-
+tional  symposium  on  particle  image  velocimetry,  Go¨ttingen,
+Germany, 17?19 September, Paper No. 1090
+Fig. 12  a Random bias as a
+function of the particle density
+for different particle image
+widths. b Random bias as a
+function of the density to the
+power of 1/3 normalized with
+the particle image width to the
+power of 3/2
+361
+Wereley  ST,  Gui  L,  Meinhart  CD  (2002)  Advanced  algorithms
+for  microscale  particle  image  velocimetry.  AIAA  J  40:1047?
+1055
+Westerweel J (1997) Fundamentals of digital particle image veloc-
+imetry data. Meas Sci Technol 8:1379?1392
+Willert  C  (1997)  Stereoscopic  digital  particle  image  velocimetry
+for   application   in   wind   tunnel   flows.   Meas   Sci   Technol
+8:1465?1479
+362

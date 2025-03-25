@@ -1,0 +1,846 @@
+Analysis  of  interpolation  schemes  for  image  deformation
+methods  in  PIV
+T.  Astarita,  G.  Cardone
+Abstract   Image deformation methods in particle image
+velocimetry are becoming more and more accepted by the
+scientific community but some aspects have not been
+thoroughly investigated neither theoretically nor with the
+aid of simulations. A fundamental step in this type of
+algorithm is reconstruction of the deformed images that
+requires the use of an interpolation scheme. The aim of
+this paper is to examine the influence of this aspect on the
+accuracy of the PIV algorithm. The performance assess-
+ment has been conducted using synthetic images and the
+results show that both the systematic and total errors are
+strongly influenced by the interpolation scheme used in
+the reconstruction of the deformed images. Time perfor-
+mances and the influence of particle diameter are also
+analysed.
+Abbreviations
+BSPL M    interpolation scheme based on the B-spline of
+order M
+FFT            fast Fourier transform
+FFT M       interpolation scheme based on the shift theorem
+of the Fourier transform using M x M points
+IDM           image deformation methods
+IDWO       iterative discrete window offset
+IS                interpolation scheme(s)
+PID            particle image distortion
+PIV            particle image velocimetry
+SINC M    interpolation scheme based on the sinc formula
+using M x M points
+List  of  symbols
+D                particle diameter, pixels
+f                  grey intensity  of the first image, dimensionless
+g                 grey intensity  of the second image, dimension-
+less
+i                  horizontal  image coordinate (integer value),
+pixels
+j                  vertical image coordinate (integer value), pixels
+l                  horizontal  shift, pixels
+m                vertical shift, pixels
+N                number of measurement points,  dimensionless
+NI                    number of particles per interrogation window,
+dimensionless
+r          displacement field, pixels
+rc             corrector displacement  field, pixels
+rw            displacement field averaged  over the interroga-
+tion window, pixels
+t                  time needed to perform deformation of the
+images, seconds
+u                 mean measured  displacement, pixels
+u                 imposed displacement, pixels
+ui                     local measured displacement, pixels
+W               interrogation window linear dimension, pixels
+x                 horizontal  image coordinate, pixels
+y                 vertical image coordinate, pixels
+b            mean bias error, pixels
+b            bias error, pixels
+r            mean total error, pixels
+d            total error, pixels
+l            mean operator
+/lm                 cross-correlation coefficient, dimensionless
+r            random error, pixels
+Superscript
+k                 iteration counter, dimensionless
+1
+Introduction
+Recently, particle image velocimetry (PIV) has become a
+widespread technique for measuring  instantaneous flow
+fields and for this reason there is a great interest in the
+improvement of the technique. Clearly, continuous hard-
+ware evolution has an important effect in the bettering of
+PIV but, in the past few years, progress in digital analysis
+techniques has been surprising.
+In the early 1990s various authors worked on an effi-
+cient digital approach to the analysis of PIV images and in
+most cases a classical cross-correlation  approach  was
+proposed, e.g. the works of Utami et al. (1991), Willert and
+Gharib (1991), Keane and Adrian (1993) and Westerweel
+(1993). By using this ‘‘classical’’ approach  the ‘‘loss of
+pairs’’ (Keane and Adrian 1993) due to in-plane motion
+causes both a decrease of the signal-to-noise  ratio and a
+significant increase of the total error, which is more evi-
+dent for smaller particles.
+Experiments in Fluids 38 (2005) 233?243
+DOI 10.1007/s00348-004-0902-3
+233
+Received: 16 July 2004 / Accepted: 13 October 2004
+Published online: 22 December 2004
+ Springer-Verlag 2004
+T. Astarita (&), G. Cardone
+University of Naples Federico II, DETEC, P. le Tecchio,
+80?80125 Naples, Italy
+E-mail: astarita@unina.it
+Tel.: +39-081-7683389
+Fax: +39-081-2390364
+One of the possible solutions to this problem is to
+displace the interrogation windows by a discrete offset in
+order to follow the particles  between the two different
+frames. Various authors have proposed  an iterative dis-
+crete window offset (IDWO)  approach  and in particular
+the works by Soria (1996), Westerweel et al (1997), Scarano
+and Riethmuller (1999), Hart (2000) and Wereley  and
+Meinhart  (2001) are acknowledged.
+The immediate  extension of this method is the dis-
+placement of the interrogation windows by a ‘‘sub-pixel’’
+offset (Lecordier et al. 2001). A further extension is to also
+take into account the deformation and rotation of the
+interrogation windows caused by the flow field. Huang
+et al. (1993) made pioneering work in this direction  by
+introducing the particle image distortion (PID) technique.
+The main idea was to maximize the correlation coefficient
+in the presence of large velocity gradients. Deformation of
+the interrogation windows was evaluated by calculating the
+components of the velocity  gradient and by applying
+classical kinematic formulae. Jambunathan et al. (1995)
+developed a different algorithm to estimate deformation of
+the interrogation windows. They simply interpolated the
+predictor displacement  field on each pixel of the first im-
+age and used it to evaluate the distortion of the second
+image.
+As also testified in a recent review article by Scarano
+(2002), image deformation methods (IDM) in PIV have
+recently became widely used and accepted. Use of this
+approach  requires evaluation of the image intensity, also
+in location between the true pixels values and, conse-
+quently, an interpolation scheme (IS) must be used to
+reconstruct the images. To the authors’ knowledge, in the
+literature there is not a systematic study of the effects  of
+the interpolation schemes on the accuracy of IDM for PIV
+applications; thus, the aim of the present paper is to
+provide information on this aspect. The performance
+assessment is conducted using synthetic images with
+particles of Gaussian shape, a constant displacement field,
+and without added noise apart from the 8 bit digitaliza-
+tion. These hypotheses are clearly simplistic but the au-
+thors believe that many useful results and conclusion can
+still be drawn.
+In Sect. 2 the PIV algorithm used in this work will be
+described in detail, while in Sect. 3 the experimental pro-
+cedure and the synthetic image characteristics will be
+presented.  In Sect. 4 the accuracy of classical (non IDM)
+methods will be analysed and compared, when possible,
+with previous results.  In Sect. 5 various image interpola-
+tion schemes will be illustrated and in Sects. 6 and 7 their
+accuracy and time performances are presented. Prior to
+conclusions being drawn, Sect. 8 discusses  an analysis of
+the influence of particle diameter on both the systematic
+and total error.
+2
+Iterative  image  deformation  method
+In the literature there are many contributions on IDM for
+PIV applications and, because each author propose  a dif-
+ferent approach,  there is not a standard algorithm. Thus,
+this section illustrates  in detail the iterative image defor-
+mation method used in this work, which is very similar to
+the one described by Scarano (2002). The algorithm is
+iterative and multigrid and the major steps are as follows:
+1.     The predictor displacement field is built with a stan-
+dard cross-correlation method on a rather coarse grid.
+In particular, the FFT approach is used to evaluate the
+cross-correlation coefficient /lm   between homologous
+square interrogation  windows as:
+/lm  ? P
+W
+i;j
+f di; jT  lf gdi t l; j t mT  lg 
+ffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffi
+sPWi;j f di; jT  lf 2PWi;j gdi; jT  lg 2ffi                    d1T
+where f and g are the grey intensities of the two
+interrogation windows extracted from the first and
+second image, lf    and lg    are the means evaluated
+over the corresponding interrogation windows,  and
+W is the square window linear dimension. The use of
+FFT, for evaluation of the cross-correlation, produces
+a number of effects that are treated in detail by Raffel
+et al. (1998). The position of the maximum in the
+correlation plane is determined with subpixel accu-
+racy by means of a three point Gaussian interpolation
+scheme (Westerweel 1993). Weighting factors can be
+used to correct the bias error associated with the
+imposed periodicity due to application of the FFT
+(Westerweel 1993; and Raffel et al. 1998). The dis-
+placement field obtained is then validated in order to
+remove possible outliers.
+2.      The predictor displacement  field is interpolated on
+each pixel of the image by using a bilinear IS and, by
+using one of the interpolation schemes described in
+Sect. 5, the two complete images are deformed
+accordingly. This step is similar to the one proposed
+by Jambunathan et al. (1995) whereas the essential
+difference (apart from the IS) is that both images are
+distorted simultaneously (symmetrically). In this way
+it is possible to have a second order accurate esti-
+mation of the velocity (Nogueira et al. 1999; Wereley
+and Meinhart 2001).
+3.      A refinement may be performed resulting in the eval-
+uation of the displacement field on a finer grid. Typi-
+cally during the refinement process the linear dimen-
+sion of the interrogation windows is halved, and in the
+final iterations, overlapping windows may be used.
+4.      Applying the method described in step 1 to the de-
+formed images, a corrector  displacement field is cal-
+culated.
+5.      To evaluate the true displacement field r ( i, j) (for the
+sake of brevity, the dependence of r on the image
+coordinates will be dropped here) two courses of
+action may be pursued.1  The first approach, proposed
+by Scarano (2004), is to sum the corrector displace-
+ment rc  with the displacement rw  obtained by
+averaging the predictor over the whole interrogation
+window:
+1  In many previous works this point is not described in detail, so
+it is difficult to clearly understand who was the first to propose
+the two approaches.
+234
+rk  ? rwk1  t rck                                                                                                         d2T
+where the superscript indicates the iteration counter. This
+procedure enables a stable method even in the presence of
+high spatial frequencies (Scarano 2004). The second ap-
+proach is to sum the corrector displacement with the local
+displacement obtained during the previous iteration:
+rk  ? rk1  t rck                                                                                                         d3T
+As explained in detail by Nogueira et al. (1999), the
+latter method may be unstable if large spatial frequencies
+are present in the flowfield, thus an appropriate weighting
+of the interrogation windows should be used to avoid
+instabilities. Clearly this complicates the algorithm and
+does not add any further information to the influence of
+the interpolation schemes on the accuracy of IDM for PIV
+applications. For this reason, only the first approach  will
+be used here. The obtained displacement field is then used
+as a predictor for step 2.
+Steps 2?5 are repeated for a prescribed number of
+times. Typically three iterations are needed to reach the
+final dimensions of the interrogation windows and then
+one or two iterations at the final overlapping factor are
+needed to reach convergence.
+3
+Procedure
+Synthetic images are used to estimate the influence of
+different IS on the accuracy of iterative image deformation
+methods for PIV application  and only constant (along a
+principal direction) displacement fields are simulated.
+Each particle is supposed to be of Gaussian shape and thus
+the intensity level is obtained by integrating the particle
+light distribution over each image pixel. The latter sup-
+posed to have a unity fill factor and a maximum level of
+255, i.e. 8 bits. If two or more particles  overlap, the
+intensity  level of each pixel is the sum of the intensities
+relative to each particle.  In most of the simulations a
+standard set of images is used, in this case, a sample of 81
+images with a constant displacement linearly varying be-
+tween 0 and 4 pixels (i.e. a step of 0.05 pixels) and about 20
+thousands particles randomly distributed are generated in
+a 512・512 pixels image resulting in a particle density of
+0.076 particles per square pixel. A uniform randomly
+varying particle mean diameter D of 3 pixels with a max-
+imum deviation of ±0.5 pixel and mean brightness of 120
+with a maximum  deviation of ±40 is also used. No addi-
+tional noise is used because only the influence of the
+interpolation schemes on the accuracy of IDM for PIV
+applications is investigated.
+Since the exact displacement  field is known it is pos-
+sible to easily define three types of errors: bias b, random r
+and total d (Gui and Wereley 2002):
+b ? u  u                                                                                d4T
+r ?   ffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffi
+1
+N X
+N
+i?1
+utuv            dui   uT2                                                                                    d5T
+d ?   ffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffi
+1
+N X
+N
+i?1
+utuv            dui   uT2                                                                                    d6T
+where u is the mean measured value, u is the exact im-
+posed displacement, ui   the measured displacement and N
+is the number of samples. Clearly, the three errors satisfy
+the equation d 2= r 2+ b 2.
+In this work the bias error and the total error will be
+shown and most of the results will be presented for a final
+interrogation window of 16・16 pixels. The number of
+samples used for computation of the bias and total errors
+is always greater than 14 thousand.
+4
+Accuracy  of  classical  methods
+First of all the accuracy of the classical cross-correlation
+method will be analysed and compared with the results
+obtained by Raffel et al. (1998). Such a comparison is
+shown in Fig. 1 where, for three different values of the
+number of particles per interrogation window NI  , W =32,
+D =2.2 and a fixed brightness of 120 (i.e. practically the
+same conditions of Raffel et al. 1998), d is plotted against
+the imposed displacement u. Open symbols are relative to
+the data of Raffel et al. (1998) while closed ones to the
+present  simulations. The error increases almost linearly
+with the imposed displacement and decreases with
+increasing particle density; this agreement should confirm
+the goodness of the procedure.
+By using the standard set of images, the comparison
+between IDWO methods and the classical  cross-correla-
+tion approach  (circles are used as symbols) is shown in
+Fig. 2. In particular, both the symmetric (diamonds)  and
+asymmetric (triangles) displacement  window offset is
+used. To show the effects of the correction  on the bias
+error associated with the imposed periodicity (see Sect. 2,
+point 1), open symbols are used for corrected values while
+closed ones for the raw data. By looking at Fig. 2a where b
+is plotted, it is possible to see that, for both the corrected
+and raw data, the bias error is equal for the three methods
+untill the displacement is less than 0.5 pixels, i.e. while the
+Fig.  1.  Total error as a function of the imposed displacement for
+different NI    values; closed  symbols are relative to present data
+while open ones to data of Raffel et al. (1998)
+235
+two IDWO methods and the classical cross-correlation
+approach  are equivalent. The raw data show a significant
+bias error that is more than one order of magnitude higher
+than the corrected  one.
+By focusing attention on the raw data it is evident that
+both the IDWO methods show a periodic behaviour for b
+with a period equal to 1 or 2 pixels for the asymmetric and
+symmetric methods, respectively. Indeed, for the former
+method, the interrogation windows in the second image
+are offset by 1 pixel when the predictor displacement is
+greater than 0.5 pixels and by two pixels when the dis-
+placement reaches 1.5 pixels, and so on. For the symmetric
+method both the interrogation windows, in the first and
+second image, are offset by 1 pixel when the displacement
+is greater than 1 pixel and by two pixels when the dis-
+placement reaches 3 pixels, and so on. The periodic
+behaviour is typical of iterative methods and will be found
+again for the image deformation methods. Since the
+symmetric method follows the classical cross-correlation
+methods for a larger imposed displacement its bias error
+is, on average,  larger with respect to the asymmetric  one.
+The comparison of the present  results with the ones of
+Scarano and Riethmuller (2000) and of Gui and Wereley
+(2002) is fairly good even if in both cases b is slightly
+higher than the present  values. The latter  authors used
+32・32 interrogation  windows and synthetic images with
+particles that, on average, have a diameter slightly larger
+than the one used in the present work and this latter effect
+might explain the small discrepancy. Even if not clearly
+stated, it is probable that the authors of both the cited
+papers  did not use the correction for the bias error and
+used an asymmetric IDWO method. When the correction
+associated with the imposed periodicity of the interroga-
+tion windows is applied, the bias error shows, for the
+classical cross-correlation approach, a change of sign for u
+< 0.5 and then reaches a nearly constant value.
+The graph of Fig. 2b show a similar behaviour  for d.
+The total error for the raw data, similar to that found by
+Scarano and Riethmuller (2000), is significantly higher
+relative to the curves obtained by applying the correction
+on the bias error associated with the imposed periodicity
+of the interrogation windows.  The classical cross-correla-
+tion method shows a large oscillation of d for u >3 pixels
+which is due to the loss of pairs associated with the large
+imposed displacement.  Clearly the iterative nature of the
+two IDWO methods completely removes this type of ran-
+dom error and, for this reason, only data relative to u <2
+pixels will be further presented herein.
+5
+Image  interpolation  schemes  for  PIV
+As it will be seen in the next section the choice of the
+interpolation scheme is of fundamental importance in the
+application of IDM and for this reason various IS will be
+analysed. The well known bilinear interpolation scheme is
+widely used in PIV algorithms, for example, it can be
+found in the works of Huang et al. (1993), Jambunathan
+et al. (1995), Nogueira et al. (1999), Gui and Wereley
+(2002), and Meunier and Leweke (2003). The bilinear
+interpolation formula may be easily found by using suc-
+cessive linear interpolations along the two principal
+directions. First, two intermediate values are evaluated by
+means of linear interpolations along the x direction  (a
+sample interpolation grid, also called  stencil in the fol-
+lowing, is shown in Fig. 3a):
+fx;y?0  ? f0;0  t xf1;0   f0;0                                                        d7T
+fx;y?1  ? f0;1  t xf1;1   f0;1                                                        d8T
+where, for the sake of brevity but without loss of gener-
+ality, it is assumed that both x and y are included  in the
+interval [0 1], and the image coordinates are indicated by
+subscripts.
+The obtained values are then interpolated along the y
+direction:
+fx;y?fx;y?0  t yfx;y?1   fx;y?0
+?d1  xTd1  yTf0;0  t xd1  yTf1;0  t d1  xTyf0;1  t xyf1;1
+d9T
+Equation 9 is the standard bilinear formula. By using
+the same procedure it is possible to find IS of higher order,
+e.g. by using three quadratic interpolations along the x
+direction and a successive quadratic interpolation along
+Fig.  2.  Bias (a) and total (b) errors as a function of the imposed
+displacement for the classical algorithms; open symbols  are
+relative to corrected values while closed ones to raw data
+236
+the y direction the biquadratic interpolation formula can be
+found. The biquadratic interpolation formula, used by
+Nogueira et al. (2001) for PIV application, should be more
+accurate because it uses information from nine neigh-
+bouring points as shown in the grid of Fig. 3b. The suc-
+cessive approximation is the bicubic interpolation that uses
+the information from 16 neighbouring points (Fig. 3c).
+Another family of IS is based on a simplex stencil that
+results in three points for the linear approximation, six for
+the quadratic, and so on for increasing order. From
+Fig. 3d?g, which shows, for the quadratic simplex IS, the
+four possible interpolation grids each rotated 90 with
+respect to the previous one, the lack of symmetry of this
+scheme is clear. A possible way to overcome this problem
+is to average the values of the interpolations from the four
+different simplexes; in this way 12 points are used for the
+final formula  (Fig. 3h):
+fx;y ?f0;0 tx
+2
+8 tf0;1 f0;0 f0;1 tf0;2 tf1;1 f1;0 f1;1 tf1;2
+ty
+2
+8 f1;0 tf1;1 f0;0 f0;1 f1;0 f1;1 tf2;0 tf2;1
+txyf0;0 f0;1 f1;0 tf1;1
+tx
+8f0;1 7f0;0 t9f0;1 f0;2 f1;1 tf1;0 tf1;1 f1;2
+ty
+8f1;0 f1;1 7f0;0 tf0;1 t9f1;0 tf1;1 f2;0 f2;1
+d10T
+Scarano and Riethmuller (2000) suggest using an
+interpolation scheme based on the sinc function (it will be
+further referred to here as SINC IS):
+fx;y  ? X
+i?1
+i?1  X
+j?1
+j?1
+fi;j sin pdi  xT
+pdi  xT
+sin pdj  xT
+pdj  xT              d11T
+Furthermore, they suggest using an interpolation grid
+of 7・7 pixels. A similar formula may be obtained by
+applying the well known shift theorem of the Fourier
+transform in the frequency domain (here referred to as
+FFT IS). A discussion  on the characteristics of these last
+two interpolation schemes and their relationships can be
+found in a paper by Yaroslavsky (1996). As the number of
+points used in these types of IS may be chosen arbitrarily,
+in the following the number that follows the acronym will
+indicate the linear dimension of the interpolation grid, e.g.
+FFT3 indicates the Fourier shift theorem IS on a grid of
+3・3 points.
+The last family of interpolation schemes used in this
+work is the one based on B-spline functions (BSPL). In this
+case it is also possible to use square interpolation grids
+with a linear dimension that is a function of the spline
+order. In particular, a spline of order two uses a stencil of
+3・3 points, while a spline of order three uses 4・4 points.
+By slightly changing the convention introduced in the
+previous paragraph, the number following the acronym
+will indicate the order of the B-spline and not the stencil
+linear dimension. Details on implementation  of the algo-
+rithm and on the relations of the B-spline IS with the
+cardinal interpolation formula can be found in Unser et al.
+(1993a, 1993b) and in Unser (1999).
+Clearly it is expected that if more points are used for
+the IS the accuracy should improve while the time per-
+formance should worsen. As will be seen this is not always
+the real situation and other factors, like the choice of odd
+or even linear dimensions of the interpolation grid, may
+produce different behaviours of the interpolation schemes
+in the PIV process.
+6
+Accuracy  of  image  deformation  methods
+Each interpolation scheme described in the previous sec-
+tion will now be analysed  in detail. A comparison of the
+‘‘high speed’’ IS, i.e. the ones that use 16 or less points, is
+shown in Fig. 4a and b; the curves relative to the sym-
+metric IDWO method (diamonds) are also included  for
+reference. In this figure the correction on the bias error
+associated with the imposed periodicity has been applied
+and the same images of section 4 are processed. By looking
+at Fig. 4b, where the total error is plotted, it is clear that
+the worst results are those relative to the FFT3 (triangles)
+and biquadratic IS (stars) both of which have odd linear
+dimensions of the interpolation grid. A significant part of
+the total error is due to the extremely high bias error, for
+this reason in Fig. 4a the two curves relative to the
+aforementioned IS are not plotted. It is interesting to note
+that for these two IS the total error can be even larger
+relative to the classical cross-correlation  method and a
+period of two pixels is found. The bilinear IS (open
+Fig.  3. Interpolation grids for various IS. a Bilinear. b Biquadratic.
+c  Bicubic. d?h  Simplex
+237
+squares)  performs relatively well considering the small
+number of points used. Even if the IDM used in this paper
+is symmetric, and should have a period of two pixels, this
+IS has a period of one pixel for the total error which
+reduces significantly the average total error. A similar
+behaviour, but with a slightly smaller error, is seen for the
+FFT4 (crossed circles), SINC4 (crossed squares)  and
+BSPL2 IS (open triangles) and it is clear that the differ-
+ences between them, in this case, are very small. The
+bicubic formula (closed squares)  performs  significantly
+better by halving the error with respect to the bilinear IS.
+The simplex IS (open crosses) behaves even better and has
+a flatter response with a period of two pixels. The BSPL3
+(open diamonds) attains, among the high speed interpo-
+lation schemes, the smaller total error again with a peri-
+odic behaviour and a period of one pixel. Apart from the
+first two IS, the IDM has an average total error smaller
+than that relative to the symmetric IDWO method (closed
+diamonds) but the same is not true for the bias error. In
+Fig. 4a it is clear that the smaller bias error is obtained by
+using the classical IDWO method while the IDM may have
+significantly higher errors. In particular, the larger sys-
+tematic error is associated with the bilinear interpolation
+scheme, followed by FFT4, SINC4 and BSPL2 IS. Bicubic,
+BSPL3 and simplex interpolation schemes again perform
+better. For all the IDM the period is two pixels and b is
+equal to zero for integer displacements.
+Present data for the bilinear IS should be, in principle,
+comparable with the results of Gui and Wereley (2002), but
+comparison of the bias error is unsatisfactory which is
+most probably due to the fact that, in the present  case,
+smaller interrogation windows are used and both the
+images are deformed symmetrically while, most probably,
+in their case the asymmetric approach  has been followed.
+This should explain both the halved period of their data
+and the smaller error. In particular the latter effect is also
+due to the fact that one image is not reconstructed, thus
+reducing the interpolation errors. Clearly, as previously
+stated, by distorting symmetrically both the images it is
+possible to have a second order accurate estimation of the
+velocity when the displacement  is not constant.
+The effects of varying the linear dimension of the
+interpolation grid for the Fourier shift theorem interpo-
+lation formula and the SINC IS are shown in Figs. 5 and 6.
+In particular the total error for the FFT IS for an inter-
+polation  grid from 6x6 to 9・9 and for the SINC IS with a
+stencil of 6・6 and 8・8 is plotted  as a function of the im-
+posed displacement in Fig. 5b. In Fig. 6b only even stencil
+from 10・10 to 16・16 points are shown.  Closed symbols
+refer to the FFT IS and open symbols to the SINC IS. As
+already observed, when the linear dimension of the
+Fig.  4.  Bias (a) and total (b) errors as a function of the imposed
+displacement for various IS
+Fig.  5.  Bias (a) and total (b) errors as a function of the imposed
+displacement for various IS
+238
+interpolation grid is odd this IS behaves poorer with a
+period of two pixels. Similarly for the total error, and even
+when using 9・9=81 points,  the total error is higher than
+that relative to the simplex method (Fig. 4b). Results  rel-
+ative to the FFT7 interpolation scheme differ significantly
+from the data of Scarano and Riethmuller (2000) both in
+magnitude and in shape. Most probably this discrepancy is
+analogous to the one with the data of Gui and Wereley
+(2002). The behaviour is completely different for an even
+number of points on the interpolation grid’s linear
+dimension, the period is again one pixel and the maximum
+total error for the FFT IS on 8・8 points,  in this case, de-
+creases by a factor of two with respect to the BSPL3; some
+smaller effects  are achievable with a bigger stencil
+(Fig. 6b). For an even linear dimension of the stencil the
+Fourier shift theorem based interpolation schemes behave
+a little better with respect to the SINC IS. The bias error
+follows a similar behaviour, as shown by Figs. 5a and 6a,
+reaching for an odd linear dimension of the stencil higher
+values with respect to even ones. In particular, the curve
+relative to the FFT7 IS has not been plotted on account of
+its large bias error. Increasing the linear dimension of the
+interpolation grid, b decreases considerably reaching val-
+ues that are one order of magnitude smaller than that
+relative to the classical methods (less than 0.0005 pixels for
+the FFT based interpolation schemes).
+The effects of varying the dimensions of the interpo-
+lation grid for the B-spline interpolation scheme are shown
+in Fig. 7. As seen in Fig. 7a, where the bias error is plotted,
+increasing the stencil dimension b decreases significantly
+at first and then only slightly. In particular for the bigger
+interpolation grid the bias error reaches values that are
+very similar to the ones relative to the FFT and SINC
+interpolation schemes. The total error, shown in Fig. 7b, is
+less influenced by the stencil dimension and practically
+does not change for B-spline of order seven or higher. It is
+interesting to note that the BSPL interpolation scheme is
+not influenced by a choice of odd or even linear dimension
+of the interpolation grid and the error is monotonically
+decreasing with the spline order.
+Figure 8 shows the curves relative to the same IS of
+Fig. 4 but without the correction of the bias error associ-
+ated with the imposed periodicity of the interrogation
+windows. As expected the only curve that is significantly
+affected by the correction  is that relative to the IDWO
+method; the iterative nature of IDM methods  completely
+removes the need for the bias correction because at each
+iteration the relative displacement decreases and with it
+the bias error. Unexpectedly, in some cases, both the total
+and bias error tend to slightly decrease for IDM by
+neglecting the bias correction but the overall behaviour
+does not change.
+Fig.  6.  Bias (a) and total (b) errors as a function of the imposed
+displacement for various IS
+Fig.  7.  Bias (a) and total (b) errors as a function of the imposed
+displacement for various IS
+239
+7
+Time  performance  of  image  deformation  methods
+For processing large amounts of PIV images both high
+accuracy and low processing times are needed. For this
+reason, in Fig. 9a and b, the mean bias and total errors for
+the standard images, evaluated by averaging the absolute
+value of the errors in the displacement interval from zero
+to four pixels, are plotted  against the time t needed to
+deform the images (i.e step 2 of Sect. 2).2  For the classical
+method t is equal to zero and so the abscissa for this point
+has been fictitiously fixed at 0.15 s. Closed circles indicate
+high speed methods, open circles BSPL  IS (the number
+indicates the spline order), closed squares and open
+squares FFT and SINC interpolation schemes (the number
+indicates the stencil linear dimension), respectively.
+By focusing  attention on the high speed methods it is
+evident that the time needed to perform the image defor-
+mation does not change much while both the total and bias
+error may change considerably. The total error for the
+simplex and bicubic interpolation schemes is significantly
+smaller than that relative to the symmetric IDWO method
+but the biquadratic IS performs  worse. The average bias
+error is smaller for the classical method.
+By using BSPL, FFT or SINC interpolation schemes on
+rather big interpolation grids, the performances of IDM
+change radically. The time needed to deform the images
+may increase more than one order of magnitude while
+both the errors decrease significantly. The FFT methods
+are slower than SINC and BSPL interpolation schemes. The
+BSPL IS has the advantage of reducing significantly the
+total error, also for smaller interpolation grids. For big
+interpolation grids, i.e. 16・16 points, both the bias and the
+total error result one order of magnitude smaller than that
+relative to the IDWO  method.
+8
+Influence  of  the  particle  diameter
+It is well known that the particle diameter influences  sig-
+nificantly the performance of the PIV algorithm. Wester-
+weel (2000) has analysed this effect both theoretically and
+by using synthetic images for the classical methods and
+found, in agreement with the simulation of Raffel et al.
+(1998), that the optimal particle diameter is of about two
+pixels, i.e. rather small. In this section the influence of
+particle diameter on the accuracy of IDM methods will be
+analysed. A set of 96 synthetic images is used with a fixed
+Fig.  8.  Bias (a) and total (b) errors as a function of the imposed
+displacement for various IS
+Fig.  9. Bias (a) and total (b) mean errors as a function of time for
+various IS. Closed circles indicate high speed methods, open
+circles BSPL IS (the number indicates the spline order),  closed
+squares and open squares FFT and SINC interpolation schemes
+(the number indicates the stencil linear dimension),  respectively
+2  Of course the time t is a function of the computer used during
+the simulation so it should be regarded as a relative measure-
+ment.
+240
+particle diameter ranging from 0.5 to 10 pixels and the
+same particle density  of the standard set of images. Fol-
+lowing the same symbology of Figs. 4, 5 and 6, the total
+and bias error for a fixed imposed displacement of 1.5
+pixels are shown in Figs. 10, 11 and 12.
+As seen in Fig. 10b?although the same also occurs for
+bigger stencils?most of the curves tend to overlap for
+high values of particle diameter which is most probably
+due to the small number of points (5) used in interpolation
+of the correlation  map maximum.  The optimal particle
+diameter for the classical IDWO method is found to be of
+about two pixels, which is in perfect agreement with the
+cited papers. As already found, the FFT3 IS performs
+poorly for all the tested particle diameters. The biqua-
+dratic, bilinear, BSPL2, bicubic and BSPL3 IS, in this order,
+perform increasingly better and have a larger optimal
+particle diameter. The SINC4 has a relatively large plateau
+where the total error attains a minimum. The FFT4 has an
+optimal particle diameter of about two pixels and for small
+D performs better than the other methods. The simplex
+method has an optimal diameter of about four pixels. As
+shown in Fig. 10a the bias error for most of the interpo-
+lation schemes is higher, for all the tested particle diam-
+eters, with respect to the classical IDWO method.
+Comparison with data presented by Gui and Wereley
+(2002) is quite good and the d profiles, for both the IDWO
+and bilinear IS, resemble the ones reported herein. In
+particular the previous authors  did not find the absolute
+minimum for the bilinear interpolation scheme because
+they tested particle diameters of maximum  5 pixels.
+Figure 11 shows the curves relative to the same IS
+shown in Fig. 5. Again, the methods  based on odd linear
+dimensions perform poorly with regard to both the total
+and bias error. From Fig. 11b it is evident that for small
+particle diameters all the curves behave in the same way
+but the absolute minimum tends to shift to higher D with
+increasing linear dimension of the interpolation grid. In
+Fig. 12b a similar behaviour  is also found for larger sten-
+cils but in this case a relatively large plateau is found. The
+bias error appears  to increase significantly when the par-
+ticle diameter is bigger than the value relative to the
+minimum for the total error. For bigger interpolation grids
+the B-spline interpolation scheme has a behaviour that is
+very similar to the FFT IS. From Fig. 13, where d and b for
+the FFT16 (thick grey line) and BSPL16 (thin black line) IS
+are plotted, it is evident that the two IS schemes are
+practically equivalent.
+9
+Conclusions
+The influence of the interpolation schemes on the accuracy
+of image deformation methods  for PIV applications has
+Fig.  10.  Bias (a) and total (b) errors as a function of particle
+diameter for various IS
+Fig.  11.  Bias (a) and total (b) errors as a function of particle
+diameter for various IS
+241
+been examined. The total and bias errors have been
+analysed  and, when possible, compared with results al-
+ready present in the literature. The performance assess-
+ment has been conducted using synthetic images with
+particles of Gaussian shape,  a constant displacement field
+and without added noise apart from the 8 bits digitaliza-
+tion. In this paper no attempt has been made to study the
+influence of the IS on the spatial resolution of the PIV
+algorithm and most probably this will be the object of a
+future work. Results  show that both the systematic and
+total errors are strongly influenced by the interpolation
+scheme used in the reconstruction of the deformed images.
+The choice of interpolation scheme has been proved to
+be a crucial point in the IDM, in fact, both the bias and
+total errors of image deformation methods may be even
+higher than that relative to classical IDWO methods.
+Normally, interpolation schemes, apart from B-spline,
+based on even linear dimensions of the interpolation grid
+behave significantly better than those based on odd ones.
+For a particle diameter of about three pixels, when
+using a significant amount of interpolation points,  the
+interpolation schemes based on the shift theorem of the
+Fourier transforms and B-spline result in the lowest total
+error and practically no bias error. The IS based on the
+sinc formula  perform slightly worse while the schemes
+based on 16 or less interpolation points perform signifi-
+cantly worse.
+The influence of particle diameter on accuracy has
+shown a behaviour similar to that of the classical methods.
+An absolute minimum is found for relatively large particle
+diameters and the errors increase significantly for very
+large and very small particles.
+By also taking into account the time performances of
+the various IS the following conclusions may be drawn. If
+speed is a prime concern, simplex or bicubic methods
+should be used to obtain a good compromise between
+speed and accuracy with the former method behaving
+better in both the aspects. If accuracy is the only concern,
+the SINC, FFT or BSPL IS with a large number of points
+should be used which results in significantly smaller errors
+than that associated with the simplex method; on the other
+hand, the processing time may increase more than one
+order of magnitude. It has to be stressed that for highly
+overlapped final interrogation  windows the time to per-
+form the correlations may be of the same order of mag-
+nitude or, in some cases, even higher than the one needed
+to perform the image deformation so that even when time
+is a prime concern the sinc, Fourier shift theorem or B-
+spline based interpolation schemes may be the optimal
+choice.
+Fig.  12.  Bias (a) and total (b) errors as a function of particle
+diameter for various IS
+Fig.  13.  Bias (a) and total (b) errors as a function of particle
+diameter for BSPL16 and FFT16 interpolation  schemes
+242
+References
+Gui L, Wereley ST (2002) A correlation-based continuous window-
+shift technique to reduce the peak-locking effect in digital PIV
+image evaluation. Exp Fluids 32:506?517
+Hart DP (2000) Super-resolution PIV by recursive local-correlation.
+J Visual 3(2):187?194
+Huang HT, Fiedler HE, Wang JJ (1993) Limitation and improvement
+of PIV, part 2. Particle image distortion, a novel technique. Exp
+Fluids 15:263?273
+Jambunathan K, Ju XY, Dobbins BN, Ashforth-Frost S (1995) An
+improved cross correlation technique for particle image veloci-
+metry. Meas Sci Technol 6:507?514
+Keane RD, Adrian RJ (1993) Theory of cross correlation analysis of
+PIV images. In: Nieuwstadt FTM (ed) Flow visualization and
+image analysis. pp 1?25
+Lecordier B, Demare D, Vervisch LMJ, Re`veillon J, Trinite` M (2001)
+Estimation of the accuracy of PIV treatments for turbulent flow
+studies by direct numerical simulation of multi-phase flow. Meas
+Sci Technol 12:1382?1391
+Meunier P, Leweke T (2003) Analysis and treatment of errors due to
+high velocity gradients in particle image velocimetry. Exp Fluids
+35:408?421
+Nogueira J, Lecuona A, Rodriguez PA (1999) Local field correction
+PIV: on the increase of accuracy of digital PIV systems. Exp Fluids
+27:107?116
+Nogueira J, Lecuona A, Rodriguez PA (2001) Local field correction
+PIV, implemented by means of simple algorithms, and multigrid
+versions. Meas Sci Technol 12:1911?1921
+Raffel M, Willert CE, Kompenhans J (1998) Particle image velocime-
+try: a practical guide. Springer, Berlin Heidelberg New York
+Scarano F (2002) Iterative image deformation methods in PIV. Meas
+Sci Technol 13:R1?R19
+Scarano F (2004) A super-resolution particle image velocimetry
+interrogation approach by means of velocity second derivatives
+correlation. Meas Sci Technol 15:475?486
+Scarano F, Riethmuller ML (1999) Iterative multigrid approach in PIV
+image processing with discrete window offset. Exp Fluids 26:513?
+523
+Scarano F, Riethmuller ML (2000) Advances in iterative multigrid PIV
+image processing. Exp Fluids S51?S60
+Soria J (1996) An investigation of the near wake of a circular cylinder
+using a video-based digital cross-correlation particle image ve-
+locimetry technique. Exp Therm Fluid Sci 12:221?233
+Unser M (1999) Splines: a perfect fit for signal and image processing.
+IEEE Signal Proc Mag 16(6):22?38
+Unser M, Aldroubi A, Eden M (1993a) B-spline signal processing: part
+I?theory. IEEE T Signal Proces 41(2):821?832
+Unser M, Aldroubi A, Eden M (1993b) B-spline signal processing: part
+II?efficient design and applications. IEEE T Signal Proces
+41(2):834?848
+Utami T, Blackwelder RF, Ueno T (1991) A cross-correlation tech-
+nique for velocity field extraction from particulate visualization.
+Exp Fluids 10:213?223
+Wereley ST, Meinhart CD (2001) Second-order accurate particle im-
+age velocimetry. Exp Fluids 31:258?268
+Westerweel J (1993) Digital particle image velocimetry?theory and
+applications. PhD Thesis, Delft University of Technology, The
+Netherlands
+Westerweel J (2000) Theoretical analysis of the measurement preci-
+sion in particle image velocimetry. Exp Fluids 29:S3?S12
+Westerweel J, Dabiri D, Gharib M (1997) The effect of a discrete
+window offset on the accuracy of cross-correlation analysis of
+digital PIV recordings. Exp Fluids 23:20?28
+Willert CE, Gharib M (1991) Digital particle image velocimetry. Exp
+Fluids 10:181?193
+Yaroslavsky LP (1996) Signal sinc-interpolation: a fast computer
+algorithm. Bioimaging 4:225?231
+243

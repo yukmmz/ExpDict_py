@@ -1,0 +1,560 @@
+See discussions, stats, and author profiles for this publication at: https://www.researchgate.net/publication/230937342
+An improved cross correlation technique for particle image velocimetry
+Article??in??Measurement Science and Technology ・ January 1999
+DOI: 10.1088/0957-0233/6/5/012
+CITATIONS
+125
+READS
+301
+4 authors, including:
+Some of the authors of this publication are also working on these related projects:
+4D Assessment of the Dynamic Asymmetry of Facial Expressions in Surgically Managed Unilateral Cleft Lip and Palate patients View project
+Sur-face View project
+Xiangyang Ju
+NHS Greater Glasgow and Clyde
+94 PUBLICATIONS???1,286 CITATIONS???
+SEE PROFILE
+Shirley Ashforth-Frost
+University of Nottingham
+27 PUBLICATIONS???818 CITATIONS???
+SEE PROFILE
+All content following this page was uploaded by Xiangyang Ju on 22 May 2014.
+The user has requested enhancement of the downloaded file.
+Meas. Sci. Techno\. 6 (1995) 507-514. Printed in the UK 
+1              tAn improved cross correlation 
+echnique for particle image velocimetry    I 
+K Jambunathan, X Y Ju, B N Dobbins and S Ashforth-Frost 
+Department of  Mechanical Engineering, The Nottingham Trent University, 
+Nottingham NG1  4BU, UK 
+Received 6 December 1994, accepted for publication 6 February 1995 
+Abstract.  The standard cross correlation technique frequently used in  particle 
+image velocimetry to extract velocity vectors necessitates the assumption that 
+the velocity gradients inside the interrogation area are negligible.  However, the 
+procedure is generally video-based, so such an assumption may  no  longer be 
+valid.  This is particularly so in  re-circulation zones, in  which the distortion between 
+images can be dramatic. A  new iterative procedure for re-building the second 
+image, based on velocity gradients of  particles due to displacement, rotation and 
+shear, has been proposed. This improved cross correlation algorithm has been 
+shown to be considerably more accurate for simulated uniform, re-circulating and 
+bi-axial shearing flows, and has been applied to the case of  natural convection due 
+to a heated horizontal cylinder. 
+1.  Introduction 
+Particle   image  velocimetry   (PIV)    is   a   non-intrusive 
+measurement technique, which can be  used to measure 
+full  field  velocity data within  a two-dimensional plane 
+of  a particle-seeded flow  field.  That the technique has 
+developed rapidly over the last two decades is indicated 
+by   the   large  amount  of   published  work,  which  has 
+been  reviewed  by  Adrian  (1986,  1991) and  Kabayashi 
+(1988).    Generally,  all  PIV   methods  can  be  divided 
+into  two  steps:    fustly,   recording  the   images  of   a 
+particle  seeded Bow;  and  secondly, extracting velocity 
+vectors from  the recorded images.  The  PIV  techniques 
+are  often categorized according to the recording media 
+used   (Willert   and   Gharib   1991).     In   photographic 
+PIV   doubldmulti-exposure  images  of  a  flow  field  are 
+recorded on  film  and  then  various  techniques are used 
+to extract the velocity data.  Backer and Fourney (1977) 
+used  Young’s  fringes methods, Adrian  (1989) used  the 
+auto-correlation method  and Cenedese and  Paglialunga 
+(1990) used the  tracking method.   In  video PIV  single- 
+exposure images of a flow are recorded onto video tape 
+or  directly  into  computer memory.   Extraction of  full- 
+field  velocity  data  can  then  be  achieved  by   analysis 
+of  sequential images  using  either  the  cross correlation 
+method (Utami and  Blackwelder  1991) or  the  tracking 
+method (Hassan and  Canaan 1991). 
+The tracking technique measures the  velocity based 
+on  particle pairs  but  difficulties arise when  the  spatial 
+density  of   particles  is  high.     Young’s  fringes,  auto- 
+correlation and cross correlation methods are frequently 
+applied.   All  of  these  techniques assume  that  velocity 
+gradients  are  negligible  in   the  interrogation  area  in 
+0957-0233/95/050507+08$19.500 1995 IOP  Publishing Ltd 
+the  determination  of  the  mean  velocity.    Usually  the 
+interrogation area of  photographic PIV  is small (around 
+1 mm2) and the assumption is thus sustained. However, 
+for the video cross correlation method, the interrogation 
+area is not  small enough to be  negligible and  the non- 
+uniformity in the velocity distribution cannot be ignored. 
+Reconstruction of  the interrogation area by  considering 
+the  velocity  gradient  has  been  suggested by  Ashforth- 
+Frost et al  (1993) and Huang et al  (1993a,  1993b).  In 
+this  paper,  a  new  method is  proposed  by  which to  re- 
+build  the  second image instead  of  building each single 
+interrogation  area,  paying  particular  attention  to  the 
+extraction of  velocity vectors taking  into  consideration 
+the effects of three flow movement components, namely 
+spatial uniform transfer, rotation and bi-axial shearing. 
+2.  The conventional cross correlation method 
+and its drawbacks 
+2.1.  The conventional cross correlation technique 
+After having acquired two sequential images of the flow, 
+we  employed  cross  correlation to  extract  the  velocity 
+vectors from the images via an N  x N  pixel interrogation 
+window, which is shown schematically in figure 1. The 
+area of interest in the first frame is A  and outside of  this 
+window is labelled Ao.  Their counterparts in the second 
+frame  are  E   and  Eo  respectively.    An  interrogation 
+window  f(i, j )  centred  at  a  particular  position  ( x ,  y )  
+is sampled within A .  Its counterpart is g(i, j ) within E .  
+The cross  correlation coefficient  R&,       I  )    is calculated 
+507 
+K Jambunathan et a/ 
+2.2.  The effects of flow movement 
+Considering f (i, j ) t o be the input image and g ( i ,j  )  
+the 
+output  image,  the  relation  between  f (i, j )  and  g ( i ,  j )  
+will be 
+g ( i ,  j ) % f ( i ,  j )* s ( i ,  j )                  (3) 
+* denotes  the convolution  of  the  two functions  f (i, j )  
+and  s(i, j )  neglecting  noise  and  s(i, j )  is  an  image 
+transfer  function.   The  cross  correlation  of  f (i, j )  and 
+g ( i ,  j )  
+can he written as 
+a  y  8    - J  (6,  J I  y ai;.   j ;  - J"G, j ) 0 f (i, j ) *s(i, j )  
+-     ~                ,.   .. 
+Figure 1. Images A and 8. 
+= R,f    *s(i,j ) .                                                 (4) 
+The location  of  the  individual  particles  is  a  stationary 
+random  process  such  that  the  input  function   f ( i ,  j )  
+ )",u("-                                                                  correlates 
+with  the  image 
+with itself 
+transfer 
+only 
+function 
+at the origin. 
+movesThthee 
+convolution 
+l"""""                              correlation 
+peak away from the origin. 
+Considering   a   flow   element   of   a   general   two- 
+dimensional  flow,  Helmholtz  velocity  theory  divides  a 
+movement of  a flow element into three subsidiary terms 
+Figure 2.  The FFT  procedure.                                                        (Wu  1982): 
+between  the  pattems  f ( i , j  )  and  g(i; j )  (Kimura  and 
+Takamori  1986) using                                                                                           V  = V O +  i A V 6 r  +Vq5                       ( 5 )  
+where  V   represents  the  velocity  in  the  fluid  element 
+and  V,  represents  the velocity  of  the spatial  transfer  of 
+the  fluid  element.   The  three  terms  on  the  right-hand 
+side of equation ( 5 )  are translation, rotation and element 
+bi-axial  shear  respectively.   Westerweel  (1993) pointed 
+out  that,  if  the  interrogation  window  is  considered  as 
+a  flow  element,   then  the  rigid   shift  results   in   only 
+parts  of  the  f ( i ,j  )  and  g ( i ,  j )  contributing  to  R,,~, 
+The   pe*     is  shifted   away   from   the   origin     and   the 
+rotation  and  deformation  terms  lead  to  broadening  of 
+f o g  e) FG*                             (2)         the   peak   (Willert  and   Gharib   1991).     Huang   et  al 
+(1993a)  analysed  the  limitations  of   conventional  PIV 
+due to velocity gradients  and out-of-pattem motion.  An 
+artificial  distortion  method  was  proposed  by  Ashforth- 
+Frost  er  ul  (1993)  and  Huang  et al  (1993b).  but  only 
+the  linear  velocity  gradients  were  considered,   For  the 
+wr cross correlation method, all of  the flow parts affect 
+the  coefficients  of  correlation  and  influence  the  peak 
+position, 
+1 
+R f 8 ( k ,1 )  = (i=:aj=:mc c f (i. j ) g ( i  - k,j   - 1)  
+x ( 2 2f z(i, j ) 2 2g 2(i-k ,  j - l )        . 
+(1) 
+According to the convolution  theory, the correlation 
+operation in the space domain becomes multiplication in 
+the frequency domain  (Gonzalez and  Wintz  1987): 
+i=--m   j = - m                         i=-m  j=-m                            r2 
+where  o  denotes  correlation,  F   and  G  are  the  Fourier 
+transforms  of  f  and  g  and  G'    is  the  conjugate  of  G .  
+A  fast Fourier  transform (m)i s employed  to simplify 
+and significantly speed-up the cross correlation Process. 
+The procedure is shown  schematicab in  figure 2.  The 
+FlT requires  that the  number  Of   rows  and  co1umns  Of 
+the  input  and  output  must  have  an  exponent  of  2; the 
+size  of  the  interrogation  window  must  therefore  have 
+corresponding   dimensions.     A  high  cross  correlation 
+value near unity is observed when many particle images 
+in  the  first  image  match  their  corresponding  spatially 
+shifted  partners   in   the   second  image.     Small  cross 
+correlation   peaks   may   be  observed   when  individual 
+particle  images  match  with  other  particle  images.  The 
+highest  correlation  peak  is  considered  to  represent  the 
+best  match  of  pa,.ticle  images  between   the  windows 
+f ( i ,  j )  and   g ( i ,  j ) .      The   offsets     (  A  ~A,  ~  o)f   the 
+peak,  which  are measured  from the  origin  of the  cross 
+correlation coefficient map, represent the average spatial 
+shift of  particles  from image  A  to image  B  at  position 
+( x .  Y). 
+508 
+3.  The improved cross corre'ation Inethod 
+A  method  is  now  proposed  that  reconstructs  a  sxond 
+image by  considering the effects of  the three terms in  a 
+two-dimensional  flow.  This  second  image  was  used  to 
+correct the velocity obtained from the conventional cross 
+correlation  method.    The  technique  of  reconstruction 
+of  the  second  image  and  the  whole  procedure  of  the 
+improved   method   will   he   introduced.      Three   peak 
+location methods were investigated. 
+3.1.  Reconstruction of the second image 
+If  whole field displacement vectors (Ax, Ay)  are known 
+between   images   A   and   B ,    and   the   flow   is   two- 
+dimensional, then  the  second image pattern can be  re- 
+built  to  be  similar to  the  first  image.   The  whole  field 
+displacement vectors are constituted by 
+X B   = X A  + Ax                              (6) 
+YE   = Y A  + AY                               (7) 
+where ( X A ,  YA) 
+is the position of  a particle in image A  at 
+time T  and  ( X B ,  YE)i s the position of the same particle 
+in image B  at time T + f. A  digitized particle image is 
+represented by the pixel’s grey distribution. This means 
+that  the  grey  I (xa, YB,  T  + t)  in  image  B  is  equal  to 
+( ( x A ,  y   ~T,)   
+in image A. 
+A new image B‘   can be reconstructed from image B. 
+The grey I ( x B ~Y,E ,,  T )i n B’   is the grey I ( x B ,YE, T t t )  
+in B ,  where ( X E S ,YE,) 
+is identical to ( X A ,  yA). By noting 
+that  X A   and  YA   must be  integers and  the displacements 
+( A x ,Ay) are usually non-integers, the pixel intensity of 
+position ( X B ,  YE) 
+is obtained using bilinear interpolation: 
+where 
+i B   = integer(xB) 
+j  B   = integer(yB) 
+E;  = X B  - is  
+E,   = YB  - jB  
+Io  = I ( i s ,j  B )  
+[z   = I ( ~ +B 1, j B )  
+11 = I ( i B ,  jB + 1) 
+13  = I ( ~ +B 1,  j B + 1) 
+NO = (1 - ti)(l - E , )  
+N2  = ~   ~- (~   1j  )    
+N I  = (1 - E  ~  )  E  ~   
+N3 = E { E ~ .  
+I(XB,YE)i s  set  at   position  (xB,, y   ~  in)   B‘.     After 
+the   pixels’   grey   levels   have   been   calculated,   B‘ 
+is   constructed.      The   image   B‘     is   sampled   by    a 
+window   g’(x, y)  centred  at  position  (x,y ).     If   the 
+displacement data are accurate and  the particle  flow  is 
+two-dimensional, then,  neglecting electronic noise  and 
+the averaging effect of  bilinear interpolation, the highest 
+cross correlation coefficient o f f  (x, y)  and g‘(x, y) will 
+be unity. 
+The whole field displacement is currently unknown. 
+The  displacement  data  (Ax, Ay)   at  each  point  can 
+be  calculated  using  the  conventional  cross correlation 
+method. Supposing that the actual displacement is (Ax+ 
+Sx, Ay + 6y), where  (an,6 y)  is  a measure of the non- 
+uniformity of  the displacement around the point, then if 
+the second image B‘   were built based on  (Ax, Ay) and 
+the  window  g’(x. y )  were  sampled,  the  peak  position 
+of  the  cross  correlation  between  f ( x ,  y)  and  g‘(x, y) 
+would be offset from the origin by  (6’x,S ’y).  (6’x, S’y) 
+is  an  average  over  the  interrogation  N   x   N  window 
+and is normally  small compared with  (Ax, Ay)  so that 
+the  effects  of   non-uniformity  are  reduced.     A   new 
+displacement vector (AxfS’x,  Ayt6‘y) is found, which 
+is more accurate. 
+An  improved cross correlation technique 
+3.2.  The procedure 
+Before the new procedure is introduced, the assumption 
+is made that,  the  higher  the  correlation coefficient, the 
+higher will be the accuracy of  the  velocity data. 
+Since  the  initial  velocity  data  are  unknown,  it  is 
+necessary to  use  an  iterative procedure, which includes 
+six major steps. 
+(i)  Use  the  conventional  cross  correlation velocity 
+method to extract initial full field displacement vectors. 
+Eliminate error vectors using a filtering subroutine such 
+as that  proposed by  Kimura ef  al  (1988). 
+(ii)  Bilinear  interpolation  of   the  displacement  at 
+every pixel  inside the first image  A  using the extracted 
+velocity.  Find  the grey level of every pixel of  the new 
+second image  E‘,  which the  procedure in  the  previous 
+section introduced. 
+(iii) Copy A0  as the outside image of  B’  for velocity 
+extraction at  the  points  around  its  boundary,  in  case 
+parts  of  f ( x ,  y)  and  g ‘ ( x ,y )  have been  sampled from 
+the outside images A  and B. 
+(iv) Set a correction count  to  record  the correction 
+time and set it to zero. 
+(v)  Calculate the  cross  correlation of  f ( x , y )  and 
+g’(x, y).  Find  the peak position of  the coefficient map. 
+If   the  highest  coefficient  is  larger  than  the  recorded 
+coefficient  of position   (x,y).  add  the  offset  to   the 
+recorded  displacement at  position  ( x ,  y)  and  add  1 to 
+the correction count.  Otherwise, omit this position and 
+continue at  the next position. 
+(vi) Continue until all full field velocity vectors have 
+been  corrected  and  check  the  correction  number,  if  it 
+is not  zero,  return to step 3;  if  it  is zero exit from the 
+procedure. 
+4.  Validation of the improved method 
+Synthetic  flow  images  were  generated  for  simulating 
+uniform,  re-circulating  and  bi-axial  shearing flows  for 
+validation  of  the  improved  cross  correlation  method. 
+The  first  record  image  was   obtained  using  a  black 
+board with randomly distributed white dots. The second 
+image  was  generated  by   translating,  rotating  or  bi- 
+axially  shearing  the  first  image  to  simulate  uniform, 
+re-circulating  and  bi-axial  shearing  fluid  flows  using 
+imaging  techniques.     Typical  images   are  shown  in 
+figures  3(a)-(d).    The  second  image  of  the  synthetic 
+uniform flow was generated by shifting the first image in 
+the X direction by  a known distance. Distances of 2, 4, 
+6, 8 and  10 pixels were applied and the resulting second 
+images  were  saved  separately  for  velocity  extraction. 
+The second images of simulated re-circulating flow were 
+obtained by  rotating the first image by  angles of 0.035, 
+0.07, 0.105  and  0.14 rad  around  the  centre of  the  first 
+image. Shearing flow was simulated by  shearing the first 
+image with shear strains of 0.05, 0.1,  0.15, 0.2.0.25   and 
+0.3.  After the images were generated, the conventional 
+method  and   the   improved  method   were   applied   to 
+509 
+K Jambunathan  et al 
+Figure 3.  ( a )  
+The original image   ( b )  1 he translated image.  (c) I  ne rotated image   ( a )  I   ne snearea  image. 
+extract the  velocity  data, which  were compared with  the          improved method and broken  lines represent those of the 
+expected  data.                                                                                conventional  method.    A  maximum  difference  of  0.05 
+In  step  (v)  of  section  3.2,  procedures  for  locating          pixels  occurs for the case of  shift (figure 4(a)) indicated 
+the   peak   position   were   presented.      The   maximum          by  different broken lines.  However,  the parabolic  fit has 
+of  the   R f x ( i ,j )  yields  only  a  rough   estimate  of  the          been selected due to its superior accuracy and simplicity. 
+displacement   (with  a  resolution  of  one  pixel).     Suh-                That  the  average  absolute  errors  of  the  improved 
+pixel  results  for  the  peak  position  can  be  obtained  by          method are lower than those of the conventional  method 
+three different  methods.  Willert and Gharib (1991) used          is   illustrated   in   figure   4(a)-(c).       For   translational 
+a  three-point   curve  fit  to  find  the  sub-pixel   position.          movements,  relative  errors  were  decreased  from  about 
+Prasad   et  a/  (1992)  demonstrated   that  parabolic  and          5% with the conventional  method  to ahout  1% with  the 
+Gaussian  curve  fits yielded  RMS  errors  that were  about          improved  one for pure  shift  measurements.   In  the case 
+half  those  from  the  centre  of  mass  technique  (Willert          of  rotation,  relative  errors  decreased  from  about  7% to 
+and  Gharib  1991). They  also argued that this  trend  was          about  3%.   The  results  of  shearing  showed  that  relative 
+true only for flows whose velocity  gradient is negligible          errors  decreased from about  10% to about 5%. 
+and,   consequently,   they   selected  the  centre  of   mass                Specifically,    for   the   results   of   the   translational 
+method.     In  this  paper,   the  centre  of   mass   method,          movements,  if  shift  distances  in  the x   and  y  directions 
+parabolic and Gaussian curve fits are compared.  Figure 4        are larger than ten pixels, then the errors in  the computed 
+shows  that  there  is  little  difference  in  the  accuracy  of          vectors   increase  rapidly.     Willert  and  Gharib  (1991) 
+the  three methods;  full  lines  represent  the results of  the          argued  that  the  maximum  measurable  displacement  is 
+510 
+An  improved  cross correlation technique 
+g 
+(a) 
+-- center  of  mass 
+o’60  1 ;F  17 garabola 
+aussian                           f 
+li 
+0.00 
+(b) 
+*  -- center  Of   mass 
+030  1  2       garabola 
+aussian 
+*  -- center  of   mass                        (4 
+x  ----  gaaurassbipolna.  
+Image  shear  strain 
+2 0.50 
+P 
+0.40 
+0.0   0.0    0.0   0 . 0       0 . 0       1  .  0          1 . 0  
+Normalized  values  of shift. 
+rotation   and sheatin# 
+Figure 4.   (a) Shift, (b) rotation, (c)shear and ( d )a 
+comparison of the mean correlation coefficients. Broken 
+lines are results from the conventional method and full 
+lines are results from the improved method. 
+T                                                I 
+ e, RECORDER                       pMONITOR, 
+IMAGE 
+IBM  3B86OSAXR D 
+Figure 5.  (a) A schematic diagram of the experimental 
+rig.  (b)A schematic diagram of the image acquisition 
+arrangement. 
+a third of  the interrogation  window size. 
+Figure 4(d) shows a  comparison  of  the mean  value 
+of the maximum correlation  coefficients  of  points inside 
+the   area  of   interest  obtained   from   the  conventional 
+method  and  the  improved  method  using  the  parabolic 
+curve  fitting procedure.   The horizontal  axis represents 
+normalized  values of  shift distances,  angles of  rotation 
+and  shear  strains,  which  have  been  normalized   with 
+respect  to  ten  pixels,  0.14  rad  and  0.30  respectively. 
+The  broken  and  full  lines  represent  the  results  of the 
+conventional  and  improved  methods  respectively.   The 
+mean  coefficients  of   the   results   of   the  conventional 
+method  decrease  as  the   values  of  the  shift,   rotation 
+and  shear  strain  increase.    The  mean  coefficients  of 
+the results  of  the  improved  method  have  higher  values 
+and are less  sensitive  to  shift, rotation  and  shear strain. 
+Comparison  of  figures 4(a)-(c) with  figure 4(d) shows 
+that  higher accuracy is obtained  with  a high correlation 
+coefficient since the displacement errors are smaller for 
+higher coefficients. 
+5.  Experimental results 
+To  assess  the  performance  of  the  proposed  technique, 
+it  was  applied  to  the  analysis  of  recorded  images  of 
+natural  convection  from  a  heated  horizontal  cylinder. 
+The experimental  arrangement is shown  in  figure  5(a). 
+The  test  cell  consisted  of  a  transparent  perspex  tank 
+(150  mm  x  186  mm x  IO0  mm)  containing  water  at 
+25°C.  A  thin  seamless  stainless  steel  tube  (diameter 
+51 1 
+K Jambunathan el a/ 
+Time interuaL : 0.5 second         10x10  pixels-- 
+Figure 6. (a)Velocity data extracted by the conventional cross Correlation method. 
+(b)Distribution of  correlation coefficient of the conventional correlation method. 
+13 mm) represented  the heated cylinder.  Warm  water at 
+about 50°C from a constant-temperature  water bath was 
+circulated  through  the  tube.   The  flow  was  artificially 
+seeded  with  0.01%  micro-encapsulated   Liquid  crystal 
+particles  of  100 pm mean  diameter.   A  thin  plane  of 
+the flow  domain was  illuminated using  white light and 
+images were recorded at right angles to this plane using 
+a  Pulnix  TLC-X  CCD camera.    The  reason  for  using 
+liquid crystals as the seeding particles  is that the current 
+work  is  aimed  at  developing  a  comprehensive  system 
+for measuring  velocity and temperature  simultaneously. 
+This is also the justification  for using  white light rather 
+than  laser  Light  as the source of  illurnhation. 
+A  Data  Translation  DT2871  image  board  installed 
+in  an  IBM  PC/SX   was  used  to  acquire  a  sequence 
+of  512  x  512  pixels   x8  bit  resolution  frames,  either 
+directly   from   the   CCD   camera  or  from  a   Sony  U- 
+Matic  VO-58OOPS  video  recorder.    A  high-resolution 
+image  monitor  was  used  to  view  the  particle  images 
+and  select an  area of  interest  before  collecting  the  raw 
+data  for  analysis.   Frames  can  be  analysed  at  intervals 
+512 
+of  40  ms,  determined  by  the  video rate  (25 frames per 
+second). The image acquisition arrangements are shown 
+in  figure 5(b). 
+Figures  6(a) and  7(a) show  the  flow  patterns  in  a 
+region 2-8  diameters above the cylindrical tube.  Prior to 
+the cylindrical tube being heated, no convective  motion 
+was evident  within  the test  section.  On  supplying  heat 
+to the cylinder, the upward convected heat  transfer was 
+immediately  apparent  in  a  central  core  directly  above 
+the  cylinder,  shown  in  figures  6(a) and  7(a).  As  the 
+flow reached the free surface of the water, two counter- 
+rotating re-circulation regions  were formed, but the flow 
+was  not  entirely  symmetric.    The  initially  isothermal 
+and  stationary  flow  developed  into  a  stratified  thermal 
+field.   Having  allowed  a  velocity  field  to  develop,  two 
+sequential  images  were  acquired  with  a  0.5 s  interval. 
+Figure 6(a) shows the resulting  velocity field, extracted 
+using  the  conventional  cross  correlation  method.   The 
+calculated   correlation  coefficients   were  in   the   range 
+0.054.95,  and  are  shown  in  figure  6(b) with  contour 
+increments of  0.05.  The  lowest  values occurred  in  the 
+An improved cross correlation technique 
+Vector pattern: 
+Time interual : 0.5 second                 10x10  pixels--    0 
+I,                                                                                                                                                     II I 
+Figure 7. (a)V elocity data extracted by the improved cross correlation method, 
+(b)Distribution of  correlation coefficients of  the improved method. 
+shear  layer  and  re-circulation  regions.   The  maximum 
+velocities  recorded   were  of   the  order  of  0.1  m  s-'. 
+The  proposed  improved  method  was  used  to  correct 
+this  velocity  data  and  42  iterations  were  necessary  to 
+achieve convergence.  The results, plotted in figure 7(a), 
+show  a  marked  improvement  when  compared  to  the 
+recorded images.  Corresponding correlation coefficients 
+plotted  in  figure 7(6) show a significant increase in  the 
+shear layer and re-circulation regions: from 0.05 to 0.65. 
+The highest correlation coefficients were also marginally 
+improved; from 0.95 to 0.98. 
+For  this   particular   example,   using   the  improved 
+technique,  the overall CPU  time increased  from  14 min 
+for 3696 vectors to 2 h, which is acceptable considering 
+the improvement  in accuracy.  However, for economy, it 
+is not always necessary to execute the iterative correction 
+procedure  when  high  correlation  coefficients prevail  in 
+the previous iteration. 
+Finally,   it   is   worth   noting   that   the   results   of 
+the  improved   technique  are  dependent  on  the  initial 
+results obtained using the conventional cross correlation 
+method.  In the extreme case, if the conventional method 
+yields   very   poor  results,   then  use   of   the  improved 
+technique may be ineffective. 
+6.  Conclusion 
+An   improved   cross   correlation   technique   has   been 
+proposed   to   overcome   errors    in    the    analysis   of 
+video   images   for   PIV    due   to   appreciable   velocity 
+gradients.     The  technique   has  been   investigated   for 
+natural  convection  from  a  heated  horizontal  cylinder. 
+Improvements in accuracy have been observed, indicated 
+by    the   increase   in    correlation    coefficients.        For 
+translational  movements, relative  errors  were decreased 
+from  about 5% with  the conventional  method  to  about 
+1% with the improved one for pure shift measurements. 
+In  the 'case  of  rotation,  relative  errors  decreased  from 
+about 7% to about 3%.  The results of  shearing showed 
+that relative errors  decreased from  about  10% to about 
+5%.  This  ;,is  been  facilitated  by  subjecting  images  to 
+513 
+K Jambunathan ef a/ 
+various  magnitudes of  displacement, rotation  and  shear 
+strain. The most significant improvements were obtained 
+in  the shear layer and  re-circulation  regions of  the flow 
+field in which t h e  highest velocity gradients prevail.  T h e  
+increase  in  CPU  time  using  the  proposed  technique  is 
+considered acceptable in return  for the improvement  in 
+accuracy. 
+Acknowledgment 
+Thanks are due to T h e  Nottingham Trent University  and 
+t h e  UK Higher Education Funding Council (HEFC) for 
+t h e  financial support provided. 
+References 
+Adrian  R J   1986 Multi-point optical  measurements  of 
+simultaneous vectors in unsteady flow-a     review  Int. J. 
+Heat  Fluid  Flow  7  1 2 7 4 5  
+velocimeters ICALEO  '89 Optical Methods in  Flow  and 
+Particle Diagnostics pp 56-71 
+- 
+1991 Particle-imaging techniques for experimental  fluid 
+mechanics Ann. Rev. Flaid  Mech. W 261-304 
+Ashforth-Frost  S,  Dobbins B N, Jambunathan  K, Wu  X  P and 
+Ju X  Y  1993 A comparison of  interrogation  methods for 
+particle image velocimetry  Proc. SPIE 2005 478-89 
+Backer  D B and Fourney  M  E  1977 Measuring fluid velocities 
+with speckle patterns Opt. Lett.  1 135-7 
+- 
+1989 Engineering applications of  particle image 
+Cenedese A and Paglialunga  A  1990 Digital direct analysis  of a 
+multiexposed photograph  in  PIV Exp.  Fluids  8 2 7 3 4 0  
+Gonzalez R  C and Wintz P A  1987 Digital Image Processing 
+(Reading, MA: Addison-Wesley) 
+Hassan  Y A and Canaan R  E  1941 Full-Geld bubbly flow 
+velocity measurements  using  a multiframe  particle  tracking 
+technique fip. Fluids  12 49-60 
+imurovement of  PIV. Part I: limitation of conventional 
+Huang H T, Fiedler  H E and  Wang J J  1993a Limitation  and 
+techniques due to deformation of  particle image patterns 
+Erp. Fluidr  15 168-74 
+particle image distortion.  a novel  technique Exp.  Fluids  15 
+263-73 
+- 1993b Limitation  and improvement  of PIV. Part 11: 
+Kabdyashi T 1988 Flow  visualization  image analysis review  2nd 
+Int. Symp.  on Fluid-Control.  Measuremenl, Mechanics  and 
+Flow  Ksslralisation pp 545-56 
+Kimura I,  Kimura  H and Takamori T 1988 Image processing 
+of  flow velocity  vector distributions 2nd  Int. Symp. 
+on Fluid-Control, Measurement,  Mechanics  and  Flow 
+VisuaIisarion pp  189-93 
+around a circular  cylinder by  using  correlation  technique 
+Flow  Ksualization IV  (Washington: Hemisphere) pp 221-6 
+Prasad A  K,  Adrian  R  J ,   Landrcth C C and Offutt P  W  1992 
+Effect of resolution  on the speed  and accuracy  of particle 
+image velocimetry  interrogation Exp.  Fliiids  13 105-16 
+Utami T and Blackwelder  R  F 1991 A cross-correlation 
+technique  for velocity  field extraction from particle 
+visualization Exp.  Fluids  10 213-23 
+resolution Proc. SPIE 2005 674.-35
+Kimura 1 and Takamori  T 1986 Image processing  of flow 
+Westerweel J   1993 Analysis of  PIV interrogation with  low  pixel 
+Willert C E and Charib M  1991 Digital Darticle image 
+velocimetry E   q    
+Fluids  10 l8i-93' 
+- 
+Wu  W  Y  1982 Fluid Mechanics  (Beiiinp:  Beiiine  Univenitv 
+.  _ II -  
+Press)  (in Chinese) 
+514 
+View publication stats
+View publication stats

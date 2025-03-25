@@ -1,0 +1,433 @@
+LETTER
+Jerry Westerweel AE  Fulvio Scarano
+Universal outlier detection for PIV data
+Received: 28 January 2005 / Revised: 9 May 2005 / Accepted: 17 June 2005 / Published online: 12 August 2005
+ Springer-Verlag 2005
+Abstract  An adaptation of the original median test for
+the  detection  of  spurious  PIV  data  is  proposed  that
+normalizes the median residual with respect to a robust
+estimate of the local variation of the velocity. It is dem-
+onstrated that the normalized median test yields a more
+or  less  ‘universal’  probability  density  function  for  the
+residual and that a single threshold value can be applied
+to effectively detect spurious vectors. The generality of
+the proposed method is verified by the application to a
+large variety of documented flow cases with values of the
+Reynolds number ranging from 101 to 107.
+The  so-called  ‘median  test’  is  the  most  widely  used
+method for outlier detection in post-interrogation vali-
+dation of PIV data (Westerweel 1994). The principle and
+effectiveness of the original method was demonstrated for
+homogeneous and isotropic turbulence, for which a single
+outlier detection threshold can be applied to the entire
+data set on the basis of the velocity fluctuation intensity.
+The original paper contains an appendix that describes
+the application of the method for general (turbulent) flow
+fields,  but  this  recipe  is  quite  elaborate  and  requires  a
+priori  information  of  the  flow  field;  this  procedure
+has?to the best of the authors knowledge?never been
+actually applied in practice. Instead, it is quite common to
+apply  a  single  detection  threshold  in  the  evaluation  of
+(strongly) inhomogeneous flow data. For example, in a
+PIV  measurement  of  a  submerged  turbulent  jet  (see
+Fig. 1)  the  observed  flow  region  contains  both  high-
+velocity turbulent data (inside the jet) and low-velocity
+laminar data (outside the jet); the average value of the
+median vector residual correlates with the mean velocity
+(Fig. 1).  This  means  that  a  single  detection  threshold
+applied to the entire flow domain will generally tend to
+reject part of the valid measurement data in the turbulent
+flow region and to accept part of the spurious measure-
+ment data in the laminar flow region. This problem even
+occurs  in  experiments  where  the  assumption  of  (near)
+homogeneous  and  (near)  isotropic  turbulence  appears
+applicable,   i.e.,   grid-generated   turbulence.   Figure 2
+shows  histograms  of  the  median  vector  residuals  from
+PIV measurements in grid turbulence at three distances
+from the grid (Poelma 2004); the mean residual clearly
+decays in correspondence to the decay of the turbulent
+kinetic energy. Again, a single detection threshold would
+tend to accept an increasing fraction of spurious data as
+the measurement location moves away from the grid.
+This effect, illustrated in the two examples above, can
+be  avoided  when  the  residual  is  normalized  with  an
+estimate  of  the  local  instantaneous  flow  fluctuations
+physically expected. The most straightforward choice is
+to  adopt  the  root-mean-square  velocity  fluctuation  u￠
+evaluated  within  a  close  neighborhood  of  the  vector
+under consideration. However in general two problems
+occur: (1) for the estimation of u￠ only a small number of
+data  is  available  (i.e.,  typically  only  8  to  24?strongly
+correlated?data points in a 3・3 or 5・5 neighborhood),
+and  (2)  the  local  neighborhood  can  contain  spurious
+measurement  data  which  makes  the  estimation  of  u￠
+unreliable. Effectively, the presence of a spurious mea-
+surement  will  result  in  an  over-estimated  value  for  u￠
+which will reduce the value of the ‘normalized residual’
+and possibly will make the estimated residual drop be-
+low the chosen threshold value; hence, this will make it
+more difficult to detect spurious data in the presence of
+other spurious data.
+Shinneeb et al. (2004) use a filter on the PIV data to
+determine  a  local  threshold  value  that  should  account
+J. Westerweel (&)
+Laboratory for Aero and Hydrodynamics,
+Delft University of Technology,
+Delft, The Netherlands
+E-mail: j.westerweel@wbmt.tudelft.nl
+F. Scarano
+Department of Aerospace Engineering,
+Delft University of Technology, Delft, The Netherlands
+Experiments in Fluids (2005) 39: 1096?1100
+DOI 10.1007/s00348-005-0016-6
+for the local variation of u￠ and for local gradients. Al-
+though this method enhances the detection efficiency, it
+still relies on a (stringent) initial outlier detection and an
+appropriate choice of a filter length; both will depend on
+the  interrogation  resolution  and  experimental  condi-
+tions.
+The authors therefore propose an adaptation of the
+original  median  test  that  uses  a  median  estimate  of  u￠
+that  is  robust  with  respect  to  the  presence  of  spurious
+measurement  data  in  the  neighborhood.  Consider  a
+displacement  vector  denoted  by  U0,  its  3・3-neighbor-
+hood  data,  denoted  by  {U1,U2,...,U8},  and  Um  as  the
+median  of  {U1,U2,...,U8}  (following  the  procedure  for
+vector data (Westerweel 1994); note that U0 is excluded).
+A residual ri, defined as: ri=|UiUm| (Westerweel 1994),
+is  determined  for  each  vector  {Ui  |  i=1,...,8},  and  the
+median  rm   of  {r1,r2,...,r8}  is  used  to  normalize  the
+residual of U0:
+r00  ? jU0  Umj
+rm       :                                                            d1T
+The algorithm is represented in pseudo code and as a
+Matlab  macro  in  the  Appendix.  This  method  is  quite
+general  in  outlier  detection  (Barnett  and  Lewis  1978)
+and can be used to process a large variety of inhomo-
+geneous data, including e.g. traffic data (Shekhar et al.
+2001; Wouters et al. 2005, in press).
+When the residual defined in Eq. 1 is applied to the
+grid turbulence data, it is found that the histograms of
+the residuals approximately  collapse on a single  curve,
+i.e., the residuals for the normalized median test become
+independent of the turbulence level, as shown in Fig. 2b.
+When  the  normalized  median  test  is  applied  to  the  jet
+data of Fig. 1, the correlation between the mean residual
+and   the   mean   displacement   has   been   substantially
+attenuated,  as  is  evident  by  comparing  Fig. 1c  with
+Fig. 3a.  However,   a  weak   correlation  of   the  mean
+residual and the turbulence level remains visible, and it
+was found that r0￠ shows elevated values for regions with
+very  low  turbulence  intensities  (e.g.,  the  laminar  outer
+flow  regions  of  jets  and  boundary  layers).  In  fact,  for
+purely uniform flow, the normalization factor rm￠ tends
+to zero. This can be compensated by assuming a mini-
+mum normalization level e, i.e.:
+r0  ? jU0  Umj
+rm t e   ;                                                            d2T
+where  e may  represent  the  acceptable  fluctuation  level
+due  to  cross-correlation.  Evidently,  Eq. 2  with  e ” 0
+yields Eq. 1. It was found that a suitable value for e is
+about 0.1 px, which would correspond to the typical rms
+noise level of the PIV data (Westerweel 2000).
+In Fig. 3b is also shown the mean residual as defined
+in Eq. 2 with e = 0.1 px; this has further attenuated the
+correlation  between  the  mean  residual  and  turbulence
+level.
+We  now  demonstrate  that  the  normalized  median
+test  yields  residuals  with  a  more  or  less  ‘universal’
+0              200            400            600            800           1000
+0
+200
+400
+600
+800
+1000
+0              200            400            600            800           1000
+0
+200
+400
+600
+800
+1000
+0              200            400            600            800           1000
+0
+200
+400
+600
+800
+1000
+hor. pos. [px]
+vert. pos. [px]
+-
+0.0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+a
+b
+c
+Fig. 1  The instantaneous (a) and averaged (b) displacements for a
+turbulent  jet  (Fukushima  et al.  2002),  and  (c)  the  corresponding
+averaged residual (in pixel units) based on the vector median
+1097
+probability  density  function  and  that  a  single  thresh-
+old  value  can  be  used  for  the  detection  of  spurious
+vector  data.
+To  demonstrate  this,  the  normalized  median  test  is
+applied to a variety of (documented) PIV experiments,
+listed  in  Table 1.  These  experiments  cover  flows  with
+0.0             0.5             1.0             1.5
+0.0
+0.1
+0.2
+0.3
+residual [px]
+fraction [  ]
+turb. level
+9.4%
+4.3%
+3.8%
+median test
+0           1           2           3           4
+0.00
+0.02
+0.04
+0.06
+0.08
+normalized residual [  ]
+fraction [  ]
+normalized median test
+decreasing
+turbulence
+Fig. 2  The histograms of the                                                a                          b
+residual obtained with the
+conventional median test (a)
+and the normalized median test
+(b) for the grid turbulence data
+at decreasing turbulence levels.
+The histograms represent at
+least 99.7% of the vector data
+0              200            400            600            800           1000
+0
+200
+400
+600
+800
+1000
+hor. pos. [px]
+vert. pos. [px]
+0              200            400            600            800           1000
+0
+200
+400
+600
+800
+1000
+hor. pos. [px]
+vert. pos. [px]
+-
+0
+1
+2
+3
+4
+= 0.0 px
+= 0.1 px
+a
+b
+Fig. 3  Contour   plot   of   the   averaged   residual   based   on   the
+normalized median defined in Eq. 2 with e=0 (a) and e = 0.1 px
+(b) respectively. The range of contour levels corresponds to the one
+in Fig. 1c
+Table 1  Overview of PIV data and corresponding references
+Description                           Reference
+Grid turbulence                    (Poelma 2004)
+Turbulent pipe flow              (Westerweel et al. 1996)
+Turbulent jet                         (Fukushima et al. 2002)
+Microchannel flow                (Westerweel et al. 2004)
+Backward-facing step            (Scarano et al. 1999)
+Supersonic wake                   (Scarano and Van Oudheusden 2003)
+Von Ka´rma´n wake               (Van Oudheusden et al. 2005)
+0                1                2                3                4
+10-7
+10-6
+10-5
+10-4
+0.001
+0.01
+0.1
+1
+residual [px]
+fraction [  ]
+grid turb. (9.4%)
+grid turb. (4.3%)
+grid turb. (3.8%)
+jet 16  16
+jet 32  32
+pipe
+microchannel
+Karman wake
+Ma = 2 wake
+backw. fac. step
+median test
+0               2               4               6               8
+10-7
+10-6
+10-5
+10-4
+0.001
+0.01
+0.1
+1
+normalized residual [  ]
+fraction [  ]
+normalized median test
+a
+b
+Fig. 4  The  histograms  of  the  residuals  using  the  conventional
+median (a) and the normalized median (b) for the experimental data
+listed in Table 1
+1098
+Reynolds numbers from 0.1 (for micro-channel flow) to
+107  (for the supersonic wake). Histograms of the resid-
+uals for the conventional median test and the normalized
+median test are shown in Fig. 4. The histograms of the
+residuals for the conventional median test strongly de-
+pend  on  the  experimental  conditions,  whereas  the  his-
+tograms for the residuals of the normalized median test
+appear to more or less collapse on a single curve. This
+graph also shows how the residuals for the conventional
+median test depend on the interrogation resolution (e.g.,
+compare  the  32・32-px  and  16・16-px  jet  data),  which
+implies that each pass in a multi-grid or multi-scale PIV
+interrogation would require its own (optimal) detection
+level  for  the  identification  of  spurious  data;  the  same
+data for the normalized median test practically coincide,
+so  that  for  each  pass  the  same  detection  level  can  be
+used.
+When  the  histograms  of  the  residual  for  the  nor-
+malized median test in Fig. 4 would be integrated, it is
+found  that  the  90-percentile  occurs  for  r￠    2.  This
+means that in all cases a single detection threshold can
+be used that labels the largest 10% of residuals. A value
+larger  than  2  would  yield  a  less  stringent  detection,
+whereas  a  value  smaller  than  2  would  yield  a  more
+stringent  detection.  Hence,  we  now  have  a  detection
+threshold that is more or less independent of the (local)
+level of the velocity fluctuations, and that even appears
+valid for different experimental conditions.
+In Fig. 5 are shown the vector plots from four arbi-
+trary  examples  of  the  data  listed  in  Table 1.  Each  of
+these examples clearly shows a small fraction of spurious
+vectors,  and  in  each  example  vectors  with  a  residual
+r*>2 have been indicated by a red color, which essen-
+tially  captures  all  the  spurious  vector  data  in  each  of
+these four examples.
+In conclusion, it has been demonstrated that a small
+adaptation of the original algorithm for the median test
+of PIV data yields a ‘universal’ distribution of the nor-
+malized  residual.  Instead  of  a  detection  threshold  for
+spurious vector data that is specific to each experiment,
+or  different  flow  regions  within  a  PIV  measurement
+domain,  it  is  now  possible  to  use  a  single  detection
+threshold that would be applicable to a variety of flow
+conditions without any a priori knowledge of the flow
+characteristics   (e.g.,   turbulence  level).  The  universal
+character makes it also possible to use a single detection
+threshold  in  transient  flows  (e.g.,  in  laminar-turbulent
+transition).
+A threshold value of about 2 seems to be an appro-
+priate choice, with smaller and larger values leading to a
+more   stringent   and   less   stringent   outlier   detection
+respectively. The use of a normalized median test makes
+the  implementation  of  multi-pass  or  multi-grid  PIV
+0              200            400            600            800           1000
+0
+200
+400
+600
+800
+1000
+a
+0                  500               1000              1500              2000
+0
+500
+1000
+1500
+2000
+b
+0          200        400        600        800       1000      1200
+0
+200
+400
+600
+800
+1000
+c
+0                             500                          1000
+0
+200
+400
+600
+800
+1000
+d
+Fig. 5  Examples from the data listed in Table 1 where vectors with
+r*>2 are shown in red: a turbulent jet, b grid turbulence (with mean
+displacement   subtracted),   c   supersonic   (Ma=2)   wake,   d   von
+Ka´rma´n wake
+b
+1099
+interrogation  more  straightforward,  as  the  normalized
+median  test  eliminates  a  dependence  of  the  detection
+criterion  on  the  interrogation  domain  size.  It  is  also  a
+great help to inexperienced users who can use a thresh-
+old value of 2 as a convenient starting point for outlier
+detection.
+Appendix
+The normalized median test in pseudo code and imple-
+mented as a Matlab macro.
+References
+Barnett  V,  Lewis  T  (1978)  Outliers  in  statistical  data.  Wiley,
+Chichester
+Fukushima C, Aanen L, Westerweel J (2002) Investigation of the
+mixing process in an axisymmetric turbulent jet using PIV and
+LIF.  In:  Adrian  RJ  et al  (eds)  Laser  techniques  for  fluid
+mechanics. Springer, Berlin Heidelberg New York, pp 339?356
+Poelma  C  (2004)  Experiments  in  particle-laden  turbulence.  PhD
+Thesis, Delft University of Technology
+Scarano F, Benocci C, Riethmuller ML (1999) Pattern recognition
+analysis of the turbulent flow past a backward facing step. Phys
+Fluids 11:3808?3818
+Scarano F, Van Oudheusden BW (2003) Planar velocity measure-
+ments  of  a  two-dimensional  compressible  wake.  Exp  Fluids
+34:430?441
+Shekhar  S,  Lu  C,  Zhang  P  (2001)  A  unified  approach  to  spatial
+outlier detection. Tech Rep 01-045 Univ Minnesota
+Shinneeb A-M, Bugg JD, Balachandar R (2004) Variable threshold
+outlier identification in PIV data. Meas Sci Technol 15:1722?
+1732
+Van  Oudheusden  BW,  Scarano  F,  Van  Hinsberg  NP,  Manna  L
+(2005)  Phase?resolved  characterization  of  vortex  shedding  in
+the  near  wake  of  a  square-section  cylinder  at  incidence.  Exp
+Fluids 39:86?98
+Westerweel J (1994) Efficient detection of spurious vectors in par-
+ticle image velocimetry data sets. Exp Fluids 16:236?247
+Westerweel J (2000) Theoretical analysis of the measurement pre-
+cision in particle image velocimetry. Exp Fluids 29:S3?S12
+Westerweel J, Draad AA, Van der Hoeven JGT, Van Oord J (1996)
+Measurement of fully-developed turbulent pipe flow with digital
+particle image velocimetry. Exp Fluids 20:165?177
+Westerweel  J,  Geelhoed  PF,  Lindken  R  (2004)  Single-pixel  reso-
+lution  ensemble  correlation  for  micro-PIV  applications.  Exp
+Fluids 37:375?384
+Wouters JAA, Chan K-F, Kolkman J, Kock RW (2005) Custom-
+ized pre-trip prediction of freeway travel times for road users.
+Proc Trans Res (in press)
+1100

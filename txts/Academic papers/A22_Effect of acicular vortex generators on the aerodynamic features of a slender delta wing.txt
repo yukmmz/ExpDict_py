@@ -1,0 +1,697 @@
+Aerospace Science and Technology 86 (2019) 327?340
+Contents lists available at ScienceDirect
+Aerospace  Science  and  Technology
+www.elsevier.com/locate/aescte
+Effect  of  acicular  vortex  generators  on  the  aerodynamic  features  of 
+a slender  delta  wing
+Omid Nematollahia, Mahdi Nili-Ahmadabadib, Hyunduk Seoa, Kyung Chun Kima,?
+a School of Mechanical Engineering, Pusan National University, Busan 609-735, Republic of Korea
+b Department of Mechanical Engineering, Isfahan University of Technology, Isfahan 84156-83111, Iran
+a r t i c l e     i n f o                        a b s t r a c t
+Article history:
+Received 27 September 2018
+Received in revised form 30 November 2018
+Accepted 2 January 2019
+Available online 16 January 2019
+Keywords:
+Delta wing
+Vortex breakdown
+Aerodynamic performance
+Needle vortex generator
+Particle image velocimetry
+Leading-edge vortices
+This study investigates the flow structures and aerodynamic performance of a slender delta wing that has 
+a sweep angle of 65 degrees and is equipped with acicular vortex generators. The results were compared 
+with those of a smooth wing. Particle image velocimetry (PIV) was used to visualize the flow at six 
+different sections of the delta wing in both the chord-wise and span-wise directions at an angle of attack 
+(AOA) of 30 degrees and a Reynolds number of Re = 2.4 ×105. The effect of the acicular vortex generators 
+on the vortex diameters, locations of vortex breakdown, linear convolution integral patterns, circulation, 
+and separation were studied. The Q -criterion was used for vortex boundaries for the span-wise sections. 
+The results show the acicular vortex generators have positive effects on the aerodynamic performance 
+of the wing. Furthermore, the acicular wing delays the vortex breakdown in comparison with a smooth 
+wing and increases the flow momentum near the upper wing surface and behind the wing.
+c2019 Elsevier Masson SAS. All rights reserved.
+1. Introduction
+The concept of wing maneuverability at a high angle of attack 
+(AOA)  of  has  been  the  topic  of  much  research  on  aerodynamics 
+[1]. The special geometry configuration of delta wings leads to a 
+pair of spiral vortices [2]. The axial velocity is increased by two 
+or three times the free stream velocity in the presence of these 
+vortices [4]. Furthermore, the vortex diameter can grow by 30% of 
+the local span [3]. The low-pressure areas formed by the vortices 
+increases the lift force, which is called vortex lift [4]. This higher 
+lift improves the maneuverability at a higher angle of attack (AOA) 
+in  comparison  with  typical  wings  [5,6].  The  flow  structures  and 
+aerodynamic parameters of the delta wing configuration are well 
+known [7?9].
+The  flow  structure  above  a  delta  wing  depends  on  the  lead-
+ing edge geometry, wing thickness, AOA, free-stream situation, and 
+Reynolds number [10]. However, at high AOA, the leading edge vor-
+tices are the main vortices, they are the most dominant phenom-
+ena, and they are independent of the Reynolds number. However, 
+the secondary vortices are highly dependent on the Reynolds num-
+ber [11]. Fig. 1 shows a diagram of leading-edge vortices over a 
+delta wing.
+* Corresponding author.
+E-mail address: kckim@pusan.ac.kr (K.C. Kim).
+Fig. 1. Flow structure and leading-edge vortices over a delta wing [12].
+With increasing AOA, the leading edge vortices are disturbed, 
+which is called vortex breakdown [13?16]. This breakdown is con-
+nected  with  the  axial  velocity  stagnation  inside  the  vortex  core 
+and the distortion of vortical structures. These phenomena have a 
+https://doi.org/10.1016/j.ast.2019.01.002
+1270-9638/c2019 Elsevier Masson SAS. All rights reserved.
+328                                             O. Nematollahi et al. / Aerospace Science and Technology 86 (2019) 327?340
+Nomenclature
+A                 area of vortex region
+AOA            angle of attack
+c                  wing chord
+dv               vortex diameter
+h                 height
+l                   length of delta wing leading edge
+Q                criterion of vortex region
+S                 strain rate
+s                  wing span
+t                  time
+U                 velocity
+x                  distance from the apex
+y                 height from delta wing trailing edge
+Γ            circulation
+Ω            vorticity
+α           angle of attack
+Subscripts
+∞         free stream
+negative effect on the lift and pitching moment [17]. Vortex break-
+down has the following characteristics:
+? Rapid slowing down of the vortex core in the chord-wise di-
+rection
+? The rapid increase in the vortex diameter
+? Reverse flow region
+? Vortical flow changes to a turbulent wake-like region [11].
+The breakdown makes the downstream flow unstable [17]. Fur-
+thermore, breakdown prevents the decrease of the section pressure 
+downstream after breakdown, which leads to the lift decreasing. 
+Therefore, preventing or postponing the vortex breakdown will im-
+prove  the  lift.  Many  studies  have  been  conducted  to  investigate 
+the  flow  around  a  delta  wing  to  increase  the  lift,  delay  vortex 
+breakdown, and reduce drag. For example, Ol and Gharib [18] used 
+particle image velocimetry (PIV) to study the velocity distribution 
+in the vicinity of the trailing edge. They showed that the secondary 
+vortices are not strong at small Reynolds numbers. Lu and Zhu [19]
+investigated the possible configurations of vortex breakdown over 
+a delta wing. They found that besides the well-known bubble and 
+spiral configurations, there are also three different structures called 
+double spiral, filiform spiral, and frog jump structures.
+Taylor and Gursul [20] studied the unstable vortical flow over 
+delta wings. They concluded that vortex breakdown is delayed at 
+low Reynolds numbers. Recently, Traub [21] investigated the effect 
+of a pusher propeller over a delta wing. They showed that using 
+the propeller results in large moment excursions. Qine et al. [22]
+considered the ground effects on the flow structure over a delta 
+wing. The results showed that the flow below the wing stagnates 
+when the ground effect occurs. In other works, they also consid-
+ered  the  effect  of  static  ground  on  the  aerodynamic  forces  and 
+flow structure over a delta wing by using Delayed Detached-Eddy 
+Simulation  (DDES).  They  showed  that  the  lift  and  drag  increase 
+nonlinearly with decreasing height.
+Hadidoolabi and Ansarian [23] experimentally studied a pitch-
+ing delta wing using pressure measurements and numerical simu-
+lations. They concluded that increasing the AOA produces stronger 
+vortices  in  the  supersonic  regime.  Schutte  and  Ludeke  [24] nu-
+merically investigated the flow over a 65-degree delta wing with 
+a  rounded  leading  edge.  They  showed  that  a  small  increase  of 
+the AOA results in the inner and outer vortices moving upstream. 
+A simulation was also done to evaluate the aerodynamic features 
+of a delta wing with a rounded leading edge using Detached Eddy 
+Simulation (DES) [25]. The flow structure was obtained in reason-
+able detail by using Reynolds-averaged Navier?Stokes (RANS) tur-
+bulence models. However, the Spalart?Allmaras Delayed Detached-
+Eddy Simulation (SA-DDES) model gave a better understanding of 
+the flow field.
+Fritz [26] simulated the flow structure over a special delta wing 
+with  a  rounded  leading  edge  at  subsonic  speed.  In  the  numeri-
+cal simulation, the vortex breakdown happened at a lower AOA in 
+comparison with experiments due to under-prediction of the axial 
+flow velocity in the vortex core. Gursul et al. [27] evaluated the op-
+portunities for integration of experimental and numerical methods 
+for the investigation of delta wing flows. They concluded that com-
+putational  fluid  dynamics  can  be  very  valuable  to  guide  choices 
+about the types and locations used for experimental data collec-
+tion.
+There have been many methods for reducing drag on airplanes, 
+including  flaps  [28],  changing  the  sweep  angle  [29],  creating  a 
+round edge [30], vortex generators [31], flexible wings [32], fins 
+[33], and riblets [34]. Passive vortex generators have been used for 
+a  long  time  to  control  the  flow  separation  by  transferring  free-
+stream  momentum  to  the  near-wall  momentum  [35].  Taylor  in-
+troduced the conventional vane-type vortex generator [36]. There 
+have been a number of studies concerning the different effects of 
+vortex generators for aircraft applications to postpone the separa-
+tion [37], enhance lift [38], and reduce drag [39].
+Vortex  generators  have  been  used  in  aircraft [40],  wind  tur-
+bines [41], and the automotive industry [42]. A number of studies 
+have also used vortex generators in delta wings. Ashill et al. in-
+vestigated the effects of a miniature wire segment as a low-profile 
+vortex generator over a delta wing model with a free-stream Mach 
+number  of  0.18  and  Reynolds  number  of  4 × 106  [43?46].  They 
+found a maximum drag reduction of about one-half. Langan and 
+Samuels [47] studied the effect of vortex generators over diamond 
+wings with a Reynolds number of 4 × 106. They reported a maxi-
+mum lift-to-dragmax of 6% for the best configuration for co-rotating 
+vane vortex generators. Rao and Campbell [48] investigated the ef-
+fect of pylon vortex generators for a delta wing with a sweep angle 
+of 60 degrees. They found that this vortex generator can be an ef-
+fective device for tailoring the longitudinal characteristics of delta 
+wings.
+To  the  best  of  our  knowledge,  there  has  been  no  study  on 
+the application of acicular type vortex generators on delta wings. 
+Therefore, the current study investigates the effects of acicular vor-
+tex generators on controlling the leading-edge vortices using PIV 
+measurements. Different features were studied, such as the vortex 
+diameter, location of vortex breakdown, linear integral convolution 
+(LIC) patterns, circulation, and separation.
+2. Experimental setup and model specifications
+Experiments  were  done  in  a  horizontal  wind  tunnel,  which 
+has a 30 by 30-cm2 rectangular test section with an air speed of 
+30 m/s that is produced by a centrifugal blower. The average tur-
+bulence intensity of the wind tunnel is less than 0.4%. The wind 
+tunnel consists of an air blower, a motor, an inverter to change the 
+flow velocity, an air inlet duct, a three-mesh screen, and a hon-
+eycomb mesh to create a uniform air flow. An inverter was used 
+to  change  the  free-stream  flow  velocity.  Flow  tests  were  carried 
+O. Nematollahi et al. / Aerospace Science and Technology 86 (2019) 327?340                                                                                                  329
+Fig. 2. Delta wing models configuration with schematic view (all the dimensions are in mm).
+out on both smooth models and acicular models with needle-type 
+vortex generators. Both delta wings have the same chord length 
+of 15 cm and a sweep angle of 65 degrees, as shown in Fig. 2. 
+Furthermore, because of vortex generators span length has a dif-
+ference  of  4.26  mm  for  delta  wings.  A  sharp  chamfer  with  an 
+angle of 45 degrees was applied to the leading edges of the mod-
+els.  The  maximum  blockage  ratio  for  both  delta  wing  models  is 
+5.83%.
+A 2D-PIV system was used to observe the flow structure. The 
+flow was visualized at 6 cross-sectional planes with similar dis-
+tances from each other that are perpendicular to the wing’s suction 
+surface and parallel to the wing span, as well as 6 axial section 
+planes  with  similar  distances  from  each  other  that  are  perpen-
+dicular  to  the  wing’s  suction  surface,  as  shown  in  Fig. 3.  The 
+configuration of the laser and the camera are also shown in the 
+figure. The PIV parameters during the experiments were kept con-
+stant.
+The PIV system includes a PIVCAM 10-15 CCD camera, a double-
+pulsed Nd-Yag laser with a maximum power of 200 mJ/pulse, a 
+TSI 610032 synchronizer, and a computer. The camera captures the 
+image  with  a  pixel  resolution  of  1280  by  1024  pixels.  Olive  oil 
+droplets were used as tracer particles. Olive oil satisfies the gen-
+eral requirements for PIV seeding particles of being non-corrosive, 
+non-toxic, chemically non-volatile, and non-abrasive. Furthermore, 
+droplets of olive oil have diameters of around 1?2 μm and have 
+an  acceptable  aerodynamic  reaction  to  the  velocity  field  in  the 
+flow. Two Laskin nozzle chambers with six nozzles were used to 
+generate  particles.  A  high-pressure  air  supplier  was  used  at  the 
+chamber inlet to generate even spreading of the compressed air to 
+each nozzle.
+The time difference between two consecutive images for cap-
+turing a suitable flow image near the model changes from 10 μs to 
+100 μs while the frequency of laser pulse was 2 Hz indicating the 
+time difference between each double pulses. The resolution of PIV 
+measurement is as before mentioned as 1280 by 1024 pixels. An 
+80 to 200-mm Nikon lens was used to have a field of view (FOV) 
+of 110 mm by 110 mm. The size of the interrogation window for 
+the velocity calculation was 32 × 32 pixels, and 50% overlap was 
+allowed. PIVLab software was used for PIV processing, including re-
+moving false vectors, ensemble averaging, and additional statistical 
+calculations [49].
+3. Results and discussion
+The  flow  structure  on  delta  wings  is  completely  transient. 
+This  section  discusses  the  average  results,  so  it  is  necessary  to 
+prove that enough images are being considered for averaging. In 
+other  words,  the  independency  of  the  velocity  contours  should 
+be proven. Therefore, the velocity at one of the cross sections is 
+shown in Fig. 4 for different numbers of instantaneous images for 
+a smooth delta wing.
+The flow structure appears to be almost the same, but it should 
+be proven with a more detailed comparison. Fig. 5 shows a com-
+parison of the mean velocity magnitude in the span-wise direction 
+over  the  wing  surface  for  four  different  numbers  of  images.  As 
+seen, the difference between 100 images and 200 images is less 
+than 10 percent. Furthermore, a recently published work by Muir 
+et al. [50] utilized 100 image (which means 50 pair of frames) or 
+by Lee and Ko [51] which they have used 60 images. Therefore, 
+using  200  images  (100  pair  of  images)  in  averaging  process  are 
+enough to capture the flow structures over the delta wings.
+The mean velocity and vorticity contours are shown in Figs. 6
+and 7 for each cross section. The vortex pair is almost symmet-
+rical,  so  only  one  of  them  is  shown.  Two  primary  vortices  are 
+produced at the leading edge and move across the wing surface 
+from the apex. After the apex, the primary vortices are strength-
+ened when vorticity is added along the leading edge. The vortices 
+are  then  dissipated  by  secondary  vortices,  viscosity  effects,  and 
+330                                             O. Nematollahi et al. / Aerospace Science and Technology 86 (2019) 327?340
+Fig. 2. (continued)
+O. Nematollahi et al. / Aerospace Science and Technology 86 (2019) 327?340                                                                                                  331
+Fig. 3. PIV setup and test sections.
+Fig. 4. Mean velocity averages for different numbers of images. (For interpretation of 
+the colors in the figure(s), the reader is referred to the web version of this article.)
+vortex breakdown. Leading-edge vortices are formed from the first 
+section until the last section. The two main structures are shown 
+in Fig. 6 in red and blue. Blue represents the vortex core, while red 
+represents the feeding by the leading edge.
+Fig. 5. Mean velocity magnitude over the wing surface in the span-wise direction.
+As shown in Fig. 7, there are two nearly symmetrical vortices 
+in each section with opposite directions. These two large vortices 
+are the main vortices. The small green area trapped between the 
+main vortices and the wing surface near the wing corners is the 
+secondary  vortex,  which  has  the  opposite  direction  of  the  main 
+vortex. Also, in Fig. 7, the vortex diameters on the smooth model 
+are larger than those on the acicular model.
+A  quantitative  criterion  should  be  considered  to  obtain  more 
+details about the vortex boundaries. Hunt et al. [52] introduced the 
+Q -criterion to specify the vortex boundary. In this criterion, a vor-
+tex is a connected region where Q   is positive, which is expressed 
+as follows:
+Q  =
+1
+2
+|Ω|2 ? |S|2 > 0                                  (1)
+where S  and Ω  are the strain rate and vorticity, respectively. The 
+vortex region is where the magnitude of the vorticity overcomes 
+the  magnitude  of  the  strain-rate.  The  pressure  inside  the  vortex 
+needs to be lower than the pressure at infinity [52,53].
+Fig. 8 shows the Q   criterion contours for each cross section for 
+both wings. The colored regions are vortex structures except for 
+the blue parts, which are non-vortex regions. The vortex diameter 
+is defined by as follows:
+dv  = 4(
+A
+2 )
+π                                                                      (2)
+where  A   is  the  region  of  positive  Q   (the  vortex  region),  which 
+encompasses both vortices. The vortex diameter for each section is 
+shown in Fig. 9.
+The smooth wing generally has larger vortex diameters. As ex-
+pected, the vortex diameter increases from the apex to the trailing 
+edge  due  to  increasing  leading-edge  feeding  and  vortex  break-
+down  at  the  final  sections.  The  probability  of  vortex  breakdown 
+increases with increasing AOA. The prediction of the exact loca-
+tion  of  the  breakdown  is  a  challenging  aspect  of  the  flow  over 
+the delta wings, but it is characterized by the destruction of the 
+leading  edge  vortex.  In  a  preliminary  inspection  of  the  onset  of 
+the vortex breakdown, the vortices on the smooth wing were not 
+coherent, while on the acicular wing, the vortices were almost co-
+herent. The incoherent vortices occur at section 4 for the acicular 
+wing. This means that the vortex breakdown is delayed by almost 
+one  section.  This  phenomenon  affects  the  aerodynamic  features, 
+maneuverability, and stability of aircraft.
+332                                             O. Nematollahi et al. / Aerospace Science and Technology 86 (2019) 327?340
+Fig. 6. Mean velocity contours at cross sections.
+Identifying the breakdown location is very complicated due to 
+the oscillation of the location. To show the detail of the instan-
+taneous  flow  structure  over  the  delta  wings,  the  linear  integral 
+convolution (LIC) has been utilized for both wings. LIC is a visu-
+alization  technique  to  show  the  vector  field  in  detail  which  has 
+been proposed by Cabral and Leedom [54]. LICs convey the vec-
+tor field orientation and the output of LIC vector is high density 
+streamlines  plot  that  present  all  the  in  plane  features  of  vector 
+field [55]. The LIC contours are shown for both wings in section 3, 
+which  is  the  location  of  the  vortex-breakdown  onset  are  shown 
+in Fig. 10. A qualitative criterion was studied based on the vor-
+tex  core  configuration.  The  vortex  breakdown  started  whenever 
+the vortex core was divided into two or more vortices or when-
+ever  the  vortices  are  unstable  that  eventually  cancel  each  other 
+out. The flow structure for nine consecutively steps are compared 
+for both models. The vortex over the acicular model is more sta-
+ble  and  almost  has  one  main  core,  while  in  the  smooth  model, 
+the main vortex is divided by two vortices, and the vortices are 
+unstable.  Furthermore,  as  it  can  be  seen  in  the  acicular  wing 
+the vortices core are more coherent. These conditions qualitatively 
+prove that the vortex breakdown has started for the smooth model 
+but  not  the  acicular  model.  Although,  the  acicular  vortex  gener-
+ator  effect  is  not  much  comparable  here,  but  as  it  can  be  seen 
+the  vortex  structures  for  the  acicular  wing  is  a  little  more  sta-
+ble.  Furthermore,  to  have  a  more  comprehensive  understanding 
+of flow structure two video files of LIC contours for both wings 
+for all the frame have been implemented as supplementary mate-
+rial.
+A quantitative criterion is needed to clarify the exact position 
+of the vortex breakdown. As mentioned, in the vortex breakdown 
+O. Nematollahi et al. / Aerospace Science and Technology 86 (2019) 327?340                                                                                                  333
+Fig. 7. Vorticity contours at each cross section (1/s).
+phenomena, the main vortex is divided into two or more vortices 
+in opposite directions, which are bounded by a larger area. This 
+means that the vorticity integral over the area of the divided vor-
+tex core will decrease. Therefore, the circulation Γ  can be used as 
+a quantitative parameter for the position of the vortex breakdown. 
+The circulation is the integral vorticity over an area and is defined 
+by Eq. (3):
+Γ = ?
+S
+Ω.dS                                                                                                 (3)
+where Ω  is the vorticity, and S  is the area of the vorticity region. 
+To calculate the circulation, it is very important to define the cor-
+rect area. As mentioned, the vortex boundaries are defined by the 
+Q -criterion. Therefore, this criterion was used to specify the vor-
+tex boundaries. Fig. 11 shows an example of the calculation of the 
+vortices for the smooth wing at section 6. The area with a positive 
+value of the Q-criterion is in the vortex area. To measure the ex-
+act area of the vortex, this criterion is used for integrating the area 
+shown in Fig. 12-a.
+Two symmetric vortices in each section neutralize each other, 
+so the overall circulation for the whole domain is zero. However, 
+to have a robust measurement of the circulation, the average of 
+both vortex circulations is used, as shown in Eq. (4):
+Γaverage  = Γright  + |Γleft|
+2                                        (4)
+The  distributions  of  the  circulation  for  both  wings  are  shown 
+in  Fig. 13.  The  acicular  wings  have  lower  circulation  than  the 
+smooth  model.  This  means  that  using  the  sharp  vortex  gen-
+erators  changes  the  velocity  in  the  span-wise  direction  to  the 
+chord-wise  direction  and  then  decreases  the  circulation.  The 
+vortex  generators  have  been  used  to  re-energize  the  boundary 
+layer  in  the  chord-wise  direction.  This  direction  change  leads 
+to  vortex  lift  at  the  leading  edge.  Furthermore,  it  should  be 
+noted that using acicular vortex generator create chord wise vor-
+tices  which  means  that  the  velocity  direction  will  be  changed 
+from  span  wise  to  chord  wise  as  it  will  be  shown  in  the  ax-
+ial  section  in  detail.  Therefore,  this  changing  cause  that  circu-
+lation  in  span  decrease  in  comparison  with  smooth  wings.  In 
+other words, considering that leading edge vortices moves along 
+a  helix  then  by  using  acicular  vortex  generator  the  increase 
+the  helix  pitch.  This  effect  decrease  the  circulation  in  acicu-
+lar  wing.  This  phenomenon can  be  proved  by  the  velocity  dis-
+tribution  in  chord  wise  direction  which  will  be  presented  in 
+Fig. 19.
+After vortex breakdown, the vortices are incoherent. The Q -cri-
+terion was used to prove qualitatively and quantitatively that vor-
+tex  breakdown  occurs  at  sections 3  and  4  for  the  smooth  and 
+acicular  delta  wings,  respectively.  As  it  can  be  seen  there  is  a 
+section which slop of circulation changes alongside the chord in 
+Fig. 13. This slope changing occur in sections 3 and 4 for smooth 
+and acicular wings, respectively. In other words, the concavity of 
+each graph shows the location of the vortex breakdown. This de-
+334                                             O. Nematollahi et al. / Aerospace Science and Technology 86 (2019) 327?340
+Fig. 8. Vortex region identification using the Q   criterion.
+crease  is  seen  in  section 4  for  the  acicular  wing.  This  criterion 
+is  considered  to  find  the  vortex  breakdown  location  has  good 
+agreement with the  Q -criterion contours. However, the exact lo-
+cation  has  a  tolerance  of  1 cm  due  to  each  sequential  section 
+distance.
+Fig. 14 shows the circulation increase for each section. For the 
+smooth wing, a sudden decrease in the rate happens between sec-
+tions 2 and 3, while for the acicular wing, the sudden drop in the 
+rate of increase of the circulation happens between sections 3 and 
+4. This again shows that the vortex breakdown is postponed by 
+one section when using the acicular wing.
+Fig. 15 shows  the  velocity  magnitude  for  all  chord-wise  sec-
+tions. Qualitatively, the velocity magnitude is higher for the acicu-
+lar model in the vicinity of the wing surface for the acicular wing 
+than the smooth one. This means that the vortex generators on 
+the acicular wing work well. In other words, the vortex generators 
+cause the upper flow with higher velocity stick to the surface, as 
+well as increase the near surface momentum lift and reduce the 
+drag. For section A, which is the symmetry section, the flow struc-
+ture is almost the same, but the velocity is different. Furthermore, 
+there is no leading-edge vortex in this section.
+Section B is where the onset of the leading edge vortices oc-
+curs. Vortices are created, but they are very small. In this section, 
+the higher velocity near the surface can also be seen again. In the 
+case of the drag forces, In addition as can be seen velocity behind 
+the acicular wing is higher than the smooth one, which proves that 
+flow momentum is increased in behind of the wing the pressure 
+drag force are reduced. In addition, using a qualitative visualization 
+Fig. 9. Vortex diameter for each section.
+inspection it can be seen that the wake area is reduced in acic-
+ular wing. Furthermore, as a quantitative comparison the velocity 
+behind the wings are shown in Fig. 16 which proves the higher ve-
+locity in acicular wing. From sections C to F, leading-edge vortices 
+are developing and growing in size. Besides the higher velocity on 
+the acicular wing, the lower wake region leads to lower drag force. 
+O. Nematollahi et al. / Aerospace Science and Technology 86 (2019) 327?340                                                                                                  335
+Fig. 10. Vortex structures of the wings using LIC contours.
+Fig. 11. Contour of Q -criterion at the first section of the smooth wing.
+Comparing sections B and C with sections D to F shows that the 
+leading-edge vortices have more effects on the flow structure near 
+the leading edge.
+As it can be seen there are a couple of regions with high or 
+low velocity in Fig. 15. The low velocity region in section A shows 
+the stream velocity while high velocity region shows high shear 
+layer velocity near the wing surface. In other sections in the vor-
+tices area the velocity is significantly decreased which illustrated 
+as blue. The existence of vortices before breakdown led to increase 
+the  velocity  near  the  upper  surface.  The  area  between  the  low 
+velocity vortex core regions and high velocity free stream that is 
+shear stress layer around the vortex core in green color.
+The u-velocity contours for all sections are compared in Fig. 17. 
+The u-velocity in all sections is higher for the acicular model be-
+cause of the vortex generators using a qualitative inspection which 
+also shown quantitatively in Figs. 19 and 20 for near wing surface 
+and behind of the wing, respectively. As expected, the vortex gen-
+erators  bring  the  free-stream  momentum  to  the  boundary  layer 
+and  increase  u  component  of  the  velocity  profile.  The  negative 
+u-velocity shows the existence of a reverse flow, highly unstable 
+vortices, and vortex breakdown. Since there are many regions with 
+negative  u-velocity,  it  can  be  concluded  that  the  flow  over  the 
+smooth wing is more unstable and has a high possibility of vor-
+tex breakdown.
+336                                             O. Nematollahi et al. / Aerospace Science and Technology 86 (2019) 327?340
+Fig. 12. Vortex area definition.
+Fig. 13. Distribution of the vortex circulation for both wings.
+Fig. 14. Distribution of the rate of increase of the circulation for both wings.
+In this figure, the red and yellow regions near the wing surfaces 
+are the high velocity region and high shear regions. While in the 
+section C to F the green regions are the boundary regions of vor-
+tices. The blue regions with low to lowest velocity are vortex core 
+and reverse flow indicating the broken vortex core.
+Fig. 18 shows the mean velocity and related u-component for 
+section C for sections in the axial direction. As expected, the veloc-
+ity profiles for both the magnitude and u-velocity have increased 
+for the acicular model. The vortex generators change the boundary 
+layer thickness and bring higher energy from the upper flow to the 
+surface. Therefore, it causes the velocity near the wing surface to 
+increase. The momentum of the flow in the chord-wise direction 
+was increased by using vortex generators. This effect leads to a re-
+duction in the wake area and drag force. This chord-wise increase 
+causes the vortex streamlines to the follow chord-wise direction. 
+Therefore, the pitch of the spiral streamlines increased, which is 
+led  to  a  higher  flow  momentum  near  the  surface  lift  force.  The 
+angle of the vortex cone is reduced on the acicular wing, which 
+shows that the vortex diameter decreases with the acicular wing. 
+In  addition  as  seen  in  the  u-velocity  contours,  the  reverse  flow 
+regions (blue colors) which have negative velocity in the smooth 
+wing is higher than that acicular wing. This phenomena leads to 
+an unstable flow in smooth wing which ultimately increases the 
+possibility of vortex breakdown.
+To investigate the effect of vortex generators quantitatively on 
+flow  structure,  Fig. 19 shows  the  U-velocity  of  the  flow  in  the 
+vicinity of the wing surface which means almost 2 mm from wing 
+surface  for  all  sections.  This  distance  is  chosen  to  make  a  clear 
+comparison between both wings in a same position for flow struc-
+ture and aerodynamic performance. This figure shows the previous 
+claims  about  the  increasing  velocity  on  the  wing  with  the  vor-
+tex  generators.  However,  the  difference  between  the  u-velocities 
+in section A is lower than in sections B to D, which means that 
+the vortex generators have a lower effect in this area. This figure 
+shows  that  the  momentum  in  the  chord-wise  direction  has  in-
+creased over the chord line except near the apex and leading edge 
+for each section. However, vortex generators decrease the veloc-
+ity at the apex and leading edge, but the free stream sticks to the 
+boundary layer, and then the momentum increases until the trail-
+ing edge. Furthermore, since the secondary vortices near section F 
+and after it becomes stronger, the velocity distribution changes in 
+this section.
+The u-velocity distribution in behind of the wings at the ax-
+ial locations (refer to Fig. 3) is shown in Fig. 20. Each line starts 
+from 2 mm from wing surface until reaching to free stream veloc-
+ity. Again, the distribution in section A is almost the same. Which 
+means this symmetry section is not affected by the vortex genera-
+tors, which have a lower effect in this area. The effect of the vortex 
+generators in sections B to E leads to a much higher edge core. 
+Furthermore, a low-speed region can be seen clearly in all sections 
+except section A. This low-speed region is the vortex core, and on 
+both sides, the wing surface velocity and free stream velocity are 
+high. This higher velocity near the surface shows a drag reduction 
+on the acicular wing, which again is in agreement with the pre-
+vious section. The higher velocity for the acicular wing leads to a 
+O. Nematollahi et al. / Aerospace Science and Technology 86 (2019) 327?340                                                                                                  337
+Fig. 15. Mean velocity and contours at each section.
+stronger vortex and decrease in the vortex cone angle, which re-
+sults in higher momentum behind the wing lift.
+In  general  it  should  be  mentioned  that  using  acicular  vortex 
+generator  increase  the  flow  momentum  in  the  upper  surface  of 
+wing which can lead to increasing lift and decreeing drag forces. 
+In addition, this vortex generator enlarge the momentum in be-
+hind of the wing that may reduce the drag. However, the quan-
+titative result is subordinate to force measurements in the future 
+works.
+4. Conclusion
+This study investigated the effect of acicular vortex generators 
+on the aerodynamic features of slender delta wings in a horizontal 
+wind tunnel. A 2D-PIV method was used to visualize the qualita-
+tive velocity field. Six sections in both the span-wise and chord-
+wise directions were studied. The flow structures were highly un-
+stable over the delta wing, and the velocity field was gained by 
+averaging 100 instantaneous velocity contours which prepared by 
+100 pairs of images. The results showed a positive effect of using 
+the acicular vortex generators on the aerodynamic performance of 
+the delta wing. The Q-criterion was applied for the vortex bound-
+ary definition.
+The  results  showed  that  using  the  acicular  vortex  generators 
+delay the breakdown of the leading-edge vortex for one section. 
+Furthermore, using this type of vortex generator can increase the 
+flow momentum near upper surface and behind the wing which 
+may lead to lift increment and drag decrement. The circulation was 
+used as a criterion for the definition of the location of the vortex 
+breakdown. The PIV measurements showed that when the vortex 
+on the delta wing broke down, the vortex core divided into more 
+vortices with opposite directions, and the rate of increase of the 
+circulation along the flow direction suddenly decreased after the 
+section where the vortex breakdown occurred. Moreover, the acic-
+ular vortex generators increased the momentum in the vicinity of 
+the wing surface and behind the wing.
+338                                             O. Nematollahi et al. / Aerospace Science and Technology 86 (2019) 327?340
+Fig. 16. Mean velocity at behind of wings.
+Fig. 17. U-velocity and contours at each section.
+O. Nematollahi et al. / Aerospace Science and Technology 86 (2019) 327?340                                                                                                  339
+Fig. 18. Mean velocity and related u-component contours at section C.
+Fig. 19. U-velocity distribution along the lines parallel to the chord.
+Fig. 20. U-velocity distribution behind the wings.
+340                                             O. Nematollahi et al. / Aerospace Science and Technology 86 (2019) 327?340
+Conflict of interest statement
+There is no conflict of interest.
+Acknowledgements
+This work was supported by the National Research Foundation 
+of Korea (NRF) grant funded by the Korean government (MSIT) (No. 
+2011-0030013, No. 2018R1A2B2007117).
+Appendix A. Supplementary material
+Supplementary material related to this article can be found on-
+line at https://doi.org /10.1016/j .ast.2019 .01.002.
+References
+[1] B.-g. Mi, H. Zhan, S.-s. Lu, An extended unsteady aerodynamic model at high 
+angles of attack, Aerosp. Sci. Technol. 77 (2018) 788?801.
+[2] D. Hummel, On the vortex formation over a slender wing at large angles of 
+attack, in: High Angle of Attack Aerodynamics, AGARD, 1978, pp. 15-11?15-17.
+[3] R.C. Nelson, A. Pelletier, The unsteady aerodynamics of slender wings and 
+aircraft undergoing large amplitude maneuvers, Prog. Aerosp. Sci. 39 (2003) 
+185?248.
+[4] J.M. Luckring, A survey of factors affecting blunt leading-edge separation for 
+swept and semi-slender wings, in: 28th Applied Aerodynamics Conference, 
+AIAA, 2010, p. 2010.
+[5] I. Heron, R.Y. Myose, Impingement of a von Karman vortex street on a delta 
+wing, J. Aircr. 42 (2005) 1084.
+[6] M. Lee, C.-M. Ho, Vortex dynamics of delta wings, in: Frontiers in Experimental 
+Fluid Mechanics, Springer, 1989, pp. 365?427.
+[7] C. Breitsamter, Experimental studies of the turbulent flow structure of leading-
+edge vortices, in: Notes on Numerical Fluid Mechanics, vol. 60, 1997, pp. 79?86.
+[8] A. Furman, C. Breitsamter, Turbulent and unsteady flow characteristics of delta 
+wing vortex systems, Aerosp. Sci. Technol. 24 (2013) 32?44.
+[9] I. Gursul, Unsteady flow phenomena over delta wings at high angle of attack, 
+AIAA J. 32 (1994) 225?231.
+[10] B. Yaniktepe, Origin and Control of Vortex Breakdown of Unmanned Combat 
+Air Vehicles, Ph.D. thesis, Univ. of Cukurova, Balcali, Turkey, 2006.
+[11] C. Munro, P. Krus, C. Jouannet, Implications of scale effect for the prediction of 
+high angle of attack aerodynamics, Prog. Aerosp. Sci. 41 (2005) 301?322.
+[12] I. Gursul, Z. Wang, E. Vardaki, Review of flow control mechanisms of leading-
+edge vortices, Prog. Aerosp. Sci. 43 (2007) 246?270.
+[13] J. Kegelman, F. Roos, The flowfields of bursting vortices over moderately swept 
+delta wings, in: 28th Aerospace Sciences Meeting, 1990, p. 599.
+[14] J. Kegelman, F. Roos, Effects of leading-edge shape and vortex burst on the 
+flowfield of a 70-degree-sweep delta-wing, in: 27th Aerospace Sciences Meet-
+ing, 1989, p. 86.
+[15] N. Lambourne, The bursting of leading-edge vortices ? some observations and 
+discussion of the phenomenon, ARCR & M 3282, 1962, pp. 1?36.
+[16] L.W. Traub, Simple prediction method for location of vortex breakdown on 
+delta wings, J. Aircr. 33 (1996) 452?454.
+[17] N.G. Verhaagen, C. VanBossuyt, Flow on a 65-deg blunt apex, in: 24th Applied 
+Aerodynamics Conference, San Francisco, California, 2006.
+[18] M. Ol, M. Gharib, The passage toward stall of nonslender delta wings at low 
+Reynolds number, in: 31st AIAA Fluid Dynamics Conference and Exhibit, 2001, 
+pp. 11?14, AIAA Paper 2001-2843.
+[19] Z.-Y. Lu, L.-G. Zhu, Study on forms of vortex breakdown over delta wing, Chin. 
+J. Aeronaut. 17 (2004) 13?16.
+[20] G.S. Taylor, I. Gursul, Buffeting flows over a low-sweep delta wing, AIAA J. 42 
+(2004) 1737?1745.
+[21] L.W. Traub, Effect of a pusher propeller on a delta wing, Aerosp. Sci. Technol. 
+48 (2016) 115?121.
+[22] Y. Qin, P. Liu, Q. Qu, H. Guo, Numerical study of aerodynamic forces and flow 
+physics of a delta wing in dynamic ground effect, Aerosp. Sci. Technol. 51 
+(2016) 203?221.
+[23] M. Hadidoolabi, H. Ansarian, Supersonic flow over a pitching delta wing using 
+surface pressure measurements and numerical simulations, Chin. J. Aeronaut. 
+31 (2018) 65?78.
+[24] A.  Schutte,  H.  Ludeke,  Numerical  investigations  on  the  VFE-2  65-degree 
+rounded  leading  edge  delta  wing  using  the  unstructured  DLR  TAU-code, 
+Aerosp. Sci. Technol. 24 (2013) 56?65.
+[25] R.M. Cummings, A. Schutte, Detached-eddy simulation of the vortical flow field 
+about the VFE-2 delta wing, Aerosp. Sci. Technol. 24 (2013) 66?76.
+[26] W. Fritz, Numerical simulation of the peculiar subsonic flow-field about the 
+VFE-2 delta wing with rounded leading edge, Aerosp. Sci. Technol. 24 (2013) 
+45?55.
+[27] I. Gursul, M.R. Allan, K.J. Badcock, Opportunities for the integrated use of mea-
+surements and computations for the understanding of delta wing aerodynam-
+ics, Aerosp. Sci. Technol. 9 (2005) 181?189.
+[28] E. Canepa, D. Lengani, F. Satta, E. Spano, M. Ubaldi, P. Zunino, Boundary layer 
+separation control on a flat plate with adverse pressure gradients using vortex 
+generators, in: Proc. ASME Turbo Expo, 2006.
+[29] P. Earnshaw, J. Lawford, Low-Speed Wind-Tunnel Experiments on a Series of 
+Sharp-Edged Delta Wings, HM Stationery Office, 1966.
+[30] M. Kyriakou, D. Missirlis, K. Yakinthos, Numerical modeling of the vortex break-
+down phenomenon on a delta wing with trailing-edge jet-flap, Int. J. Heat Fluid 
+Flow 31 (2010) 1087?1095.
+[31] L. Zhang, K. Yang, J. Xu, M. Zhang, Modeling of delta-wing type vortex genera-
+tors, Sci. China, Technol. Sci. 54 (2011) 277?285.
+[32] I. Gursul, R. Gordnier, M. Visbal, Unsteady aerodynamics of nonslender delta 
+wings, Prog. Aerosp. Sci. 41 (2005) 515?557.
+[33] X. Meng, F. Liu, S. Luo, Effect of low dorsal fin on the breakdown of vortices 
+over a slender delta wing, Aerosp. Sci. Technol. 81 (2018) 316?321.
+[34] S.-J. Lee, Y.-G. Jang, Control of flow around a NACA 0012 airfoil with a micro-
+riblet film, J. Fluids Struct. 20 (2005) 659?672.
+[35] J.C.  Lin,  Review  of  research  on  low-profile  vortex  generators  to  control 
+boundary-layer separation, Prog. Aerosp. Sci. 38 (2002) 389?420.
+[36] H.D. Taylor, The Elimination of Diffuser Separation by Vortex Generators, Tech-
+nical report No. 4012, United Aircraft Corporation, East Hartford, CT, 1947, p. 3.
+[37] G.B. Schubauer, W.G. Spangenberg, Forced mixing in boundary layers, J. Fluid 
+Mech. 8 (1960) 10?32.
+[38] M.B. Bragg, G.M. Gregorek, Experimental study of airfoil performance with vor-
+tex generators, J. Aircr. 24 (1987) 305?309.
+[39] W. Calarese, W. Crisler, G. Gustafson, Afterbody drag reduction by vortex gen-
+erators, in: 23rd Aerospace Sciences Meeting, 1985, p. 354.
+[40] J.C.  Lin,  Review  of  research  on  low-profile  vortex  generators  to  control 
+boundary-layer separation, Prog. Aerosp. Sci. 38 (2002) 389?420.
+[41] H. Mueller-Vahl, G. Pechlivanoglou, C. Nayeri, C. Paschereit, Vortex generators 
+for wind turbine blades: a combined wind tunnel and wind turbine parametric 
+study, in: ASME Turbo Expo 2012: Turbine Technical Conference and Exposi-
+tion, American Society of Mechanical Engineers, 2012, pp. 899?914.
+[42] M. Koike, T. Nagayoshi, N. Hamamoto, Research on aerodynamic drag reduc-
+tion by vortex generators. Mitsubishi Motors Technical Review No. 16 (2004) 
+pp. 11?16.
+[43] P. Ashill, G. Riddle, Control of leading-edge separation on a cambered delta 
+wing, in: AGARD Conference Proceedings AGARD CP, AGARD, 1994, p. 11.
+[44] P. Ashill, G. Riddle, M. Stanley, Control of three-dimensional separation on 
+highly-swept wings, in: ICAS Proceedings, American Inst. of Aeronautics and 
+Astronautics, 1994, p. 2012.
+[45] P.R. Ashill, G.L. Riddle, M. Stanley, Separation control on highly-swept wings 
+with fixed or variable camber, Aeronaut. J. 99 (1995) 317?327.
+[46] P. Ashill, J. Fulker, A review of flow control research at DERA, in: IUTAM 
+Symposium on Mechanics of Passive and Active Flow Control, Springer, 1999, 
+pp. 43?56.
+[47] K. Langan, J. Samuels, Experimental investigation of maneuver performance en-
+hancements on an advanced fighter/attack aircraft, in: 33rd Aerospace Sciences 
+Meeting and Exhibit, 1995, p. 442.
+[48] D.M. Rao, J.F. Campbell, Vortical flow management techniques, Prog. Aerosp. 
+Sci. 24 (1987) 173?224.
+[49] W. Thielicke, E. Stamhuis, PIVlab ? towards user-friendly, affordable and accu-
+rate digital particle image velocimetry in MATLAB, J. Open Res. Softw. 2 (2014).
+[50] R.E. Muir, A. Arredondo-Galeana, I.M. Viola, The leading-edge vortex of swift 
+wing-shaped delta wings, R. Soc. Open Sci. 4 (2017) 170077.
+[51] T. Lee, L. Ko, Ground effect on the vortex flow and aerodynamics of a slender 
+delta wing, J. Fluids Eng. 140 (2018) 071104.
+[52] J.C. Hunt, A.A. Wray, P. Moin, Eddies, Streams, and Convergence Zones in Tur-
+bulent Flows, 1988.
+[53] V. Kola?
+r, Vortex identification: new requirements and limitations, Int. J. Heat 
+Fluid Flow 28 (2007) 638?652.
+[54] B. Cabral, L.C. Leedom, Imaging vector fields using line integral convolution, in: 
+Proceedings of the 20th Annual Conference on Computer Graphics and Interac-
+tive Techniques, ACM, 1993, pp. 263?270.
+[55] R. Knowles, M.V. Finnis, A.J. Saddington, K. Knowles, Planar visualization of vor-
+tical flows, Proc. Inst. Mech. Eng., G J. Aerosp. Eng. 220 (2006) 619?627.

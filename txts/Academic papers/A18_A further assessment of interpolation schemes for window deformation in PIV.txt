@@ -1,0 +1,1293 @@
+RESEARCH  ARTICLE
+Byoung Jae Kim AE  Hyung Jin Sung
+A further assessment of interpolation schemes for window deformation
+in PIV
+Received: 11 August 2005 / Revised: 30 May 2006 / Accepted: 8 June 2006 / Published online: 11 July 2006
+ Springer-Verlag 2006
+Abstract  We  have  evaluated  the  performances  of  the
+following seven interpolation schemes used for window
+deformation  in  particle  image  velocimetry  (PIV):  the
+linear,  quadratic,  B-spline,  cubic,  sinc,  Lagrange,  and
+Gaussian  interpolations.  Artificially  generated  images
+comprised     particles     of     diameter     in     a     range
+1.1  ￡ dp   ￡ 10.0 pixel  were  investigated.  Three  par-
+ticle  diameters  were  selected  for  detailed  evaluation:
+dp  = 2.2,  3.3,  and  4.4 pixel  with  a  constant  particle
+concentration  0.02  particle/pixel2.  Two  flow  patterns
+were  considered:  uniform  and  shear  flow.  The  mean
+and   random   errors,   and   the   computation   times   of
+the    interpolation    schemes    were    determined    and
+compared.
+List of symbols
+a                 parameter in the cubic interpolation
+C                particle density (particle/pixel2)
+d                 arbitrary value between 0 and 1 (pixel)
+dp                    particle diameter (pixel)
+f                 spatial frequency (pixel1)
+f(x,y)          intensity data interpolated from the original
+image
+f1  (x,y)       intensity data of the first image
+f2  (x,y)       intensity data of the second image
+G0  (x,b)      Gaussian function
+GP  (x,b)     Pth derivative of the Gaussian function
+h(x)            one-dimensional impulse response function
+of a reconstruction filter
+h2D  (x,y)    two-dimensional impulse response function
+of a reconstruction filter
+H(f)            Fourier transform of the one-dimensional
+impulse response function of a reconstruc-
+tion filter
+i                 integer horizontal position in the image
+(pixel)
+j                 integer vertical position in the image (pixel)
+k                iteration number
+M               total number of vectors
+N                kernel size of an interpolation (pixel)
+U                horizontal displacement in the uniform flow
+(pixel)
+U              mean of the measured displacements in the
+uniform flow (pixel)
+Uexact             exact displacement on the image for the
+uniform flow (pixel)
+Uc                   horizontal displacement in the shear flow
+(pixel)
+Uc                   mean of the measured displacements in the
+shear flow (pixel)
+Uc,exact          exact displacement on the image for the
+shear flow (pixel)
+V~di; jT        velocity vector at the (i,j) location (pixel,
+pixel)
+W               size of a square interrogation window
+(pixel)
+c2                     parameter used in the second-order
+Gaussian interpolation
+c6                     parameter used in the sixth-order Gaussian
+interpolation
+Dx              horizontal value to be determined through
+cross-correlation (pixel)
+Dy              vertical value to be determined through
+cross-correlation (pixel)
+r             random error (pixel)
+x             shear rate (pixel/pixel)
+x (i,j)         two-dimentional Gaussian windowing mask
+B. J. Kim AE  H. J. Sung (&)
+Department of Mechanical Engineering,
+Korea Advanced Institute of Science and Technology,
+373-1 Guseong-dong, Yuseong-gu,
+Daejeon 305-701, South Korea
+E-mail: hjsung@kaist.ac.kr
+Tel.: +82-42-8693027
+Fax: +82-42-8695027
+Experiments in Fluids (2006) 41: 499?511
+DOI 10.1007/s00348-006-0177-y
+1  Introduction
+The main aim of the image processing algorithms used in
+particle  image  velocimetry  (PIV)  is  to  extract  particle
+velocity  vectors  as  exactly  as  possible.  The  algorithm
+that  was  originally  used  for  this  purpose  extracted
+velocity vectors by calculating the cross-correlation be-
+tween consecutive images through a fast Fourier trans-
+form (FFT); however, although this standard algorithm
+provides reasonable velocity vectors, its use of pairs of
+interrogation windows with fixed sizes and positions to
+calculate cross-correlations can lead to a loss of accuracy
+and the production of erroneous vectors. These errone-
+ous vectors arise due to the inability of the algorithm to
+correctly  identify  particle  pairs  in  consecutive  images,
+especially  in  the  regions  of  complex  flow.  The  above
+shortcomings of the standard algorithm have motivated
+the development of various improved algorithms.
+To  compensate for the loss of pairs, the window in
+the  second  image  should  be  transformed  to  the  actual
+deformation of the rectangular window in the first im-
+age. As a solution to this problem, Keane and Adrian
+(1993) proposed the discrete offset of the window. This
+treatment  is  easy  to  apply  to  digital  images  and  gives
+better results than the standard algorithm, but still gives
+large  errors  when  the  mean  displacement  of  particles
+inside  the  window  is  not  an  integer.  As  an  alternative
+approach, Jambunathan et al. (1995) suggested applying
+both a fractional offset and a linear deformation to the
+window. Tokumaru and Dimotakis (1995) extended the
+deformation concept to higher-order deformations using
+a Taylor series expansion.
+Many   PIV   algorithms   use   window   deformation,
+where  the deformation  process  is based  on the contin-
+uous  image.  However,  given  that  PIV  images  are  gen-
+erally stored in a discrete format, the continuous image
+must be obtained by interpolation. Various PIV studies
+dealing with  image  interpolation  for  window  deforma-
+tion  have  adopted  linear  interpolation  due  to  its  sim-
+plicity  (Huang  et al.  1993;  Tokumaru  and  Dimotakis
+1995;  Jambunathan  et al.  1995;  Nogueira  et al.  1999;
+Wereley and Gui 2003). Scarano and Riethmuller (2000)
+and  Scarano  (2004a)  used  sinc  interpolation,  which  is
+more  complicated  but  more  compliant  with  sampling
+theory. Fincham and Delerce (2000) and Tsuei and Sa-
+vas  (2000)  employed  spline  and  third-order  Lagrange
+interpolations,  respectively,  and  quadratic  and  fourth-
+order   Lagrange   interpolations   have   also   been   used
+(Stanislas et al. 2003). Recently, Astarita and Cardone
+(2005)  evaluated  the  various  interpolation  schemes  for
+uniform flows. A further assessment was extended in the
+present study by testing the interpolation schemes cur-
+rently in use for uniform and shear flows.
+The  main  objective  of  the  present  study  was  to
+quantitatively evaluate and compare the image interpo-
+lation  schemes  for  window  deformation.  We  selected
+several  interpolation  schemes  that  are  used  in  image
+processing:   linear,   quadratic,   B-spline,   cubic,   sinc,
+Lagrange,  and  Gaussian  interpolations.  The  test  algo-
+rithm was based on the first-order linear transformation
+of  the  window.  For  this  purpose,  artificial  computer-
+generated  images  were  numerically  generated  for  the
+evaluation.  A  wide  range  of  particle  diameters  was
+chosen 1.1  ￡ dp   ￡ 10.0 pixel. Three particle diameters
+were selected for detailed evaluation: dp  = 2.2, 3.3, and
+4.4 pixel,  with  a  constant  particle  density  of  C = 0.02
+particles/pixel2.  Both  uniform  and  shear  flow  patterns
+were  used  in  the  tests.  Performance  was  assessed  by
+examining the mean and random errors. Optimal inter-
+polation  schemes  in  terms  of  both  performance  and
+computation  time  were  presented  for  various  particle
+diameters.
+2  Description of the evaluation methods
+2.1  Linear deformation of the interrogation window
+Jambunathan  et al.  (1995)  adopted  a  cross-correlation
+method   that   utilizes   the   concept   of   image   domain
+transformation  according  to  the  flow  pattern.  In  its
+general form, this cross-correlation is expressed as
+max   Z
+W =2
+W =2       Z
+W =2
+W =2
+f1dx; yTf2dx t Dx; y t DyTdxd;y           d1T
+where W is the size of a square interrogation window, f1
+(x,y) and f2  (x,y) are the intensity data of the first and
+second images in time, respectively, and Dx and Dy are
+the  parameters to  be  determined  (Fig. 1).  A  variety  of
+transformations  can  be  applied  to  the  window.  The
+Taylor series expansion is one of the most widely used
+expressions for describing the deformation. In particu-
+lar, when the window deformation is of the type shown
+in Fig. 1, Dx and Dy can be written using the first-order
+Taylor series expansion:
+Dx ? Dxdx; yT ? Dxdx0; y0T t @Dx
+@x  dx  x0T t
+@Dx
+@y  dy  y0T;
+Fig. 1  Linear deformation of the interrogation window
+500
+Dy ? Dydx; yT
+? Dydx0; y0T t @Dy
+@x  dx  x0T t
+@Dy
+@y  dy  y0T:            d2T
+The  deformation  described  by  Eq. 2  is  called  a  linear
+deformation,  and  includes  translation,  rotation,  shear-
+ing, and dilation motions. The velocity displacement is
+obtained  at  each  pixel  by  linear  interpolation  of  the
+velocity distribution, which is consistent with the linear
+deformation of the window.
+The standard cross-correlation is usually used as an
+initial  velocity  distribution.  The  corrected  velocity  is
+then obtained by adding the initial velocity (predictor) to
+the velocity from the cross-correlation between the first
+window   and   the   deformed   window.   The   corrected
+velocity after one deformation using the initial velocity
+distribution  is  called  the  first  stage.  This  deformation
+process can be repeated based on the first stage instead
+of the initial one, which is called the second stage. This
+iterative  process  can  be  repeated  until  the  corrected
+velocity  converges  to  a  certain  value.  However,  the
+possible  unstable  behavior  of  the  iteration  process  has
+been found from many studies and some solutions have
+been proposed (Huang et al. 1993; Nogueira et al. 1999;
+Scarano 2004a, b). One of the solutions to prevent this
+unstable  iteration  problem  is  to  smooth  the  resultant
+velocities of each stage prior to the next stage. The fol-
+lowing smoothing was employed in the present study to
+secure the performance convergence between stages:
+V~kdi;jT?V~kdit1;jTtV~kdi1;jTtV~kdi;jt1TtV~kdi;j1T
+6
+t
+V~kdi;jT
+3     ;                                                       d3T
+where V~di;jT is the velocity  vector at the (i, j) location
+and the superscript k stands for the iteration number.
+The accuracy of the initial velocity is crucial for the
+further performance improvement of the iteration pro-
+cess. We thus applied a proper windowing mask to each
+interrogation window when obtaining the initial veloci-
+ties  by  means  of  the  standard  cross-correlation  (Gui
+et al. 2001):
+xdi; jT ? e2
+iW =2
+ W =2  
+2
+tjWW=2=2
+                           2
+:                                     d4T
+In the present study, we did not include the error vector
+validation  and  replacement  schemes  that  are  usually
+implemented after the standard cross-correlation to ex-
+clude any other effects. The peak in the cross-correlation
+table was identified using 3-point Gaussian fitting. The
+window size W was 32 for all tests.
+2.2  Image generation
+Synthetic  images  were  numerically  generated  for  the
+present  quantitative  evaluation. Particle  positions  were
+randomly  assigned  using  the  Mersenne  twister method
+(Matsumoto  and  Nishimura  1998);  particle  shape  was
+specified  using  a  two-dimensional  Gaussian  function
+(Raffel et al. 1998; Okamoto et al. 2000); and the par-
+ticle boundary was defined by the e 2 intensity value of
+the Gaussian peak intensity. A top-hat profile was im-
+posed across the laser sheet; the brightness at the centers
+of the particles inside the laser sheet was assumed to be
+uniform.  The  image  quantization  level  was  an  8-bit
+grayscale.  The  intensity  of  each  pixel  was  obtained  by
+integrating the two-dimensional Gaussian function over
+the  pixel.  If  two  or  more  particles  overlapped,  their
+intensities  at  the  overlapped  pixel  were  superposed.
+Background  noise  was  not  added.  Images  were  gener-
+ated  with  a constant  particle  diameter  with  a constant
+particle  density  C = 0.02 particle/pixel2.  The  perfor-
+mance   of   deformation   methods   is   affected   by   the
+amount of interpolation that is performed. The degree of
+interpolation was controlled by changing only the par-
+ticle diameter.
+As  mentioned  earlier,  the  performance  tests  were
+carried out on uniform and shear flows (Fig. 2). For the
+shear flow, only UC, the velocity at the middle window in
+Fig. 2b, was statistically analyzed even though five vec-
+tors were obtained in the vertical direction. At the top
+and  bottom  windows,  the  stand  cross-correlation  with
+the  windowing  mask  was  only  used  without  deforma-
+tion, due to the difficulty of image generation for very
+high  shear  flow  and  the  limitation  of  the  standard
+methods.  The  mean  (b)  and  random  (r)  errors  were
+defined for evaluation.
+For the uniform flow,
+b ? U  Uexact;                                                            d5T
+r ?     ffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffi
+M1 XmM                       ffi
+?1
+vtuu             dUm  UT2:                                              d6T
+For the shear flow,
+U                    UC
+Uniform flow            Shear flow
+a)                          b)
+Fig. 2  Uniform flow and linear shear flow
+501
+b ? UC   UC;exact                                                                                  d7T
+r ?     ffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffi
+1
+M X
+M
+m?1
+uutv             dUC;m  UCT2:                                          d8T
+Here, M represents the total number of vectors, Uexact
+and UC,exact  are the exact displacements on the images,
+and U  and Uc  are the mean of U and UC, respectively.
+Figure 3  shows  how  well  the  images  are  generated
+when the standard cross-correlation is used. In Fig. 3a,
+the mean errors of the standard method using the mask
+are smaller than the errors without mask. The random
+errors  without  mask  are  in  good  agreement  with  the
+results of Raffel et al. (1998), where the particle diameter
+(2.2 pixel) is the same for both cases. When the mask is
+employed, the trend of the random errors is very similar
+to  that  of  Gui  et al.  (2001).  Figure 4  shows  the  error
+stability  tests  of  the  deformation  process,  which  were
+obtained by adopting the linear interpolation scheme for
+uniform flow. An iteration process does not necessarily
+lead to the exact value of the velocity. In other words,
+the  iteration  process  might  have  the  velocity  reach  a
+certain  value,  with  a  bias  in  performance.  Such  a  bias
+phenomenon  appears  in  both  the  mean  and  random
+errors in Fig. 4. This result ensures the operation of the
+deformation process, and the optimal iteration number
+is about 3.
+2.3  Interpolation
+In PIV, particle images are typically recorded on pixels
+aligned   in   space.   However,   since   the   deformation
+method  is  based  on  a  continuous  image,  image  inter-
+polation  must  be  performed  to  obtain  image  intensity
+values at sub-pixel locations:
+f dx; yT ?   X
+1
+i;j?1
+f di; jTh2Ddi  x; j  yT;                         d9T
+where f(x,y) is the image intensity interpolated from the
+original image f(i,j), and h2D (x,y) is the two-dimensional
+continuous  impulse  response  of  a  reconstruction  filter
+and  is  usually  symmetric  and  separable  for  computa-
+tional simplicity :
+h2Ddx; yT ? hdxThdyT:                                                  d10T
+Among  several  interpolation  conditions  that  are  typi-
+cally applied, the following two are universally used:
+hd0T ? 1
+( hdxT ? 0;    jxj ? 1; 2; 3; . . .;
+d11T
+i?X1
+1
+hdi t dT ? 1:                                                       d12T
+Equation 11  guarantees  that  the  image  intensity  at  a
+particular  pixel  location  is  not  modified  by  interpola-
+tion,  which  avoids  smoothing  effects.  Equation 12  im-
+plies  that  for  any  displacement  0  ￡ d < 1 pixel  the
+mean brightness of the image remains unchanged after
+interpolation,  i.e.,  a  direct  current  constant  (DC  con-
+stant) (Lehmann et al. 1999). The interpolation schemes
+evaluated  in  this   study   and  their   impulse  response
+functions are given  in Table 1, where  N represents  the
+kernel size of the interpolation. In general, h(x) is made
+up of several functions for 0  ￡ |x| < N/2 and h(x) = 0
+for |x| ‡ N/2.
+The  features  and  conditions  of  the  interpolation
+schemes  considered  here  are  briefly  summarized.  The
+quadratic  interpolation  is  constructed  piecewise  from
+two  parabolic  polynomials.  The B-spline  hNB-spline  (x)  is
+one of the most commonly used interpolators, which is
+obtained by convolving the nearest neighbor interpola-
+tion  a  total  of  (N  1)  times.  Thus,  for  N = 2,  the
+B-spline interpolation becomes the linear interpolation.
+For N ‡ 3, however, the B-spline interpolation does not
+satisfy  Eq. 11  and  has  a  smoothing  effect.  The  most
+popular kernel size for this interpolation is N = 4 in the
+image  processing.  The  cubic  interpolation  hNcubic  (x)  is
+also constructed piecewise from N/2 cubic polynomials
+and  has  (N/2  1)  unknown  parameters.  As  shown  in
+Table 1, there is one unknown parameter, a, for N = 4.
+Since many combinations of two unknown parameters
+are generated for N > 6, here we consider only the case
+of one unknown parameter. The next two interpolations
+considered?the  Gaussian  and  sinc  function  interpola-
+tions?are each composed of a single continuous func-
+tion.   The   Gaussian   interpolation   is   constructed   by
+combining  the  Gaussian  function  and  its  derivatives,
+satisfying   one   condition   of   Eq. 11   (h(0) = 1),   one
+sufficient   condition   of   Eq. 12   (H(0) = 0),   and   ¶P
+-0.04
+-0.02
+0.00
+0.02
+0.04
+β
+0.0                   0.5                   1.0                   1.5                   2.0
+0.00
+0.01
+0.02
+0.03
+0.04
+σ
+U
+ standard (no mask): present
+ standard (no mask): Raffel et al. 1998
+ standard (mask)     : present
+a)
+b)
+Fig. 3  Image generation tests
+502
+H(f)/¶fP  = 0 (Appledorn 1996), where H(f) denotes the
+Fourier  transform  of  h(x).  In  Table 1,  the  Gaussian
+function     and     Pth     derivative     are     denoted     by
+G0dx; bT ? expx2=2b=
+ffiffiffiffiffiffiffi
+p2pbffi     and    GP     (x,b) = ¶G0
+(x,b)/¶xP, respectively. Some calculation with the above
+three constraints gives P = 2, 6, 10, etc. This interpo-
+lation  goes approximately  to zero  at integers, with the
+deviation   from   zero   decreasing   with   increasing   P.
+However, use of P = 10 and higher incurs a consider-
+able  computational  cost.  Thus,  in  the  present  work
+we considered the computation to sixth order (P = 6).
+The sinc function is well known as an ideal interpolation
+scheme   in   the   context   of   frequency   response.   This
+function satisfies Eqs. 11 and 12 when the kernel size is
+infinite,  making  it  an  ideal  low-pass  filter.  However,
+given that the kernel size is not infinite in practice, the
+sinc function is approximately similar to the ideal low-
+pass  filter.  The  Lagrange  interpolation  is  a  famous
+mathematical method that specifies an (N  1)th-order
+polynomial that passes through N points and determines
+the  value  on  this  curve  at  the  location  to  be  interpo-
+lated.  This  method  is  therefore  a  type  of  curve  fitting
+algorithm.
+3  Results and discussion
+3.1  Uniform flow
+In Figs. 5, 6, 7, 8, and 9, the mean and random errors for
+several interpolation schemes are plotted as a function of
+U(uniform  flow)  for  the  system  with  a  particle  size  of
+2.2 pixel.   For   comparison,   Fig. 5   also   includes   the
+results  obtained  using  the  standard  cross-correlation
+method. The random error of the standard cross-corre-
+lation increases linearly in the small displacement region
+(U = 0  0.5 pixel) and then remains almost constant
+with  further  increases  in  U.  This  trend  is  in  good
+agreement  with  the  results  obtained  by  Raffel  et al.
+(1999)   using   the   particle   condition   (dp  = 2.2 pixel,
+C = 0.02 particle/pixel2).  A  typical  peak-locking  phe-
+nomenon is also observed; that is, the random errors are
+large at fractional pixel locations but small at the pixel
+locations. These observations confirm the proper func-
+tioning of the image program used in the present work.
+Inspection of the overall characteristics of Figs. 5, 6, 7,
+8,  and  9  reveals  that  the  mean  errors  fluctuate  to  a
+greater  extent  than  the  random  errors,  and  that  the
+?0.04
+?0.02
+0.00
+0.02
+0.04
+β
+a)
+b)
+0                 2                 4                 6                 8                 10
+0.000
+0.005
+0.010
+0.015
+0.020
+σ
+Iteration
+ U=0.5 (dp=2.2)               U=0.5 (dp=4.4)
+ U=0.7 (dp=2.2)               U=0.7 (dp=4.4)
+ U=1.0 (dp=2.2)               U=1.0 (dp=4.4)
+Fig. 4  Iteration tests for the first-order deformation algorithms
+Table 1  Impulse response functions of some interpolations
+Interpolations         hN  (x)                                                                                                                             Range
+Linear                     h2linear  (x) = 1  |x|                                                                                                       0  ￡ |x| < 1
+Quadratic                 h3quadraticdxT ?          2jxj
+2 t 1
+ jxj2  2:5jxj t 1:5                                                                                 0  ￡ |x| < 0.50.5  ￡ |x| < 1.5
+B-spline                    h3BsplinedxT ?             jxj
+3 t 0:75
+ 0:5jxj3  1:5jxj t 1:125                                                                         0  ￡ |x| < 0.50.5  ￡ |x| < 1.5
+h4BsplinedxT ?               0:5jxj
+3  jxj2 t 2=3
+ d1=6Tjxj3=6 t jxj2  2jxj t 4=3                                                           0  ￡ |x| < 11  ￡ |x| < 2
+Cubic                       h4cubicdxT ?    da t 2Tjxj
+3  da t 3Tjxj2 t 1
+   ajxj3  5ajxj2 t 8ajxj  4a                                                                    0  ￡ |x| < 11  ￡ |x| < 2
+Lagrange                  hNLagrangedxT ?         Q
+N1
+i?0;i6?ntN=21
+ntN=21ix
+ntN=21i   dN=2 t 1  n  N=2T                                      n  1  ￡ x < n
+Gaussian                 hNGaussian  2nd  (x) = G0  (x,2c2)  c2  G2  (x,c2)(c2  = 0.4638)                                           0  ￡ |x| < N
+hNGaussian  6th  (x) = G0  (x,2c6)  c6  G2  (x,c6)   (c6  3  /24)G6  (x,c6)(c6  = 0.8656)         0  ￡ |x| < N
+sinc                          hNsinc  (x) = sin (px)/p x                                                                                                 0  ￡ |x| < N
+503
+trends in the mean error as a function of U depend on
+the interpolation method used rather than the random
+error.
+We  now  analyze  the  errors  of  the  interpolations  in
+detail.  The  random  error  of  the  linear  interpolation  is
+smaller  than  that  of  the  standard  cross-correlation.
+However,  the  mean  error  of  the  linear  interpolation
+shows  larger  fluctuations  than  that  of  the  standard
+cross-correlation,  indicating  that  the  more  advanced
+interpolation  method  might  give  inferior  results.  This
+?0.10
+?0.05
+0.05
+0.10
+β
+0.0                   0.5                   1.0                   1.5                   2.0
+0.000
+0.005
+0.010
+0.015
+0.020
+0.025
+σ
+U
+ standard
+ linear
+ quadaratic
+ B?spline (N=3)
+ B?spline (N=4)
+a)
+b)
+0.00
+Fig. 5  Performances  of  the  linear,  quadratic,  and  B-spline  inter-
+polations for the uniform flow (dp  = 2.2 pixel)
+?0.050
+?0.025
+0.000
+0.025
+0.050
+β
+0.0                   0.5                   1.0                   1.5                   2.0
+0.0000
+0.0025
+0.0050
+0.0075
+0.0100
+0.0125
+0.0150
+ 
+σ
+U
+ cubic (a=?0.5)              cubic (a=?0.85)
+ cubic (a=?2/3)              cubic (a=?1.0)
+ cubic (a=?0.8)
+a)
+b)
+Fig. 6  Performance of the cubic interpolation for the uniform flow
+(dp  = 2.2 pixel)
+0.0                      0.5                      1.0                      1.5                      2.0
+0.0000
+0.0025
+0.0050
+0.0075
+0.0100
+0.0125
+0.0150
+σ 
+U
+ Lagrange (N=4)           Lagrange (N=10)
+ Lagrange (N=6)           Lagrange (N=12)
+ Lagrange (N=8)
+?0.050
+?0.025
+0.000
+0.025
+0.050
+β 
+a)
+b)
+Fig. 7  Performance of the Lagrange interpolation for the uniform
+flow (dp  = 2.2 pixel)
+0.0                      0.5                      1.0                      1.5                      2.0
+0.0000
+0.0025
+0.0050
+0.0075
+0.0100
+0.0125
+0.0150
+σ 
+U
+ sinc (N=4)           sinc (N=8)
+ sinc (N=5)           sinc (N=10)
+ sinc (N=6)
+?0.050
+?0.025
+0.000
+0.025
+0.050
+β 
+a)
+b)
+Fig. 8  Performance of the sinc interpolation for the uniform flow
+(dp  = 2.2 pixel)
+504
+may be due to the low sampling rate N = 2 not being
+sufficient  for  the  high  frequency  image  with  dp  = 2.2
+pixel.  The  quadratic  interpolation  gives  worse  results
+than  the  linear  one,  consistent  with  a  previous  study
+(Astarita and Cardone 2005). The sampling rate N = 3
+still  seems  to  be  insufficient  in  dealing  with  dp  = 2.2
+pixel.  In  general,  odd-numbered  kernel  sizes  produce
+discontinuities  in  the  performance  curve  because  the
+interpolated image value is not continuous at the mid-
+points between pixels. For N = 3, for example, the pixel
+locations on a digital image are shifted by 1 pixel at the
+moment    when    the    interpolation    position    passes
+x =  0.5 or 0.5. However, if the condition h(N/2) = 0
+is   satisfied,   the   interpolation   data   are   continuous
+everywhere, and consequently the performance curve is
+also   continuous.   This   phenomenon   can   be   seen   at
+U = 0.5 and 1.5 pixel for the quadratic interpolation in
+Fig. 5.  It  is  interesting  to  note  that  the  random  error
+does  not  go  to  zero  at U = 0,  1.0,  and  2.0  for  the  B-
+spline  interpolations,  unlike  the  others.  As  mentioned
+earlier, the B-spline scheme starts to have a smoothing
+effect  from  N  higher  than  3  due  to  dissatisfaction  of
+Eq. 11, and that effect becomes stronger when increasing
+N. In principle, the image intensity interpolation at the
+pixel location must be identical to that of the location.
+Under  this  condition,  the  random  error  decreases  to
+approximately  zero  in  the  deformation  process.  How-
+ever,  because  the  smoothing  effect  does  not  conserve
+such  condition,  the  random  error  does  not  reduce  to
+zero, and then this phenomenon becomes apparent for
+higher   N.   Among   the   four   interpolation   schemes
+discussed so far, three schemes are rather inferior to the
+standard approach in the mean error.
+Figure 6 shows the trends in the mean and random
+errors for the cubic interpolation at various values of a,
+unknown parameter given in Table 1. The results show
+that the mean error is sensitive to the value of a, with the
+optimal  value  likely  to  be  a = 0.8,  although  this
+optimal  value  was  found  to  depend  on  the  particle
+diameter (data not shown), given that Fig. 6 only shows
+data for dp  = 2.2 pixel. The random error depends little
+on the value of a.
+Figure 7 shows the mean and random errors for the
+Lagrange  interpolation.  The  errors  for  the  Lagrange
+interpolation show a clear improvement in performance
+as the kernel size is increased. Although it is difficult to
+determine  a  definite  convergence  point,  the  curves  ap-
+pear to converge at approximately N = 10 or 12. The
+performance of the N = 12 case is highlighted in Fig. 7.
+The mean and random errors for the sinc interpola-
+tion are shown in Fig. 8. Unlike the quadratic interpo-
+lation, odd-numbered kernel size (N = 5) gives rise to
+sudden  changes  in  the  error  curves  at  U = 0.5  and
+1.5 pixel  because  h(N/2)   ?  0.  When  the  kernel  size  is
+small, large fluctuations are observed in the mean error
+curves. When N exceeds 6, the errors become indepen-
+dent  of  the  kernel  size.  These  converged  error  curves
+show  that  the  sinc  interpolation  scheme  gives  much
+better results than the other schemes discussed so far.
+The results for the Gaussian second and sixth inter-
+polations are displayed in Fig. 9. In the tests using the
+second Gaussian interpolation, the results obtained for
+-0.050
+-0.025
+0.000
+0.025
+0.050
+β 
+0.0                      0.5                      1.0                      1.5                      2.0
+0.0000
+0.0025
+0.0050
+0.0075
+0.0100
+0.0125
+0.0150
+σ 
+U
+ Gaussian 2nd (N=4)           Gaussian 6th (N=4)
+ Gaussian 2nd (N=6)           Gaussian 6th (N=6)
+                                                     Gaussian 6th (N=8)
+a)
+b)
+Fig. 9  Performances   of   the   Gaussian   interpolations   for   the
+uniform flow (dp  = 2.2 pixel)
+0.0                      0.5                      1.0                      1.5                      2.0
+0.000
+0.005
+0.010
+0.015
+0.020
+σ
+U
+ linear                          cubic (a=-0.8)
+ quadratic                    Lagrange (N=12)
+ B-spline (N=3)           sinc (N=6)
+ B-spline (N=4)           Gaussian 6th (N=6)
+?0.050
+?0.025
+0.000
+0.025
+0.050
+β 
+a)
+b)
+Fig. 10  Comparison of the best performance for each interpolation
+for the uniform flow in Figs. 4, 5, 6, 7, 8 (dp  = 2.2 pixel)
+505
+N = 4 and N = 6 were very similar, and for the sixth
+Gaussian interpolation, the result of N = 8 is almost the
+same  as  that  of  N = 6.  The  lack  of  improvement  on
+increasing the kernel size is related to the fact that h(x)N
+Gaussian  2nd  and h(x)NGaussian  6th  are very close to zero for
+x ‡ 2 and x ‡ 4, respectively. The performances are not
+much  improved  by  its  complicated  computation,  as
+compared with other interpolation methods. Strictly, the
+Gaussian  interpolation  algorithm  is  not  DC  constant,
+but close to DC constant. Thus, the random error is not
+exactly zero at U = 0 because of the same reasons in the
+B-spline interpolation.
+To  more  easily  compare  the  performances  of  the
+various interpolation schemes, Fig. 10 shows a summary
+of  the  mean  and  random  errors  for  all  of  the  interpo-
+lations. On the whole, the trend of the mean and random
+errors  as  a  function  of  U  varies  among  the  different
+interpolation  schemes.  From  this  figure,  one  can  state
+that the cubic (a = 0.8), Lagrange (N = 12), and sinc
+(N = 6) interpolation schemes are excellent in terms of
+the mean and random errors. However, when recalling
+that the unknown parameter a in the cubic interpolation
+scheme  was  intentionally  adjusted  so  that  the  errors
+might be minimized, it would be difficult to use directly
+the  cubic  interpolation  scheme.  The  reason  will  be  ex-
+plained in the next section.
+We now consider systems with large-sized particles of
+diameter  dp  = 3.3  and  4.4 pixel.  Figures 11  and  12
+show the error data for these systems, analogous to the
+data presented in Fig. 10 for the dp  = 2.2 pixel system.
+Comparison  of  Figs. 10,  11,  and  12  shows  that  as  the
+particle diameter increases, the mean and random errors
+decrease.  The  discrepancy  between  the  interpolations
+becomes  smaller  as  the   particle  size   increases.   The
+greater  similarity  of  the  results  for  the  large-particle
+systems compared to the dp  = 2.2 pixel system  can be
+explained  by  two  effects:  (1)  the  sampling  frequency
+becomes  higher  due  to  the  smoothing  effect  of  larger
+particles;   and   (2)   the   peak-locking   phenomenon   is
+attenuated. These findings are consistent with previous
+studies (Raffel et al. 1998). The relative performances of
+the various interpolation schemes for the large particle
+systems    are    similar    to    those    observed    for    the
+dp  = 2.2 pixel system. For the cubic interpolation, the
+optimal values of a for the dp  = 3.3 and 4.4 pixel sys-
+tems  are  0.68  and  0.61,  respectively,  compared  to
+0.8 for the dp  = 2.2 pixel system. This dependence of
+the optimal a on the particle size means that, despite its
+good  performance,  the  cubic  interpolation  method  is
+difficult to apply in practical situations due to the diffi-
+culty  of  detecting  the  diameters  of  particles  randomly
+distributed in real images.
+The   performance   tests   for   various   interpolation
+schemes have been carried out so far in terms of errors.
+It is worth while investigating the optimal interpolation
+in   terms   of   computational   time   as   well   as   errors,
+changing particle condition. Table 2 shows the ratio of
+the computation time between each scheme to the linear
+interpolation  scheme.  One  thing  that  can  be  seen  at  a
+glance  is  that  the  computation  time  increases  with  the
+kernel  size.  The  Gaussian  interpolation  schemes  need
+the longest time, but its performance was inferior to the
+cubic, Lagrange, and sinc interpolations in the previous
+sections.  Of  three  good  interpolations  in  errors,  as
+mentioned,  because  of  practical  difficulty  in  using  the
+cubic interpolation, the Lagrange and sinc interpolation
+are   reasonable   to   use.   Recently,   thanks   to   greatly
+increasing  computing  power,  the  processing  speed  in
+PIV  tends  to  be  gradually  less  important.  Therefore,
+discussion about the optimal interpolation will be made
+centering   on   the   sinc   and   Lagrange   interpolation
+schemes.
+For the sinc interpolation, the kernel size required for
+convergence  of  the  performance  was  found  to  be  pro-
+portional to the particle size, with kernel sizes of N = 6,
+8,  and  10  being  required  for  the  dp  = 2.2,  3.3,  and
+4.4 pixel  systems,  respectively.  As  a  consequence,  the
+computation time associated with sinc interpolation in-
+creased  with  increasing  particle  diameter.  Overall,  this
+interpolation method showed excellent performance for
+all particle sizes. In contrast to the behavior observed for
+the  sinc  interpolation,  the  kernel  size  required  for  the
+performance convergence of the Lagrange interpolation
+decreased with increasing particle diameter: N = 12, 8,
+and 6 for dp  = 2.2, 3.3, and 4.4 pixel, respectively. The
+reason  for  this  trend  is  that  smoother  images  can  be
+described  by  lower-order  polynomials;  for  instance,  if
+the  particle  size  is  very  large,  even  the  second-order
+Lagrange  interpolation  (N = 2)  (equivalent  to  linear
+interpolation) would be  sufficient. The  Lagrange inter-
+polation shows  good performance,  comparable  to that
+?0.050
+?0.025
+0.000
+0.025
+0.050
+β 
+0.0                      0.5                      1.0                      1.5                      2.0
+0.000
+0.005
+0.010
+0.015
+0.020
+σ 
+U
+ linear                          cubic (a=-0.68)
+ quadratic                    Lagrange (N=8)
+ B-spline (N=3)           sinc (N=8)
+ B-spline (N=4)           Gaussian 6th (N=6)
+a)
+b)
+Fig. 11  Comparison of the best performance for each interpolation
+for the uniform flow (dp  = 3.3 pixel)
+506
+of the sinc interpolation. According to the computation
+time  in  Table 2,  the  optimal  computation  times  of  the
+sinc interpolations (N = 6, 8) are smaller than those of
+the  Lagrange  interpolation  (N = 12,  8)  for  dp  = 2.2
+and  3.3,  respectively.  On  the  contrary,  the  optimal
+computation  time  of  the  Lagrange  (N = 6)  is  smaller
+than   that   of   the   sinc   interpolation   (N = 10)   for
+dp  = 4.4 pixel.  Taken  together,  the  present  results  for
+the uniform flow thus indicate that the sinc interpolation
+is  optimal  for  small  particles  and  the  Lagrange  inter-
+polation is optimal for large particles, where the critical
+diameter is on the order of about 4.0 pixel.
+3.2  Shear flow
+The  approach  described  above  for  the  uniform  flow
+system was also applied to images mimicking shear flow.
+The  results  of  the  performance  tests  for  the  various
+interpolation methods for the dp  = 2.2 pixel system are
+shown in Figs. 13, 14, 15, 16, and 17 as a function of Uc.
+It is interesting to find that the mean errors are mainly
+influenced  by  interpolation  schemes  in  the  small  shear
+region.  For  all  the  interpolations,  the  variation  of  the
+mean  error  ends  at  about  Uc  = 2.0 pixel,  which  is
+equivalent to a shear rate of x = 0.025 pixel/pixel. Be-
+yond  Uc  = 2.0 pixel,  the  mean  error  is  almost  inde-
+pendent of the type of interpolation and the parameter
+values. Recall that the mean errors in the uniform flow
+fluctuate to a greater extent than the random errors, and
+that  the  trends  in  the  mean  error  as  a  function  of  U
+depend on the interpolation method used rather than the
+random error. For the shear flow, however, the magni-
+tude of the mean errors is generally less than the random
+errors and the random errors continuously increase with
+increasing shear rate, whereas the mean errors are small
+at high shear rates (Figs. 13, 14, 15, 16, 17). In Fig. 13,
+the random error of the standard method increases lin-
+early up to 0.13 pixel at Uc  = 4.0 pixel.
+The  mean  and  random  errors  for  all  of  the  inter-
+polation for the shear flow are summarized in Fig. 18.
+The  kernel  size  or  parameter  value  yielding  the  best
+performance  for  each  interpolation  is  nearly  the  same
+as  that  obtained  for  the  uniform  flow  with  dp  = 2.2
+pixel,  indicating  that  the  interpolation  performance  is
+sensitive to the particle conditions rather than the flow
+pattern.   Similar   to   the   uniform   flow,   the   cubic
+(a = 0.8),   Lagrange   (N = 12),   and   sinc   (N = 6)
+interpolation  schemes  show  the  excellent  results.  The
+relative  performance  between  interpolations  does  not
+change. Comparisons of the results of all interpolation
+methods   for   dp  = 3.3   and   4.4 pixel   are   shown   in
+Figs. 19  and  20,  respectively.  As  the  particle  diameter
+increases,  the  magnitude  of  the  mean  and  random
+errors decreases, but the discrepancy between the errors
+becomes  smaller.  This  trend  is  almost  the  same  in  the
+uniform flow.
+3.3  Particle diameter effect
+The performance tests described above were carried out
+on systems with three particle diameters: dp  = 2.2, 3.3,
+and  4.4 pixel.  To  assess  the  performance  of  the  sinc
+and  Lagrange  interpolation  methods  over  a  greater
+range  of  particle  diameters,  we  plotted  the  mean  and
+random errors at the fixed displacement U = 1.25 pixel
+?0.050
+?0.025
+0.000
+0.025
+0.050
+β 
+0.0                      0.5                     1.0                      1.5                     2.0
+0.000
+0.005
+0.010
+0.015
+0.020
+σ 
+U
+ linear                          cubic (a=-0.61)
+ quadratic                    Lagrange (N=6)
+ B-spline (N=3)           sinc (N=10)
+ B-spline (N=4)           Gaussian 6th (N=6)
+a)
+b)
+Fig. 12  Comparison of the best performance for each interpolation
+for the uniform flow (dp  = 4.4 pixel)
+Table 2  Ratio  of  computation  time  between  each  interpolation
+scheme to the linear interpolation scheme
+Interpolation                                                                           Time
+Quadratic                                    N = 3                                    2.50
+B-spline                                       N = 3                                    2.50
+N = 4                                    3.83
+Lagrange                                     N = 4                                    6.08
+N = 6                                   15.5
+N = 8                                   31.6
+N = 10                                 57.2
+N = 12                                 94.1
+sinc                                              N = 4                                    5.25
+N = 6                                   10.4
+N = 8                                   17.8
+N = 10                                 27.1
+N = 12                                 38.5
+Gaussian
+4th                                               N = 4                                   20.9
+N = 6                                   46.0
+6th                                               N = 4                                   31.4
+N = 6                                   77.0
+N = 8                                 122
+The computation time here is the time during the first stage except
+the standard cross-correlation
+507
+as   a   function   of   particle   diameter   over   the   range
+1.1  ￡ dp   ￡ 10.0 pixel.   The   displacement   U = 1.25
+pixel was chosen because it corresponds to the point at
+which  the  mean  errors  showed  peaks  and  the  interpo-
+lation  having  higher  peak  shows  higher  the  random
+error in the analysis of the dp  = 2.2, 3.3, and 4.4 pixel
+systems (Figs. 11, 12). Moreover, the particle diameter
+effect was scrutinized only for the uniform flow because
+?0.10
+?0.05
+0.00
+0.05
+0.10
+β 
+ standard           B-spline (N=3)
+ linear               B-spline (N=4)
+ quadratic
+0                         1                         2                         3                         4
+0.000
+0.005
+0.010
+0.015
+0.020
+0.025
+σ 
+Uc
+a)
+b)
+Fig. 13  Performances   of   the   linear,   quadratic,   and   B-spline
+interpolations for the shear flow (dp  = 2.2 pixel)
+?0.050
+?0.025
+0.000
+0.025
+0.050
+β
+ cubic (a=-0.5)           cubic (a=-0.85)
+ cubic (a=-2/3)           cubic (a=-1.0)
+ cubic (a=-0.8)
+0                         1                        2                         3                        4
+0.0000
+0.0025
+0.0050
+0.0075
+0.0100
+0.0125
+0.0150
+σ 
+Uc
+a)
+b)
+Fig. 14  Performance of the cubic interpolation for the shear flow
+(dp  = 2.2 pixel)
+?0.050
+?0.025
+0.000
+0.025
+0.050
+β 
+ Lagrange (N=4)
+ Lagrange (N=6)
+ Lagrange (N=8)
+ Lagrange (N=10)
+ Lagrange (N=12)
+0                         1                         2                         3                         4
+0.0000
+0.0025
+0.0050
+0.0075
+0.0100
+0.0125
+0.0150
+σ 
+Uc
+a)
+b)
+Fig. 15  Performance  of  the  Lagrange  interpolation  for  the  shear
+flow (dp  = 2.2 pixel)
+0                         1                         2                         3                         4
+0.0000
+0.0025
+0.0050
+0.0075
+0.0100
+0.0125
+0.0150
+σ 
+Uc
+?0.050
+?0.025
+0.000
+0.025
+0.050
+β 
+ sinc (N=4)
+ sinc (N=5)
+ sinc (N=6)
+ sinc (N=8)
+ sinc (N=10)
+a)
+b)
+Fig. 16  Performance  of  the  sinc  interpolation  for  the  shear  flow
+(dp  = 2.2 pixel)
+508
+the interpolation performance results for the dp  = 2.2,
+3.3,  and  4.4 pixel  systems  indicated  that  the  perfor-
+mance was not much  affected  by the flow  pattern.
+The results of the performance tests are shown as a
+function of the particle diameter for the Lagrange and
+the sinc interpolations in Figs. 21 and 22. Note that the
+?0.050
+?0.025
+0.000
+0.025
+0.050
+β 
+ Gaussin 2nd (N=4)
+ Gaussin 2nd (N=6)
+ Gaussin 6th (N=4)
+ Gaussin 6th (N=6)
+ Gaussin 6th (N=8)
+a)
+b)
+0                         1                        2                         3                        4
+0.0000
+0.0025
+0.0050
+0.0075
+0.0100
+0.0125
+0.0150
+σ 
+Uc
+Fig. 17  Performances of the Gaussian interpolations for the shear
+flow (dp  = 2.2 pixel)
+a)
+b)
+-0.050
+-0.025
+0.000
+0.025
+0.050
+β 
+0                         1                         2                         3                        4
+0.000
+0.005
+0.010
+0.015
+0.020
+0.025
+0.030
+σ 
+Uc
+ linear                          cubic (a=-0.8)
+ quadratic                    Lagrange (N=12)
+ B-spline (N=3)           sinc (N=6)
+ B-spline (N=4)           Gaussian 6th (N=6)
+Fig. 18  Comparison of the best performance for each interpolation
+for the shear flow in Figs. 13, 14, 15, 16, and 17 (dp  = 2.2 pixel)
+a)
+b)
+-0.050
+-0.025
+0.000
+0.025
+0.050
+β 
+0                         1                         2                         3                        4
+0.000
+0.005
+0.010
+0.015
+0.020
+σ 
+Uc
+ linear                          cubic (a=-0.68)
+ quadratic                    Lagrange (N=8)
+ B-spline (N=3)           sinc (N=8)
+ B-spline (N=4)           Gaussian 6th (N=6)
+Fig. 19  Comparison of the best performance for each interpolation
+for the shear flow (dp  = 3.3 pixel)
+?0.050
+?0.025
+0.000
+0.025
+0.050
+β 
+0.0                     0.5                     1.0                     1.5                     2.0
+0.000
+0.005
+0.010
+0.015
+0.020
+σ 
+U
+ linear                          cubic (a=-0.61)
+ quadratic                    Lagrange (N=6)
+ B-spline (N=3)           sinc (N=10)
+ B-spline (N=4)           Gaussian 6th (N=6)
+a)
+b)
+Fig. 20  Comparison of the best performance for each interpolation
+for the shear flow (dp  = 4.4 pixel)
+509
+performances for three particle diameters considered in
+detail in previous sections, dp  = 2.2, 3.3, and 4.4 pixel,
+all  lie  in  the  range  where  the  errors  decrease  with
+increasing particle diameter in Figs. 21 and 22. For the
+Lagrange interpolation in Fig. 21, the interpolation size
+does not show significant difference in the errors when
+increasing  particle  diameter.  Even  small  interpolation
+size (N = 4), for instance, could describe sufficiently the
+large  particle  shape.  The  random  errors  are  nearly
+independent of the interpolation size. On the contrary,
+the   sinc   interpolation   shows   different   changes   with
+increasing particle diameter (Fig. 22). The mean errors
+except  for  N = 4  are  similar  in  the  region  dp   ￡ 3.0,
+which  means  that  N = 6  is  enough.  As  the  particle
+diameter increases and the interpolation size decreases,
+the   mean   error   becomes   deviated   from   zero.   For
+N = 12, the mean error still maintains in the vicinity of
+zero. The interpolation size necessary for the converged
+performance   increases   with   increasing   the   particle
+diameter. Within the range of dp  = 3.0  7.0, where the
+random errors are small, the mean errors are increased
+as the particle diameter increases.
+In sum, the mean and random errors are the smallest
+in the region of dp  = 3.07.0. and that the sinc inter-
+polation scheme is optimal for particle diameters about
+less  than  4.0 pixel  and  the  Lagrange  interpolation  is
+recommended when the particle diameter is larger than
+4.0 pixel,  in  terms  of  performance  and  computation
+time.                                                                                     4  Conclusions
+Several  interpolation  schemes for window deformation
+in PIV have been evaluated and compared. To test the
+performances  of  these  schemes,  each  was  applied  to
+artificially  generated  images  of  particles  of  diameter
+dp  = 2.2, 3.3, or 4.4 pixel with a constant particle den-
+sity of C = 0.02 particles/pixel2. It was found that, for
+uniform  flow,  the  mean  errors  fluctuate  to  a  greater
+extent than the random errors, and that the trends in the
+mean  error  as a function  of U  depend on  the interpo-
+lation method used rather than the random error. As the
+particle diameter increases, the mean and random errors
+decrease. On the whole, the sinc and Lagrange interpo-
+lations show excellent results. The particle diameter was
+extended to a wide range of 1.1  ￡ dp   ￡ 10.0 pixel for
+these  two  interpolations.  The  kernel  size  showing  the
+best  (or  converged)  result  was  found  to  increase  in
+proportion  to  the  particle  diameter  for  the  sinc  inter-
+polation, but to decrease with increasing particle diam-
+eter for the Lagrange interpolation. Hence, the present
+results show that the sinc interpolation scheme is opti-
+mal in terms of both performance and computation time
+for small particles whereas the Lagrange interpolation is
+optimal  for  large  particles.  A  critical  diameter  for  the
+criterion would be about 4.0 pixel. For the shear flow,
+the  mean  errors  are  mainly  influenced  by  interpola-
+tion  schemes  in  the  small  shear  region.  For  all  the
+interpolations, the  variation  of the mean error  ends at
+about Uc  = 2.0 pixel, which is equivalent to a shear rate
+of  x = 0.025 pixel/pixel.  Beyond  Uc  = 2.0 pixel,  the
+?0.02
+?0.01
+0.00
+0.01
+0.02
+β 
+0                   2                   4                   6                   8                  10
+0.000
+0.005
+0.010
+0.015
+0.020
+0.025
+σ 
+dp
+ Lagrange (N=4)
+ Lagrange (N=6)
+ Lagrange (N=8)
+ Lagrange (N=10)
+ Lagrange (N=12)
+a)
+b)
+Fig. 21  Effects of particle diameter for the Lagrange interpolation:
+the   mean   and   random   errors   for   the   uniform   flow   with
+U = 1.25 pixel
+?0.02
+?0.01
+0.00
+0.01
+0.02
+β
+0                   2                   4                   6                   8                  10
+0.000
+0.005
+0.010
+0.015
+0.020
+0.025
+σ 
+dp
+ sinc (N=4)
+ sinc (N=6)
+ sinc (N=8)
+ sinc (N=10)
+ sinc (N=12)
+a)
+b)
+Fig. 22  Effects of particle diameter for the sinc interpolation: the
+mean and random errors for the uniform flow with U = 1.25 pixel
+510
+mean error is almost independent  of the type of inter-
+polations  and  the  parameter  values.  In  contrast  to  the
+uniform flow, the magnitude of the mean errors is gen-
+erally less than the random errors and the random errors
+slowly  increase with  increasing shear rate, whereas the
+mean errors are small at high shear rates. The optimal
+interpolation performances of the various schemes were
+found to be sensitive to the particle conditions but not to
+the flow pattern. As the particle diameter increases, the
+magnitude  of  the  mean  and  random  errors  decreases,
+but the discrepancy between the errors becomes smaller.
+References
+Appledorn  CR  (1996)  A  new  approach  to  the  interpolation  of
+sampled data. IEEE Trans Med Imaging 15(3):369?376
+Astarita T, Cardone G (2005) Analysis of interpolation schemes for
+image deformation methods in PIV. Exp Fluids 38(2):233?243
+Fincham A, Delerce G (2000) Advanced optimization of correla-
+tion imaging velocimetry algorithms. Exp Fluids Suppl:13?22
+Gui L, Longo J, Stern F (2001) Bias of PIV measurement of tur-
+bulent  flow  and  the  mased  correlation-based  interrogation
+algorithm. Exp Fluids 30(1):27?35
+Huang HT, Fiedler HE, Wang JJ (1993) Limitation and improve-
+ment  of  PIV.  Part  II:  particle  image  distortion,  a  novel  tech-
+nique. Exp Fluids 15(4/5):263?273
+Jambunathan K, Ju XY, Dobbins BN, Ashforth-Frost S (1995) An
+improved cross correlation technique for particle image veloc-
+imetry. Meas Sci Technol 6(5):507?514
+Keane RD, Adrian RJ (1993) Theory of cross-correlation analysis
+of PIV images. Flow visualization and image analysis, pp 1?25
+Lehmann TM, Go¨nner C, Spitzer K (1999) Survey: interpolation
+methods in medical image processing. IEEE Trans Med Imag-
+ing 18(11):1049?1075
+Matsumoto  M,  Nishimura  T  (1998)  Mersenne  twister:  a  623-
+dimensionally equidistributed uniform pseudo-random number
+generator. ACM Trans Model Comput Simul 8(1):3?30
+Nogueira J, Lecuona A, Rodriguez PA (1999) Local field correc-
+tion  PIV:  on  the  increase  of  accuracy  of  digital  PIV  systems.
+Exp Fluids 27(2):107?116
+Okamoto  K,  Nishio  S,  Saga  T,  Kobayashi  T  (2000)  Standard
+images   for   particle-image   velocimetry.   Meas   Sci   Technol
+11(6):685?691
+Raffel M, Willert CE, Kompenhans J (1998) Particle image veloc-
+imetry:  a  practical  guide,  Springer,  Berlin  Heidelberg  New
+York, pp 134-146
+Scarano  F  (2004a)  A  super-resolution  particle  image  velocimetry
+interrogation approach by means of velocity second derivatives
+correlation. Meas Sci Technol 15(2):475?486
+Scarano  F  (2004b)  On  the  stability  of  iterative  PIV  image  inter-
+rogation  methods.  In:  Proceedings  of  12th  international  sym-
+posium on appliacations of laser techniques to fluid mechanics,
+Lisbon, 12?15 July, 2004
+Scarano F, Riethmuller ML (2000) Advances in iterative multigrid
+PIV image processing. Exp Fluids Suppl:51?60
+Stanislas M, Okamoto K, Ka¨hler C (2003) Main results of the first
+international PIV challenge. Meas Sci Technol 14(10):R63?R89
+Tokumaru PT, Dimotakis PE (1995) Image correlation velocime-
+try. Exp Fluids 19(1):1?15
+Tsuei L, Savas O¨ (2000) Treatment of interfaces in particle image
+velocimetry. Exp Fluids 29(2):203?214
+Wereley  ST,  Gui  L  (2003)  A  correlation-based  central  difference
+image correction (CDIC) method and application in a four-roll
+mill flow PIV measurement. Exp Fluids 34(1):42?51
+511

@@ -1,0 +1,682 @@
+JOURNAL  OF  AIRCRAFT
+Vol.  32,  No.  4, July-August  1995
+Flow Developments Above  50-Deg  Sweep  Delta Wings  with
+Different  Leading-Edge Profiles
+J.  J.  Miau,*  K. T.  Kuo,t  W. H.  Liu,t  S. J.  Hsieh,$ and J.  H.  Chou§
+National  Cheng  Kung  University,   Tainan  70101,  Taiwan,  Republic  of  China
+and
+C.  K. Lint
+Chung  Shan  Institute  of  Science  and  Technology,   Taichung,  Taiwan,  Republic  of  China
+The characteristics  of flow  developments above 50-deg sweep delta wings with different leading-edge profiles
+are shown by flow visualizations and velocity measurements.  The Reynolds number based on freestream velocity
+and root chord is about 7  x  103. The leading-edge profiles studied include the shapes of square,  round, windward
+surface  beveling,  leeward surface  beveling, and  wedge.  Based  on  the  velocity data  obtained  along the  leading
+edges of the delta wings it is noted that the flow  angles associated  with the separated  shear  layers vary with the
+leading-edge  profiles  studied.  This  finding  infers  that  varying the  leading-edge  profile  has  an  impact  on  the
+initial  development  of the separated  shear  layer, consequently,  the formation of  leading-edge  vortex.  Further-
+more,  it  is  shown  that  the  leading  edge  of  windward beveling causes  the  largest  leading-edge  flow  angle  and
+produces  the most  organized  leading-edge vortex.
+Introduction
+D ELTA  wing models  employed  for  experimental  studies
+are  frequently  characterized  by sharp  leading-edge pro-
+files.  Accumulation of  experimental evidence  shows that  the
+characteristics of  the  leading-edge vortex  flow  above  a sharp
+leading-edge delta wing persist over a wide range of Reynolds
+numbers.  This  phenomenon  can  be  perceived  from  the  fact
+that  a  delta  wing at  an  angle  of  attack  forces  the  windward
+flow  to  separate  at  the  leading edge,  therefore,  the  location
+of  flow  separation  that  causes vortex  formation is insensitive
+to  the  Reynolds  number.  Further,  there  seems  a  consensus
+among  the  experimentalists  that  as  long  as  the  leading-edge
+profiles  are  sharp,  the  leading-edge  profile  is  not  of  critical
+concern.  This  can be  sensed  from  a review over the previous
+reports  that  no  statement  regarding a standard  configuration
+of  the  leading-edge  profile has  been  proposed.  Table  1 pre-
+sents a collection of the delta wing models described.1"26 While
+most of the delta wing models  reported adopt a configuration
+of  the  leading-edge  beveling  on  the  windward  surface,  the
+beveling angles, and thickness ratios, i.e., the thickness of the
+wing model vs the root chord  length, are  not  unified.  Among
+the references shown in Table 1, few reports except Kegelman
+and  Roos21  studied  the  impacts  of  the  leading-edge  profile
+and the thickness ratio on the vortex flow  development above
+the  delta  wings. Kegelman  and  Roos21  performed  flow  visu-
+alization  and  force  measurements  of  the  70-deg  sweep  delta
+wings  with  nine  leading-edge  profiles.  They  found  that  dif-
+ferent   leading-edge   profiles   significantly  affect   the   vortex
+breakdown  location.
+This study is concerned  with flow developments above delta
+wing models of the same thickness, but with different  leading-
+edge  profiles.  The  experimental  results  obtained   show  that
+Received  July  28,  1994;  revision received  Jan.  25,  1995;  accepted
+for  publication Jan.  25,   1995.  Copyright  c   1995  by  the  American
+Institute  of  Aeronautics  and  Astronautics,  Inc.  All  rights reserved.
+*Professor,   Institute  of  Aeronautics   and   Astronautics.   Member
+AIAA.
+tGraduate  Student,  Institute of  Aeronautics  and  Astronautics.
+^Professor,  Institute of  Aeronautics  and  Astronautics.
+SProfessor,  Department  of  Engineering  Science.
+USenior  Scientist.
+the  leading-edge  profiles  have  significant   influence  on   the
+developments  of  vortex  flow.
+Experimental Methods
+Experiments were performed in a closed-return water chan-
+nel.  The  maximum speed  attained  in  the  test  section,  60  x
+60  cm  in  cross  section,  is  40  cm/s.  In  the  present  study,  the
+freestream  velocity in the test section  denoted  as  U() was cho-
+sen to  be 5 cm/s, at which both the  flow  visualization and the
+velocity measurements above  the delta wing were performed.
+A  survey over  the  flowfield   in  the  test  section  using  a  hot-
+film  probe  indicated  that  the  nonuniformity of  the  velocity
+distribution in the test section  away from  the boundary layers
+of  the  test  section  walls, in  terms  of  the  difference  between
+the  maximum  and  minimum  velocities  measured,   was  less
+than  2%  and  the  turbulence  intensity measured  was  below
+0.9%.
+All of the delta wing models employed  have the root chord
+lengths  of  12 cm,  and  identical  sweep  angles,  50 deg.  Based
+on  the root  chord  length and the  freestream velocity chosen,
+the  Reynolds number is about  7  x   103. At  a  =  10 deg,  i.e.,
+the  angle of  attack  frequently chosen in the  work, the  block-
+age  ratio  due  to  the  presence  of  the  delta  wing model  is less
+than  1%.
+The  delta wing models  employed  are characterized  by nine
+leading-edge  profiles  shown  in  Fig.  1,  namely square,  wind-
+ward  beveling at  25  deg,  round,  leeward  beveling at  15,  25,
+35,  45,  and  60  deg,  respectively,  and  a  wedge  with  50-deg
+included  angle.  The  delta  wing model  in the  test  section  was
+\
+leeward  beveling
+J_
+25>
+windward  beveling
+Fig.  1    Leading-edge profiles of the 50-deg sweep delta wings studied.
+787
+Downloaded by KYOTO DAIGAKU KOGAKU-KEN on December 16, 2021 | http://arc.aiaa.org | DOI: 10.2514/3.46792 
+788                                                                                                                                   MIAU  ET  AL.
+Table  1    Tabulation  of  typical  delta  wing configurations  in the  literature
+References              Sweep  angle,  deg                            Leading-edge  profile                               Thickness  ratio,  %
+1
+2
+3
+4 , 5
+6
+7
+8,9
+10,   11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23,24
+25
+26
+76
+60,70
+76
+52
+80
+45-85
+70,  75,  80,  85
+45,60
+60
+70
+70
+70
+63.4,  70,  76
+52.5, 60,  67.5, 75
+75
+75
+75
+70
+59, 63.4,  67, 70
+70
+55
+70
+15-deg windward  surface  beveling
+25-deg  windward  surface  beveling
+Biconvex  surface
+10-deg windward  surface  beveling
+15-deg  windward  surface  beveling
+15-deg  windward  surface  beveling
+25-deg  windward  surface  beveling
+NACA 0012  profile,  sharp  lead-
+ing  edge
+Wedge  shape
+23-deg  beveling  on  both  surfaces
+23-deg  beveling  on  both  surfaces
+Wedge  shape
+30-deg  windward  surface  beveling
+10-deg windward  surface  beveling
+40-deg windward  surface  beveling
+Round
+24-deg windward  surface  beveling
+Nine  leading-edge  shapes
+Square  shape
+45-deg  windward  surface  beveling
+10-deg  windward  surface  beveling
+45-deg  windward  surface  beveling
+1.6
+2.1,  1.7
+3.2
+4.6,  6.2, 4.6
+0.8
+0.1  in  flat  plate
+1.4
+1.8
+3.05
+3.03
+2.4
+2.08
+Thin  delta  wing
+Thin  delta  wing
+4.2
+1.57
+1.67
+0.67, 0.67, 0.53, 0.5
+6.25  for  half-model,
+1.6,  3.1, 6.3  for
+full-span  model
+1.3
+6.3
+4 z
+Experimental  Results
+Flow
+Flow  Visualization
+Delta   Wing
+Fig.  2    Two coordinate systems employed in this study.
+supported  by  a  sting  extended  from   the  rear,  which  was  a
+circular  cylinder  3  mm  in  diameter.  The  delta  wing  models
+were  made  of  aluminum  plates,  5  mm  in  thickness,  corre-
+sponding to  4%  of  the  root  chord  length.
+Two techniques of flow visualization were employed for the
+present  work.  One  was to  introduce  the  color  dye  from  the
+apex  of  the  delta  wing for  the  purpose  of  revealing  the  core
+of  the leading-edge vortex. The  dye was introduced by either
+a stainless-steel tube, 1 mm in diameter, attached beneath the
+wing model,  or  the  tube placed upstream of the  wing model.
+The other technique was to apply paint in dots on the leeward
+surface  of the delta wing.27 Having the delta wing model placed
+in the test section for a certain length of time, the dots become
+traces due  to  the  viscous drag  of  flow  near  the  wing  surface.
+The traces are noted equivalent to the limiting streamlines on
+a  solid  surface.28
+Velocity  measurements  of  the  flowfield  were  made  with  a
+two-component laser velocimeter. The velocity data obtained
+were  reduced  to  the  mean  velocity components in the X  and
+Ydirections shown in Fig. 2, denoted as U and V, respectively.
+It  should  be  mentioned  that  in  this  article  two  coordinate
+systems  are  employed  for  the  convenience  of  later  descrip-
+tions.  As seen  in Fig.  2, X,  Y,  and Z  denote the  axes of the
+laboratory coordinate system, and x,y, and z denote the axes
+of the coordinate system adhered to the delta wing. The  mean
+velocity component in the Z  direction is denoted as W in this
+work.
+Delta  Wing  with  Square  Leading-Edge  Profile
+The  results of flow  visualization obtained for the delta wing
+with  square  leading-edge  profile,  at  a   =   10 deg,  are  shown
+in  Fig.  3,  which  serve  as  a  basis  for  later  comparison.  The
+dye  streaks  shown  in  the  photograph  in  Fig.  3a  indicate  the
+cores  of  the  leading-edge  vortices.  As  a  counterpart  of  Fig.
+3a,  the  limiting  streamline  pattern  shown  in  Fig.  3b  reveals
+that  two  separation  lines  are  formed  symmetrically  with  re-
+spect  to  the root  chord,  where  the  separation  line  is seen  as
+the  result  of convergence  of  the  traces.  The  separation  lines
+are  referred  as  a  result  of  the  secondary  separation  on  the
+delta wing, induced by the  leading-edge vortices of which the
+vortex  cores  are  shown  in  Fig.  3a.  Also  noted  in  Fig.  3b  is
+that  in  the  region  near  the  trailing  edge  of  the  delta  wing,
+outboard  of each  of  the  separation lines, the  reversed  flow  is
+seen.
+It  should  be  mentioned  that  for  the  delta  wing  at  a   =  20
+deg and above, the dye streaks released from  the apex diffuse
+immediately  downstream,  implying  no  formation  of  leading-
+edge  vortices  above  the  delta  wing.  As  an  example,  Fig.  3c
+presents  the  limiting  streamline  pattern  obtained  at  a   =  25
+deg,  in which  no  separation  lines such  as  seen  in Fig.  3b  are
+found.  Instead, the surface pattern is characterized by reverse
+flow  occurring in the  outboard  region  of the  delta  wing, par-
+ticularly near the trailing edge, while forward  flow takes place
+in  the  neighborhood  of  the  root  chord.
+Delta  Wings  with  Leading  Edges  Beveling  on  the
+Windward   Surface
+Figure 4 presents the  flow  visualization photographs of the
+delta wing with the leading-edge 25-deg beveling on the wind-
+ward surface, at a  =  10 deg. In Fig. 4a, the dye streaks clearly
+show  the  formation   of  vortex  cores  above  the  delta  wing.
+Moreover,  Fig.  4b indicates that  the  separation  lines formed
+on  the delta wing surface  persist  until the  trailing edge of  the
+delta  wing,  compared  to  the  separation  lines  shown  in  Fig.
+3b that appear to curve into a spiral structure near the trailing
+edge. Hence, this comparison of Figs. 3b and 4b suggests that
+in  the  latter  case  the  secondary  separation  induced  by  the
+leading-edge  vortex  is much  more well-organized.
+Downloaded by KYOTO DAIGAKU KOGAKU-KEN on December 16, 2021 | http://arc.aiaa.org | DOI: 10.2514/3.46792 
+MIAU  ET  AL.                                                                                                                                                  789
+Fig. 3    Flow visualization photographs of the 50-deg sweep delta wing
+with  square  leading-edge  profile:  a) a   =   10-deg,  dye-streak  visual-
+ization; b) a   =   10-deg,  limiting  streamline  pattern; and c) a  =  25-
+deg,  limiting streamline pattern.
+Fig. 4    Flow visualization photographs of the 50-deg sweep delta wing
+with the leading-edge 25-deg  beveling on the windward  surface: a) a
+=  10-deg, dye-streak visualization and b) a  =  10-deg, limiting stream-
+line pattern.
+Fig. 5     Flow visualization photographs of the 50-deg sweep delta wing
+with the leading-edge 60-deg beveling on the leeward surface: a) a  =
+10-deg, dye-streak visualization and b) a  =  10-deg, limiting streamline
+pattern.
+Delta  Wings  with  the  Leading-Edges  Beveling  on  the
+Leeward  Surface
+Figure 5 presents the  flow  visualization results of the delta
+wing  with  the  leading-edge  60-deg  beveling  on  the  leeward
+side, at a  =  10 deg, which indicate that the flow characteristics
+bear  similarity  to  those  of  the  square  leading  edge  and  the
+leading-edge beveling on the windward surface. However, for
+the  cases  of  the  leading-edge  beveling  angles  lower  than  60
+deg,  the  flow  developments  above  delta  wings  are  noted  to
+be  very  different  from  the  foregoing  description.  These  dif-
+ferences  are   highlightened  by  the   flow  visualization  results
+shown  in  Figs.  6-8,  which  correspond  to  the  cases  of  the
+leading-edge  profiles   15-,  25-,   and  35-deg  beveling  on  the
+leeward  surface,  respectively.  Interesting  features  noted  are
+summarized  as  follows.
+1) At a  =  10 deg, the formation  of the leading-edge vortex
+structure is inhibited  from  these delta wing models. The  dye-
+streak  visualization  photographs  in  Figs.  6a,  7a,  and  8a  do
+not  indicate  the  formation  of  vortex  core.  Furthermore,  the
+limiting streamline patterns in Figs.  7b and  8b show that the
+separation lines are formed  along the interception of the bev-
+eling surface and the flat surface on the leeward side, whereas
+the  limiting  streamline  pattern  in  Fig.  6b  suggests  that  flow
+attachment  is  likely  to  occur  along  the  interception.  All  of
+Figs.  6b,  7b,  and  8b  indicate  no  formation  of the  separation
+lines  associated  with  the  leading-edge  vortex  development,
+which  are  seen  in the  previous figures.
+2) At a  =  15 deg, flows over these three delta wings regain
+the  tendency to  form  the  leading-edge vortex structures.  For
+the delta wings with the leading-edges 15- and 35-deg beveling
+on the leeward surface,  this tendency is seen clearly from  the
+dye-streak  patterns  and  the   limiting  streamline  patterns  in
+Figs. 6c and 6d, and Figs.  8c and 8d. The  delta wing with the
+leading-edge  25-deg  beveling  on  the  leeward  surface  corre-
+sponds  to  the  least-favorable  case  toward  the  formation  of
+the  leading-edge vortex  structure,  shown  in Figs.  7c and  7d.
+Delta  Wing  with  the Round  Leading-Edge   Profile
+Figure 9 presents the  flow  visualization  results of the  delta
+wing with round leading edge, at a  = 10 deg. The photographs
+Downloaded by KYOTO DAIGAKU KOGAKU-KEN on December 16, 2021 | http://arc.aiaa.org | DOI: 10.2514/3.46792 
+790                                                                                                                                       MIAU  ET  AL.
+Fig. 6    Flow visualization photographs of the 50-deg sweep delta wing
+with the leading-edge  15-deg beveling on the leeward surface: a) a  =
+10-deg,  dye-streak  visualization;  b) a   =   10-deg,  limiting  streamline
+pattern; c) a  =  15-deg,  dye-streak  visualization; and d) a  -   15-deg,
+limiting streamline pattern.
+Fig. 7    Flow visualization photographs of the 50-deg sweep delta wing
+with the leading-edge 25-deg beveling on the leeward surface: a)  ot  =
+10-deg,  dye-streak  visualization;  b) a   =   10-deg,  limiting  streamline
+pattern; c) a  =  15-deg, dye-streak  visualization; and d) a  =  15-deg,
+limiting streamline pattern.
+shown  suggest  that  although  the  round  leading  edge  is  not
+sharp  geometrically,  the  flow  development  above  the  delta
+wing shows similarity to the cases of square leading-edge pro-
+files,  except in the region near the  apex. The  dye-streak pho-
+tograph shown in Fig. 9a indicates that the leading-edge vortex
+develops  above  the  delta  wing  in  the  region  downstream  of
+x/C  =  0.2.
+Delta  Wing  with  the  Leading-Edge  in  Wedge  Shape
+Figure 10 presents the  flow visualization results of the delta
+wing  with  the  leading  edge  in  wedge  shape,  at  a   =  10 deg.
+This leading-edge profile  is a combination of 25-deg beveling
+on the windward surface  and 25-deg beveling on the  leeward
+surface.  The  flow  visualization photographs shown in this fig-
+ure  suggest  no  formation  of  the  leading-edge  vortex,  which
+falls into the same situation as the delta wing with the leading-
+edge beveling 25 deg  on  the  leeward  surface.
+Based on the flow  visualization results presented, it can be
+said  that  the  configuration   of  the  leading-edge  beveling  on
+the windward surface  can ensure the condition of sharp lead-
+ing-edge separation, the case most favorable to the formation
+of  the  organized vortex structures in this study.
+Study  of  Velocity  Field
+Laser-Doppler velocity measurements for the selected delta
+wings at a  =  10 deg are presented in this section to describe
+the quantitative aspects of the differences  associated with the
+variations in  the  leading-edge profiles.
+Downloaded by KYOTO DAIGAKU KOGAKU-KEN on December 16, 2021 | http://arc.aiaa.org | DOI: 10.2514/3.46792 
+MIAU  ET  AL.                                                                                                                                                 791
+Fig. 8    Flow visualization photographs of the 50-deg sweep delta wing
+with the leading-edge 35-deg beveling on the leeward surface: a) a  =
+10-deg,  dye-streak  visualization;  b) a   =   10-deg,  limiting  streamline
+pattern; c) a  =  15-deg,  dye-streak visualization; and d) a  =   15-deg,
+limiting streamline pattern.
+Figures  11 and  12 present  the  streamwise velocity  contour
+plots  of  the  delta  wings  25-deg  beveling  on  the  windward
+surface  and  25-deg  beveling  on  the  leeward  surface,  respec-
+tively,  in  the  Y-Z   cross-sectional  planes  at  x/C   =   0.3,  0.4,
+and 0.5.  It  should  be  mentioned that for the  sake of conven-
+ience the  measuring volume of the  laser velocimeter was tra-
+versing  with  respect  to  the  laboratory  coordinates.  The  ve-
+locity measurements were performed  over 250-300 grid points
+for  each  Y-Z  cross-sectional  plane intercepting the  half-span
+of  the delta wing.  In the plots of Figs.  11 and  12, the velocity
+values  shown  are  normalized  by  the  freestream  velocity  UQ,
+and  the  spatial  coordinates  are  normalized  by  the  length  of
+the  local  half-span  of  the  delta  wing,  denoted  as  S.  Here,
+Fig. 9    Flow visualization photographs of the 50-deg sweep delta wing
+with  the  leading  edge  in  round  shape:  a)  a   =   10-deg,  dye-streak
+visualization and b) a   =   10-deg,  limiting streamline pattern.
+Fig.   10    Flow  visualization  photographs  of  the  50-deg  sweep  delta
+wing  with  the leading edge  in wedge shape of  50-deg included angle:
+a)  a   ? 10-deg,  dye-streak  visualization and b) a   =   10-deg,  limiting
+streamline pattern.
+Y/S   =  0 denotes the  location  of  the  leading edge and  Y/S  =
+1 denotes the location  of the root  chord.
+A significant  difference  between Figs.  11 and  12 is noticed.
+In  Fig.   11  the  formation   of  the  vortex  structure  is  clearly
+identified  in each  of  the  three cross-sectional planes studied,
+where  the  vortex  core  is referred  to  as  a  region  of  the  max-
+imum  streamwise  velocity  measured.  On  the  other  hand,  in
+Fig.  12 the  characteristics  of  vortex  structure  is  hardly  iden-
+tifiable, where the region of the maximum streamwise velocity
+measured  is  situated  very  close  to  the  wing  surface,  which
+does not  allow for a formation  of the  large-scale vortex struc-
+Downloaded by KYOTO DAIGAKU KOGAKU-KEN on December 16, 2021 | http://arc.aiaa.org | DOI: 10.2514/3.46792 
+792                                                                                                                                           MIAU  ET  AL.
+-0.20                   -0.10                   -0.00                     0.10      0.20 0.30 0.40 0.50 0.60 0.70    0.80 0.90 1.00                     -0.67                    -0.53         -0.39        -0.25                    -0.11                      0.03                      0.17      0.31 0.44    0.58 0.72    0.86 1.00
+-0.20                -0.10                -0.00                  0.10     0.20   0.30 0.40   0.50 0.60 0.70   0.80 0.90 1.00
+-0.25                  -0.15                 -0.04                    0.06      0.17 0.27 0.38 0.48 0.58 0.69 0.79 0.90 1.00
+-0.25                 -0.15                -0.04                  0.06                  0.17                 0.27     0.38 0.48   0.58 0.69     0.79 0.90 1.00
+-0.20                  -0.10                  -0.00                    0.10      0.20 0.30 0.40 0.50 0.60 0.70 0.80 0.90 1.00
+-0.20                  -0.10                  -0.00                    0.10      0.20 0.30 0.40 0.50 0.60 0.70 0.80 0.90 1.00
+c)                                                                Y/S
+Fig.     11    Streamwise  velocity contour plots of  the 50-deg sweep delta
+wing with the leading-edge 25-deg beveling on the windward surface,
+at a   =   10  deg,     obtained at x/C  =  a)  0.3,    b)  0.4,    and c)  0.5.
+ture.  In   Fig.     12  the  streamwise  velocity  measured  near  the
+wing surface  being higher is explained due to the attachment
+of  flow  on  the  leeward  surface  of the  delta wing, rather than
+the  formation  of  vortex  structure.  The  velocity  distributions
+shown  in   Fig.      12  are  supplement  to  the   flow  visualization
+findings  seen  in   Fig.     7.
+In  addition to  the  survey over the velocity  fields  above the
+delta wings, velocity measurements were performed  along the
+leading edges  of  the  delta  wings  to  acquire  the  distributions
+of flow angle associated with the leading-edge separated shear
+layer.  The   measuring  volume  of  the  laser  velocimeter  was
+positioned  1 mm above the leeward surface  of the delta wing
+at  the  leading edge. The  flow  angle mentioned  is referred  to
+the  angle  of  a  two-dimensional  velocity  vector  measured  in
+the  X-Y   plane,  denoted  as  0  =  tan~lV/U.   At  each  of  the
+points  measured,  the  flow  angle  is reduced  from  five  sets  of
+consecutive measurements. Each set of the measurements was
+performed  over  a time period  of  10 s.
+Figure  13 presents the  distributions of the  flow  angle along
+the  leading  edges  of  the  delta  wings  studied.  There  are  two
+noticeable  features  in  this  figure.  First,  the  flow  angles  as-
+sociated  with  the  cases  of  the  leading-edges 25-deg  beveling
+on  the  windward  side  and  on  the  leeward  side  appear  to  be
+the largest and the smallest, respectively, which can be further
+correlated with the  previous flow  visualization results, that in
+the  former  case the  leading-edge vortex  structure appears to
+be the most well-organized and in the latter case no formation
+of  vortex  structure  is  discerned.  Second,  for  all  the  cases
+shown in  Fig.     13,  the flow-angle  distributions are not uniform
+along  the  leading  edge.  Generally  speaking,  the  flow  angle
+-0.67                 -0.53                  -0.39                 -0.25                 -0.11                   0.03                   0.17     0.31             0.44     0.58 0.72    0.86 1.00
+-0.25                     -0.15                     -0.04                       0.06       0.17 0.27 0.38 0.48 0.58 0.69 0.79 0.90 1.00
+-0.25                     -0.15                     -0.04                       0.06       0.17 0.27 0.38 0.48 0.58 0.69 0.79 0.90 1.00
+-0.60                 -0.47                  -0.33                 -0.20                 -0.07                   0.07                   0.20      0.33 0.47     0.60    0.73    0.87 1.00
+-0.60                 -0.47                 -0.33                  -0.20                 -0.07                   0.07                   0.20      0.33 0.47     0.60    0.73 0.87 1.00
+c)                                                                   Y/S
+Fig.     12    Streamwise velocity  contour plots of the 50-deg sweep delta
+wing with the leading-edge 25-deg beveling on the leeward surface,  at
+a   =   10  deg,     obtained at x/C  =  a)  0.3,    b)  0.4,    and c)  0.5.
+<*>
+jf
+bO
+C
+1fa
+0>
+bO
+W
+bO
+C
+3
+JJ
+50
+45
+40
+35
+c
+30     c
+25   ,
+20
+15
+m
+:                                                                                   o windward beveling 25  deg.
+;                  0                                                             a Square L-E
+7                         o         o   o   o                           '    * leeward beveling 25  deg.
+0
+r       ?  ?    n                    ?    n               '     D   o    °                '     °
+: ° n       D Q  n          D        n      o
+0
+:   n                   .                                  n   n
+.                      .                      .         V      .V            .                      .
+-'                                                            v        v             0   0   o
+v ...  y   v            .                                 ..^           v.   D    v     .           Q .
+-           ____      JLImm             V                       V   a   D
+'-           '  l__^^               -                        '                                 '               V a   Q  o
+'   v                              r imm                                              v         D
+^               |T"             .        .      ..                                    v
+-
+r              ?  LZ\,.=f lmm    ?               ?               ?               ?
+:,    ,    ,    ,    !    ,    ,    ,    ,    !    ,    ,    ,    ,    l   ,    ,    ,    ,    I    ,   ,    ,     ,    l    ,    ,    ,    ,    !    ,    ,    ,     ,    !    ,    ,    ,    ,    !    ,     ,     ,     ,     !     ,     ,     ,     ,
+0     0.1   0.2   0.3   0.4   0.5   0.6   0.7   0.8   0.9     1
+Chord   (X/C)
+Top    view                                     Side   view
+Fig.     13    Flow  angle,  0  =   tan~lV/U,   distributions  along the leading
+edges of the 50-deg sweep delta  wings,  for a   =   10  deg.
+Downloaded by KYOTO DAIGAKU KOGAKU-KEN on December 16, 2021 | http://arc.aiaa.org | DOI: 10.2514/3.46792 
+MIAU  ET  AL.                                                                                                                                                   793
+increases in the region of x/C  = 0-0.2, and decreases in the
+region  downstream  of x/C   = 0.4.
+Discussion
+To  understand  the  flow  structures  above  the  delta  wings
+with different  leading-edge profiles calls for the need of three-
+dimensional velocity distributions above the delta wings. Un-
+fortunately,  the  laser  velocimeter  employed  is  limited  by  its
+function    for   two-components   velocity   measurement   only,
+therefore,  the  information  of  the  velocity  in  the  third  com-
+ponent, i.e., the velocity Win the Z direction, is lacking from
+direct  measurement.  Nevertheless,  this  drawback  was  over-
+come by a numerical integration procedure to find  W,27  which
+is based  on  the  continuity equation for three-dimensional in-
+compressible  flow  and the  U and  V velocity data obtained in
+two  neighboring  Y-Z  cross-sectional planes.
+Figure  14 presents the  cross-sectional velocity vector  plots
+obtained  at  x/C   =  0.4  for  two  delta  wings  with  the  leading-
+edges  25-deg  beveling  on  the  windward  surface  and  on  the
+leeward  surface.  These  velocity vectors  are  constructed  with
+the mean  velocity data  of  V  and  W, where the  data of  W,  as
+mentioned, are  deduced  from  the  U and  V velocity measure-
+ments  obtained  in  the  two  Y-Z  cross-sectional  planes  at x/C
+=  0.39  and  0.40.  In  Fig.  14a,  the  case  of  the  leading-edge
+beveling  on  the  windward  side,  the  leading-edge  vortex  is
+clearly  identified  in Fig.  14a.  The  vortex  core  appears to  be
+at  Z/S   =  0.30 and  Y/S  =  0.45 roughly,  which coincides with
+the  location  of  the  maximum  streamwise velocity seen in the
+contour plot of x/C  -   0.4 in Fig. lib. Also noted in Fig. 14a
+is that a region near the wall, at  Y/S  = 0.50-0.15, where the
+flow  convecting  strongly  along  the  wing  surface  toward  the
+leading  edge.  This  is  the  region  of  low  streamwise  velocity
+measured,  shown  in  Fig.  lib.  For  the  case  of  the  leading-
+edge  beveling  on  the  leeward  surface,  Fig.  14b  shows no  in-
+dication concerning the formation  of the leading-edge vortex.
+A  weak  cross-streamwise  motion  in the  region  about  Z/S   =
+0.25  and  Y/S   =  0.30-0.75  indicates  that  the  flow  convects
+from  the  leading  edge  to  the  root  chord,  which  is  seen  to
+promote a weak formation  of streamwise vortex in the region
+of  Z/S  <  0.25. Farther away from  the wing surface,  the cross-
+0.6
+0.5
+0.25   -
+0.15
+a)
+A       ..-
+\        I               I
+-0.00                                                              y/s      0.50                                      0.75
+0.6
+0.5
+0.25 r
+0.15
+b)
+0.25
+Y/S
+0.75
+Fig.  14    Cross-sectional  velocity  vector  plots,  at x/C   =  0.4,  for  the
+delta wings with the leading-edges 25-deg beveling a) on the windward
+surface  and b) on the leeward  surface,  at a   =   10 deg.
+a)
+Fig.  15    Sketches of  the  cross-sectional  views of  the separated  shear
+layers  developed  from  the  leading-edges  25-deg  beveling  a)  on  the
+windward  surface  and  b) on  the  leeward surface.
+streamwise motion appears in the opposite direction, namely
+from  the root  chord  to  the  leading edge.
+Based  on   the   flow   visualization  results  and  the   velocity
+measurements  presented  in  the  previous  figures,  two  sche-
+matic drawings depicting the cross-sectional views of the  sep-
+arated  shear  layers developed  from  the  leading-edges 25-deg
+beveling on the windward surface  and on the leeward surface
+are  suggested  in Figs.  15a  and  15b,  respectively.  The  sketch
+shown  in  Fig.  15a  describes  the  trajectory  of  the  separated
+shear  layer  that  reaches  farthest   away  from   the  delta  wing
+and  leads to  the formation  of organized vortex structure.  On
+the  other  hand,  the  sketch  shown  in  Fig.  15b  describes  the
+trajectory  of the separated  shear  layer that  stays close to  the
+wing  surface  at  the  leading  edge,  and  results  in  a  weak  for-
+mation  of  vortex  structure  being  developed  inboard  of  the
+interception  of the  leeward  surface  and the  beveling surface.
+Concluding Remarks
+Flow visualizations and velocity measurements obtained for
+50-deg sweep  delta  wings,  at  a  =  10 deg  mainly,  and  at  the
+Reynolds number 7  x   103, illustrate that varying the leading-
+edge  profile  of  the  delta wing  affects  the  development  of  the
+three-dimensional  vortex  on  the  leeward  side.  The  configu-
+ration  of the  leading-edge beveling on  the  windward  surface,
+which  is the  most popular  in the  previous references  seen, is
+found   to   ensure  the   formation   of  the   leading-edge  vortex
+structure at a  =  10 deg. On the other hand, the configuration
+of  the  leading-edge  beveling  on  the  leeward  surface  risks  to
+lose the  leading-edge vortex  above the  delta  wing  at a  =  10
+deg.  These  notable  differences  are  resorted  to  that  modifi-
+cation  in  the  leading-edge  profile  affects  the  initial  state  of
+the  separated  shear  layer,  as  realized  from   the   flow-angle
+measurements in the X-Y   plane along the leading edge, con-
+sequently,  the  trajectory  of  the  separated  shear  layer  above
+the  delta  wing.  The  present  results  call  for  the  attention  to
+the  geometrical  shape  of  the  leading-edge  profile  if  a  delta
+wing model  is under  preparation  for  experiment.
+Acknowledgments
+This work was supported  by the  National Science Council,
+Republic of  China,  under  Contracts NSC  82-0424-E-006-445
+and  NSC 82-0618-E-006-481. The  first  two authors  (J.  J.  M.
+and K. T.  K.) would like to thank R.  C. Chang who provided
+the  numerical  program  for  reducing  the  velocity  W  in the  Z
+direction.
+References
+?Ayoub, A., and McLachlan, B. G.,  "Slender Delta Wing at High
+Angles  of  Attack?A  Flow  Visualization  Study,"  AIAA  Paper  87-
+1230, June  1987.
+2Roos,  F.  W.,  and  Kegelman,  J.  T.,  "An  Experimental  Investi-
+gation  of  Sweep-Angle  Influence  on  Delta-Wing Flows," AIAA  Pa-
+per 90-0383, Jan.  1990.
+Downloaded by KYOTO DAIGAKU KOGAKU-KEN on December 16, 2021 | http://arc.aiaa.org | DOI: 10.2514/3.46792 
+794                                                                                                                                        MIAU  ET  AL.
+3Verhaagen,  N.  G.,  and  Naarding,  S.  H.  J.,  "Experimental  and
+Numerical   Investigation  of  the  Vortex  Flow  over  a  Yawed  Delta
+Wing," AIAA  Paper  88-2563, June  1988.
+4Atta, R., and Rockwell, D., "Leading-Edge Vortices Due to Low
+Reynolds Number Flow Past a Pitching Delta Wing," AIAA Journal,
+Vol.  28, No. 6,  1990,  pp.  995-1004.
+5Atta, R., and Rockwell, D., "Hysteresis of Vortex Development
+and  Breakdown on  an Oscillating Delta Wing," AIAA  Journal, Vol.
+25,  No.  11,  1987,  pp.  1512,  1513.
+6Lowson,  M.  V.,  "Some  Experiments  with  Vortex  Breakdown,"
+Journal  of  the  Royal  Aeronautical  Society,  Vol.  68,  May  1964,  pp.
+343-346.
+7Wentz, W. H., Jr., and Kohlman, D.  L.,  "Vortex Breakdown on
+Slender  Sharp-Edged  Wings,"  Journal  of  Aircraft,   Vol.  8,  No.  3,
+1971,  pp.  156-161.
+8Payne, F. M., Ng, T. T., and Nelson, R. C.,  "Experimental Study
+of  the Velocity Field  on a Delta Wing," AIAA Paper 87-1231, June
+1987.
+9Payne, F.  M., Ng, T. T.,  Nelson, R.  C., and Schiff,  L. B., "Vis-
+ualization  and  Wake  Surveys  of  Vortical  Flow  over  a Delta  Wing,"
+AIAA  Journal,  Vol.  26, No. 2,  1988,  pp.  137-143.
+1()Gad-el-Hak,  M.,  and  Ho,  C.-M.,  "The  Pitching  Delta  Wing,"
+AIAA  Journal,  Vol.  23, No.  11,  1985, pp.  1660-1665.
+nGad-el-Hak, M., and Ho, C.-M., "Unsteady Vortical Flow Around
+Three-Dimensional  Lifting  Surfaces," Vol. 24, No. 5, 1986, pp. 713-
+721.
+I2Er-El,  J.,  "The  Visualization  of  the  Flowfield   About  a  Delta
+Wing  with  Spanwise  Blowing,"  Experiments   in  Fluids,  Vol.  6,  No.
+6,  1988,  pp. 419-421.
+''Thompson, S., Batill, S. M., and Nelson, R. C., "The Separated
+Flow  Field  on  a Slender  Delta  Wing  Undergoing Transient  Pitching
+Motions," AIAA  Paper  89-0194,  Jan.  1989.
+14LeMay,  S.  P.,  Batill,  S. M., and Nelson, R.  C., "Leading Edge
+Vortex  Dynamics on  a Pitching Delta  Wing," AIAA Paper 88-2559,
+June  1988.
+15Soltani,  M.  R.,  Bragg,  M.  B.,  and  Brandon,  J.  M.,  "Experi-
+mental  Measurements  on  an  Oscillating  70-Degree  Delta  Wing  in
+Subsonic Flow," AIAA  Paper  88-2576,  June  1988.
+I6Jarrah,  M.  M., "Low-Speed  Wind  Tunnel  Investigation of Flow
+About  Delta  Wings,  Oscillating  in  Pitch  to  Very  High  Angle  of  At-
+tack," AIAA  Paper  89-0295,  Jan.  1989.
+17Miller,  D.  S.,  and  Wood,  R.   M.,  "Leeside  Flows  over  Delta
+Wings  at  Supersonic  Speeds," Journal  of  Aircraft,   Vol.  21,  No.  9,
+1984,  pp. 680-686.
+l8Magness,  C.,  Robinson,  O.,  and Rockwell,  D.,  "Instantaneous
+Topology  of  the  Unsteady  Leading-Edge  Vortex  at  High  Angle  of
+Attack," AIAA  Journal,  Vol.  31,  No. 8,  1993, pp. 1384-1391.
+19Gu,  W.,  Robinson, O., and Rockwell, D., "Control of Vortices
+on  a Delta  Wing by Leading-Edge Vortex  of  a Delta  Wing," AIAA
+Journal,  Vol.  31, No. 7,  1993, pp.  1177-1186.
+2()Visser, K. D., and Nelson, R. C., "Measurements of Circulation
+and  Vorticity  in the  Leading-Edge  Vortex  of  a Delta Wing," AIAA
+Journal,  Vol.  31,  No.  1,  1993,  pp.  104-111.
+21Kegelman,  J.,  and  Roos,  F.,  "Effects   of  Leading-Edge  Shape
+and  Vortex  Burst  on  the  Flowfield   of  a  70  Degree  Sweep  Delta-
+Wing," AIAA  Paper  89-0086,  Jan.  1989.
+22Miau, J. J.,  Chang, R.  C., Chou, J.  H., and Lin, C.  K.,  "Non-
+uniform Motion of Leading-Edge Vortex Breakdown on Ramp Pitch-
+ing  Delta  Wing," AIAA  Journal,  Vol.  30,  No.  7,  1992,  pp.  1691-
+1702.
+23Visser,  K. D.,  Nelson,  R.  C.,  and Ng, T.  T.,  "A  Flow  Visual-
+ization  and  Aerodynamic Force  Data  Evaluation  of  Spanwise  Blow
+on  Full  and  Half  Span  Delta  Wings,"  AIAA  Paper  89-0192,  Jan.
+1989.
+24Visser,  K.  D.,  Iwanski,  K.  P.,  Nelson,  R.  C.,  and  Ng, T.  T.,
+"Control  of  Leading  Edge  Vortex  Breakdown  by Blowing," AIAA
+Paper  88-0504,  Jan.  1988.
+25Shi,  A.,  Wu,  J.  M.,  and  Vakili,  A.  D.,  "An   Investigation  of
+Leading-Edge  Vortices  on  Delta  Wings  with  Jet  Blowing,"  AIAA
+Paper 87-0330, Jan.  1987.
+26Iwanski,  K.,  Ng, T.,  and  Nelson,  R.  C.,  "An  Experimental  In-
+vestigation  of  Delta  Wing  Vortex  Flow  with  and  Without  External
+Jet  Blowing," AIAA  Paper  89-0084,  Jan.  1989.
+27Chang,  R.  C.,  "Studies  of  Vortical  Flows  Developing  on  Sta-
+tionary and Pitching Delta Wings," Ph.D. Dissertation, Inst. of Aer-
+onautics  and  Astronautics,   National  Cheng   Kung  Univ.,  Taiwan,
+ROC,  1991.
+28Peak,  D.  J.,  and  Tobak,  M.,  "Three-Dimensional  Separation
+and Reattachment," High Angle-of-Attack  Aerodynamics,  AGARD/
+VKI  Lecture  Series  121,  Paper  1,  1982.
+Downloaded by KYOTO DAIGAKU KOGAKU-KEN on December 16, 2021 | http://arc.aiaa.org | DOI: 10.2514/3.46792 

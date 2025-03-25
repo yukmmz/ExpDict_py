@@ -1,0 +1,698 @@
+Generation mechanism of micro-bubbles in a pressurized dissolution
+method
+Yasunari Maeda a, Shigeo Hosokawa a,?, Yuji Baba a, Akio Tomiyama a, Yoshihiro Ito b
+a Department of Mechanical Engineering, Graduate School of Engineering, Kobe University, 1-1 Rokkodai, Nada, Kobe 657-8501, Japan
+b Housing Systems Business Group, Panasonic Corporation, 1048 Kadoma, Osaka 571-8686, Japan
+a r t i c l e    i n f o
+Article history:
+Received 4 June 2014
+Received in revised form 18 September
+2014
+Accepted 18 September 2014
+Available online 26 September 2014
+Keywords:
+Micro-bubble
+Pressurized dissolution method
+Cavitation
+Bubble diameter
+Bubble number density
+Multiphase flow
+a b s t r a c t
+Micro-bubbles  are  in  use  in  many  industrial  fields  such  as  water  treatment,  purification  of  lake  water,
+chemical engineering, washing processes and housing equipment by virtues of their large interfacial area
+concentration and long residence time in liquid. A pressurized dissolution method based on decompres-
+sion of liquid with dissolved gas is one of promising methods for generating fine micro-bubbles at high
+number  density.  Since  the  mechanism  of  micro-bubble  generation  is  not  clarified  yet,  design  and
+improvement  of  micro-bubble  generators  are  based  on  trial  and  error.  In  this  study,  effects  of  liquid
+volume  flux  at  a  decompression  nozzle  and  dissolved  gas  concentration  in  the  upstream  region  of  the
+nozzle on diameter and number density of generated micro-bubbles are examined to understand gener-
+ation  mechanism  of  micro-bubbles  in  a  pressurized  dissolution  method.  The  diameter  and  the  number
+density of  micro-bubbles  are measured  by using phase  Doppler  anemometry  (PDA) in the downstream
+region  of  the  nozzle,  and  the  flow  patterns  in  the  nozzle  are  visualized  by  using  a  high-speed  camera.
+The  experimental  results  show  that  diameter  and  number  density  of  generated  micro-bubbles  depend
+on  cavitation  pattern  at  the  nozzle,  and  that  cavitation  bubbles  containing  not  only  vapor  but  also
+non-condensable  gas  become  micro-bubbles  due  to  their  shrink  caused  by  condensation  of  the  vapor
+in the downstream region of the nozzle.
+2014 Elsevier Inc. All rights reserved.
+1. Introduction
+Micro-bubbles are the bubbles with diameter ranging from one
+to several hundred microns, and they are characterized by a large
+interfacial area concentration per unit gas volume and low relative
+velocity between the bubbles and liquid phase. These characteris-
+tics are of great use in enhancement of adsorption of impurities at
+gas?liquid  interface  and  mass  transfer  between  the  two  phases
+[1,2]. Micro-bubbles are, therefore, utilized to improve efficiencies
+and/or performances of various industrial systems such as chemi-
+cal  reactors  [3],  water  treatment  systems  [4],  washing  processes
+[5], medical systems [6], bathing systems [7] and plant cultivation
+[8].  Since  efficiencies  and  performances  of  these  systems  depend
+on the diameter and number density of micro-bubbles, it is impor-
+tant to optimize them in development of the micro-bubble gener-
+ators   [9,10]   and   to   understand   a   mechanism   of   micro-bubble
+generation.
+Various types of micro-bubble generators have been developed,
+and  most  of  them  can  be  classified  into  four  methods,  i.e.,  the
+method based on bubble breakup due to shear flow/pressure wave
+(bubble  breakup  method  [11,12]),  the  method  using  ultrasonic
+wave  (ultrasonic  method  [13,14]),  the  method  using  microflui-
+dics/MEMS   technology   (microfluidic   method   [15?17])   and   the
+method based on effervescence of dissolved gas due to depressur-
+ization   at   a   decompression   nozzle   (a   pressurized   dissolution
+method [18,19]). Although bubble breakup methods can generate
+micro-bubbles  at  a  high  void  fraction,  the  diameter  of  generated
+bubbles  ranges  widely  and  is  larger  than  the  other  methods.  The
+number    densities    of    micro-bubbles    generated    by    ultrasonic
+methods  and  microfluidic  methods  are  not  high  whereas  they
+can generate mono-dispersed fine micro-bubbles. The pressurized
+dissolution  methods can  generate  fine  micro-bubbles  with  a  high
+bubble  number  density  which  is  preferable  in  many  industrial
+applications   of   micro-bubbles,   though   they   require   relatively
+higher  energy  consumption  to  generate  micro-bubbles  than  the
+other methods.
+We  therefore  focused  on  the  pressurized  dissolution  method
+and  examined  influence  of  liquid  velocity  at  the  decompression
+nozzle  throat  on  diameter  and  number  density  of  micro-bubbles
+to  understand  the  mechanism  of  a  micro-bubble  generation  [20].
+As  a  result,  it  was  found  that  micro-bubbles  are  generated  when
+http://dx.doi.org/10.1016/j.expthermflusci.2014.09.010
+0894-1777/2014 Elsevier Inc. All rights reserved.
+? Corresponding author.
+E-mail address: hosokawa@mech.kobe-u.ac.jp (S. Hosokawa).
+Experimental Thermal and Fluid Science 60 (2015) 201?207
+Contents lists available at ScienceDirect
+Experimental Thermal and Fluid Science
+journal  homepage:  www.elsevier.com/locate/etfs
+cavitation takes place in the decompression nozzle and the cavita-
+tion plays an important role in the micro-bubble generation. Since
+the dissolved gas concentration at the nozzle inlet is also an impor-
+tant  parameter  of  micro-bubble  generation,  its  influence  on  the
+diameter  and  number  density  of  generated  micro-bubbles  has  to
+be examined to understand the generation mechanism. In the pres-
+ent study, we therefore measure the diameter and number density
+of micro-bubbles at the downstream region of the nozzle by using
+phase  Doppler  anemometry  (PDA)  for  several  dissolved  gas  con-
+centrations. Flow patterns in the nozzle are also observed by using
+a   high-speed   video   camera.   Generation   mechanism   of   micro-
+bubbles is discussed based on dependences of the mean diameter
+and  number  density  on  the  liquid  velocity  and  the  dissolved  gas
+concentration.
+2. Experimental apparatus
+Fig. 1 shows a schematic of the experimental apparatus which is
+the same as the one in Hosokawa et al. [19] and Maeda et al. [20].
+Water and air were used for the liquid and gas phases. Water was
+stored in the lower tank and supplied by the pump to the dissolu-
+tion  tank.  Air  was  supplied  by  the  compressor  and  mixed  with
+water  in  the  dissolution  tank  shown  in  Fig.  2,  in  which  the  air
+dissolved  into  the  water  through  the  air?water  interface.  Since
+the  mass  transfer  rate  between  air  and  water  increases  with  the
+gas?liquid  interfacial  area,  the  concentration  of  the  dissolved  air
+was  controlled  by  changing  the  height  H  of  the  falling  film  (see
+Appendix  A).  The  excess  air,  which  did  not  dissolve  into  water,
+was  exhausted  from  the  top  of  the  dissolution  tank  through  the
+exhaust valve. The water with dissolved air flowed into the decom-
+pression nozzle shown in Fig. 3, the gap size, length and width of
+which  were   1.0,  4.0   and  32.0 mm,  respectively.  Micro-bubbles
+were  generated  by  decompression  at  the  nozzle.  Then,  the  water
+with  micro-bubbles  flowed  into  the  vertical  rectangular  duct,  the
+cross-section of which was 4  32 mm2. Photographs of generated
+micro-bubbles are shown in Fig. 4. The water is opaque due to the
+presence of a lot of fine micro-bubbles, whereas it is clean near the
+bottom  of  the  beaker  due  to  decrease  in  micro-bubble  density
+caused by buoyancy. The water flowed into the lower tank through
+the upper tank. The micro-bubbles were released from the water to
+the atmosphere through the water surface in the upper and lower
+tanks, and no bubbles presented at the inlet of the decompression
+nozzle. The water temperature was kept at 298 ± 0.5 K.
+Experimental ranges of the liquid volumetric flux JL  at the noz-
+zle  throat  and  the  mass  fraction  xGD   of  gasifiable  dissolved  gas  at
+the   nozzle  inlet   were   JL = 10?14 m/s   and   xGD  = 0.0?1.69  105,
+respectively. They are defined by
+Nomenclature
+AMV                cross-section of PDA measurement volume (m2)
+C                 concentration of dissolved air (kg/m3)
+Cs                     saturation concentration of dissolved air at atmospheric
+pressure (kg/m3)
+DO              concentration of dissolved oxygen (kg/m3)
+d32                  Sauter mean diameter (m)
+dBi                   individual bubble diameter (m)
+H                 water level in dissolution tank (m)
+JL                      liquid volumetric flux at nozzle throat (m/s)
+N                 sample number of bubbles (?)
+NB                    data acquisition rate in PDA measurement (Hz)
+nB                    bubble number density (m3)
+P                 probability density function (?)
+QL                    liquid flow rate (m3/s)
+S                  cross-section area of nozzle throat (m2)
+V                 liquid velocity (m/s)
+xGD                   mass fraction of a gasifiable dissolved gas (?)
+Greek letters
+aB                    bubble volume fraction (?)
+hB                     mean volume of single bubble (m3)
+q       liquid density (kg/m3)
+Compressor
+Dissolution tank
+Valve
+Lower tank
+Upper tank
+Pump
+Decompression nozzle
+DO meter                              Measurement point
+Exhaust valve
+250 mm
+310 mm
+Fig. 1.  Schematic of experimental apparatus.
+Water
+Water with 
+dissolved air
+H
+Air
+Inner pipe
+Outer pipe
+Exhaust
+Exit
+Falling film
+Fig. 2.  Dissolution tank.
+202                                                                                            Y. Maeda et al. / Experimental Thermal and Fluid Science 60 (2015) 201?207
+JL  ? QL
+S                                                                                                                 d1T
+xGD  ? C  Cs
+q                                        d2T
+where  QL  is  the  liquid  flow  rate,  S  the  cross-sectional  area  of  the
+nozzle throat, C the concentration of dissolved air, Cs  is the satura-
+tion concentration of dissolved air at the atmospheric pressure and
+q the  liquid  density.  C  was  evaluated  from  DO  at  the  nozzle  inlet
+and the Henry’s law [19]. The DO at the nozzle inlet was measured
+by a DO meter (HACH, LDO101-01  HQ30d), and the uncertainty in
+DO was within ±0.2 mg/L. The uncertainties estimated at 95% confi-
+dence in measured JL  and xGD   were less than 3%.
+Since cavitation occurred at the nozzle throat, the flow pattern
+in  the  nozzle  was  recorded  by  a  high  speed  video  camera  (Red
+Lake,  motion  Pro  HS-1).  The  visualized  region  is  shown  in  Fig.  3.
+The  frame  rate  and  the  exposure  time  were  5000 Hz  and  9 ls,
+respectively.
+Diameters of micro-bubbles were measured at 250 mm down-
+stream of the nozzle exit (Fig. 3) by using phase Doppler anemom-
+etry (PDA, DANTEC 60X, particle size measurement accuracy 4%,
+particle  velocity  measurement  accuracy  1%).  The  Sauter  mean
+diameter  d32   was   calculated  from  measured   individual  bubble
+diameters dBi  as follows
+d32  ? P
+N
+i?1d
+3
+Bi
+PiN
+?1d
+2
+Bi
+d3T
+where N is the sample number of bubbles which was 30,000 in the
+present experiments. The bubble number density was calculated by
+nB  ?  NB
+AMV V                                                                                                         d4T
+where AMV  is the cross-sectional area of the PDA measurement vol-
+ume, V the liquid velocity at the measurement point and NB the data
+acquisition rate in the PDA measurement. Note that nB and d32 were
+confirmed to be almost constant over the cross-section of the chan-
+nel  at  250 mm  downstream  of  the  nozzle  through  a  preliminary
+experiment.
+3. Results and discussion
+3.1. Influence of liquid volume flux
+Before  discussing  the  influence  of  dissolved  gas  concentration,
+the  influence  of  liquid  volume  flux  JL   discussed  in  Maeda  et  al.
+[20]  is  briefly  reviewed  in  this  section.  Fig.  5  shows  the  photo-
+A                                             A -A
+Visualized region
+Measurement point
+32
+5
+A
+1
+4
+4      250
+Flow
+Fig. 3.  Schematic of the decompression nozzle.
+100μm                                   1 mm
+Fig. 4.  Photographs of generated micro-bubbles.
+Decompression
+nozzle
+Flow
+JL
+[m/s]
+NC          NC/BC                                 BC                                                          SC
+10.5              11.0              11.5              12.0              12.5              13.0              13.5              14.0
+Fig. 5.  Visualization images of cavitation in the nozzle (xGD  = 1.69  105) (NC: No Cavitation, BC: Bubble Cavitation, SC: Sheet Cavitation).
+Y. Maeda et al. / Experimental Thermal and Fluid Science 60 (2015) 201?207                                                                                            203
+graphs of the flow patterns in the decompression nozzle at differ-
+ent  JL.  When  JL  is  lower  than  10.5 m/s,  cavitation  does  not  occur
+(NC:  no  cavitation).  Cavitation  inception  occurs  near  the  nozzle
+inlet  between  JL = 10.5  and  11.0 m/s,  and  bubble  cavitation  (BC)
+is observed for JL = 11.0?12.5 m/s. In BC conditions, vapor bubbles
+are generated and grow near the leading edge of the nozzle. They
+shrink  due  to  pressure  recovery  in  the  rear  part  of  the  nozzle  as
+they  flow  downstream.  The  number  of  bubbles  in  the  cavitation
+region increases with JL. The flow pattern transits from BC to sheet
+cavitation (SC) between JL = 12.5 and 13.0 m/s. In SC condition, the
+vapor film covering the nozzle throat is formed, and it breaks into
+the vapor bubbles at the nozzle exit. The generated vapor bubbles
+shrink  due  to  condensation  caused  by  pressure  recovery  as  the
+bubbles flow downstream.
+The  bubble  number  density  nB  and  the  Sauter  mean  diameter
+d32   measured  in  the  downstream  region  of  the  nozzle  tend  to
+increase  with  JL  as  shown  in  Fig.  6.  Since  the  number  density  in
+NC  regime  is  very  low,  micro-bubble  generation  is  insignificant
+in NC regime. This shows that cavitation is required for micro-bub-
+ble  generation.  The  relation  between  nB   and  JL   well  corresponds
+with  flow  patterns,  that  is,  nB  is  almost  zero  in  NC  regime  and  it
+increases with JL  in BC regime, in which the number density of cav-
+itation bubbles in the nozzle throat also increases with JL  as shown
+in Fig. 5. On the other hand, nB does not depend on JL so much in SC
+regime, in which the condition of vapor film is not sensitive to JL. As
+to the diameter of micro-bubbles, d32  takes the minimum value in
+BC regime and it increases with JL in SC regime. These results imply
+that  the  generation  of  micro-bubbles  depends  on  cavitation  pat-
+terns at the decompression nozzle. The experiments with different
+pressure conditions at the nozzle had been carried out by changing
+the length of the vertical duct in the downstream region of the noz-
+zle.  The  results  clearly  showed  that  the  cavitation  condition  and
+the  characteristic  of  the  generated  micro  bubbles  depend  not  on
+JL  but  on  the  cavitation  number  at  the  nozzle  which  is  a  function
+of  JL   and  the  pressure  at  the  nozzle.  The  cavitation  numbers  in
+the  present  experimental  setup  are  0.99,  0.82,  0.67,  0.54,  0.43,
+0.33,  0.24  and  0.16  for  JL = 10.5,  11.0,  11.5,  12.0,  12.5,  13.0,  13.5
+and  14.0 m/s,  respectively.  The  details  can  be  found  in  Maeda
+et al. [20]. The JL  is however used hereafter for easy understanding,
+since the pressure  at  the nozzle is  almost constant in  the present
+experiments.
+3.2. Influence of dissolved gas concentration
+The photographs of flow pattern in the decompression nozzle at
+various xGD   are shown in Fig. 7. The flow pattern does not depend
+on xGD   not only in SC regime but also in BC regime. We confirmed
+through  preliminary  tests  that  the  transition  from  SC  to  BC  also
+does not depend on xGD  so much in the present experimental range.
+This  might  be  because  the  concentration  of  vapor  in  cavitation
+bubbles is much higher than that of dissolved gas at the transition
+condition between SC and BC, and therefore, xGD   is not significant
+in  the  transition  whereas  several  literatures  (e.g.  Crum  [21]  and
+Leighton  [22])  have  reported  that  cavitation  inception  depends
+on the dissolved gas concentration. The number of micro-bubbles
+in  the  downstream  region  of  the  nozzle  tends  to  increase  with
+xGD  in both regimes, and it is higher in SC regime than in BC regime.
+The  number  density  and  Sauter  mean  diameter  measured  by
+PDA are shown  in Fig.  8. The bubble number density nB  increases
+with  xGD   at  JL = 12 m/s  (BC  regime)  as  shown  in  Fig.  8(a).  On  the
+other  hand,  its  increase  is  not  large  at  JL = 14 m/s  (SC  regime).
+0   10                11                12                13                14
+1
+2
+3
+4
+5
+JL [ m/s ]
+nB [ x1010 m-3 ]
+xGD* = 1.33 x 10-5
+xGD* = 1.69 x 10-5
+NC                    BC                     SC
+(a) Number density 
+0   10                11                12                13                14
+10
+20
+30
+40
+50
+JL [ m/s ]
+d32 [μ m ]
+xGD* = 1.33 x 10-5
+xGD* = 1.69 x 10-5
+NC                    BC                     SC
+(b) Sauter mean diameter 
+Fig. 6.  Number density and diameter of micro-bubbles.
+xGD*       0.00        0.17        0.41        0.83        1.19        1.62
+Flow
+Decompression
+nozzle
+(a) Bubble cavitation (JL = 12 m/s) 
+Decompression 
+nozzle
+Decompression 
+nozzle
+xGD*       0.00        0.19         0.42         0.83        1.23         1.63
+Flow
+(b) Sheet cavitation (JL = 14 m/s) 
+Fig. 7.  Flow pattern in the decompression nozzle.
+204                                                                                            Y. Maeda et al. / Experimental Thermal and Fluid Science 60 (2015) 201?207
+The Sauter mean diameter d32  increases with xGD  in both JL  cases as
+shown  in  Fig.  8(b).  The  diameter d32  for  JL = 14 m/s (SC  regime) is
+larger than those for JL = 12 m/s (BC regime) at any xGD, and the gra-
+dient of d32 with respect to xGD  for the former is higher than the lat-
+ter.  These  differences  in  dependences  of  nB  and  d32  on  xGD   imply
+that  micro-bubble  generation  process  in  BC  regime  is  different
+from that in SC regime. Judging from Fig. 7(b), the breakup of vapor
+film forms vapor bubbles at the nozzle exit and micro-bubbles may
+be generated by shrink of the vapor bubbles in SC regime. Since the
+generation of vapor bubbles by breakup of vapor film depends not
+on xGD  but on the hydrodynamic force acting on the vapor film, the
+weak dependence of nB  on xGD  in SC regime is consistent with this
+generation process. Micro-bubbles in BC regime may be also gener-
+ated  from  the  cavitation  bubbles.  Hence,  the  increase  in  nB  with
+respect to xGD  implies that the number of vapor bubbles generated
+in the cavitation region increases with xGD  in BC regime. Sakashita
+et al. [23] reported a similar phenomenon, i.e., increase in nB  with
+the concentration  of  2-pentanol in water  in a boiling experiment.
+This shows the possibility of increase in bubble nucleation due to
+the presence of dissolvent molecules. At JL = 14 m/s, micro-bubbles
+are generated even at xGD  = 0, that is, at the saturation concentra-
+tion  at  atmospheric  pressure.  This  indicates  that  micro-bubbles
+can  be  generated  even  when  the  dissolved  gas  concentration  is
+lower  than  the  saturated  concentration  at  atmospheric  pressure
+provided that sheet cavitation takes place in the nozzle.
+Effects of xGD  on the probability density functions P(dB) of dB  for
+JL = 12  and  14 m/s  are  shown  in  Fig.  9(a)  and  (b),  respectively.  At
+JL = 12 m/s  (BC  regime),  the  ratio  of  bubbles  smaller  than  10 lm
+slightly  decreases  as  xGD    increases,  and  that  larger  than  10 lm
+increases  with  xGD.  This  corresponds  to  the  increase  in  d32   with
+xGD   shown  in  Fig.  8(b).  This  trend  is  clearer  in  SC  regime,  that  is,
+the ratio of bubbles smaller than 15 lm decreases and that larger
+than 15 lm increases as xGD  increases. The increase in bubble num-
+ber at each bubble diameter range is not clear from the comparison
+of  P(dB)  due  to  the  difference  in  nB   among  the  flow  conditions.
+Fig.   10   shows   the  product  of   the   probability   density   function
+P(dB) and the bubble number density nB, that is, the number den-
+sity of bubbles in each diameter range. At JL = 12 m/s (BC regime),
+nBP(dB) increases with xGD  in all diameter ranges. That is, the num-
+ber  of  bubbles  in  each  diameter  range  increases  with  xGD.  Unlike
+the   result   for   JL = 12 m/s,   change   in   nBP(dB)   is   not   large   at
+JL = 14 m/s (SC regime). It slightly increases in the range of dB > 15 -
+lm   and   slightly   decreases   in   the   range   of   dB < 15 lm   as   xGD
+increases.  If  the  size  distribution  of  vapor  bubbles  generated  by
+breakup of a vapor film does not depend on xGD   in SC regime, the
+distribution  of  nBP(dB)  of  micro-bubbles  generated  by  shrink  of
+the  vapor  bubble  may  shift  to  larger  dB   as  xGD   increases  due  to
+increase in the amount of non-condensable gas in the vapor bub-
+bles.  This  speculation  is  supported  by  the  result  for  JL = 14 m/s
+shown in Fig. 10(b).
+Fig.  11  shows  the  effect  of  xGD    on  the  volume  fraction  aB   of
+micro-bubbles. The volume fraction was calculated by
+aB  ? nBhB  ? nB
+pPiN?1d3iB=N
+6                                                                                 d5T
+where   hB   is   the   mean   bubble   volume.   The   volume   fraction  aB
+increases   with   xGD     in   both   conditions.   The   increase   in   aB    at
+0          0.0                 0.5                 1.0                 1.5
+1
+2
+3
+4
+xGD* [ x10-5 ]
+nB [ x1010 m-3 ]
+JL =14.0 m/s
+JL =12.0 m/s
+(a) Number density 
+0          0.0                 0.5                 1.0                 1.5
+10
+20
+30
+40
+d32 [μm ]
+xGD* [ x10-5 ]
+JL = 14.0 m/s
+JL = 12.0 m/s 
+(b) Sauter mean diameter 
+Fig. 8.  Relationships of number density and Sauter mean diameter with dissolved
+gas concentration.
+50                       100                      150
+0.2
+0.4
+0.6
+0.8
+1.0
+0
+P (dB)
+dB [μ m ]
+xGD* = 0.00 x 10-5
+xGD* = 0.20 x 10-5
+xGD* = 0.40 x 10-5
+xGD* = 0.80 x 10-5
+xGD* = 1.20 x 10-5
+xGD* = 1.61 x 10-5
+(a)  JL = 12 m/s 
+50                       100                      150
+0.2
+0.4
+0.6
+0.8
+1.0
+0
+dB [μ m ]
+P (dB)
+xGD * = 0.00 x 10-5
+xGD * = 0.20 x 10-5
+xGD * = 0.40 x 10-5
+xGD * = 0.80 x 10-5
+xGD * = 1.20 x 10-5
+xGD * = 1.61 x 10-5
+(b) JL = 14 m/s 
+Fig. 9.  Probability density function of bubble diameter.
+Y. Maeda et al. / Experimental Thermal and Fluid Science 60 (2015) 201?207                                                                                            205
+JL = 14 m/s is  well fitted  by a  linear function. This  indicates  that hB
+increases linearly with xGD, since nB  at JL = 14 m/s is weakly depen-
+dent on xGD. Concentration of non-condensable gas in vapor bubbles
+separated from a vapor film will be proportional to xGD, and the size
+of the vapor bubbles depends not on xGD  but on JL  since their gener-
+ation is due to hydrodynamic forces acting on the vapor film. Hence,
+this result is consistent with micro-bubble generation by shrinking
+vapor  bubbles separated from  the vapor  film formed by  cavitation
+in the nozzle. On the other hand, the increase at JL = 12 m/s is well
+fitted by a quadratic curve. This implies that not only hB  but also nB
+linearly increase with xGD. The linear increase in hB  is similar to that
+in SC regime, i.e., due to linear increase in concentration of non-con-
+densable gas in vapor bubbles. The increase in nB  with xGD  indicates
+increase in bubble nucleation in BC regime.
+3.3. Generation mechanism of micro-bubbles
+Based on the above results, the generation mechanism of micro-
+bubbles  in  the  pressurized  dissolution  method  is  summarized  as
+follows (Fig. 12). When bubble cavitation takes place in the decom-
+pression nozzle, vapor bubbles are generated in the inlet region of
+the nozzle as shown in Fig. 12(a). The cavitation bubbles consist of
+not only vapor  but also  non-condensable  gas  (air),  which are  dis-
+solved  in  water  in  the  upstream  region  of  the  nozzle.  The  vapor
+in  the  cavitation  bubble  condenses  due  to  pressure  recovery  in
+the  downstream of  the  nozzle,  and  therefore,  the  diameter  of  the
+cavitation  bubble  rapidly  decreases.  On  the  other  hand,  non-con-
+densable  gas  in  the  bubbles  remains  and  forms  micro-bubbles  in
+the   downstream   region.   Increase   in   xGD    causes   increase  in   an
+amount of non-condensable gas in the vapor bubbles, i.e., increase
+in  the  diameters  of  micro-bubbles,  since  the  amount  of  dissolved
+gas locating near the vaporizing water increases with xGD  and they
+form   cavitation   bubbles   together   with   vaporized   water.   The
+increase  in  xGD   also  increases  the  number  of  nucleation of  cavita-
+tion bubbles, i.e., the number density of micro-bubbles.
+When  sheet  cavitation  takes  place  in  the  nozzle,  vapor  films
+containing vapor and non-condensable gas are formed in the noz-
+zle as shown in Fig. 12(b). The vapor films break at the nozzle exit
+due  to  hydrodynamic  forces  acting  on  them,  and  vapor  bubbles
+containing non-condensable gas are generated in the downstream
+region of the nozzle. The vapor in the bubble condenses rapidly and
+non-condensable    gas    forms    micro-bubbles.    Increase    in    xGD
+increases  an  amount  of  non-condensable  gas  in  the  vapor  film
+and the vapor bubbles, and therefore, the diameters of micro-bub-
+bles  increase  with  xGD.  Since  the  vapor  bubbles  are  generated  by
+50                        100                        150
+0.5
+1.0
+1.5
+0
+nBP (dB) [ x1010 m-3 ]
+dB [μ m]
+xGD* = 0.00 x 10-5
+xGD* = 0.20 x 10-5
+xGD* = 0.40 x 10-5
+xGD* = 0.80 x 10-5
+xGD* = 1.20 x 10-5
+xGD* = 1.61 x 10-5
+(a)  JL = 12 m/s 
+50                        100                        150
+0.5
+1.0
+1.5
+0
+dB [μ m ]
+nBP (dB) [ x1010 m-3 ]
+xGD* = 0.00 x 10-5
+xGD* = 0.20 x 10-5
+xGD* = 0.40 x 10-5
+xGD* = 0.80 x 10-5
+xGD* = 1.20 x 10-5
+xGD* = 1.61 x 10-5
+(b)  JL = 14 m/s 
+Fig. 10.  Number of bubbles in each bubble size class.
+0.0                 0.5                 1.0                 1.5                 2.0
+10-6
+10-5
+10-4
+xGD* [ x10-5 ]
+αB
+JL = 12.0 m/s
+JL = 14.0 m/s
+B=1.2xGD
+*+3.1x10-5
+B=(3.8x10
+4)x
+GD
+*2+0.38x
+GD
+α                                              *+7.1x10-7
+α
+Fig. 11.  Volume fraction of micro-bubbles.
+Cavitation         Condensation
+Decompression
+nozzle
+Cavitation bubble                                         Micro-bubbles
+Dissolved gas
+Flow
+Non-condensable gas 
+Centerline
+of nozzle
+Vapor
+Low xGD*
+High xGD*
+(a) Bubble cavitation regime 
+Centerline
+of nozzle
+Micro-bubble
+Cavitation                                                Condensation
+Flow
+Breakup of vapor film
+Vapor film
+Dissolved gas
+Vapor
+Decompression
+nozzle
+Low xGD*
+High xGD*
+Non-condensable gas 
+(b) Sheet cavitation regime 
+Fig. 12.  Schematic of micro-bubble generation process.
+206                                                                                            Y. Maeda et al. / Experimental Thermal and Fluid Science 60 (2015) 201?207
+collapse of the vapor film due to hydrodynamic forces, the bubble
+number density does not depend on xGD  so much. Since the micro-
+bubble generation is based on cavitation at the nozzle, few micro-
+bubbles   are   generated   when   cavitation   does   not   occur   at   the
+nozzle.
+4. Conclusions
+Diameters and number densities of micro-bubbles generated by
+a  pressurized  dissolution  method  were  measured  by  using  phase
+Doppler  anemometry  to  examine  influence  of  dissolved  gas  con-
+centrations  in  the  upstream  region  of  the  decompression  nozzle.
+Flow  patterns  in  the  nozzle  were  also  observed  by  using  a  high-
+speed   video   camera.   Generation   mechanism   of   micro-bubbles
+was  discussed  based  on  the  experimental  results.  As  a  result,  we
+confirmed  that  (1)  micro-bubbles  are  generated  when  cavitation
+takes  place  in  the  decompression  nozzle,  (2)  the  Sauter  mean
+diameter d32  of micro-bubbles increases as the dissolved gas con-
+centration  xGD    increases,  and  (3)  the  bubble  number  density  nB
+increases with xGD  in bubble cavitation regime, whereas its depen-
+dency on xGD   is low in sheet cavitation regime. These results indi-
+cate   that   micro-bubbles   are   generated   by   shrink   of   cavitation
+bubbles  involving  not  only  vapor  but  also  non-condensable  gas
+which are  originally  dissolved  in  water  in  the  upstream  region  of
+the nozzle. The amount of the non-condensable gas in a cavitation
+bubble  increases  with  xGD,  and  therefore,  d32   increases  with  xGD.
+The  different  trend  in  nB   between  bubble  and  sheet  cavitation
+regimes is caused by difference in the generation process of cavita-
+tion bubbles, that is, the bubbles are directly generated by cavita-
+tion  in  bubble  cavitation  regime  whereas  they  are  generated  by
+breakup of vapor films in sheet cavitation regime.
+Acknowledgements
+The  authors  gratefully  acknowledge  Mr.  Chiaki  Taya  and  Mr.
+Kazuya Ishii for their efforts in the experiments.
+Appendix A
+The  concentration  of  dissolved  air  was  controlled  by  changing
+the  height  H  of  the  falling  film  shown  in  Fig.  2.  Fig.  A1  shows  a
+relation  between  H  and  the  concentration  DO  of  dissolved  oxy-
+gen  measured  at  the  exit  of  the  dissolution  tank  which  is  the
+same   concentration   at   the   nozzle   inlet.   The   flow   conditions,
+JL = 12  and  14 m/s,  are  the  typical  JL   conditions  for  the  bubble
+cavitation  and  sheet  cavitation  at   the  nozzle,  respectively.  DO
+increases  with  H  for  each  JL  due  to  the  increase  in  the  gas?liquid
+interfacial  area  through  which  air  dissolves  into  water.  DO  also
+increases  with  JL  due  to  the  increase  in  the  pressure  in  the  tank.
+This  result  shows  that  the  concentration  of  dissolved  air  is  con-
+trollable  with  H.
+References
+[1]  M.  Takahashi,  T.  Kawamura,  Y.  Yamamoto,  F.  Ohnari,  S.  Himuro,  S.  Shakutui,
+Effect  of  shrinking  micro-bubble  on  gas  hydrate  formation,  J.  Phys.  Chem.  B
+107 (10) (2003) 2171?2173.
+[2]  M. Takahashi, f potential of micro-bubble in aqueous: electrical properties of
+gas?water interface, J. Phys. Chem. B 109 (46) (2005) 21858?21864.
+[3]  M. Matsumoto, T. Fukunaga, K. Onoe, Polymorph control of calcium carbonate
+by reactive crystallization using microbubble technique, Chem. Eng. Res. Des.
+88 (2010) 1624?1630.
+[4]  Li-Bing Chu, Xin-Hui Xing, An-Feng Yu, Xu-Lin Sun, Benjamin Jurcik, Enhanced
+treatment  of  practical  textile  wastewater  by  microbubble  ozonation,  Process
+Saf. Environ. Protect. 86 (5) (2008) 389?393.
+[5]  C. Oliveira, R.T. Rodrigues, J. Rubi, A new technique for characterizing aerated
+flocs in a flocculation ? microbubble flotation system, Int. J. Miner. Process. 96
+(2009) 36?44.
+[6]  Y.  Kaneko,  T.  Maruyama,  K.  Takegami,  T.  Watanabe,  H.  Mitsui,  K.  Hanajiri,  H.
+Nagawa, Y. Matsumoto, Use of a microbubble  agent to increase the  effects  of
+high intensity focused ultrasound on liver tissue, Eur. Radiol. 15 (2007) 1415?
+1420.
+[7]  K. Tajima, M. Tanaka, K. Mizuno, N. Okada, K. Rokushima, Y. Watanabe, Effects
+of   bathing   in   micro-bubbles   on   recovery   from   moderate   mental   fatigue,
+Ergonomia IJE&HF 30 (2) (2008) 137?147.
+[8]  J.S.   Park,   K.   Kurata,   Application   of   microbubbles   to   hydroponics   solution
+promotes lettuce growth, Hort Technol. 19 (1) (2009) 212?215.
+[9]  A.  Serizawa,  T.  Inui,  T.  Yashiro,  Z.  Kawara,  Laminarization  of  micro-bubble
+containing milky bubbly flow in a pipe, in: 3rd European-Japanese Two-Phase
+Flow Group Meeting, Certosa di Pontignano, 2003, pp. 21?27.
+[10]  S.  Hirai,  M.  Komura,  V.  Saechout,  S.  Sugiya,  Development  of  high  density
+micro-bubble generator for environmental technology, Electron. Electr. Eng. 4
+(92) (2009) 37?40.
+[11]  M. Sadatomi, A. Kawahara, K. Kano, A. Ohtomo, Performance of a new micro-
+bubble generator with a spherical body in a flowing water tube, Exp. Thermal
+Fluid Sci. 29 (2005) 615?623.
+[12]  A. Fujiwara, S. Takagi, K. Watanabe, Y. Matsumoto, Experimental study on the
+new micro-bubble generator and its application to water purification system,
+in:  Proc.  ASME/JSME  2003  4th  Joint  Fluids  Summer  Engineering  Conference,
+FEDSM2003-45162, 2003, pp. 469?473.
+[13]  T. Makuta, F. Takemura, E. Hihara, Y. Matsumoto, M. Shoji, Generation of micro
+gas  bubbles  of  uniform  diameter  in  an  ultrasonic  field,  J.  Fluid  Mech.  548
+(2006) 113?131.
+[14]  A. Thiemann, T. Nowak, R. Mettin, F. Holsteyns, A. Lippert, Characterization of
+an acoustic cavitation bubble structure at 230 kHz, Ultrason. Sonochem. 18 (2)
+(2011) 595?600.
+[15]  J.H. Xu, S.W. Li, G.G. Chen, G.S. Luo, Formation of monodisperse microbubbles
+in a microfluidic device, AIChE J. 52 (6) (2006) 2254?2259.
+[16]  T.   Arakawa,   T.   Yamamoto,   S.   Shoji,   Micro-bubble   formation   with   organic
+membrane  in  a  multiphase  microfluidic  system,  Sens.  Actuators,  A  143  (1)
+(2008) 58?63.
+[17]  H.   Shintaku,   S.   Imamura,   S.   Kawano,   Microbubble   formations   in   MEMS-
+fabricated rectangular channels: a high-speed observation, Exp. Thermal Fluid
+Sci. 32 (5) (2008) 1132?1140.
+[18]  S.  Fujikawa,  R.  Zhang,  S.  Hayama,  G.  Peng,  The  control  of  micro-air  bubble
+generation by a rotational porous plate, Int. J. Multiph. Flow 29 (2003) 1221?
+1236.
+[19]  S. Hosokawa, K. Tanaka, Y. Maeda, A. Tomiyama, A. Yamaguchi, Y. Ito, Effect of
+entrained  air  bubbles  generated  by  a  pressurized  dissolution  method,  Trans.
+JSME, B 76 (765) (2010) 53?60.
+[20]  Y. Maeda, S. Hosokawa, C. Taya, A. Tomiyama, A. Yamaguchi, Y. Ito, Diameter
+and number density of micro-bubbles generated by a pressurized dissolution
+method, Jpn. J. Multiphase Flow 24 (4) (2010) 462?469.
+[21]  L.A. Crum, Tensile strength of water, Nature 278 (1979) 148?149.
+[22]  T.G. Leighton, Acoustic Bubbles, Academic Press, 1994.
+[23]  H.  Sakashita,  A.  Ono,  Y.  Nakabayashi,  Measurements  of  heat  flux  and  liquid-
+vapor  structure  near  the  heating  surface  in  pool  boiling  of  2-pentanol/water
+mixtures, Int. J. Heat Mass Transf. 53 (2010) 1554?1562.
+0.1            0.2            0.3            0.4            0.5
+1.0
+1.2
+1.4
+1.6
+JL = 14 m/s
+JL = 12 m/s
+H [m]
+DO [ x102 kg/m3 ]
+Fig.  A1.  Relationship  between  concentration  of  dissolved  oxygen  and  height  of
+falling film.
+Y. Maeda et al. / Experimental Thermal and Fluid Science 60 (2015) 201?207                                                                                            207

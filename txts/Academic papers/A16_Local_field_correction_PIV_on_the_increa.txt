@@ -1,0 +1,722 @@
+SExperiments in  Fluids  27  (1999)  107?116   ( Springer-Verlag 1999
+Local  field  correction  PIV:  on  the  increase  of  accuracy  of  digital  PIV  systems
+J.  Nogueira,  A.  Lecuona,  P.  A.  RodriHguez
+Abstract  Cross-correlation Particle  Image  Velocimetry  (PIV)
+has  become  a  well  known  and  widely  used  experimental
+technique.  It  has  been  already  documented  that  difficulties
+arise  resolving  velocity  structures  smaller  than  the  interroga-
+tion  window.  This  is  caused  by  signal  averaging  over  this
+window.  A  new  cross-correlation PIV  method  that  eliminates
+this  restriction  is  presented.  The  new  method brings  some
+other  enhancements, such  as  the  ability  to  deal  with  large
+velocity  gradients,  seeding  density inhomogeneities, and  high
+dispersion in the brightness of the particles. The final result is
+a method with a remarkable capability for accurately resolving
+small scale structures in the flow, down to a few times the mean
+distance  between particles. When  compared  to  particle  track-
+ing  velocimetry, the  new  method is  capable  of  obtaining
+measurements at  high  seeding  density  concentrations.  There-
+fore, better overall performance is obtained, especially with the
+limited  resolutions  of  video  CCDs.  In  this  paper,  the  new
+method is  described  and  its  performance is  evaluated and
+compared  to  traditional PIV  systems  using  synthetic  images.
+Application  to  real  PIV  data  are  included  and  the  results
+discussed.
+1
+Introduction
+The  development of  correlation based  PIV  was  made possible
+by means of optical autocorrelation techniques. Unfortunately,
+complex  opto-mechanic setups  resulted.  As  soon  as  the
+available technology made it possible, it evolved toward digital
+based  systems.  Around  1989,  attention was  focused  on
+numerical cross-correlation techniques (Cho 1989; Willert and
+Gharib 1991). As a result, PIV has become in a short time a very
+useful and  practical  experimental technique.  The  next  step  in
+its  development is  to  expand  the  measuring  capabilities,  and
+this  seems  to  be  the  evolution  in  the  last  few  years.  When  it
+Received: 9  March  1998  /  Accepted:  25  August  1998
+J.  Nogueira,  A.  Lecuona,  P.  A.  RodrmHguez
+Department of  Mechanical  Engineering
+Universidad  Carlos  III  de  Madrid,  c/Butarque  15
+E-28911  LeganeHs  Madrid,  Spain
+Correspondence to:  J.  Nogueira
+This work was partially funded by  the Spanish research agency grant
+DGICYT TAP96-1808-CE  and  PB95-0150-CO2-02. Their  contribution
+is  greatly  appreciated.
+comes to resolution of small flow scales, it is a known fact that
+the  ultimate limitation for  the  description  of  high  spatial
+frequencies  lies  in  the  Nyquist  criterium,  based  on  the  mean
+distance  between particles. Nevertheless, no  method has  been
+accepted that deals with wavelengths smaller than the interro-
+gation window (e.g. Ullum et al. 1997). This usually represents
+a  much  limiting  cut-off.
+Trying  to  resolve  smaller  length  scales  with  conventional
+PIV  systems,  iterative processes  that  use  previous  measure-
+ments to  achieve  better  ones  seem  to  be  the  common
+procedure. Two  main  paths  have  been  followed  in  this
+direction. One is  the  selection of increasingly  smaller interro-
+gation  windows  jointly  with  a  discrete  offset  between  them,
+calculated with  the  displacement measured with  previous
+windows  at  the  same  place  (Westerweel et  al.  1997,  among
+others).  This  technique  is  now  widely  used.  The  other  main
+path consists in using previous measurements of the displace-
+ments to  compensate the  deformation of  the  particle  pattern
+within the interrogation window, caused by velocity gradients.
+This is performed by means of image processing (Huang et al.
+1993b,  Jambunathan et  al. 1995,  among others).  Crosscorrela-
+tion  of  the  new  images  allows  further  corrections  to  the
+measurement. This last method has several points in its favour.
+The  first  one  is  that  the  correction  of  the  offset  displacement
+does not need to be a discrete number of pixels. Another point
+is  the  presumably  small  effect  of  velocity  gradients  on  the
+quality  of  the  correlation peak.
+Although  this  last  idea  promises  better  results,  no  satis-
+factory  implementation is  known  so  far.  This  is  attributed
+by  the  authors  to  the  strong  instabilities  that  arise  for  high
+spatial  frequencies  (their  origin  will  be  further  discussed  in
+Section  3).
+There  are  two  articles  reporting  on  this  methodology:
+z  Huang et al. (1993b): The authors make use of the correction
+of the particle pattern (although the process is more complex
+than  what  is  explained  in  Section  2).  Instability  arousal
+is  detected,  and  blamed  on  the  calculation of  velocity
+derivatives. To prevent this instability, after each correction
+of  the  particle  pattern,  a  21  by  21  pixels  smoothing  filter  is
+applied  to  the  vector  field  (the  size  of  the  interrogation
+window  used  is  31  by  31  pixels).  Another  reason  why
+divergence  of  the  correction  is  prevented  is  that  only  four
+iterations  are  carried  out.  This  way,  the  objective  of  the
+research is achieved: to develop a method able to cope with
+large  velocity  gradients  in  the  flow  field.  This  achievement,
+by  itself,  is  a  remarkable  success.
+z  Jambunathan et  al.  (1995):  In  this  work,  the  correction
+process  of  the  particle  pattern  is  like  the  one  presented in
+107
+Fig.  1.  1D  view  of  the  frequency  response  of  the  moving  average
+window
+Section 2. Again, some care has to be taken for, to deal with
+the  high  spatial  frequencies  instability.  A  method  based  on
+the  value  of  the  correlation peak  height  is  proposed.  For
+every  vector  on  the  grid,  iteration  is  stopped  when  the
+correlation  peak  has  a  lower  value  than  the  previous  one.
+Again, the work achieves a higher accuracy in the presence of
+strong velocity gradients. But no advance on the description
+of  small  flow  structures  is  obtained.
+The main difficulty to solve, for the moment, is to correctly
+identify the source of the instabilities and to develop a method
+to  eliminate  them.  In  Section  3,  a  simple  model will  be
+introduced,  allowing  the  identification  of  the  origin  of  the
+instabilities, and a way to deal with it is presented. In Section 5,
+the  final  method  is  summarised  and  in  Sections  6  and  7,
+performance of  the  new  method is  presented.  It  shows  no
+divergence,  and  the  output  quality  is  clearly  enhanced  in
+respect  to  the  usual  methods.  Finally,  Section  8  describes  the
+details  that  can  further  improve  the  new  method,  and  draws
+the  final  conclusions.
+2
+Particle  pattern  displacements  compensation
+The particle pattern correction technique applied in this article
+is  a  well-known distortion  correction  procedure  in  image
+processing. It can be found in GonzaHlez and Wintz (1987). It is
+the  same  technique  wisely  applied  in  Jambunathan et  al.
+(1995).  Nevertheless  a  brief  description  follows.
+If a certain magnitude, G, is known at the corners of a square
+of unity side length, and a system of axis, x and y, is located at
+the lower left corner, a bilinear interpolated value G(x,y) can be
+defined  for  x, y  \1  as  follows:
+G(x,y)\G(0, 0) ) (1[x)(1[y)]G(1, 0) ) x(1[y)
+]G(0, 1) ) (1[x)y]G(1, 1) ) xy
+Extension  of  this  definition  for  any  case  here  presented is
+straightforward.
+The  starting  point  of  any  cross-correlation PIV  system  is
+a  pair  of images of  the  particle pattern, a and  b,  separated by
+a  known  time interval.  Crosscorrelation of  the  corresponding
+interrogation windows approximates the displacement field of
+the  particles  from  one  image  to  the  other,  sampled  at  the
+measurement points. To compensate the pattern deformation,
+a  third  image  b*  is  obtained distorting  b.  To  achieve  this,
+several steps have to be followed for each pixel position in b*.
+The first one consists on identifying the four nodes in the grid
+of  calculated  displacements  that  surround  the  pixel.  Then,
+a bilinear interpolation from these four nodes gives the precise
+displacement corresponding to  the position of this  pixel. This
+displacement informs where to read the grey level in image b.
+This location rarely coincides with a pixel in b. For this reason,
+a  new  bilinear  interpolation is  carried  out  to  interpolate  the
+grey  level  using  the  four  nearest  pixels.
+3
+Instability  sources
+In this section, the frequency response of the correlation based
+PIV  system  is  studied.  This  leads  to  an  hypothesis  for  the
+instability  source.  As  a  result,  a  new  way  to  avoid  it  is
+proposed.
+3.1
+Frequency  response  of  standard  PIV  systems
+The  frequency  response  of  the  correlation  function,  when
+a certain size is used for the interrogation window, is somehow
+complex.  This  is  mainly  caused  by  the  non  linearities  of  the
+peak  detection  process.  A  qualitative  approximation can  be
+obtained  using  the  moving  average frequency  response  as
+a  model of  it.  Expression  1  shows  this  frequency  response
+using  the  following  nomenclature:
+F                   Side  length  of  the  interrogation  window.
+jx,  jy           Wavelengths  under  study  along  x  and  y  axis,
+respectively.
+/x,  /y         F/jxy  F/jy,  respectively.
+r                    Amplification  of  the  wavelength  under  study.
+r\sin(n/x)sin(n/y)
+n/x ) n/y                                                                                   (1)
+This amplification function is the product of two identical and
+orthogonal functions. Taking just one of these functions gives
+a  1D  view  of  it,  which  is  shown  in  Fig.  1.
+Obviously,  the  frequency  response  of  the  correlation  func-
+tion  has  more  parameters  to  take  into  account  and,  conse-
+quently, the quantitative response will differ, but the existence
+of frequency intervals with 180° phase change is a known fact.
+3.2
+Instability  prediction
+If, for a certain frequency, we consider r the amplification and
+Ai  the  original  displacement amplitude  to  be  measured, an
+iterative process, using the moving average, can be sketched as
+follows:
+z  Signal  measurement: A0\r ) Ai
+z  Measurement error: e
+0\Ai[A0 (In a PIV system, this would
+be  the  information contained  in  a  and  b*)
+z  Measurement of the previous error: r ) e
+0\r(Ai[A0) (This is
+measured by crosscorrelating the previously mentioned pair
+of  images)
+z  Corrected  measurement: A1\A0]r ) e
+0\A0]r ) (Ai[A0)
+(This  corrected  measurement can  be  used  to  obtain  a  new
+108
+Fig.  3.   1D  view  of  the  frequency response  of  the  moving  average
+window,  weighted  with  expression  3
+Fig.  2.   Weighting  function  described  in  expression  3
+image  b*  from  b  and  complete  the  iterative  loop  by
+substituting  the  older  image  b*)
+z  At  the  n  iteration,  the  corrected  measurement would  give:
+An\An~1]r ) (Ai[An~1).
+From this scheme, the general expression for An can be easily
+obtained: An\Ai-Ai ) (1[r)n.  This  means  that  for  the  nth
+correction the error would be: e
+n\Ai ) (1?r)n. This error can not
+decrease to  zero  unless  0\r\2.
+The moving average is a simple model, the behaviour of the
+cross-correlation and  subsequent  peak  detection  being  much
+more  complex.  But  blaming  the  instability  on  the  180°  phase
+change (r\0)  seems a good initial hypothesis. Its consistency
+was  checked  experimentally using  a  standard  PIV  system  on
+real  images  with  known  frequency  content.  The  frequencies
+that  diverged  in  first  place  where  those  predicted  by  this
+hypothesis.
+The  next  objective  is  to  develop  a  PIV  cross-correlation
+algorithm that  does  not  present  the  180°  phase  change.
+3.3
+Weighting  correction
+Weighting of the interrogation window can be used to change
+the  frequency  response  of  a  moving  average.  Arbitrarily
+looking for symmetric weighting functions, a  generic one  can
+be  defined  as  follows:
+W(m, g)\  +=
+i,j/0
+kij cosA2nim
+F   BcosA2nFjgB;     DmD,  DgDOF/2     (2)
+where  m,  g denote the  coordinates from  the  centre  of  the
+window. This  way, the  following expression  for  the  frequency
+response  of  the  weighted  moving  average is  obtained:
+r\sin(n/x) sin(n/y)
+n/x ) n/y
+=
++
+i,j/0
+kij([1)i`j     /2x
+/2x[i2 )
+/2y
+/2y[j2
+Now  the  restriction  0\r\2  can  be  imposed.  From  all  the
+possible  weighting  functions  that  this  restriction  allows,  the
+following  one  seems  suitable:
+k0,0\1;     kij\ 144
+i2j2n4  if  i, jO0, 0.
+This  means
+W(m, g)\9A4KFm K2[4KFm K]1BA4KFgK2[4KFg K]1B       (3)
+And,  therefore,
+r\       36
+n2/x2 ) n2/y2  A1[
+sin(n/x)
+n/x     BA1[
+sin(n/y)
+n/y     B          (4)
+Fig. 2 shows the shape of the weighting function. Fig. 3 depicts
+a  1D  view  of  its  frequency  response.
+Although  this  frequency  response  function  resembles  the
+one  of  the  gaussian  filter,  there  is  one  capital  difference,  the
+discontinuity  in  the  derivative  at  the  centre  of  the  weighting
+window (see  Fig.  2).  This  is  essential  for  the  accuracy  at  high
+frequencies. Besides that, the cutoff frequency is approximately
+twice, a potentially advantageous feature for non iterative PIV.
+Some  performance checks  have  been  carried  out  using  this
+weighting function over synthetic images with one dimensional
+displacements. No  statistically  significant  phase  reversal  was
+detected.
+3.4
+New  source  of  errors
+The expected result for a system with the described weighting
+function  is  the  disappearance  of  divergence  in  the  iteration.
+The  result from initial  tests  was  that the  explosive  divergence
+did not arise, but there was still a source of error characterised
+by  a  slow  growth,  but  able  to  hide  the  real  results.  This  new
+source  of  error  comes  from  the  weighting  function  itself.
+Unfortunately, this  function  does  not  only  affect  the  weight
+of  each  pair  of  particles,  in  respect  to  its  position  in  the
+interrogation window,  but  also  the  shape  of  the  grey  levels
+profile of  each  single  particle. This  effect shifts  the  maximum
+brightness  of  the  particle  towards  the  highest  value  of  the
+weighting function (centre of the window). If the ratio between
+the  particle  brightness  radial  profile  and  its  slope  differs
+between the image a and the image b, a spurious displacement
+is measured by the PIV system. This effect is depicted in Fig.  4.
+109
+Fig.  5.  Possible  spurious  measurement of  displacements when  both
+images  of  the  same  particle  are  of  different diameters.  Black  dots
+represent measurement grid  nodes
+Fig.  4.  Example of  the  shift  on  the  location  of  the  maximum  (and
+average) value of the grey level radial profile of the particle images due
+to  weighting.  The  line  traces  over  the  particles  in  the  right  side
+represent the  weighting  function
+The magnitude of this displacement is rather small (typically
+in  the  order  of  0.02  pixels  for  a  change  in  diameter of  2  to
+4  pixels  within  an  interrogation  window  of  64  by  64  pixels).
+What makes this deviation critical is that, from each grid node,
+the  direction  of  the  shift  is  different.  Consequently, even  for
+a particle that shows  the same brightness in  both images, if it
+has  smaller  diameter  in  the  first  than  in  the  second  one,
+a measurement like the one depicted in Fig.  5 will result. This
+measurement gives  a  null  displacement  prediction  at  the
+particle  location,  and  therefore  the  measurement in  the
+following  iterations repeats.  The  result  of  these  spurious
+contributions  is  an  addition  that  can  represent  appreciable
+deviations  of  the  displacements  field  after  many  iterations.
+3.5
+Modification  of  the  weighting  correction
+Several solutions can be foreseen to deal with this new source
+of error. The common idea is  to use a weighting function that
+locally  has  no  slope.  This  implies  discrete  steps  that  can  not
+jump  at  any  particle  image  location. For  doing  this,  particle
+segmentation seems  necessary,  being  this  a  cumbersome
+operation. Actually, only particle group segmentation is what is
+necessary.  One  way  to  achieve  this  is  as  follows:
+z  Identification of the local maxima in the grey levels map on
+a  and  b  images.  To  minimise  the  effect  of  noise,  only  the
+maxima that are  higher than 25% of the dynamic range are
+taken into  account.  This  is  an  empirically chosen  threshold
+level.
+z  Identification  of  every  maximum in  each  image  that  co-
+incides  or  is  one  pixel  away  from  a  maximum  at  the  other
+image.
+z  Elaboration  of  a  mask  with  all  the  positions  of  the  maxima
+detected  in  the  previous  step  and  their  eight  neighbour
+pixels.
+z  Identification  of  every  connected  set  in  the  previous  mask.
+Each  one  is  weighted  with  the  coefficient  that  corresponds,
+trough expression 3, to its centre of mass. The pixels that do
+not  belong  to  the  mask  are  zero  weighted.
+This  way,  a  slow  converging  method  is  obtained  that
+performs  correctly  for  displacements  smaller  than  one  pixel.
+As  PIV  displacements  are  usually  larger  than  this,  the  final
+method will incorporate a hybrid system, further described in
+Section  5.
+4
+Vector  validation  and  interpolation
+Statistically,  there  is  no  null  probability  of  obtaining  a  false
+measurement at a certain grid  node. If the deviation from the
+true value is large enough, future steps in the iterative process
+may  be  unable  to  correct  the  error.  One  method  for  dealing
+with  these  errors  (already  used  by  Jambunathan et  al.  1995;
+Huang  et  al.  1993b)  is  to  employ  validation  and interpolation
+algorithms  in  the  intermediate steps  of  the  iterative
+process.  Many  relevant papers  on  these  important  subjects
+have been written. Westerweel (1994); Fujita and Kaizu (1995)
+and  Raffel  and  Kompenhans (1996)  are  good  examples  for
+validation  algorithms.  Malik  and  Dracos  (1995)  and  AguKiH
+and  JimeHnez  (1986),  among others,  deal  with  interpolation
+in  PIV.
+Recently,  additional  insight  on  both  topics  has  been  re-
+ported  in  Nogueira  et  al.  (1997b).  The  main  objective  for
+validation  is  to  find  an  effective  algorithm for  false  vector
+detection  with  low  sensitivity  to  the  parameters selected  by
+the  user.  While  for  interpolation,  in  correlation  based  PIV,
+advantage can  be  taken on  the  square  grid  location  of  the
+values  to  interpolate. This  allows  the  development of  more
+accurate interpolating FIR filters. There, a detailed description
+shows  that,  even  with  low  quality  images,  both  steps  can  be
+taken  with  reliability.
+In order  to complete the  iterative process,  these algorithms
+have been implemented (from the possible interpolation filters,
+option  ‘‘b’’  of  the  aforementioned study  has  been  used).  One
+can  object  that  interpolation is  a  potentially  inaccurate
+operation,  but  what  makes  its  use  allowable  with  the  method
+here  presented  is  that  signal  to  noise  ratio  is  increased  from
+step to step. This will eventually remove the need of interpola-
+tion on all the interrogation windows, but those with very low
+values  of  the  signal  to  noise  ratio.  A  peak  quality  factor  will
+inform  of  this  circumstance  and  the  measurement could  be
+discarded.
+110
+Fig.  6.   Performance comparison  for  the  LFCPIV  method  and  others
+(no  thermal noise,  percentage  of  disappeared  particles\5%)
+5
+Final  system
+Taking  into  account  all  the  issues  mentioned so  far,  a  new
+system for the evaluation of PIV images has been implemented.
+A summary of the procedure of the new Local Field Correction
+PIV  (LFCPIV)  system  is  presented  in  this  section,  defined  by
+the  ensuing  steps:
+1. Initial processing of the images. This step is carried out as
+in an usual cross-correlation process. The only extra restriction
+is that a weighting window resulting in no phase reversal of the
+original signal must be used. In our case, the chosen weighting
+function is the one defined by expression 3. This way, and with
+the  introduction of  some  new  nomenclature, expression 5  for
+the  cross-correlation coefficient,  Clm,  is  obtained:
+f (m, g),  g(m, g):  Grey  level  maps  of  the  interrogation window,
+belonging  to  the  first  and  second  correlating
+images,  respectively.
+t(m, g)\S9A4KFm K2[4K4m K]1BA4KFg K2[4KFg K]1B
+Clm\
++mF/2
+,g/~F/2 t2(m, g) f (m, g)  ) g(m]l, g]m)
+J+F/2
+m,g/~F/2 t2(m, g) f 2 (m, g) +Fm,/g2/~F/2 t2(m, g) g2(m]l, g]m)
+(5)
+This  kind  of  calculation  includes  the  errors  described  in
+Section  3.4.
+2.  Validation  and  interpolation of  vectors  to  avoid  inter-
+mediate false  measurements.
+3.  Compensation  of  the  particle  pattern  deformation, once
+a  first  approximation to  the  particle  pattern  displacement is
+obtained. With  the  algorithm  described  in  Section  2,  a  b*
+image  is  obtained  to  use  it  in  place  of  image  b.
+4.  Further  processing  on  the  images  a  and  b*.  To  perform
+this,  one  out  of  two  algorithms  must  be  selected.  If  a  vector
+modulus in  the  last  displacement correction is  larger than  0.5
+pixels, the measurement is  carried out  as in step 1.  Otherwise
+the  processing  described  in  Section  3.5  is  carried  out.  As  the
+new  weighting  is  not  lineal,  the  direct  application of  the  FFT
+algorithm would  not  be  possible.  To  avoid  this,  a  slight
+modification has  been  devised  for.  This  way,  by  naming
+t*(m, g) the square root of the weighting function, described in
+Section  3.5,  the  modified  correlation coefficient  is  as  follows:
+Clm\
++mF/2
+,g/~F/2 t*(m, g) f (m, g)  ) t*(m]l, g]m)g(m]l, g]m)
+J+F/2
+m,g/~F/2
+t*2(m, g) f 2 (m, g) +F/2
+m, g/~F/2
+t*2(m]l, g]m)g2(m]l, g]m)
+(6)
+Once  this  processing  is  finished,  the  correction  for  the
+displacement is  added  to  the  previous  displacement estima-
+tion.  Thus,  a  new  approximation to  the  particle  pattern
+deformation is  obtained. This  approximation can  be supplied
+to  step  2,  in  order  to  close  the  iterative  loop.
+It  should  be  noted  that  while  expression  5  is  an  improve-
+ment in  some  ways  when  used  in  a  traditional  PIV  system
+(avoids  the  180° phase  change),  expression  6  is  not.  The  only
+reason to apply expression 6 is to make possible the use of the
+FFT  algorithms  when  using  t*(m, g).
+6
+Validation  by  use  of  synthetic  images
+Several  runs  on  148  by  148  pixels  synthetic  images  were
+performed. These  experiments  were  designed  to  compare  the
+characteristics of the new method with the conventional ones.
+No validation nor interpolation were carried out, to avoid over
+estimation of the new method performance. The possible false
+measurements were not included in the error evaluation for the
+conventional methods, but they were taken into account for the
+LFCPIV  error  evaluation.
+The synthetic image characteristics were defined as follows:
+z  Background  illumination  grey  level:  not  correlated between
+images, with smooth variations on a characteristic length of
+60  pixels,  and  with  a  grey  level  up  to  20%  of  the  image
+dynamic  range.
+z  Random distribution of particles: images were generated for
+several  mean  distances  between particles.  This  distance,
+named  d,  ranged  from  d\4.5  pixels  to  d\  11.24  pixels.
+z  Particle  shape:  all  particles  were  modelled with  gaussian
+shape, with peak brightness ranging from 0 up to 92% of the
+8  bit  dynamic  range.  Between  images,  each  particle  was
+allowed  to  display  a  random  difference  in  brightness
+up  to 10%. The diameter of the particle (arbitrarily defined
+as  the  zone  with  grey  levels  higher  than  3%  of  the  central
+one) ranged from 2 to 4 pixels, allowing a difference between
+images  of  the  same  particle  of  up  to  10%.
+z  Thermal noise: it was introduced in the images as a random
+value, added to the grey level of each pixel. This noise ranged
+from 0 to a standard deviation of 10% of the dynamic range,
+depending  on  the  run.
+z  Percentage  of  disappeared  particles:  depending  on  the  run,
+a  certain  percentage of  the  particles  in  one  image  did  not
+have a matching particle in the other. This percentage ranged
+from  5  to  30%.
+These  parameters were  selected  for  representing both,
+typical experimental conditions, as well as difficult conditions
+in  some  cases.
+In  these  runs  a  comparison  was  made for  the  new  method,
+applying  a  64  by  64  pixels  interrogation windows,  against
+111
+Fig. 7a+d.  Displacement fields obtained from a synthetic image, with
+components  at  several  spatial  frequencies  (no  thermal noise,  5%  of
+disappeared  particles  and  d\4.5  pixels).  The  grid  node  spacing
+corresponds to 4 pixels.  a Exact displacement field. b  Field measured
+by  means  of  a  conventional  PIV  system  with  32  by  32  pixels
+interrogation windows (rms(e)/rms(s)\0.76). c Same as case ‘‘b’’, but
+with  16  by  16  pixels  interrogation windows  (rms(e)/rms(s)\0.51).
+d  Field  measured  with  the  new  LFCPIV  system  with  64  by  64
+interrogation windows  (rms(e)/rms(s)\0.30)
+conventional  PIV  methods  with  16  by  16  and  32  by  32  pixels
+interrogation windows  and,  in  some  cases,  against  the  Jam-
+bunathan method with the same sizes. The LFCPIV interroga-
+tion window was selected this large to keep the error described
+in  Section  3.4.  small.  On  the  other  hand,  the  low  averaging
+effect of LFCPIV, owing to its all-pass character, makes this size
+competitive with smaller ones for conventional PIV systems, as
+can be observed in  the results further presented. This  all-pass
+effect comes from the successive corrections introduced during
+the  iterations,  being  it  limited  only  by  the  finite  number  of
+iterations and the accumulation of small errors in the process-
+ing.  In  all  the  comparisons  the  LFCPIV  system  performed
+clearly  better for  all  frequencies.  The  results  of  some  of  these
+runs  are  further  presented.
+One set of runs dealt with a sinusoidal displacement field of
+a single frequency in the y direction and no displacement in the
+x direction. The root mean square value of the obtained errors
+(rms(e))  has  been  normalised with  the  rms  of  the  signal
+(rms(s)).  The  resulting  plot  is  presented in  Fig.  6.
+Other runs were performed for 2D displacement fields. The
+performance of all the methods deteriorated, but again the new
+112                                                                                                                                          method performed  clearly  better.  One  example  of  a  synthetic
+Fig.  9.   Error  of  the  LFCPIV  method  after  35  iterations
+Fig.  8.   Error  of  the  LFCPIV  method  as  a  function  of  the  number  of
+iterations, for  the  case  j\31  pixels  in  Fig.  6
+image  with  several  frequencies  is  depicted  in  Fig  7.  In  this
+figure,  the  largest  errors  are  observed  near  the  edges,  where
+there is lack of information. This contributes very much to the
+overall error figure obtained. The displacement field, sx and sy,
+in this sample follows expression 7 for x, y and s measured in
+pixels.
+sx\[13 ) (sin(2nx/41) ) cos(2ny/41)
+]sin(2nx/51) ) cos(2ny/51))
+sy\13 ) (cos(2nx/41) ) sin(2ny/41)
+]cos(2nx/51) ) sin(2ny/51)
+]sin(2nx/42.6)]sin(2nx/64.2))                                  (7)
+This  does  not  represent  a  physical  flow  field,  but  incorpor-
+ates representative vortical structures. In Figs.  6 and 7 it can be
+clearly  seen  that  the  response  of  the  LFCPIV  to  high  spatial
+frequencies  is  not  limited  by  the  size  of  the  interrogation
+window.
+7
+Application  to  real  PIV  data
+7.1
+Convenience  of  a  quality  factor
+The evolution of the error with the number of iterations is not
+monotonously decreasing  but  has  a  minimum. After  this
+minimum, the  small  errors  that  the  method  introduces  after
+each iteration accumulate and  a  slight  increase of the  error  is
+observed.  To  show  this  effect,  the  evolution  of  the  error  with
+the  number  of  iterations  is  depicted  in  Fig.  8.
+The  number  of  iterations  to  reach  the  minimum  at  each
+frequency differs. But even  for a  low  number of  iterations (as
+35) the error at each frequency is quite smaller than with usual
+PIV methods. This can be observed in the plot shown in Fig.  9,
+that  corresponds  to  the  same  run  as  Fig.  6.
+It  would  be  useful  to  have  a  quality  factor,  able  to  inform
+about the location of the minimum. Three of these factors were
+evaluated:
+z  The  correlation coefficient  between  a  and  b*.
+z  The  fraction  of  maxima  of  the  grey  levels  map  of  a  that
+coincide with maxima in b* (only maxima higher than 20%
+of  the  dynamic  range  are  taken  into  account).
+z  The  root  mean  square  value  of  the  correction  of  the
+displacements  between  a  and  b*,  measured  by  means  of
+a  usual  16  by  16  PIV  method.
+After some experiments, the first quality factor was found to be
+more  accurate and  thus  further  considered  in  this  study.
+However,  the  maximum  of  its  output  happens  to  occur  later
+than  the  minimum  error.  To  correct  this  behaviour,  the  first
+iteration where  the  value  of  the  quality  factor  decreases  and
+does not match the preceding one for the following 4 iterations
+was  chosen  as  the  last  iteration.  Difference between  this  so
+obtained error  and  the  minimum  was  verified  to  be  smaller
+than 5% in all the runs performed with synthetic images. The
+difference  would  not  be  perceptible  in  Fig.  9.
+7.2
+Application  to  real  PIV  data  without  vector  validation  and
+interpolation
+For  the  window  size  here  used  (64  by  64  pixels),  most  of  the
+times  there  is  no  need  to  apply  the  vector  validation  and
+interpolation steps.  The  flow  field  depicted  in  Nogueira  et  al.
+(1997a) is used to show an example of this. It represents the 2D
+components of the velocity at the central plane of a parallel wall
+tank,  where  water  had  been  stirred  by  an  oar-blade, within
+a  125  by  94 mm  section.  The  Reynolds  number  based  on  the
+length  travelled  by  the  oar-blade (roughly  100 mm)  and  its
+velocity  is  Re\2500.  Fig.  10  shows  the  complete  flow  field
+section and the selected zone where the new method is applied.
+The number of iterations to obtain this result was 71, using the
+parameter defined in  Section 7.1.  This  example just illustrates
+that validation and interpolation steps are not essential for the
+correct operation of LFCPIV, when the quality of the image is
+good.
+7.3
+Application  to  real  PIV  data  with  vector  validation  and
+interpolation
+For  high  enough  values  of  the  velocity  gradients  and/or  low
+enough quality  of  the  PIV  images,  even  an  interrogation
+window of 64 by 64 pixels may fail. This is the case of the image
+published  in  Nogueira  et  al.  (1997b).  For  this  kind  of  images,
+validation and  interpolation of  the  vectors  are  needed for  the
+initial  iterations.  After  some  iterations  the  particle  pattern
+113
+Fig. 10a+d.  Application of the system to the PIV data from Nogueira
+et  al.  (1997a).  The  grid  node  spacing  corresponds  to  4  pixels,  except
+for  the  first  case,  where  it  corresponds  to  16  pixels.  a  Displacement
+field obtained with a standard PIV system processing a pair of images
+of 768 by 484 pixels, using an interrogation window of 32 by 32 pixels.
+b Field in the square depicted in image ‘‘a’’ measured with a standard
+PIV processing with 32  by  32  pixels interrogation window. c Same as
+case  ‘‘b’’,  but  with  16  by  16  pixels  interrogation window.  d  Same  as
+case  ‘‘b’’,  measured with  the  new  LFCPIV  system,  with  a  64  by  64
+interrogation window
+correction algorithm greatly reduces the number of erroneous
+vectors.  Fig.  11  presents  the  analysis  of  this  flow.
+In  this  case,  the  number  of  unreliable measurements
+decreases rapidly with the number of iterations. Nevertheless,
+some  of  the  finally  obtained vectors  may  be  objectable.  An
+indication of the reliability of the measurements is given by the
+quality of the correlation peak, as several authors propose (e.g.
+Huang  et  al.  1993a).
+Some  measurements were  carried  out  on  double  exposure
+images from autocorrelation PIV systems, using vector valida-
+tion and interpolation, as well as a specific algorithm to avoid
+the  peak  at  null  displacement. The  improvement on  small
+structures  resolution  was  similar  to  that  shown  here  for
+cross-correlation PIV  images  (Nogueira  1997c).
+8
+Conclusions  and  future  work
+The  LFCPIV  method, here  presented,  shows  better  perfor-
+mances  than  traditional  PIV.  In  fact,  it  is  the  first  PIV
+cross-correlation method  able  to  clearly  resolve  structures
+114
+Fig.  11a+d.  Application of the method to the PIV data from Nogueira
+et  al. (1997b) (including vector validation and interpolation). The grid
+node spacing corresponds to 4 pixels, except for the first case, where it
+corresponds  to  16  pixels.  a  Displacement field  obtaned with  a
+standard  PIV  system  on  an  image  of  768  by  484  pixels,  using  an
+interrogation window  of  32  by  32  pixels.  b  Displacement field  in
+the  square  depicted  in  image  ‘‘a’’,  obtained  with  standard  PIV
+processing with a 32 by 32 pixels interrogation window. c Same as ‘‘b’’,
+but  with  a  16  by  16  pixels  interrogation window.  d  Same  as  ‘‘b’’,  but
+measured with the new LFCPIV system, with a 64 by 64 interrogation
+window
+smaller than  the  interrogation  window.  Additionally,  better
+response is achieved in presence of velocity gradients and poor
+quality  of  seeding.
+An  outstanding feature of  this  method is  that  the  measure-
+ment quality is little affected by having particles with dissimilar
+brightness  within  the  interrogation window.  The  field  is  first
+approximated by bright particles, but once the deformation of
+the pattern of the particles is compensated, fainter ones come
+into play and the remaining correction is  done. The following
+illustrates this  process.  The  correlation  peak  corresponding
+to  faint  particles  can  be  initially  located  far  from  the  peak
+corresponding  to  bright  particles.  In  this  case,  the  displace-
+ment of  the  bright  ones  is  only  measured, but  with  a  slight
+deviation  towards the  lower  peak.  As  the  correction  proceeds
+(and  owing  to  this  slight  deviation  present  at  each  iteration)
+both peaks approach each other, and processing ends with the
+115
+correct  measurement. The  energy  of  both  peaks  adds  up,
+increasing the signal to noise ratio and giving a more accurate
+displacement. Very  much  the  same  happens  with  seeding
+density  inhomogeneities.
+The main drawback of the system here proposed, compared
+with traditional PIV, is the computing time it requires. A rough
+estimation gives  10](n[5)/5  times  the  computing  required
+for a traditional system (being n[5 the number of iterations).
+Commercial  systems  already  available  (Dantec  Flowmap  PIV
+2000  processor,  e.g.)  deliver  in  the  order  of  104  vectors/s.
+Increasing  the  total  processing  time  to  some  seconds
+seems  acceptable.  It  should  be  mentioned that  LFCPIV  can
+be  ran  as  an  off-line processing,  leaving  the  online  capability
+of  traditional PIV  systems  for  the  optimisation  of  the
+experiment.
+Several  ways  for  improvement  of  the  performance of  the
+LFCPIV  are  left.  The  more  remarkable ones  are:
+z  It  is  more  accurate  to  associate  the  velocity  to  the  middle
+point  of  the  displacement  measured, than  to  the  beginning
+of  it  (as  it  is  done  here).  The  way  to  implement this  is
+straightforward:  compensating  half  of  the  displacement  in
+each  image,  a  and  b.  A  secondary  effect  of  this  procedure
+is  the  ability  to  deal  with  larger  velocity  gradients  (as  the
+deformation of  the  particle  patterns  is  smaller).
+z  Implementation of a higher order interpolation for the image
+grey  map  in  the  pattern  correction  algorithm would  deliver
+a higher signal to noise ratio when cross-correlating with b*
+images.
+z  Location  of  the  cross-correlation peak  with  better  schemes
+than  a  three  points  parabolic  fit  would  marginally  improve
+the  resolution  (Lourenco  and  Krothapalli 1995).
+z  Further study of the restriction imposed in Section 3.3 would
+lead  to  the  identification  of  better  weighting  functions.
+z  Better ways to avoid the secondary error sketched in Section
+3.4  may  enhance  the  performance of  the  entire  LFCPIV
+algorithm.
+References
+AguKi  JC;  JimeHnez  J  (1987)  On  the  performance of  particle  tracking.
+J  Fluid  Mech  185:  447?468
+Cho  Y-C  (1989)  Digital  image  velocimetry.  Appl  Opt  28:  740?748
+Fujita  I;  Kaizu  T  (1995)  Correction  method  of  erroneous vectors  in
+PIV.  J  Flow  Visual  Image  Process  2:  173?185
+GonzaHlez  RC;  Wintz  P  (1987)  Digital  Image  Processing.  (ed  Ad-
+dison?Wesley)
+Huang HT; Fiedler HE; Wang JJ (1993a) Limitation and Improvement
+of  PIV  Part  I:  limitation of  conventional techniques  due  to
+deformation of  particle  patterns).  Exp  Fluids  15:  168?174
+Huang HT; Fiedler HE; Wang JJ (1993b) Limitation and Improvement
+of  PIV  (Part  II:  Particle  image  distortion,  a  novel  technique).  Exp
+Fluids  15:  263?273
+Jambunathan  K;  Ju  XY;  Dobbins  BN;  Ashforth-Frost  S  (1995)  An
+improved  cross  correlation  technique  for  particle  image
+velocimetry.  Measurement Sci  Technol  6:  507?514
+Lourenco  L;  Krothapalli  A  (1995)  On  the  accuracy  of  velocity  and
+vorticity  measurements with  PIV.  Exp  Fluids  18:  421?428
+Malik  NA;  Dracos  T  (1995)  Interpolation Schemes  for  Three-
+Dimensional Velocity  Fields  from  Scattered  Data  Using  Taylor
+Expansions.  J  Comput Phys  119:  231?243
+Nogueira  J;  Lecuona  A;  RodrmHguez  P  (1997a)  On  the  design  of  some
+PIV postprocessing filters. Seventh Int Conf. on Laser Anemometry
+Advances and Applications. University of Karlsruhe, Germany, 8?11
+September
+Nogueira  J;  Lecuona  A;  RodrmHguez  PA  (1977b)  Data  validation,  false
+vectors correction and derived magnitudes calculation on PIV data.
+Measurement Sci  Technol  8:  1493?1501
+Nogueira  J  (1997c)  Contribuciones  a  la  teHcnica  de  velocimetrmHa  por
+imagen de  partmHculas  (PIV).  Ph.D.  thesis,  E.T.S.I.  AeronaHuticos,
+Universidad  Politecnica  de  Madrid,  Spain
+Raffel M; J Kompenhans (1996) Post Processing: Data Validation. Von
+Karman  Institute  for  Fluid,  Dynamics  Lecture  Series  1996-03
+Ullum  U;  Schmidt  JJ;  Larsen  PS;  McCluskey  DR  (1997)  Statistical
+analysis  and  accuracy  of  PIV  data.  Int  Workshop  PIV’97-Fukui,
+Fukui,  Japan,  July  1997
+Westerweel  J (1994)  Efficient detection of  spurious vecors  in particle
+image  velocimetry  data.  Exp  Fluids  16:  236?247
+Westerweel  J;  Dabiri  D;  Gharib  M  (1997)  The  effect  of  a  discrete
+window offset on the accuracy of cross-correlation analysis of digital
+PIV  recordings.  Exp  Fluids  23:  20?28
+Willert  CE;  Gharib  M  (1991)  Digital  particle  image  velocimetry.  Exp
+Fluids  10:  181?193
+116

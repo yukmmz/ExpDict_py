@@ -1,0 +1,317 @@
+See discussions, stats, and author profiles for this publication at: https://www.researchgate.net/publication/357795789
+Soap bubbles seeding for quantitative time resolved velocity measurements of a
+turbulent wake flow behind a cylinder
+Conference Paper ・ August 2021
+CITATIONS
+0
+5 authors, including:
+Some of the authors of this publication are also working on these related projects:
+Multi Instrument Manager (MIM) Software Solution View project
+Carsten Kykal
+TSI Inc.
+20 PUBLICATIONS???92 CITATIONS???
+SEE PROFILE
+All content following this page was uploaded by Carsten Kykal on 13 January 2022.
+The user has requested enhancement of the downloaded file.
+14th International Symposium on Particle Image Velocimetry - ISPIV 2021 August 1-4, Chicago, USA 
+1 
+ 
+Soap bubbles seeding for quantitative time resolved velocity 
+measurements of a turbulent wake flow behind a cylinder 
+A. Koched1, G. Serra 2, G. Romano2, C. Kykal3, J. Stefanini1 
+1TSI France Inc. Hotel Technologique. BP100, Technopole. de Chateau Gombert 13382 Marseille, France 
+2University “La Sapienza”, Via Eudossiana 18, 00184 Roma, Italy 
+3TSI GmbH Neukollner Strasse 4, 52068 Aachen Germany 
+ 
+Abstract 
+The wake flow behind a cylinder of 100mm diameter is investigated using time resolved 2D PIV technique applied 
+to an air flow generated in a closed loop open test section wind tunnel. The flow is seeded using a micro soap 
+bubble generator (BG-1000, TSI Inc.). The bubbles in the air flow were illuminated with a continuous laser source 
+and imaged using a high-speed camera. The main purpose of this study is to show features and advantages of using 
+soap bubbles as seeding for a relatively large-scale PIV investigation under low power illumination conditions. 
+ 
+Overview 
+            A proper seeding of air flows to get correct Flow Visualization and velocity measurements is an 
+important topic especially when considering Particle Image Velocimetry (PIV) technique. As it is well 
+known, a proper tracer would ideally follow the fluid flow without any deviation and scatter enough light 
+to allow acquisition of bright and contrasted images. These two requirements are mutually ruled out, 
+basically depending respectively on the inverse of the squared tracer diameter and directly on the squared 
+diameter, so that a compromise must be found [1, 2]. While in liquid flows it is quite simple to insert 
+spherical solid particles of correct size and density in order to fulfill the previous requirements, in gas 
+flows  this  is  not  possible  and  the  attention  was  focused  onto  small  droplets  and  bubbles.  They  are 
+generated  by  atomizer  and  sprays,  thus  ensuring  naturally  an  isotropic  spherical  shape,  with  a 
+polydisperse size distribution. The  basic  parameter  arising  from  an  exact  solution  of  a  single  particle 
+moving in a fluid flow (Basset-Boussinesq-Oseen equation), is the Stokes time scale [1]: 
+ 
+            ????  = ????
+????
+??2
+18 ?
+ 
+ 
+where ? indicate the density, d the particle diameter, ? the kinematic viscosity and suffix p and f refer to 
+particle and fluid.  
+Using typical values for a solid hollow particle (d = 10?m) used as a tracer in an air flow, the resulting 
+Stokes time scale is in the order of one millisecond or slightly smaller,  which allows to follow flow 
+oscillations only down to a hundredth of a second (considering phase shifts, aliasing and other sampling 
+problems). However, in a turbulent air wake, the typical scale for vortex shedding could be easily smaller 
+than this order of magnitude [3, 4], so far confirming that solid particles must be ruled out. A simple 
+evaluation  of  such  a  time  scale  for  oil  or  water  droplets  of  the  same  diameter,  gives  similar  values, 
+whereas  the  use  of  bubbles  could  reduce  this  time  by  a  factor  of  around  one  thousand.  This  allows 
+investigating higher Reynolds number flows and lower flow scales offering then an excellent alternative 
+for seeding air flows in wind tunnels for example. 
+14th International Symposium on Particle Image Velocimetry - ISPIV 2021 August 1-4, Chicago, USA 
+2 
+ 
+            The second parameter to be considered is the intensity of scattered light from a particle source. 
+From Lorenz-Mie theory, an exact solution for an electromagnetic wave scattered by a spherical particle 
+can  be  found  and  the  intensity  of  scattered  light  as  a  function  of  particle  diameter,  refractive  index, 
+medium properties, angular position of the receiver and light parameters as wavelength and polarization, 
+can be computed [2]. For example, for a particle size of 1 ?m or larger, the intensity is proportional to 
+the square of the particle diameter, as also predicted by geometrical optics, so far indicating that the use 
+of particles bigger in size of a factor 2-3 as tracers, could  lead to nearly ten times higher intensities 
+reflected by the individual particles and detected by the camera sensor. 
+            There  is  a  third  aspect  to  be  considered  with  particular  care,  which  is  related  to  safety  and 
+safeguard procedures for operators and instrumentation. In liquid flows investigation, there is a lower 
+chance  of  a  direct  exposure  of  the  users  and  instrumentation  to  the  seeding  particles.  The  risk  of 
+contamination due to the seeding particles can also be minimized through the collection, drain, filtration 
+and storage of these tracers. However, for seeding air flows, seeking for safe tracers without a major risk 
+of contamination, inhalation and deposition on instrumentation might be challenging. Even though when 
+health risk is limited, uncomfortable feelings due to a long exposure, to oil smoke/droplets for example, 
+cannot be neglected. 
+            In the framework of PIV, seeding medium scale to large scale wind tunnels could be challenging. 
+In fact, in such facilities, the region of interest is usually quite large, thus requiring high intensity  of 
+illumination sources and optimal tracer scattering properties. In addition, the concentration of tracer must 
+be  large  and  homogeneous  in  the  whole  investigated  region  which  highlights  the  importance  of  the 
+position of the injection of the seeding within the wind tunnel which might be an additional relevant 
+constraint  to  be  considered.  Following  previous  concerns,  the  solution  is  addressed  towards  the 
+generation  of  high  concentration,  almost  neutrally  buoyant  bubbles  with  long  residence  time  in  the 
+facility. So far, the choice was made to test the new Micro bubble generator BG-1000 from TSI Inc. [5], 
+to comply with all previous requirements. The generator has been tested in the open test section of the 
+subsonic  wind  tunnel  at  La  Sapienza,  University  of  Roma,  for  the  validation  of  a  standard  largely 
+investigated flow as the wake of a cylinder. The position of the seeding injection within the wind tunnel, 
+as  well  as  the  velocity  of  the  flow  have  been  changed  in  order  to  investigate  their  influence  on  the 
+measured mean and instantaneous velocity fields. 
+ 
+Experimental set-up  
+            The  BG-1000  surfactant/water-based  micro  bubble  generator,  was  designed  to  produce  soap 
+bubbles with diameters of 10-30μm, so far filling the gap between seeding technologies generating tracer 
+size of a few microns and others in the interval from a few hundred microns to millimeters. Therefore, 
+the soap bubbles from the bubble generator (BG) combine the advantage of a higher scattered signal and 
+a better tracer capabilities for capturing even small vortical structures as in boundary layers, jets and 
+wakes. This makes the bubbles suitable as seeding particles for planar and volumetric velocimetry, with 
+the highest accuracy and spatial resolution in air flows in wind tunnels (opened or closed type) or open 
+environments [5].  
+            The  working  principle  of  the  BG-1000  is  based  on  cavitation  in  liquid  media  with  a  rapid 
+depressurization of a solution initially pressurized to about 70 bars (1000 psi) and consisting of a mixture 
+of liquid and 5% to 10% surfactants. The water-surfactant solution dissolves air rapidly and expands at 
+the exit of a set of 10 nozzles with a diameter of 200μm each. The implosion process of the bubbles 
+further fragments the initial bubble into many smaller micron-sized bubbles forming a plume of neutrally 
+buoyant bubbles with high output bubbles concentration (up to 107 bubbles/s). The Stokes number is 
+14th International Symposium on Particle Image Velocimetry - ISPIV 2021 August 1-4, Chicago, USA 
+3 
+ 
+found equal to 0.12 at 1 kHz motions frequency [5]. The bubbles remain suspended for long periods of 
+time (>30min), reducing the need for re-seeding frequently the flow in large facilities [5].  
+            PIV measurements have been performed in the subsonic wind tunnel of La Sapienza University 
+in  Rome.  The    maximum  free  stream  velocity  reaches  50  m/s  in  this  wind  tunnel,  with  turbulence 
+fluctuations around 0.5% at 20 m/s. The open test section being circular with a diameter of around 1 m 
+and a length of 1.5 m. The flow is stabilized using honeycombs (with a size of 0.5 cm) and screens placed 
+upstream of the test section, in addition to flow stabilizers shaped as curved blades located after the 
+upstream bend. A circular cylinder with a diameter of D=0.1 m and a length of 50 cm was inserted at the 
+mid of the test section, the wake of the cylinder area of interest was illuminated using a CW diode laser 
+with a maximum power of 5W (note that this power has been deliberately chosen as quite low). Images 
+of the region extended to around 3 diameters downstream of the cylinder were acquired using a 1MP 
+Photron High Speed camera with a pixel size of 20μm and a 50 mm objective with an aperture  of 1.2. 
+The frame rate was set to 4 kHz and even at this rate, streaks were recorded from the fastest bubbles 
+moving mainly in the main flow stream (Figure 1). However, individual particles in the wake flow of the 
+cylinder moving at lower velocity compared to the main stream flow could also be recorded as shown in 
+Figure 1. 
+                                                                                                                                                                                                                      
+ 
+Figure 1. Example of a raw image showing the wake of the cylinder. Flow stream moving from left to right. 
+ 
+ 
+Figure 2. Sketch of different positions tested for the soap bubbles seeding injection positions in the wind-tunnel 
+(red circles). Flow moving from the left side to the right side. 
+14th International Symposium on Particle Image Velocimetry - ISPIV 2021 August 1-4, Chicago, USA 
+4 
+ 
+            Raw  images  as  those  reported  in  Figure  1,  were  processed  using  Insight4GR  (TSI  Inc.)  PIV 
+software, with an iterative multi-pass algorithm using interrogation windows IW from 64?64 pixels to 
+32?32 pixel with 50% overlapping and iterative outlier removal leading to a final spatial resolution of 
+~4mm in x and y directions. Instantaneous velocity field were used to investigate vortex dynamics and 
+to derive average fields.  
+            In this investigation, the parameters which have been varied were the position of the injection of 
+the seeding from the BG and the velocity of the main flow stream. Regarding the first one, three different 
+positions have been tested; upstream of the wind-tunnel convergent and honeycombs, upstream of the 
+convergent and downstream of the test section (Figure 2). The first and the third positions were expected 
+to minimize the perturbation of the flow field, but probably also to lead to a lower bubble concentration, 
+even if more uniformly distributed. It is important to mention here that the choice was made to keep the 
+BG-1000  running  continuously  during  the  tests  to  maintain  a  stable  and  uniform  concentration  of 
+particles in the field of view of the camera. Examples of images acquired in the three positions are shown 
+in  Figure  3.  A  positioning  of  the  BG  upstream  of  the  convergent  and  honeycombs  ensured  a  rather 
+uniform tracer distribution with a good concentration. The laser light sheet was generated from the top 
+of the test section using a cylindrical lens to expand the laser beam, resulting in a light sheet of ~3 mm 
+of thickness.  
+ 
+  (a)                                                                           (b) 
+ (c) 
+ 
+Figure 3. Examples of raw images obtained in the wake of the cylinder for different BG positions: upstream of the wind-
+tunnel convergent and honeycombs (a), upstream of convergent (b) and downstream of test section (c).  
+14th International Symposium on Particle Image Velocimetry - ISPIV 2021 August 1-4, Chicago, USA 
+5 
+ 
+ (a)                                                                       (b) 
+ (c) 
+ 
+Figure 4. Examples of acquired images in the wake of a cylinder for different wind-tunnel velocities: 10 m/s (a), 15 m/s (b) 
+and 20 m/s (c). The frame rate and shutter speed are the same for all acquisitions.  
+ 
+            When the soap bubbles were injected downstream of the test section, even if the tracer distribution 
+in the FOV of the camera was found more uniform, the overall quality of the image was worse compared 
+than an upstream positioning of the BG. Among the two upstream positions, there was an evidence of a 
+non-uniform distribution and bubble agglomeration in the condition closer to the test section (upstream 
+only of the convergent). However, for simple flow visualization purposes, this configuration could be 
+useful. Figure 4 shows the impact of the flow velocity on the seeding concentration in the FOV of the 
+camera; soap bubbles were injected upstream of the convergent and honeycombs, and the BG was kept 
+running continuously. The flow velocity was varied from 10 m/s, to 15 m/s and 20 m/s with Reynolds 
+numbers  ranging  from  7?104  to  1.5?105  (based  on  cylinder  diameter  D).  The  image  acquisition 
+parameters, as frame and shutter rates were kept constant. It is found that increasing the velocity of the 
+flow in the wind tunnel, decreased the tracer concentration in the FOV of the camera. From a simple 
+estimation, the concentration decreased by a factor 2 when the flow velocity in the wind tunnel was 
+almost doubled (the spanned volume being almost twice) and this is confirmed in the acquired images 
+(Figures 4a, 4c). In addition, particle images looked more and more as streaks when the velocity was 
+increased, as expected when using a CW laser as illumination source to investigate high velocity flows. 
+Even  though,  this  was  not  a  major  concern  in  PIV  image  analysis  since  the  streaks  grayscale  level 
+14th International Symposium on Particle Image Velocimetry - ISPIV 2021 August 1-4, Chicago, USA 
+6 
+ 
+variation  between  successive  frames  still  lead  to  correlation  peaks  high  enough  to  derive  reliable 
+velocities assimilating then the streaks to individual particles up to certain  
+Results and discussions         
+            The cylinder wake is known to be a severe test for velocity measurement techniques, due to the 
+presence of a high dynamical velocity range (from negative values to full free stream velocity), large 
+gradients and two interacting shear layers leading to the formation and interaction of coherent vortex 
+structures [3, 4]. Therefore, the experimental investigation of such a flow field requires a set-up with 
+high spatial and temporal resolutions, as well as a high tracer concentration with a high signal-to-noise 
+ratio SNR when PIV investigation is involved for example. 
+In Figures 5 and 6, the mean horizontal velocity component fields obtained are shown for the different 
+seeding injection positions considered (Figure 5) and different wind-tunnel velocities (Figure 6). The 
+main features of the wake cylinder flow could be detected at the top, bottom and recirculating areas. 
+However, local limited light illumination areas on the image corners mainly were noticed which might 
+be related to a vignetting effect. leading to less confidence in these areas.  
+The downstream positioning of the BG has led to a quite different results compared the the upstream 
+positioning of the seeding (Figure 5c) and this was derived from the poor tracer scattering already noticed 
+in  Figure  3c.  Concerning  the  effect  of  the  velocity  variation  on  the  quality  and  concentration  of  the 
+seeding, it is clear that the reduced tracer concentration observed in Figure 4c, has led to a relatively 
+decreasing quality of the results when the free-stream velocity was increased (Figure 6).  
+ 
+(a)                                                              (b)                                                              (c) 
+Figure  5.  Mean  horizontal  velocity  component  and  velocity  vector  fields  obtained  for  three  different  seeding  injection 
+positions: upstream of the wind-tunnel convergent and honeycombs (a), upstream of the convergent (b) and downstream of 
+the test section (c). Flow moving from left to right with a free stream velocity of 15 m/s. 
+(a)                                                              (b)                                                         (c) 
+Figure 6. Mean horizontal velocity component and vector fields as derived from the different wind-tunnel velocities: 10 m/s 
+(a), 15 m/s (b) and 20 m/s (c). Flow from left to right with BG positioned upstream of the convergent and honeycombs. 
+14th International Symposium on Particle Image Velocimetry - ISPIV 2021 August 1-4, Chicago, USA 
+7 
+ 
+A more quantitative analysis was performed by considering transverse and axial profiles of the horizontal 
+velocity component (Figures 7 and 8). The position upstream of the convergent and the honeycomb is 
+indicated as “upup”, upstream of the convergent as “up” and downstream as “down”: 
+ 
+ (a)                                                                         (b) 
+ (c)                                                                         (d) 
+Figure 7. Transverse profiles of the mean horizontal velocity component at 1×D (on the left) and 2×D (on the right) distances 
+from the cylinder as derived from three different seeding injection positions (a and b) and wind-tunnel velocities (c and d). 
+ 
+            In the transverse plots, obtained at one diameter and two diameters downstream of the cylinder 
+(Figure 7), the PIV data are compared to the data obtained in a similar experimental arrangement using 
+the Hot Wire Anemometry (HWA) and to the recent data obtained by  Gao et al. (2019) [4]. For the 
+comparison, two points must be considered: first, the HWA was a single-wire probe configuration, not 
+suitable for detecting negative velocities in the near wake which explains the differences close to the 
+centerline seen in Figure 7, whereas in the shear layer the results were similar. The second point is that 
+the cylinder considered in this study had a length to diameter aspect ratio of 5,  which is expected to have 
+a direct impact of the shape of the wake flow [3], so far explaining the thicker amplitude of the wake in 
+comparison  to  that  measured  by  Gao  et  al.  (2019).  Regarding  the  impact  of  the  seeding  injection 
+positions, it turns out that both upstream positions appear to be much more suitable for capturing the flow 
+features  expected  in  comparison  to  the  downstream  position  (note  that  the  BG  is  kept  running 
+continuously in the different configurations tested). Considering the different wind-tunnel velocities, it 
+is evident that this has not a relevant effect on the obtained results, excluding the border area limits in 
+the FOV as discussed earlier (Figure 6). 
+            Considering the velocity profiles obtained at the centerline along the streamwise direction (Figure 
+8), again the major differences are seen in the border areas of the FOV when the seeding is injected 
+14th International Symposium on Particle Image Velocimetry - ISPIV 2021 August 1-4, Chicago, USA 
+8 
+ 
+downstream of the test section. In addition, the fluctuations detected in the velocity profiles (Figure 8) 
+could be related to a poor statistical convergence of the data for the mean velocity as the 1000 images 
+were acquired only in a single slot; a  choice that was driven by  the  requirement of a high temporal 
+resolution (4 kHz) and continuous recording to detect the vortex dynamics.  
+ (a)                                                                                               (b) 
+Figure 8. Streamwise profiles of the mean horizontal velocity component measured at the cylinder centerline for three different 
+seeding injection positions (a) and three different wind-tunnel velocities (b). 
+ 
+(a)                                                               (b)                                               (c) 
+Figure 9. Horizontal rms velocity and vectors as derived from three  different BG positions:  upstream of the wind-tunnel 
+convergent and honeycombs (a), upstream of the convergent (b) and downstream of the test section (c). Flow moving from 
+left to right with a free stream velocity of 15 m/s. 
+ 
+              The plots in Figure 9 show a clear dependence of the rms velocity to the quality of the seeding. 
+However,  a  noticeable  dependence  to  the  velocity  variation  was  not  detected.  Hence,  only  results 
+obtained for the different BG positions were reported in Figure 9. Furthermore, the areas on the border 
+of the acquired image, where a poor illumination was reported previously, showed clearly less accurate 
+results, especially when the seeding was injected downstream of the test section. However, the purpose 
+of investigating these quantities is to emphasize the strength of PIV algorithm to depict the physical 
+features of the flow even at poor experimental conditions related to seeding density, illumination and 
+image quality.  
+            As previously stated, the major advantages of a High-Speed PIV system is the ability to detect 
+instantaneous velocity and vorticity fields and to investigate vortical structures generation, interaction 
+and  dissipation.  From  this  point  of  view,  the  cylinder  wake  is  a  typical  flow  field  in  which  vortex 
+shedding occur for Re close to ~105, when the top and bottom boundary layers (identified in the vorticity 
+14th International Symposium on Particle Image Velocimetry - ISPIV 2021 August 1-4, Chicago, USA 
+9 
+ 
+fields shown in Figure 10) separates from the surface of the cylinder to form a highly unstable free shear 
+layer. This shear layer rolled into discrete vortices of different sizes that detach from the surface as shown 
+by the velocity gradient invariant criterion used for the detection of the vortex center core (Figure 10). 
+                                                                                                         
+ 
+                                                                                                         
+ 
+                                                                                                         
+Figure 9. A sample of nine instantaneous velocity vector and vorticity fields, separated by 1/400 s (i.e under sampled by one 
+frame  over  ten  in  comparison  to  the  original  frame  rate).  Seeding  injected  upstream  of  the  wind-tunnel  convergent  and 
+honeycombs. Flow moving from left to right with a free stream velocity of 15 m/s. 
+14th International Symposium on Particle Image Velocimetry - ISPIV 2021 August 1-4, Chicago, USA 
+10 
+ 
+                                                                                                               
+                                                                                                               
+Figure 10. A sample of six instantaneous velocity vectors fields superposed to vortex detection criterion contours, derived 
+from the last six plots shown in Figure 9. 
+ 
+Conclusion 
+The current study confirmed the capability to use soap bubbles generated using the micro soap bubbles 
+generator BG-1000 (TSI Inc.) as seeding for performing TR-PIV measurement in a turbulent air flow in 
+the wake of a cylinder. The TR-PIV investigation were performed for stream velocities up to 20m/s, in 
+a relatively large FOV of 300mm×300mm and under limited illumination condition using a CW Laser 
+and a high-speed camera. With optimizing the positioning of the injection of the seeding in the flow, the 
+main features of the flow including shear layers and coherent turbulent structures were correctly detected 
+using  TR-PIV.  For  the  velocity  range  considered,  streaky  images  were  not  a  limitation  for  the  PIV 
+processing whenever a grayscale level variation could be detected between the frames.  
+ 
+References 
+1.   H.C. Van de HulstLight, Scattering by Small Particles, Dover Publications Inc., 2003 
+2.   Ejected particle size measurement using Mie scattering in high explosive driven shockwave experiments. S. 
+K. Monfared et al., J. Appl. Phys. 117, 223105 (2015).  
+3.   An experimental investigation of the flow around a circular cylinder: influence of aspect ratio. C. Norberg, J. 
+Fluid Mech., 258, 287-316, 1994. 
+4.   Effects of steady wake-jets on subcritical cylinder flow, D. Gao, G. Chen, Y. Huang, H. Li, Experimental 
+Thermal and Fluid Science, 102, 575-588, 2019 
+5.   Air-filled  soap  bubbles  for  volumetric  velocity  measurements,  D.C.  Barros,  Y.  Duan,  D.R.  Troolin,  E.K. 
+Longmire, Experiments in Fluids 62 (2), 1-12. 
+View publication stats
+View publication stats

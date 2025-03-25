@@ -1,0 +1,808 @@
+Experiments in  Fluids  15, 263  273 (1993) 
+Experiments in Fluids 
+9  Springer-Verlag 1993 
+Limitation  and  Improvement of PIV 
+Part  II:  Particle  image  distortion,  a  novel  technique 
+H.  T.  Huang 1,  H.  E.  Fiedler 1,  J.  J.  Wang 2 
+Hermann-F6ttinger-Institut,   Technical  University  of Berlin, Germany 
+2 Dept.  of Eng. Phys., Tsinghua  University, Beijing, P.R. China 
+Received: 3 March  1992/Accepted:   18 March  1993 
+Abstract. In this second part of the paper, the Particle Image Distor- 
+tion  (PID) technique  is described.  It  is  proposed  to  overcome  the 
+limitations of conventional  PIV due to the local deformations Ou/Ox, 
+~u/~y, ~v/?x and  ~v/Oy in two-dimensional  flows. Both  simulation 
+and  experiment  demonstrate  that  high  accuracy  and  high  spatial 
+resolution  are possible with this technique. The large time required 
+to compute the cross-correlations,  however, limits its wide applica- 
+tions  at present. 
+1   Introduction 
+To   perform  PIV  measurements  in  flows  with   large  ve- 
+locity  gradients,  it  may  be  necessary  to  reduce  the  detec- 
+tion  criterion   R0,  i.e.  the  lower  threshold   value  for  the 
+cross-correlation  peak  values  (see  Part  I),  to  select  large 
+seeding  particles  in  order  to  obtain  large  particle  images, 
+to reduce the  PIP size N  and  to reduce the time interval At 
+between  subsequent  exposures. 
+This,  however,  introduces   other  problems.  Reducing 
+R0  increases  the  probability  of  false  velocity  detections. 
+Too   large  seeding  particles   may  disturb   the  flow  itself. 
+Furthermore,  large  particle  image  size  broadens  the  cor- 
+relation   peak   and   hence   reduces   the   accuracy  of  peak 
+detection.   The   selection   of  N   usually   depends   on   the 
+spatial  resolution  and  on  the  particle  seeding  concentra- 
+tion   (Utami   and   Blackwelder   1990,   Keane   and   Adrian 
+1990). 
+A  compromise  is  therefore  needed.   The  best  choice 
+seems  to  be  reducing  At,  although   the  relative  error  in 
+regions  of low  speed  flow is then  increased.  This choice is 
+not   available   in   video-based   PIV   at   present,   since   the 
+standard  video framing rate is fixed at a  low value (Willert 
+and  Gharib  1991). 
+The  novel  PID  technique  proposed in  this  paper  over- 
+comes such a limitation inherent  in conventional  PIV. For 
+the  sake  of simplicity we  will  consider  only  deformations 
+in   two   dimensional   flow,   i,e.   Ou/Ox, ~?u/Oy, ~?v/~?x and 
+Correspondence to: H. E. Fiedler 
+Ov/~?y. It  is  also  assumed  that  the  effect of  out-of-pattern 
+motions  is  already  removed  with  a  larger  SPIP  (Search 
+PIP)  size than  that  of I P I P   (Interrogation  PIP),  cf. part  I 
+of the  paper  (Huang  et  al.  1993). 
+2   PID,  a  way  to  reduce  the  effect  of  deformations 
+2.1   The  basic  idea 
+According   to   general   kinematics   we  divide   the   overall 
+flow  motion  into  three  parts: 
+flow  motion = convection  (translation)  + stretch + rotation. 
+(1) 
+Stretch  (expressed  by  ~u/c?x and  ?v/~?y) and  rotation 
+(expressed  by ~u/Oy and  Ov/~?x) constitute  the  total  defor- 
+mation  of PIP  (Particle  Image  Pattern). 
+The  translation  has  no  contribution  to  the  deforma- 
+tion  of  PIP.  Given  the  velocity  gradients  we  can  artifici- 
+ally  distort  the  I P I P   to  its  shape  which  it  would  have  if 
+only  translation  were  present.  We  denote  this  as  Particle 
+Image  Distortion  (PID).  This  distorted  IPIP  should  then 
+fully.match   the   SPIP,   resulting   in   a   maximum   cross- 
+correlation  peak  value  of R =  1. 
+2.2   The artificial distortion  of IPIP 
+Let l(x, y) to be the pixel intensity in the I P I P  where x and 
+y are pixel coordinates  with their origin in the center of the 
+IPIP. Considering  the local flow deformations, the pixel at 
+(x,y)  in   the   IPIP   should   be,   as   a   first   approximation, 
+changed  to  (xs, Ys) in  the  distorted  I P I P  
+f                     ~?u      ~?u  "~ At 
+{ 3v       3v   "~ At     '                                              (2) 
+Y~= Y + ~ x X   +~yY)-~ 
+where  M  is  the  system  scale  constant. 
+264 
+In  general,  however,  xs  and  Ys are  not  integer  values, 
+i.e.  no  pixel  in  the  distorted  IPIP  corresponds  exactly to 
+I(x, y). Usually four pixels neighboring (Xs, Ys) are  used to 
+describe  I (x, y)  satisfying 
+xs=  ~=1l4i xi /  I(x, y) 
+i 
+Ys=  ~Iiyi    I(x,y)     ,                                            (3) 
+i 
+4. 
+I(x, y)  =  ~  li 
+i = l  
+where  Ii and  (xi, Yi), i=  1, 2,  3, 4,  are  the  pixel  intensities 
+and  coordinates  of these  four  pixels,  respectively. 
+Supposing 
+f  Xs=Xo+dx 
+Y~= Yo +  dy   '                                                                     (4) 
+where  Xo  and  Yo  are  integers,  dx  and  dyE[O,  1].  Thus 
+according   to   Eqs.   (3)   and   (4)  the   pixel   locations   and 
+intensities  of  these  four  pixels  in  the  distorted  IPIP  for 
+I(x, y)  should  be 
+I 1Il(Xl,Yl)=II(xo,  Yo)             =I(x,y)'(1-dx)'(1-dy) 
+t 2(Xz,yz)=Iz(xo,Yo+  1)       =l(x,y)'(1  -dx)'dy 
+I3(x3,)3)=13(Xo+  1,yo)       =I(x,y)   dx'(1-dy) 
+L I4(x4, Y4) = 14(Xo +  1, Yo +  1) = l(x, y)  dx" dy 
+( 5 )  
+Since distorting the IPIP simultaneously broadens the 
+pixel  of  the  IPIP,  particle  images  in  the  distorted  IPIP 
+might  overlap.  In  order  not  to  lose  information of pixels 
+processed  before, the history of each pixel in the distorted 
+IPIP must be added. If the new contribution is I~, and the 
+history  is  I~o, then  finally the  pixel  intensities  in  the  dis- 
+torted  IPIP  for each  pixel  in  the  IPIP  are 
+l~(x,,y~)=Ii,(x,,yi)+I~o(X~,y~),     i=1,  2,  3, 4.                 (6) 
+Usually  the  distorted  IPIP  no  longer  has  the  square 
+shape of the IPIP.  Nevertheless, a square IPIP is required 
+for  a  simple  computation  of cross-correlations.  To  solve 
+this problem, a larger temporary PIP containing the IPIP 
+in the center is first distorted. Then the square center part 
+of  this  distorted  temporary  PIP  is  cut  out  for  the  final 
+distorted  IPIP  (Fig.  1). 
+Figure  2  summarizes  the  whole  procedure  of artifici- 
+ally distorting the  IPIP. 
+2.3  Determination  of the flow  deformations 
+The artificial distortion of PIP  requires an a priori knowl- 
+edge  of the  flow velocity gradients  within  the  whole flow 
+field. An initial estimate of the velocity field is obtained by 
+i 
+,                                                                       I 
+i                                                                                                                                                              I 
+i                                                                                                                                                              I 
+I 
+'                                                                                                                                                               i 
+i                                                                                                                                                              i 
+I                                                                                                                                                              I 
+i . . . .                               i   .                 .                 .                 .                 .                 
+Temporary distorted PIP 
+Fig.  1.  Determining the square distorted IPIP 
+conventional  PIV;  linear  interpolation  is  then  used  to 
+obtain  estimates  at  points  where  the  conventional  PIV 
+fails,  e.g. in  regions with  strong  velocity gradients. 
+Figure 3 shows a representative velocity field detected 
+with  conventional  PIV.  The  velocities in  the  hatched  re- 
+gions are not detected because of strong velocity gradients 
+there.  The  region  of failed velocity detections (e.g.  region 
+A) is denoted as closed if the velocities along its boundary 
+are  known,  otherwise  it  is  called  as  open  (e.g. region  B 
+and  C). 
+In  the  closed  region  A  the  interpolation  of a  velocity 
+component  c(x, y),  c(x, y) = {u (x, y),  v (x, y);  (x, y) e A},  is 
+suggested to  be  obtained  by  weighing the  horizontal  and 
+vertical linear interpolations cn and  Cv according to their 
+interpolation lengths, i.e. x2 -x~  for cn and Y2 -Yl  for Cv: 
+C(X,y)=            Y2--Yl 
+(x2--Xl)+(y2--Yl)  CH(X'Y) 
+X  2  - - X      1 
+(x2-x~)+(y2-y~)  Cv(x,y) 
+c.(x,y)= C(x2'y)--C(XI'Y) (x__x1)+C(XI,y ) 
+X  2  - - X      1 
+c(x, y2)-c(x, yl) 
+Cv (x, y)=                               ( y -   yl)+ c(x, yl) 
+Y2 --Y~ 
+(7) 
+Thus  the  velocity gradients  are  estimated as 
+~x-~y?Ii   u(x + l , y ) - u ( x -  
+cqu_u(x, y + 1)-u(x, y -   1) 
+2 
+]  c~v    v ( x + l , y ) - v ( x - l , y )  
+Ux-                 2 
+Ov_v(x, y + 1)-v(x, y -   1) 
+~ c~y                     2 
+(8) 
+Processing the first pixel 
+I(x,y) in a temporary IPIP 
+Determination of the location (x s 'Ys ) 
+of I(x,y) in the temporary reformed IPIP 
+according to the local flow deformations 
+Determination of the coordinates of 
+the four neighboring pixels of (x s 'Ys ) 
+Determination of the pixel intensity of 
+the four neighboring pixels of (xs  ,Ys ) 
+proportional to their distances to (xs,Ys) 
+Adding the history of the pixel intensity 
+No 
+Determination of the square distorted 
+IPIP from the temporary distorted IPIP 
+Fig.  2.  Diagram  of artificially distorting the PIP 
+B1                     B2 
+265 
+(xl, Y)_.                                                    _ (x2' Y) 
+i    (x, YO 
+I 
+C2 
+C1                          C3 
+Fig. 3.  Closed (A) and  open  (B  and  C)  regions of failed velocity 
+detections 
+a   procedure  identical   to   that   used   in   the  quasi-closed 
+region. 
+2.4   Iteration 
+Despite  the  fact  that  results  from  Eqs.  (7)  and  (8)  do  not 
+exactly reflect the  velocity gradients  of the  flow, they  are 
+applied  to  artificially  distorting  the  IPIP.  This  velocity 
+detection  with   conventional  technique  is  called   as   the 
+initial  step  of PID. 
+In   the   first   velocity  detection   of  PID,   correlations 
+between  the  distorted  PIPs  and  SPIPs  are  implemented. 
+Of course,  such  a  distorted  IPIP  cannot  be  expected  to 
+fully  match   the  deformed  SPIP.   Nevertheless,  the   PIP 
+should  match  better  because  the  result  from  Eq.  (8)  in- 
+cludes the effects of the flow velocity gradients.  As a  result 
+of that, maximum  correlations should become higher. The 
+estimate of the velocities obtained at this time will then be 
+better than  that  obtained  initially with conventional PIV. 
+Iterating  with  PID  on  this  first  detection  will  give an 
+improved estimate  of the  velocities. The  whole  procedure 
+is completed  when  the  iteration  converges within  a  given 
+tolerance, i.e. when  the  maximum  difference between  two 
+sequential   velocity  detections   is   smaller   than   a   given 
+threshold. 
+For  the  open  regions  B  and  C  it is  necessary to  close 
+them  first.  For  regions  like  B  the  open  boundary  can  be 
+closed  by  a   linear  interpolation  between   the   two   side 
+points,  i.e.  B1  and  B2,  on  the  open  boundary.  Thus  B  is 
+also  considered  as  quasi-closed    region.  For  regions  like 
+C  the velocity at the corner C3  should be determined first. 
+Usually  it  is  replaced  by  the  correctly  detected  velocity 
+closest  to  C3.  These  regions  can   then  be  closed   using 
+3   P I D    applied  to  a  simulated  Oseen-vortex 
+When  the  vortex core is located in  the  origin  the  velocity 
+distribution  of the  Oseen  vortex  in  polar  coordinate  sys- 
+tem  is 
+f C ~ = ~ - - ~ r ( 1 - e - ' 2 / 4 ~ '     ) 
+C , = 0                                  '                                                        (9) 
+266 
+and  its  vorticity  is 
+[~        _rZ14v t 
+Q :    =    4rivet  e                                                                                                                              (lO) 
+where  F  is the  circulation,  v is the  flow viscosity and  t  the 
+time.  For  t = 0   the  vorticity  is  concentrated  in  the  vortex 
+core.  With  t  increasing,  the  vorticity  is no  longer  concen- 
+trated  in  the  core  but  decays  and  spreads  out  (Albring 
+1981,   Fiedler  et  al.   1991).   Selecting  different  parameters 
+F  and  v t ,    vortices with different  vorticity and  different size 
+can  be  generated. 
+Supposing  first  exposed  flow  picture  contains  particle 
+images generated  from Monte-Carlo-Simulation  (part I  of 
+the  paper).  Each  particle  image  in  the  first  exposed  flow 
+picture  is  then  displaced  according  to  Eq.  (9)  resulting  in        a 
+the   second   exposed   flow   picture.   In   case   of   vt=200 
+[pixel] 2 and  F =  100000  [pixel]2/s  the vorticity near to the 
+vortex  core  is  very  strong,  namely  39.79  s-1.  Thus  direct 
+velocity detections  with  conventional  technique  in  case  of 
+A t    =  1/50 s fail for this  region  (Fig. 4a. Note that  in Figs. 4, 
+6 and  8 only  one  of each  four  velocities is plotted  in  order 
+to  have  a  clear  view  of  the  velocity  field).   In  this  special 
+case  the  I P I P   size  was  31  x  31  pixels,  the  particle  image 
+size  was  1 x  1 pixel,  i.e.  b =  1. 
+We  now   introduce   a   detection   criterion   R0.  All  ve- 
+locities  whose  maximum  correlation  peak  value  R >  R0 
+are accepted  to  be correct (Fig.  4b). In  this  special case R0 
+can  be  a  small  value  of  0.2  (see  also  Fig.   14a)  since  the 
+signal  to  noise  ratio  in  the  cross-correlation  field  is  quite 
+large where  b =  1 and  the  particle  seeding concentration  is 
+sufficiently  large.  From  these  correct  velocities  the  failed 
+velocities   were   interpolated   according   to   Eq.   (7).  The 
+b 
+whole  velocity  field  was  then  smoothed  (Fig.  4c)  before 
+calculating  the  velocity gradients  since the  differentiations 
+in   Eq.   (8)   are   sensitive   to   high   frequency   noise.   Fig- 
+ure  5   shows   the   comparison   between   the   real   velocity 
+profiles  of  the   simulated   Oseen   vortex   and   the   results 
+obtained  in  the  initial  step  of  PID. 
+As  described  in  Sect.  2 the  velocity gradients  obtained 
+from  Fig.  4c  were  used  for artificially  distorting  the  IPIP. 
+The  spatial  cross-correlation  between  the  distorted  IPIP 
+and  SPIP  is then recalculated,  giving the first PID velocity 
+detection  (Figs.  6  and  7). 
+Under  identical  detection  criterion,  the  PID  results  in 
+Fig.  6b give more correct velocity vectors in the core of the 
+Oseen  vortex than  the  conventional  PIV results in Fig. 4b. 
+Similarly,  the  agreement  between  the  PID  and  the  theo- 
+retical results in Fig.  7 is much better than  that for conven- 
+tional   PIV  in  Fig.  5  (note  that  the  plots  in  Fig.  5a  and 
+Fig.  7a  have  different  vertical  scale),                                                 e 
+The  results  improve with  further  iteration,  converging 
+to  within  about  ten  percent  after  the  fourth  iteration.  The 
+"converged"  results  are  shown  in  Figs.  8  and  9. 
+r t  
+r 1 6 2  
+r    l  e  d  /  I  l  l                                                  \  \  \  t         ~   ~   I    ~ 
+i    i    r   d d d /                                 ~                                 t     t    ~   ~   ~   t    ~ 
+~   7   7          t                                                t ~ t t t t  
+~  l i i l ~                                                                t t t        t   r 
+i i i l ~ l                                                               t  t  t  t  t  t   
+I   I i l        l ~                                                     t t t           t    t    t 
+t         t    t 
+, t      t ~ l t l l t t  
+Fig.  4.  a The  velocity field of the simulated Oseen-vortex detected 
+in  the  initial step  of  PID,  h  the  correct  velocities for  detection 
+criterion  R0=0.2  and  c the  interpolated  and  smoothed  result of b 
+20, 
+15 
+10 
+5 
+0 
+-5 
+-10 
+-15 
+-20 
+-25 
+20 
+15 
+10 
+l 
+o 
+T     5 
+0 
+-5 
+-10 
+-15 
+-20 
+b        -25 
+12 
+10 
+0    ;  .i .' : 
+c          -2 
+9          .     . . . : ; . =  
+2.0 
+1 
+o 
+1.5 
+1.0 
+0.5 
+0 
+-0.5 
+-1.0 
+-1.5 
+: . . . ' . . .                                . , . , .  
+:,,.:..     !"i.. 
+9    . . .   '.  9    . .  ."".   ,.~.:,~..:,.~".:~~'i;.~.= .~:~. x~u~.=,~_..-.~.,,.,~,c,~:,:,.~  ......... 
+20        40        60        80       100      120      140      160       1t80 
+r(pixel)            P 
+267 
+4    D i s c u s s i o n s  
+4.1   Computation  time 
+Calculating  the  cross-correlation  coefficients is  the  most 
+time-consuming  with  the  time  a  function  of the  sizes  of 
+IPIP  and  SPIP.  For the typical IPIP  size of 31 ?  31 pixels 
+and  the  SPIP  size  of 71 ?  71  pixels  the  calculation  takes 
+about  4  seconds  on  the  Apollo-Workstation  DN10000 
+which  runs  about  20  times  faster  than  a  personal  com- 
+puter. Thus for a complete evaluation of a  velocity field of 
+the  size  512 ?  512  pixels  the  computation  time  required 
+would  be  about  12  days  for  only one  iteration  step! 
+There  are  two  major  possibilities  to  reduce  the  time 
+consumption.   First,   reducing   the   number   of  detection 
+points,  i.e. detecting velocities over a  certain  grid  spacing 
+rather   than   at   every  pixel.  This   method,   however,  in- 
+creases  the  error  of velocity detection  (see  Sects.  4.2  and 
+4.5).  Second,  reducing  the  size  of  SPIP  in  the  iteration 
+since velocities obtained  in  the  previous step  can  be  used 
+to predict the location of SPIP. Note that  the size of SPIP 
+in the initial  step must  be large enough  to avoid the  effect 
+of out-of-pattern motions  (Huang  et  al.  1993). 
+For  this  reason,  only velocities over a  grid  spacing  of 
+5  pixels  in  a  255 ?  255  pixels  field  were  detected  in  the 
+simulation  measurement.  In  the initial  step  the  size of the 
+IPIP  was   31 x  31   pixels  and   the  size  of  the   SPIP   was 
+71 ?         pixel.   The   computation   time   was   then   about 
+3  hours.   In  the  later  iteration  processes  the  size  of  the 
+SPIP  was   reduced  to  41  ?  41   pixel.  Consequently  each 
+successive  iteration  took  only  about  0.7  hours.  The  total 
+time   for   the   complete   computation   was   then   about 
+7  hours  (CPU  time). 
+4.2   Error  analysis  1 -   validity  of the  linear  interpolation 
+From  Fig.  9a  we  find  that  the  maximum  detection  error 
+occurs  not  at  the  vortex  core  where  the  vorticity  has  its 
+maximum  but  at  the  location  where  the  gradient  of the 
+vorticity  is  largest.  This  problem  is  due  to  the  fact  that 
+linear  interpolations  were  supplemented  for  the  undetec- 
+ted  velocities when  calculating  the  velocity gradients. 
+Obviously this approximation is only acceptable when 
+the  detected  velocities are  dense  enough  so  that  the  vari- 
+ation  of velocity can  be  assumed  to  be  linear  among  the 
+neighboring detected velocities. Near the vortex core (r---,0 
+in  Fig.  9) the variation  of velocity is approximately linear 
+between  the  grid  spacing  of  5  pixels  of the  detected  ve- 
+locities.  Thus  the  error  of the  measured  velocities in  this 
+region  is  rather  small.  In  the  area  of the  largest  vorticity 
+Fig.   5a-d.   Comparison    between    the   real   velocity   profiles   (solid 
+lines)  and  the  measurements  (dots):  a  C~  of  Fig.  4a,  b  C,  of  Fig.  4a, 
+c  C~  of  Fig.  4c  and  d  Cr  of  Fig.  4c 
+268 
+~  ~  ~t              Z 1 1 ~             ~ f . T ~ . t t t t  
+~     '      ~            I,I11\~  "~7ZTttttllt't't 
+~   ~   ~   x        k   N   N   N   N   ~                  .      .      .      .       
+Fig.  6a-e.   a  The  first  velocity  detection  of  the  Oseen-vortex,  b  the 
+correct   velocities   for   the   detection   criterion   R0=0.2,   and   e   the 
+interpolated  and  smoothed  result  of  b 
+10 
+8 [                    ."i 
+6 
+l. 
+2 
+0 
+-2 
+-Z, 
+3 
+2 
+I      x 
+C 
+o          -1 
+-2 
+-3 
+b         -Z, 
+8 
+   9                    ,             . 
+.           %   .    
+' .                     .      . : - ,      ~ , ~ p ' . . : ' .    . . . . . .             9    . 
+'    "    ""        "'"/::L':'                " "  
+9           .  .          ,"9. : . 3 .                   " 
+.              ." 
+1 
+e- 
+o 
+2.0 
+l 
+1.5 
+1.0 
+0.5 
+0 
+-0.5 
+- I . 0  
+-1.5 o         ~o       ~o       ;o 
+-         .         . .                " 
+-'.""    - ' : ! ? p :       .".b;.:>.:.                                                       . 
+~o      ,;o      11o      ,~o       1;o      18o 
+r(pixel)             -~ 
+gradient  (r ~  36  pixels),  however,  the  variation  of velocity 
+can  no  longer  be  assumed  to  be  linear.   As  a  result  the 
+errors  in  this  region  are  larger. 
+A way to improve the performance is that in the  region 
+of large  gradients  higher  order  interpolations  rather  than 
+the  linear  interpolation  suggested  in  this  paper  might  be 
+used.  If  this  works  the  time  consumption  for  the  same 
+accuracy of velocity detection can be reduced  by detecting 
+the  velocity over a  larger grid  spacing, since  the  computa- 
+tion  of  a  higher  order  interpolation,   e.g.   the  2nd   order 
+interpolation,  should  be considerably faster than  the com- 
+putation   of  the   correlations.   Further   discussion   of  this 
+problem  is  beyond  the  scope  of this  paper. 
+4.3  Error analysis 2 -      boundary effect 
+The  differentiations   in   Eq.   (8)  required   to   estimate  the 
+velocity  gradients   are   very  sensitive   to   high   frequency 
+noise.   The   detected   and   subsequently   interpolated   ve- 
+locity  fields  should  therefore  be  smoothed  before  further 
+processing.  The  size  of the  smoothing  window  is  usually 
+11?        to  21? 
+For  smoothing  close to  the  boundary  of the  data  base 
+the  size of the  smoothing  window  has  to  be reduced  since 
+no  data  exist beyond  the  boundary.  Thus  the  noise  of the 
+detected   velocities  cannot   be  significantly  reduced  near 
+the  boundary  of the  data  base. 
+Figures   9  and   11  demonstrate   this  boundary   effect: 
+For  the  data  base  of  255  ?  255  pixels  (Fig.  9)  the  corre- 
+sponding  boundary  of r =  127  pixels  is  the  region  where 
+the  error   increases,   while   for  a   data   base   of  161  ?  161 
+pixels  the  error  increases  at  the  corresponding  boundary 
+of r =  80  pixels  (Fig.  11). 
+To   avoid   this   boundary   effect  the   area   of  interest 
+should  be restricted to the internal  regions of the database 
+(usually more than  the  IPIP  size from the  boundary).  The 
+measurement  area  is  then  however  reduced. 
+4.4  Error analysis 3 -      limitation  of accuracy 
+The  accuracy  velocity  detections  is  limited  by  the  peak 
+locating  accuracy.  Since  the  database  is  discrete  an  inter- 
+polation  is required  to  locate the  maximum cross-correla- 
+tion peak to sub-pixel accuracy. Fig.  10 shows the result of 
+velocity  detections  in  which  the  IPIP  is  distorted  by  the 
+real   velocity   gradients   of  the   simulated   Oseen-vortex. 
+Using  the  simplest  peak  locating  method,  i.e.  the  center- 
+of-mass  method,  the  absolute  error  is  about  0.25  pixels. 
+Fig.  7a-d.  Comparison  between  the  real  velocity  profiles  (solid 
+lines) and the  measurements  (dots): a Cr  of Fig. 6a, b C, of Fig. 6a, 
+e C~ of Fig. 6c and d C, of Fig. 6c 
+269 
+l l ~            l                    [       ~      l / & ~ [                   I       t t t  
+ICLLL                      ~  x  _  \  .  \  A   
+*     I     I     I     $                    ~    s                         I     / . 1 . ~ ]                           1                 t     l 
+,           ?      t t  
+~ l i i l l l ] / V j                 -      i                                t t ~ + T  
+Fig.  8a-c.  The  final results  after  4  iterations:  a  The  detected  ve- 
+locities, b" the  correct  velocities for the  detection  criterion  R0 =0.2 
+and  e the interpolated  and  smoothed  result of b 
+12 
+(.D 
+B, 
+I 
+<3 
+b 
+I 
+(...) 
+C 
+l 
+o ~ 
+." i:-. 
+lO 
+8 
+6 
+z, 
+2 
+o 
+1.5 
+: . i '       . 
+. . : . ~ ' ~ : .  
+.  ~!..:.. 
+1.0 
+0.5 
+0 
+-0.5 
+-1.0 
+-  1.5 
+-2.0 
+-2.5 
+.     .     .     .     .     .     .                           : . ,    . . , .            ~ . ~ t ~     . W . ~ l r                                                                                              : ~ , t , ~ ! : ' . r . . , ,          ~    ~    :    ,     ,     ,     . 
+0.6 
+O.Z, 
+0.2 
+0 
+-0.2 
+-0./~ 
+-0.6 
+-O.fi 
+..    :"~.9 
+:  :. i       .   .:  -:'LL   :'.!:~,.~...L .  .  .  .         ..,.-::          .._ 
+....  :..   :".~ .~.~,,tr162                    ~!~   ~ ,'.~  ,: 
+16o                             16o 
+r(pixel)             = 
+180 
+1 
+8 
+7 
+6 
+5 
+3 
+2 
+1 
+0.20 
+0.15 
+0.10 
+I        0.05 
+0 
+-0.05 
+-0.10 
+-0.15 
+-0.20 
+-0.25 
+9,.:9'tQ~"f   "                                                N..r  
+2;    :.'".:...q,.~/-..                                                                          .         "." 
+0          20         /*0        60         80        100       120       1/~0       160       180 
+b                                                                r(pixel) 
+Fig.  10a and b.  The limitation  of the accuracy:  measurement  of the 
+Oseen  vortex  corrected  by the  real  velocities 
+According to Willert  and  Gharib  (1991) better  peak  locat- 
+ing accuracy should  be given by using a  three-point  curve- 
+fit  method. 
+4.5  Spatial  resolution  of PID 
+The  use  of P I D   improves  the  spatial  resolution  of conven- 
+tional  PIV. 
+In  conventional  PIV  techniques  the  spatial  resolution 
+of PIV  depends  on  the  size  of the  I P I P   since  the  detected 
+velocity  is  the  mean   velocity  of  each  particle  within  the 
+I P I P   (Keane  and  Adrian  1990,  Willert  and  Gharib   1991). 
+The   smaller  the  size  of  the  IPIP,  the  higher  the  spatial 
+resolution  obtained.  Usually  the  size  of I P I P   must  not  be 
+too  small  because  sufficient particle  images  must  be  avail- 
+able  within. 
+In   the   P I D    technique   the   imaged   velocity   field   is 
+artificially  and  iteratively  homogenized.  Each  pixel  in  the 
+270 
+Fig.  9a-d.  Comparison   of  velocity   profiles   between   the   reality 
+(solid lines) and the final results (dots): a C, of Fig. 8a, b C, of Fig. 8a, 
+e  C~ of Fig. 8e and  d C, of Fig. 8c 
+7 
+6 
+3 
+2 
+1 
+a        0 
+0.3 
+i00..2i,  .., }                / .    ' .     ,.                             ::" J~i'.':.:'. 
+""~'~G'~ :   ;   '   :   I   '   '   Y   '   :   '   ~   '   ~   ~   "    
+"~.:,-~-            .               "          v       "   :,             "   :c-.~~;. . "  
+. .~,%.-                                   --  ..%>.. 
+,;"~4~.                                         ~ .  
+:~i~:::.                                                        , ~;-~'.'. 
+.'-:?'>:'~:;1~:                       ~;?:'; ~'.'.. 
+. . . . .       9 ...             "                       .                        .::.~.'....  2 ,  
+-..-,~. .,- 
+-0.3 
+20          L,O        60         80         100        120        140        160       180 
+b                                                            r(pixel)   ~          _- 
+Fig.  lla  and b.  The high spatial resolution (1 pixel) measurement: 
+the velocity profiles of a  C~ and  b C, 
+271 
+7 
+6 
+Z, 
+o             3 
+2 
+1 
+a              0 
+0.25 
+0.20 
+0.15 
+0.10 
+I   0.05 
+0 
+o ~  -o.o5 
+-O, lO 
+-0.15 
+-0.20 
+- 0.25 
+b 
+6o 
+-..   "..  *.. 
+.   .~   --- 
+:.   :..  :     . .  
+4 #, .. :: 
+2:'k 
+,~%.". -9x~   " 3f" 
+"=   "     " e   " "  
+;.'.,j.}':::;-_: 
+%/ 
+;o       16o 
+r(pixel)              i. 
+120       1/.0        160       180 
+Fig.   12a  and  b.   The  s m o o t h e d   result  of the  high  spatial  resolution 
+m e a s u r e m e n t   over  the .smoothed  window  with  the  size  of 31  pixels: 
+the  velocity  profiles  of a  Cr   and  b  C, 
+IPIP  is  relocated  as  if there  were  no  velocity gradients  in 
+the  flow field. As  a  result,  the  IPIP  size will not  influence 
+the  accuracy of the  velocities if the  IPIP  contains  enough 
+particle  images.  The  spatial  resolution  hence  depends  on 
+the accuracy of the pixel relocation, which in turn depends 
+on the accuracy of the velocity gradients calculated. Using 
+linear  interpolation for undetected velocities as  suggested 
+in  this  paper  the  spatial  resolution  should  ultimately  de- 
+pend  on  the  grid  spacing  over  which  velocities  are  de- 
+tected. Ideally, spatial resolutions of up to one pixel can be 
+obtained. 
+Velocities plotted as dots  in Fig.  11 were detected over 
+a  grid  spacing  of  1 pixel,  with  the  size  of IPIP  of 3t  x  31 
+pixels.  This   result   is  obviously  much   better   than   that 
+shown  in  Figs  9c  and  9d  which  is  detected  over  a  grid 
+spacing  of  5  pixels.  It  is  found  that  velocities  at  r ~ 3 6  
+pixels  where  the  velocity spatial  frequency is  of the  order 
+of the  size  of  IPIP  can  still  be  correctly detected.  If  the 
+spatial   resolution  were  the   size  of  IPIP,   i.e.   31   pixels, 
+the  detected  velocities would  have  been  smoothed  within 
+the IPIP.  This smoothed  result has large errors where the 
+velocity spatial  frequency is  high  (Fig.  12). 
+4.6  The  dependence  of detected  velocities 
+As  described  above,  the  high  accuracy  and  high  spatial 
+resolution  of PID  usually  require  a  large  overlap in  each 
+direction of the IPIP.  Furthermore,  the interpolation  and 
+iteration of PID  also require the knowledge of neighbour- 
+ing velocities. Thus  the detected velocities of PID  are  not 
+fully independent. 
+4.7  Cross-correlation  fields 
+As a  reference four cross-correlation fields were plotted in 
+Fig.   13  in  which  correlations  less  than  zero  were  set  to 
+zero.  In  the  region  of  large  velocity  gradients,  with  e.g. 
+r = 40  pixels, the  maximum  correction peak  evaluated  by 
+the  conventional  technique  was  only  slightly  higher  than 
+the  noise  peak  (Fig.   13a),  whereas  a  strong  correlation 
+peak  was  obtained  with  the  PID  technique  (Fig.  13b).  In 
+the  region  of extremely large  velocity gradients,  as  e.g.  at 
+the  vortex  core  of  r =0 ,    the  real  maximum   correlation 
+peak  could  not  be  detected  by  the  conventional  method 
+(Fig.  13c), whereas  a  significant  correlation peak  was  still 
+found  with  the  PID  technique  (Fig.  13d). 
+272 
+~ 
+R(m,n)                                  Rmax=0.212 
+8, 
+J   ~    ~.J0~0.0O 0~0~1 17766 176 
+7t ~~00~0".000 0000  
+~000 
+P      .Oo0 
+R(m,n)                                                R,..ax=0.962 
+~  J6.~0.000 
+ 000 
+J~. 000 
+,o   3g2~-o 0o0 0 
+:Oo:O     - 
+J 
+R(m,n)                                  Rmax :Q140 
+~  J~'.'r    000 
+ 000 
+~176176176 
+       8-000 
+:oo:OO 
+L 
+R(m.n)                                 R max 
+:0.t..21 
+~ 
+~0.00 o 
+J~- 000 
+2   J2" 000 
+8,000 
+2   ~<" 000 
+O. O00 
+~.oo~7~176 
+.Ooo 
+Fig.  13a-d.   Comparison  between the correlation fields as obtained with the conventional (left, a and c) and the PID technique (right, b and d) 
+for the region of large velocity gradients, r=40 pixels, (top, a and b) and for extremely large velocity gradients, r=0  pixel, (bottom, c and d) 
+5   Application of PID  to the velocity measurement  of water 
+flow  downstream  of  a  backward  facing  step 
+Finally,  the  novel  PID  technique  was  applied  to  velocity 
+measurements  of a  water flow downstream  of a  backward 
+facing  step.  This  flow  is  difficult  to  measure  because  of 
+the  flow  separations  and  reattachments,  backward  flow 
+motions  and  their  interactions  with  the  oncoming  flow, 
+the  interaction  between  flow and  the  wall,  the  large  pres- 
+sure gradients  and  the large velocity gradients (Eaton and 
+Johnston   1981).  Until  now  our  theoretical  knowledge  of 
+these  flows is  limited  and  experimental  investigations  are 
+the  most  promising  for  their  understanding. 
+A  video-based  PIV-system  was  used  to  measure  the 
+flow since  its  sequential  video images  enable  the  study  of 
+unsteady flows. Flow pictures were taken by a  CCD  video 
+camera with a resolution of 512 x  512 pixels and a framing 
+rate  of 25 Hz.  For  such  a  hardware  configuration,  how- 
+ever,  the  conventional  technique  can  only  be  applied  to 
+flows at speeds of about 4.6 cm/s in liquids and  with small 
+velocity  gradient   of  about   1.6 s -1   (Willert  and   Gharib 
+1991;  Huang  et  al.  1993). 
+Here  the  PID  technique  shows  its  power.  Analyzing 
+two  sequential  video  fields  with  the  time  interval  1/50 s 
+instead   of  analyzing  two   sequential   video  frames  with 
+the  time  interval  1/25  s  the  maximum  measured  vorticity 
+in  this  example  is  55.3  s-1.  It  should  be  noted  that  the 
+spatial  resolution  is  reduced  by  a  factor of 2  when  video 
+fields  rather  than  video  frames  are  analyzed. 
+Theoretically no  limitation  for maximum  measurable 
+velocity of the  outside  potential  flow  is  given.  Neverthe- 
+less,  if the  velocity  of the  potential  flow  is  too  large  the 
+turbulent-  and  the  three  dimensional  flow  motions  and 
+the velocity gradients  behind  the  step  become excessively 
+large and  hence limit the possibility of correctly detecting 
+the  velocities.  In  this  example  the  maximum   measured 
+velocity of the  potential flow was  about  20 cm/s,  thus  the 
+Reynolds  number  based  on  the  step  height  (2 cm)  was 
+about  Re = 4000. 
+Figure   14  depicts  some   of  the  results   obtained.   In 
+order to reduce the false velocity detections another detec- 
+tion criterion R1, i.e. the ratio of the maximum correlation 
+peak value R to the second highest correlation peak  value 
+was  introduced  for  each  velocity  detection  (Keane  and 
+Adrian  1991). Using the conventional technique the detec- 
+ted  velocities  in  the  vortex  region  with  strong  velocity 
+gradients are almost all erroneous (Fig.  14a). For a  higher 
+detection threshold the detection of velocities in the vortex 
+region   fails  due   to   the   strong   local   velocity  gradients 
+(Fig.  14c). The  application  of the  new  technique  provides 
+273 
+-              '              ~              ~              ~              ~              ~                                                        ~                                                                              -        ~        '        -        ~        -        r         
+Flow     -   -   -   -   '   ~   -   -   -   ~   -   -   ~   ~   ~   ~            .  .  .  .  .      ~     _                     ~tow                      -   -   -   <   .   .   .   ~   "   <   .   ~   <   .   .   .   ,   ~   ~   ~   ~   ~    
+_ ~ / / / / / / / / / / / / / / / / / / / /                   ~   /   /   /   /   /   /   /   /   /   /   /   /   /   /   /   /   /   /   /   ~                 b    , 
+Flow      ~               ~               ~               ~                                     .  .  .  .  .  .  .  .  .                     H o w                            -   -   '   <   .   .   .   .   ~   '   ~   .   ,   ,   ,   ~   ~   ~   ~   ~    
+Fig.  14a-d.  Comparison between  results  as  obtained with  the  conventional (left, a  and c) and  the  PID  technique (right,  b and d) for  the 
+measurement of the  water  flow downstream of a  backward facing step  with  various detection  criteria  R and R1 
+better  results:  the  detected  velocities  in  the  vortex  region 
+become  reasonable  (Fig.  14b).  Compared  with  Figs.  14c 
+and   14d  many  more  velocities  in  the  vortex  region  are 
+correctly  detected  with  the  same  detection  criteria. 
+6  Conclusions 
+PI D   is  an  effective  way  to  overcome  the  limitations  of 
+conventional  PIV  due  to  deformations.  It  improves  the 
+accuracy  and  spatial  resolution of PIV  systems.  It  shows 
+special promise in video-based PIV,  where  the  time  inter- 
+val  between  two  sequential exposures  is  large. 
+This   technique,  however,   requires   enough   correctly 
+detectable   velocities   with   the   conventional  technique. 
+Furthermore,  large  computation  time  currently limits  its 
+wide  application. 
+Acknowledgements 
+This  work  was  supported  by  DAAD  (Deutscher   Akademischer 
+Austauschdienst)   and  DFG  (Deutsche   Forschungsgemeinschaft). 
+The authors would like to thank DLR Berlin (Deutsche Forschungs- 
+anstalt ffir Luft-  und Raumfahrt)  for  providing the  Apollo-Work- 
+station  DN10000.   Special  thanks  is  to   Dr.   Minami  Yoda  and 
+Dr. Christian Oliver Paschereit  for their careful reading of the paper. 
+References 
+Albring  W.   1981: Elementarvorg~inge   fluider   Wirbelbewegung. 
+Berlin: Akademie-Verlag 
+Eaton J.  K.; Johnston J.  P.  1981: Review of research  on  subsonic 
+turbulent flow reattachment.  AIAA J.  19,  1093-1100 
+Fiedler H. E.; Kim J. H.; K6pp N. 1991: The spatially mixing layer in 
+a tailored pressure  gradient.  Eur. J. Mech., B/Fluids 10, 349-376 
+Huang,  H.  T.,  Fiedler,  H.  E.;  Wang,  J.  J.  1993: Limitation  and 
+improvement of  PIV.  Part  I:  Limitation of conventional tech- 
+niques due to deformation of particle image patterns. Exp. Fluids 
+3,  168-174 
+Keane  R.  D.;  Adrian  R.  J.  1990: Optimization of  particle  image 
+velocimeters. Part I. Double pulsed systems. Meas. Sci. Technol. 
+1,  1202  1215 
+Utami T.; Blackwelder R. F. 1991: A cross-correlation technique for 
+velocity  field  extraction  from   particulate  visualization.   Exp. 
+Fluids 10, 213  223 
+Willert  C.  E.; Gharib  M.  1991: Digital particle  image  velocimetry. 
+Exp. Fluids 10,  181  193 

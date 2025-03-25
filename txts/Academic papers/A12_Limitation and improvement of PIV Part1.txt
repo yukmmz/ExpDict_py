@@ -1,0 +1,545 @@
+Experiments in Fluids 15,  168-174 (1993) 
+Ex     mts  in Fluids 
+9  Springer-Verlag 1993 
+Limitation  and improvement  of PIV 
+Part  I:  Limitation  of  conventional  techniques  due  to  deformation  of  particle  image  patterns 
+H.  T.  Huang 1,  H.  E.  Fiedler 1, J.  J.  Wang 2 
+1 Hermann-F6ttinger-Institut,  Technical University of Berlin, Germany 
+2 Dept. of Eng. Phys., Tsinghua  University, Beijing, P.R. China 
+Received: 3 March  1992/Accepted:  18 March  1993 
+Abstract. The  deformation  of  particle  image patterns  by  strong 
+velocity gradients  and  out-of-pattern  motions is a major source of 
+error  for  the  PIV  (Particle  Image  Velocimetry) technique.  This 
+deformation is investigated and its effect on conventional PIV tech- 
+niques is quantified for 2D flows. Simulations and comparisons with 
+independent experiments verify the results. 
+1  Introduction 
+PIV  is  a  well  known,  effective  technique  for  measuring 
+two-dimensional   flow   fields   instantaneously   and   non- 
+intrusively.   Since   its   introduction   as   the   laser   speckle 
+technique  in  the  1970's  (Barker  and  Fourney  1977,  Sim- 
+pkins and  Dudderar  1978), many investigations have been 
+carried  out  to  improve  its  performance.  Using  hologra- 
+phy,  it   can   also   be   applied   to   three-dimensional  flow 
+measurements  (Meng  and  Hussain  1991). 
+Typically,  flows  are   seeded  with  microparticles  and 
+illuminated  by  a  laser  light  sheet.  If the  particles  are  fine 
+enough, their motion follows the flow. Thus, velocity fields 
+can  be  obtained  by  measuring  the  motion  of the  visible 
+particles.  Usually  PIV  is  distinguished  from  laser  speckle 
+velocimetry   and    particle   tracking   velocimetry   by   its 
+medium  particle  seeding  concentration  (Adrian  1984). 
+There are three major methods for PIV  processing: (1) 
+The  Young's   fringe,  (2)  auto-   and   (3)  cross-correlation 
+methods.   In   this   paper   we   will   focus  on   studying   the 
+cross-correlation technique.  First we will give an overview 
+of PIV  techniques.  Thereafter we  will  quantitatively  ana- 
+lyze  the   limitations   of  conventional   PIV   due   to   two- 
+dimensional  flow  deformations,  i.e.  Ou/Ox, Ou/Oy, Ov/Ox 
+and  ~v/~y.  Finally,  simulation  studies  are  carried  out  to 
+verify our  results. 
+Correspondence to: H. E. Fiedler 
+2   Principle  of  PIV 
+2.1   Young's fringe,  auto-  and cross-correlation   methods 
+In   Young's   fringe   method   the   sequentially  double-   or 
+multi-exposed  particles  are  first  recorded in  a  single  flow 
+picture.   Since  these   particle   images   are   self-correlated, 
+Young's   fringes   can   be   used   to   extract   the   velocities 
+(Burch  and  Tokarski  1968).  Alternatively  the  whole  pic- 
+ture  of the  particle  images  can  be  digitized  and  fed  into 
+a  computer  and  the  velocities  can  then  be  obtained  by 
+autocorrelation. 
+In  such  techniques  particle  images  are  usually  taken 
+on  film which  enables  high  resolution measurements  (Liu 
+et  al.  1991).  Large  velocities can  thus  be  measured  where 
+the  time  interval  between  two  exposures  may  be  very 
+small. The associated directional ambiguity (Adrian  1986, 
+Grant  and  Liu   1990),  however,  makes  these  techniques 
+difficult to apply. A systematic study of these techniques is 
+presented  by  Keane  and  Adrian  (1990). 
+In  the cross-correlation method,  spatial  cross-correla- 
+tions  between  two  sequentially  exposed  flow pictures  are 
+used  to  determine  the  velocities (Utami  and  Blackwelder 
+1991).  This  technique  removes  the  so  called  directional 
+ambiguity  which  is  inherent  in  both  the  Young's  fringe 
+and  autocorrelation  techniques. 
+An   important   advantage   of  the   video-based  cross- 
+correlation   technique   is   its   easy  applicability  for  flow 
+velocity measurements  due  to  the  absence  of the  photo- 
+graphic and  opto-mechanical processing steps inherent in 
+the  non-video-based  PIV  technique  (Willert  and  Gharib 
+1991).  However, the  low video framing  rate  and  the  poor 
+video  resolution  limit  this  technique  at  present  to  flows 
+with  low  speed  and  small  velocity gradients. 
+2.2  PIP  (Particle  Image  Pattern)  matching 
+For  better  understanding  of the  effect of deformations  of 
+flow  on  the  PIV  and  of the  novel  technique  described  in 
+169 
+the  second  part  of this  paper  we  shall  introduce  another 
+concept   for   the   cross-correlation   technique:   the   PIP 
+matching. 
+PIP  is defined as  an  image  of particles  with  a  certain 
+spatial  distribution  in  a  given  space.  A  real  PIP  contains 
+randomly distributed particle images of different form and 
+gray  value  in  a  noisy background. 
+Suppose  we  have  two  separate  sequentially  exposed 
+binary flow pictures A and  B (Fig.  1). If we want  to obtain 
+the  flow  velocity at  a  given  point  p(x, y)  we  should  first 
+select  an  Interrogation  PIP  (IPIP)  centered  at  p(x, y)  in 
+the first picture A (Fig.  la). The size of this IPIP  is 2N +  1 
+by  2N +  1  (N =  1, 2, 3 . . . .    )  pixels.  For  the  sake  of  sim- 
+plicity  we  further  assume   that   the   IPIP   contains   only 
+three   particles   forming   a   triangle   PIP   centered   at   its 
+middle   point   p(x, y).  This   PIP   has   moved  to   another 
+unknown position q(a, b) in the second flow picture B due 
+to  the  fluid motion.  In  order to find q(a, b) we also  define 
+a  Search  PIP  (SPIP)  with  the  size  of 2 N +   1  by  2 N +   1 
+pixels  centering  at  p(x, y)  in  B.  The  PIP  correlated  with 
+the IPIP,  i.e. the triangle PIP,  is assumed  to be contained 
+in  the  SPIP  (Fig.  lb). 
+Now  we let  the  IPIP  scan  sequentially  over the  SPIP 
+and  calculate  their  cross-correlation  coefficients. 
+N         N 
+~,      ~     I(i,j)S(i-m,j-n) 
+R(m, n)-          i= -s  j= -N                                                       (1) 
+I2(i,J)    ~        Z     S2(i,J) 
+xl   i = - N     j = - N                          i = - N      j = - N  
+where  m,  n=   - 2 N ,    - 2 N +     1. . . . .     2N.  l(i,j)  is  the  pixel 
+intensity  of the  IPIP;  S(i,j)  is  the  pixel  intensity  of  the 
+SPIP  and  S(i,j)=O  when  Iil,  IJI>N. 
+When  the  center of the  IPIP  is  moved  to  q(a, b) both 
+PIPs  match  fully  resulting  in  a  unique  maximum  cross- 
+correlation  peak  R.  The  value  of R  should  be  1  and  its 
+location should be q(a, b). Thus  the location q(a, b) can be 
+uniquely determined  by finding  the  maximum  value R  in 
+the  cross-correlation field obtained  in  Eq.  (1). 
+Generally the  location  q(a, b) is a  function of x  and  y. 
+Knowing   a(x, y)  and   b(x,y)   and   the   time   interval   At 
+between  the  two  exposures  we  obtain  the  flow  velocity 
+1 
+p(x,y) 
+_   _ - o T  0   . . . . .  
+IPIP 
+2N+1        ~1 
+o     q(a,b) 
+i 
+S P I P         I 
+L         2N+1 
+b   IT M                                                          v 
+Fig.   1.  a  IPIP  in  the  first  exposed  flow  picture  A,  b  SPIP  in  the 
+second  exposed  flow  picture  B 
+components  u(x, y)  and  v(x, y)  at  point  p(x, y)  as 
+\v(x,y)/=     b(x,y)_y         ,                                                 (2) 
+\        At 
+where  M  is  the  system  scale  constant.  This  procedure  is 
+called  PIP  matching. 
+3   Deformations of PIP 
+In  reality, the  IPIP  will seldom fully match  the  SPIP  due 
+to  the  deformation  of PIP  which  is defined as  any  differ- 
+ence from the SPIP  to the IPIP. Generally the reasons for 
+the  deformation  of PIP  are  due  to: 
+(a)  Noise.  Noise  is  always  present  in  images.   It  comes 
+usually   with   imaging   (e.g.   dark   noise   of  CCD),   video 
+recording  and  image  digitizing  (e.g.  digitizing  error).  It  is 
+a  random  function  of time  and  space,  causing  differences 
+between  SPIP  and  IPIP. 
+(b)  System  error.   System  error  is  the  nonlinear  error  of 
+the PIV system usually caused by misalignment of sequen- 
+tial  video frames in' case  of video-based  PIV.  It  is  a  func- 
+tion  of the  location  and  causes  differences between  SPIP 
+and  IPIP. 
+(c)  Turbulent flow motions.   Turbulent flow motions result 
+in   random   motion   of  seeded  particles   and   will  conse- 
+quently   randomize   the   IPIP   and   SPIP.   This   random 
+process is beyond the  scope  of this  paper  and  will  not  be 
+discussed  here. 
+(d)  Out-of-pattern  motions.   Because  of  the  three  dimen- 
+sional  flow motion  the particles are not  always  contained 
+in  the  two  dimensional  laser  light  sheet.  Out-of-pattern 
+motions  occur  when  either  particles  imaged  in  the  IPIP 
+move out of the light sheet resulting in the absence of their 
+images   in  the   SPIP,   or   when   particles   which   are   not 
+imaged  in  the  IPIP   move  into  the  light  sheet  and   are 
+imaged   in   the   SPIP.   On   the   other   hand,   even  if  the 
+particles   only  move  in   the   light   sheet   in   case   of  two 
+dimensional flow they might be imaged only once either in 
+the  IPIP  or in  the  SPIP  (Fig.  2) due  to  the limited  size of 
+both  PIPs. 
+(e)  Flow   velocity   9radients.   Flow   velocity  gradients   in 
+two  dimensional  flows are  ~u/Ox, ~3u/~y, ~3v/Ox and  ~3v/~y. 
+Because  of these,  the  particles  shown  in  the  IPIP  would 
+have  different  velocities  and   therefore  appear  in  a  dis- 
+torted pattern in the SPIP.  Figs.  3(a)-(d) demonstrate this 
+effect, where the  IPIP  is assumed  to be composed of three 
+particle  images. 
+Obviously, the deformation of PIP reduces the correlation 
+between  IPIP  and  SPIP.  Thus,  in  reality  the  maximum 
+cross-correlation  peak  values  R  calculated  from  (1)  are 
+170 
+always  less  than   1.  We  therefore  define  a  detection  cri- 
+terion  R0 in  the  procedure  of PIP matching, i.e.  when  and 
+only   when   R>_RO  the   detection   will   be   accepted.   R0 
+should   not   be   too   small,   since   otherwise   we   cannot 
+distinguish  the  real  cross-correlation  peak  from  the  noise 
+peaks,  resulting  in  false  velocity  detections.  The  selection 
+of  R0  depends  on  the  quality  of particle  images  and  on 
+whether  other  detection  criteria  are  used.  Based  on  our 
+results  a  good  empirical  criterion   is  that   R0  should   be 
+greater  than  0.5. 
+We  define  the  deformation  rate 
+o    =    1  -     R .                                                                                                                                       ( 3 )  
+Thus,  when  D >  DO =  1 -   R0  the  velocity detection  will  be 
+rejected. 
+Usually  the  deformation  rate  due  to  the  noise  and  the 
+system error is not significant  since noise can be limited by 
+improving the  quality  of flow pictures  and  filtered  out  by 
+image  pre-processing.  System  error  can  also  be  corrected 
+by properly  scaling  the  system  before the  measurement  is 
+done.  The  most  troublesome deformations  of PIP  are due 
+to  the  out-of-pattern motions  and  velocity gradients  since 
+these   depend   on   the   flows   to   be  measured   and   hence 
+influence  the  performance  of  PIV. 
+o    Particle image of the 
+first  exposure 
+9   Particle image of the 
+second  exposure 
+Flow 
+Moving into 
+the pattern 
+Moving out of 
+the pattern9 
+O 
+Fig.  2.  Out-of-pattern motions in two dimensional  flow 
+4   Limitation  of  conventional  PIV 
+4.1  Limited velocity  measurement 
+due to  out-of-pattern  motions 
+Here  we  only  consider  the  out-of-pattern  motions  caused 
+by two dimensional flow motions.  Fig. 4 shows the match- 
+ed  IPIP  and  SPIP.  We  call  the  overlapping  part  of  the 
+IPIP  and  SPIP  the  matched  area  and  the  remaining  part 
+mismatched  area. 
+Suppose the particle images are densely, randomly and 
+well-distributed  in  the  PIP.  Then  from Eqs.  (1) and  (3) we 
+can  estimate 
+matched   area     mismatched   area 
+D ,-- 1 -                              -                                                              (4) 
+total   area                total   area 
+According  to  Eqs.  (2)  and  (4)  the  deformation  rate  Do 
+due  to  out-of-pattern  motions  is 
+D o l l      ( 2 N + I - L x ) ( 2 N + I - L y )                                              (5) 
+(2N+  1) 2 
+uAt              vat 
+w h e r e L x = ~ - ;         L y -    M 
+In  conventional  PIV  the  measurable  velocities  should 
+be  limited  to  the  region  of Do < DO (Fig.  5).  Now  we  can 
+estimate  the  maximum  measurable  velocity  components 
+] C ] m a x .       Since  u  and  v  are  independent   on  the  measure- 
+ment,  we  set  u =  v in  Eq.  (5): 
+[C[       ~   (   1   -   ~   )        (2N+  1)M                                         (6) 
+max                                                            Z] t 
+This limitation,  however, can  be removed  by properly 
+selecting  the  size  of SPIP  as  described  below. 
+Centered  at  the  same  position  as  the  IPIP  the  SPIP 
+has  a  size  of 2K +  1 (K-- 1, 2, 3 . . . .   ) which  is  larger  than 
+that  ofthe  IPIP  o f ( 2 N +   1) with  K > N   (Fig.  6). Instead  of 
+Eq.  (1) the  cross-correlation  coefficient by the  PIP  match- 
+ing  is  then  defined  as 
+N            N 
+~     I ( i , j ) S ( i - m , j - n )  
+R(m, n)-               i= -N j= -N 
+lZ(i,J)   ~       Z     S2(i-m,J - n )  
+i =  - N     j =    - N                            i =    - N      j =    - - N  
+(7) 
+Y'o. 
+O9 
+a 
+0           9                     yTo 
+O  9  
+y 
+x   b 
+O O  
+v 
+X 
+y 
+0 
+9        0 
+0 
+y 
+C                            X 
+YA 
+0 
+9      9 
+0       0 
+d 
+v 
+X 
+Fig.  3.  a~l.  Effect of flow velocity 
+gradients  due  to  a  Ou/Ox>O, 
+b  8u/Sy>O, e  ~v/Ox>O and 
+d ~v/~y>O on  the deformation 
+of PIP 
+9 Particle image of the                                                9  Particle image of the 
+first exposure                                                                second exposure 
+Mismatched 
+area 
+Matched 
+area 
+Fig. 4.  Matched and mismatched parts of IPIP and SPIP 
+v*td 
+1       M  (2N+1) 
+Do>DO 
+DO 
+0                   DO 
+u *At 
+M  (2N+1) 
+Fig. 5.  Matched (Do < DO) and mismatched (Do > DO) region 
+dk 
+t'~ 
+'iv 
+2K+1 
+u'At 
+matched 
+IPIP              .      ~ 
+IPIP before 
+matching 
+SPIP 
+Fig. 6.  The new arrangement of the IPIP and SPIP 
+where m, n =  -   (K -   N),  -- (K -   N) + 1. . . . .     (K + N).  l(i, j) 
+and  S(i,j)  are  the  pixel intensities  of the  IPIP  and  SPIP, 
+respectively. 
+Supposing  ICImax to  be  the  maximum  velocity  com- 
+ponent   of  the  measured  flow,  the  deformation  due  to 
+out-of-pattern  motions  is removed  when 
+IClm.xAt 
+K > _ _ ~            ~-N.                                                                    (8) 
+171 
+4.2  Limited  vorticity  measurement  due  to  velocity 
+gradients 
+In  order  to  simplify  the  discussion  we  assume  that  the 
+velocity gradients are  constant within the  IPIP.  Thus  the 
+deformation rate of a strip of particle images is equivalent 
+to that  of the whole PIP  when the strip is in the direction 
+of  deformation.  We   assume  further  that   each   particle 
+image is a  little square  of b by b pixels  of equal  intensity. 
+Under the assumption of Eq. (4) we consider the defor- 
+mation  of a  strip  of particle  images  in  the y-direction: its 
+length  is  2N +  1 pixels  and  its  width  is  b  pixels  (Fig.  7). 
+The deformation rate Duy due to  small Ou/Oy (Fig. 7a), 
+i.e.  when  the  maximum  deformation  bias  is 
+B"r=(ZN+I)2   8~   A t < b ,  
+is obtained  from  Eq.  (4)  to  be 
+B,r(ZN+I)     ( 2 N + l )    Ou  At 
+O,y-  2(2N +  1)b -        4b        8y       "                                   (9) 
+For  large  8u/Sy  (Fig.  7b),  i.e.  when  B,y > b,  then 
+bh                               b 
+D,y=  l     ( 2 N + l ) ~ - I        (2N+l)   ~yy  At                            (10) 
+For  the deformation rate  Dry due to  By~By,  the  defor- 
+mation of the upper and lower half-strips are the same. In 
+the  upper   half-strip  we  consider  the  particle  image  of 
+number n whose bottom line is at y = nb (Fig. 7c). After the 
+deformation it should move to y 1 = nb + nb [Sv/Syl d t. Thus 
+the contribution  of this particle  to  Rvy (Roy= 1-Doy)  is 
+ARvy(n)     b [ b - ( y l - y ) ]               2b       (        n  8v        ) 
+b(2N + l)/2    - ( 2 N + l )       1 -       8y   At    . 
+Suppose  m  is  the  first  fully  mismatched  particle  image. 
+Usually  rn~> 1  since  the  particle  image  size  b  is  much 
+smaller than  the  IPIP  size,  thus 
+2b      ["       m(m+  l)   ~v   .  "~ 
+Rvy= ,=12" A Ro,(n)     2N + 1 ~m           -2-        ~y  At) 
+2b      /         m 2  gv       \ 
+- - 2 U + l    ( m - ~ -      ~    At).                                        (11) 
+For  small  By~By, i.e.  when the  maximum deformation 
+bias  is 
+(2N+  1)  8v  A 
+B~y-       5         ~y     t<_b, 
+all particle  images  of this  half strip  contribute  to  Roy, i.e. 
+m = ( 2 N +   1)/2b.  Thus  from  Eqs.  (3)  and  (11) 
+D~176                               8:  At.                                                (12) 
+172 
+For  large  8v/dy,  i.e.  when  Bvy > b,  we  have 
+mb  Ov  At=b,     i.e.  m          1 
+ey                        --  ~c3vAt 
+Also  introducing  Eqs.  (3)  and  (11),  then 
+b 
+D~r=  1--Rvy~ 1                                                                       (13) 
+( 2 N + l )    ~?~ At 
+In  the  same  way  we can  obtain  the  deformation  rates 
+D~  due  to  cTv/ax and  D=~ due  to  Ou/Ox. Generally, 
+I R g + l    Ic3il              .        Idil                 2b 
+~)  At;     when   ~    At <2~--+ l 
+(14) 
+D u ~ I 1       - - - - ~ - -b                                ~i               2b 
+L     ( 2 N + I ).         --;     when   --  A t < - - -  
+~ j A t                    ]~j,      - 2 N + l  
+where  ij = ux,  uy,  vx  and  vy. 
+Therefore the maximum measurable  vorticity in a flow 
+using  the  conventional  PIV  assuming   I~u/Oxl ~lOu/Oyl, 
+IOv/,~yl ~  l 
+Sv/Oxl  and  l aulayl ~  I 
+Ov/Sx[  would  be 
+2~xV  f   (2N2bDO 
+~-~At;   when  D0<0.5 
+-   b-6S      ;    w h e n     DO >  0.5 
+(15) 
+A possibility to  overcome this  limitation  inherent  in  con- 
+ventional  PIV  will  be  described  in  part  II  of this  paper. 
+5  Simulation studies 
+In order to confirm the assumptions  made  in  Eqs. (5) and 
+(14)  computer  simulations  were  carried  out.  Instead   of 
+photographing  the  particle-seeded  flow,  particle  images 
+were  artificially  generated  by  Monte  Carlo  simulation. 
+They  were  distributed  with  high  seeding  concentration 
+randomly in a  x-y plane.  Each  particle image is described 
+by b x b pixels with  the  same  pixel intensity satisfying the 
+assumptions  for Eqs.  (5)  and  (14). 
+.-  Buy -< b 
+-  ~           ~Mismatched 
+t~              ~               Matched 
+~"           / ~ V l             area 
+/     ~        1- Mismatched 
+9     ~                     area 
+J                             Mismatched     \ 
+area              \ 
+';                                                         b 
+/           ~        I  "Matched                     Mismatched         I         ] 
+/ / ] _ 1                                area            I    f 
+]     --'~  Mismatched                                   _   _ _   I         I  . _ 
+~  a  r  e  a                                       c 
+Matched                                         I 
+area (dRvy)                          m~!  
+O4 
++ 
+Z 
+V         aFig.  7.  a-e.  The deformations of 
+strip of particle images in IPIP due 
+to a small Ou/Oy 
+(B,r <_b), b strong 
+~u/Oy (B,y>b) and c Ov/Oy 
+1.0 
+0.8 
+t     0.6 
+o ~  o.4 
+0,2 
+Oi 
+a                                                                           i 
+o         + 
+o                      o   2N+1   =  21 
+i 
+b 
+./~                               -  Prediction 
+/      o                                     o   2N+1   =  21 
+-        ~                                                 +   2N  +1  =  31 
+6                                           *   2N+1  = 41 
+J 
+0                                                   0.5                                               1.0  0                                                  0.5                                               1.0 
+Lx/(2N  +  1 ) 
+Fig.  8.  aandb.  C?m?aris?nbetweenthepredictedandth?simu?atedr?su?ts?fdef?rmati?nrateduet?the?ut-?f-patt?rnm?t??nsf?rvari?us 
+IPIP size 2N+ 1: a Ly=0; b Ly=Lx 
+173 
+1.0 
+0.8 
+I   0.6 
+t~=>  0.4 
+0.2 
+_                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     !:! 
+_                                                                                                           ! ! : ' 
+J      i      i      " 
+9S imulation 
+0                                                                                                                         5 
+! 
+b 
+i    !    9 
+,                                             Prediction 
+9Simulation 
+(2N   +   1 )0;/b                                               ( 2 N    +   1) ~163 
+b 
+Fig. 9.  a and b.  Comparison between the predicted  and  the simulated results of deformation  rate  due to (a) ~u/Oy and (b) Ov/Oy for various 
+IPIP size (2N + 1 =21,  31, 41) and  various  particle  image size (b = 1, 2, 3) 
+5.1  Deformation  rate due  to  out-of-pattern  motions 
+In this  simulation  all particle  images in  the  simulated  first 
+exposed   flow   picture   A   were   displaced   artificially   by 
+(Lx, Ly) resulting in  the second exposed flow picture  B. In 
+the conventional  technique,  i.e. the SPIP in B has the same 
+size as the  IPIP  in  A, the  deformation  rates  Do of the  PIP 
+due  to  out-of-pattern  motions  for  various  I P I P   sizes,  i.e. 
+2 N + 1 = 2 1 ,      31   and   41,   were   calculated   according   to 
+Eqs.  (1)  and  (3). 
+Fig.  8  shows  that  the  simulation  results  are  in  good 
+agreement  with  the  prediction  of Eq.  (5)  for  the  cases  (a) 
+Ly = 0  and  (b)  Lx = Ly. 
+5.2  Deformation  rate due  to  velocity  gradients 
+In  this  case  the  second  exposed  flow  picture  B  was  ob- 
+tained  by artificially deforming the simulated first exposed 
+flow  picture  A.  IPIPs  with  sizes  of  21,  31  and  41  were 
+selected  and  the  various  sizes  of particle  image  b  (b =  1, 2 
+and   3)  were  considered.   The  SPIP  in  B  is  in  the  same 
+position  as  the  I P I P   in  A,  but  has  a  large  enough  size  to 
+satisfy  the  criterion  Eq.  (8),  assuming  deformation  due  to 
+the  out-of-pattern  motions  will  not  occur. 
+Figs.  9(a)  and  (b)  show  the  good  agreement  between 
+the  simulation  results  and  the  predictions  of Eq.  (14)  for 
+various  Ou/Oy and  3v/Oy. 
+The  analysis  of  deformation  rates  due  to  Ou/Ox and 
+Ov/dx  are  similar  and  are  therefore  not  presented  here. 
+ment  the  size of I P I P   was  31  x  31  pixels, the  time between 
+two frames was  1/30  seconds.  The  particle  image  size was 
+about  2 x 2  pixels  and  the  system  scale  factor  was  about 
+0.2 mm/pixel.  The  detection  criterion  was  assumed  to  be 
+0.5  since  it  was  not  explicitly  given. 
+Putting  these values into  Eqs. (6) and (15) we obtain  an 
+estimated  maximum  measurable  velocity  and  vorticity  of 
+5.6 cm/s  and  1.9 s-1,  respectively, as  compared  to  the  mea- 
+sured  maximum  velocity  and  vorticity  of about  3.3 cm/s 
+and  1 s- 1 found  by  Willert  and  Gharib. 
+7  Conclusions 
+The limitations  of conventional  PIV due to velocity gradi- 
+ents   and   out-of-pattern   motions   are   quantitatively   de- 
+rived  in  this  work  by  analyzing  the  deformations  of  the 
+PIP.  The  results  agree  well  with  the  simulation  results. 
+Although  the  estimates  are  made  with  the  simplifying 
+assumptions  that  the  deformation  rate  is constant  within 
+the   PIP   and   that   particle   images   are   squares   of  b   by 
+b  pixels  with  the  same  intensity,  they  are  still  useful  for 
+determining   the   system   parameters   when   doing   PIV 
+measurements.  Comparison  with  the  experimental  results 
+of Willert  and  Gharib  (1991)  shows  the  realiability  of the 
+estimates. 
+6  Comparison with experiment 
+The  estimates  of the  limitations  of conventional  PIV  de- 
+scribed  in   Eqs.  (6)  and   (15)   are  in   agreement   with   the 
+experiment  of Willert  and  Gharib  (1991).  In  their  experi- 
+Acknowledgement 
+This  work  was  supported   by  DAAD  (Deutscher   Akademischer 
+Austauschdienst)  and   DFG  (Deutsche  Forschungsgemeinschaft). 
+Special  thanks  is  to  Dr.  Minami  Yoda  and  Dr.  Christian  Oliver 
+Paschereit  for their  careful reading  of the paper. 
+174 
+References 
+Adrian R. J.  1984: Scattering particle characteristics and their effect 
+on pulsed  laser measurements of fluid flow:  speckle velocimetry 
+vs. particle image velocimetry. Appl. Opt.  23,  1690-1691 
+Adrian  R.  J.  1986:  Image  shifting  technique  to  resolve  directional 
+ambiguity    in    double-pulsed    velocimetry,    Appl.    Opt.    26, 
+3855-3858 
+Barker  D.  B.; Fourney M.  E.  1977: Measuring fluid velocities with 
+speckle patterns.  Opt.  Lett.  1,  135-137 
+Burch  J.  M.;  Tokarski  J.  M.   1968: Production  of  multiple  beam 
+fringes from  photographic  scatters.  Opt.  Acta.  15,  101 
+Grant  I.; Liu  A.  1990: Directional  ambiguity resolution in particle 
+image velocimetry by pulse tagging. Exp.  Fluids  10, 71-76 
+Keane  R.  D.;  Adrian  R.  J.   1990:  Optimization  of  particle  image 
+velocimeters. Part  I. Double pulsed systems. Meas. Sci. Technol. 
+1,  1202  1215 
+Liu  L.  C.;  Landreth  C.  C.;  Adrian  R.  J.;  Hanratty  T. J.  1991: High 
+resolution measurement of turbulent structure in a channel with 
+particle image velocimetry. Exp.  Fluids  10, 301-312 
+Meng, H.; Hussian F.  1991: Holographic particle velocimetry: a  3D 
+measurement technique  for  vortex  interactions, coherent  struc- 
+tures  and  turbulence. Fluid Dynamics Research  8, 33-52 
+Simpkins P. G.; Dudderar T. D.  1978: Laser speckle measurement of 
+transient Benard convection. J.  Fluid Mech.  89, 665-671 
+Utami T.; Blackwelder R. F.  1991: A cross-correlation technique for 
+velocity  field   extraction   from   particulate   visualization.  Exp. 
+Fluids  10, 213-223 
+Willert C.  E.;  Gharib  M.  1991: Digital particle image velocimetry. 
+Exp.  Fluids  10,  181-193 
